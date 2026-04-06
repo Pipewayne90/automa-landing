@@ -145,9 +145,9 @@
       right: 0;
       z-index: 100;
       height: 68px;
-      background: rgba(5,5,7,0.8);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(5,5,7,0.85);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s ease;
     }
@@ -305,8 +305,22 @@
       z-index: 0;
       pointer-events: none;
       background:
-        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(99,102,241,0.1) 0%, transparent 65%),
-        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(16,185,129,0.04) 0%, transparent 50%);
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(99,102,241,0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 80% 85%, rgba(16,185,129,0.05) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 30% at 15% 60%, rgba(99,102,241,0.04) 0%, transparent 50%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+      background-size: 64px 64px;
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 0%, transparent 100%);
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 0%, transparent 100%);
     }
 
     .hero-noise {
@@ -314,12 +328,12 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      opacity: 0.03;
+      opacity: 0.025;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
     }
 
     .hero-inner {
-      max-width: 800px;
+      max-width: 820px;
       width: 100%;
       padding: 0 24px;
       text-align: center;
@@ -387,8 +401,8 @@
       font-weight: 400;
       line-height: 1.75;
       color: var(--gray-1);
-      max-width: 520px;
-      margin: 0 auto 48px;
+      max-width: 540px;
+      margin: 0 auto 52px;
     }
 
     .hero-ctas {
@@ -412,6 +426,7 @@
       overflow: hidden;
       transition: box-shadow 0.2s ease, transform 0.2s ease;
       display: inline-block;
+      will-change: transform;
     }
 
     .btn-hero-primary::after {
@@ -428,9 +443,10 @@
 
     .btn-hero-primary:hover::after { left: 130%; }
     .btn-hero-primary:hover {
-      box-shadow: 0 8px 32px rgba(99,102,241,0.35);
-      transform: translateY(-1px);
+      box-shadow: 0 8px 32px rgba(99,102,241,0.4);
+      transform: translateY(-2px);
     }
+    .btn-hero-primary:active { transform: translateY(0); }
 
     .btn-hero-secondary {
       background: transparent;
@@ -473,7 +489,7 @@
       width: 16px;
       height: 16px;
       background: var(--green-dim);
-      border: 1px solid var(--green);
+      border: 1px solid rgba(16,185,129,0.4);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -492,14 +508,15 @@
       left: 50%;
       transform: translateX(-50%);
       width: 1px;
-      height: 40px;
+      height: 48px;
       background: linear-gradient(to bottom, transparent, var(--accent));
-      animation: scrollPulse 2s ease-in-out infinite;
+      animation: scrollPulse 2.2s ease-in-out infinite;
+      will-change: transform;
     }
 
     @keyframes scrollPulse {
-      0%, 100% { opacity: 0; transform: translateX(-50%) translateY(-8px); }
-      50% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      0%, 100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+      50% { opacity: 0.8; transform: translateX(-50%) translateY(0); }
     }
 
     /* ============================================================
@@ -629,14 +646,15 @@
     .orbit-ring {
       transform-origin: 220px 255px;
       animation: spin-slow 20s linear infinite;
+      will-change: transform;
     }
 
-    .bubble-1 { animation: float1 3s ease-in-out infinite 0s; }
-    .bubble-2 { animation: float2 2.5s ease-in-out infinite 0.4s; }
-    .bubble-3 { animation: float3 3.5s ease-in-out infinite 0.8s; }
-    .bubble-4 { animation: float4 2.8s ease-in-out infinite 1.2s; }
-    .bubble-5 { animation: float5 3.2s ease-in-out infinite 0.6s; }
-    .bubble-6 { animation: float6 4s ease-in-out infinite 1.5s; }
+    .bubble-1 { animation: float1 3s ease-in-out infinite 0s; will-change: transform; }
+    .bubble-2 { animation: float2 2.5s ease-in-out infinite 0.4s; will-change: transform; }
+    .bubble-3 { animation: float3 3.5s ease-in-out infinite 0.8s; will-change: transform; }
+    .bubble-4 { animation: float4 2.8s ease-in-out infinite 1.2s; will-change: transform; }
+    .bubble-5 { animation: float5 3.2s ease-in-out infinite 0.6s; will-change: transform; }
+    .bubble-6 { animation: float6 4s ease-in-out infinite 1.5s; will-change: transform; }
 
     .stress-ring {
       animation: stress-pulse 3s ease-in-out infinite;
@@ -687,6 +705,7 @@
       position: relative;
       overflow: hidden;
       transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+      will-change: transform;
     }
 
     .service-card::before {
@@ -787,6 +806,7 @@
       position: relative;
       overflow: hidden;
       transition: all 0.25s ease;
+      will-change: transform;
     }
 
     .uso-card:hover {
@@ -868,6 +888,13 @@
     }
 
     .sectores-header .label { margin-bottom: 20px; }
+
+    .sectores-header .sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      color: var(--gray-2);
+      margin-top: 16px;
+    }
 
     .chips-container {
       display: flex;
@@ -1234,7 +1261,7 @@
       font-size: 15px;
       font-weight: 400;
       outline: none;
-      transition: all 0.2s ease;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
     .form-group input::placeholder,
@@ -1269,6 +1296,45 @@
       min-height: 120px;
     }
 
+    /* ---- Validation error states ---- */
+    .field-error {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: #EF4444;
+      margin-top: 6px;
+      min-height: 18px;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .field-error.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .form-group.has-error input,
+    .form-group.has-error select,
+    .form-group.has-error textarea {
+      border-color: #EF4444;
+      box-shadow: 0 0 0 3px rgba(239,68,68,0.1);
+    }
+
+    /* ---- Shake animation ---- */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%       { transform: translateX(-8px); }
+      40%       { transform: translateX(8px); }
+      60%       { transform: translateX(-4px); }
+      80%       { transform: translateX(4px); }
+    }
+
+    .btn-submit.shake {
+      animation: shake 0.4s ease;
+    }
+
     .btn-submit {
       width: 100%;
       background: linear-gradient(135deg, var(--accent) 0%, #4338CA 100%);
@@ -1282,8 +1348,14 @@
       cursor: pointer;
       position: relative;
       overflow: hidden;
-      transition: all 0.3s ease;
-      margin-top: 4px;
+      transition: background 0.35s ease, box-shadow 0.3s ease, transform 0.2s ease, opacity 0.2s ease;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      will-change: transform;
+      min-height: 52px;
     }
 
     .btn-submit::after {
@@ -1296,48 +1368,64 @@
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
       transform: skewX(-20deg);
       transition: left 0.5s ease;
+      pointer-events: none;
     }
 
     .btn-submit:hover::after { left: 130%; }
 
     .btn-submit:hover {
+      background: linear-gradient(135deg, #6366F1 0%, #059669 100%);
       transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(99,102,241,0.4);
+      box-shadow: 0 12px 40px rgba(99,102,241,0.35);
     }
 
-    .form-success {
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: default;
+      transform: none;
+    }
+
+    .btn-submit:disabled:hover {
+      background: linear-gradient(135deg, var(--accent) 0%, #4338CA 100%);
+      box-shadow: none;
+      transform: none;
+    }
+
+    /* ---- Inline success message ---- */
+    .form-success-inline {
       display: none;
+      margin-top: 16px;
+      padding: 16px 20px;
+      background: rgba(16,185,129,0.08);
+      border: 1px solid rgba(16,185,129,0.25);
+      border-radius: 10px;
       text-align: center;
-      padding: 40px 0;
-      flex-direction: column;
-      align-items: center;
     }
 
-    .form-success .success-icon {
-      width: 56px;
-      height: 56px;
-      background: rgba(16,185,129,0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
+    .form-success-inline p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--gray-1);
+      line-height: 1.65;
     }
 
-    .form-success h3 {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 8px;
+    .form-success-inline a {
+      color: var(--accent-light);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .form-success-inline a:hover {
       color: var(--white);
     }
 
-    .form-success p {
-      font-size: 15px;
-      color: var(--gray-1);
-    }
-
+    /* ---- Direct WhatsApp link ---- */
     .contacto-divider {
-      margin: 32px 0;
+      margin: 32px 0 20px;
       display: flex;
       align-items: center;
       gap: 16px;
@@ -1358,28 +1446,20 @@
       white-space: nowrap;
     }
 
-    .btn-whatsapp {
-      width: 100%;
-      background: #059669;
-      color: white;
+    .direct-wa-link {
+      display: block;
+      text-align: center;
       font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      padding: 14px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      transition: all 0.3s ease;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-2);
+      transition: color 0.2s ease;
+      padding: 6px 0;
+      letter-spacing: 0.01em;
     }
 
-    .btn-whatsapp:hover {
-      background: #047857;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(5,150,105,0.3);
+    .direct-wa-link:hover {
+      color: var(--white);
     }
 
     /* ============================================================
@@ -1411,10 +1491,10 @@
     .footer-tagline {
       font-family: 'Inter', sans-serif;
       font-size: 14px;
-      color: #71717A;
+      color: var(--gray-2);
       line-height: 1.6;
       margin-top: 8px;
-      margin-bottom: 4px;
+      margin-bottom: 12px;
       max-width: 220px;
     }
 
@@ -1422,7 +1502,23 @@
       font-family: 'Inter', sans-serif;
       font-size: 12px;
       color: var(--gray-3);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
+
+    .footer-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--gray-2);
+      transition: color 0.2s ease;
+      margin-top: 4px;
+    }
+
+    .footer-wa:hover { color: var(--white); }
 
     .footer-links {
       display: flex;
@@ -1449,7 +1545,25 @@
       line-height: 1.7;
       text-align: right;
       margin-left: auto;
+      margin-bottom: 16px;
     }
+
+    .footer-right-wa {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .footer-right-wa a {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent-light);
+      transition: color 0.2s ease;
+    }
+
+    .footer-right-wa a:hover { color: var(--white); }
 
     .footer-bottom {
       margin-top: 0;
@@ -1539,12 +1653,17 @@
 
       .contact-form-wrap { padding: 28px 20px; }
 
+      .btn-submit { font-size: 14px; padding: 16px 14px; }
+
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 32px;
         text-align: center;
       }
-      .footer-right p { text-align: center; margin: 0 auto; }
+      .footer-tagline { max-width: none; }
+      .footer-right p { text-align: center; margin: 0 auto 12px; }
+      .footer-right-wa { justify-content: center; }
+      .footer-wa { justify-content: center; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
     }
 
@@ -1598,6 +1717,7 @@
     ============================================================ -->
     <section id="hero" aria-label="Inicio">
       <div class="hero-bg-gradient" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-noise" aria-hidden="true"></div>
 
       <div class="hero-inner">
@@ -1612,7 +1732,7 @@
         </h1>
 
         <p class="hero-sub">
-          Automatizamos los procesos operativos que consumen tu tiempo con inteligencia artificial. Para que puedas enfocarte en lo que solo tú puedes hacer.
+          Los procesos que te roban horas cada semana — confirmaciones, seguimientos, informes, pedidos — los automatizamos con IA. Tú decides qué hacer con ese tiempo.
         </p>
 
         <div class="hero-ctas">
@@ -1744,7 +1864,6 @@
               <!-- Satellite bubble 1 — clock (top left) -->
               <g class="bubble-1">
                 <circle cx="90" cy="108" r="42" fill="#0F0F16" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <!-- Clock icon 18px -->
                 <circle cx="90" cy="108" r="13" stroke="white" stroke-width="1.5" fill="none"/>
                 <line x1="90" y1="108" x2="90" y2="98" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
                 <line x1="90" y1="108" x2="97" y2="113" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
@@ -1753,7 +1872,6 @@
               <!-- Satellite bubble 2 — phone (top center) -->
               <g class="bubble-2">
                 <circle cx="220" cy="62" r="42" fill="#0F0F16" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <!-- Phone icon 18px -->
                 <rect x="211" y="53" width="18" height="18" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
                 <line x1="220" y1="68" x2="220" y2="68.1" stroke="white" stroke-width="2" stroke-linecap="round"/>
               </g>
@@ -1761,7 +1879,6 @@
               <!-- Satellite bubble 3 — document (top right) -->
               <g class="bubble-3">
                 <circle cx="352" cy="108" r="42" fill="#0F0F16" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <!-- Document icon 18px -->
                 <rect x="343" y="97" width="18" height="22" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
                 <line x1="347" y1="104" x2="357" y2="104" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
                 <line x1="347" y1="109" x2="357" y2="109" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
@@ -1771,14 +1888,12 @@
               <!-- Satellite bubble 4 — chat (middle left) -->
               <g class="bubble-4">
                 <circle cx="66" cy="308" r="42" fill="#0F0F16" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <!-- Chat icon 18px -->
                 <path d="M54 299h24a2 2 0 012 2v13a2 2 0 01-2 2H62l-5 5v-5h-3a2 2 0 01-2-2v-13a2 2 0 012-2z" stroke="white" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
               </g>
 
               <!-- Satellite bubble 5 — calendar (middle right) -->
               <g class="bubble-5">
                 <circle cx="376" cy="308" r="42" fill="#0F0F16" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <!-- Calendar icon 18px -->
                 <rect x="365" y="298" width="22" height="20" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
                 <line x1="365" y1="305" x2="387" y2="305" stroke="white" stroke-width="1.3"/>
                 <line x1="371" y1="296" x2="371" y2="300" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
@@ -1788,7 +1903,6 @@
               <!-- Satellite bubble 6 — mail (bottom center) -->
               <g class="bubble-6">
                 <circle cx="220" cy="426" r="42" fill="#0F0F16" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <!-- Envelope icon 18px -->
                 <rect x="207" y="417" width="26" height="18" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
                 <path d="M207 419l13 9 13-9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
               </g>
@@ -1986,6 +2100,7 @@
         <div class="sectores-header">
           <span class="label reveal">A quién le servimos</span>
           <h2 id="sectores-title" class="reveal" style="margin-top:20px;">Sectores donde operamos</h2>
+          <p class="sub reveal">Si tu negocio tiene procesos que se repiten, los podemos automatizar.</p>
         </div>
 
         <div class="chips-container reveal" role="list" aria-label="Sectores atendidos">
@@ -2107,7 +2222,7 @@
             <div class="step-number" aria-hidden="true">04</div>
             <div>
               <h3>Acompañamiento continuo</h3>
-              <p>El sistema queda activo y monitoreado. Si algo cambia en tu negocio, el flujo se adapta. No es un proyecto que se entrega. Es una relación.</p>
+              <p>El sistema queda activo y monitoreado. Si algo cambia en tu negocio, el flujo se adapta. No es un proyecto que se entrega y se olvida.</p>
             </div>
           </div>
 
@@ -2134,10 +2249,10 @@
             <span class="label" style="margin-bottom:8px;">El equipo</span>
             <h2 id="nosotros-title" style="display:none;">Quién está detrás de Automa</h2>
             <p class="founder-name" style="margin-top:8px;">Juan Campo</p>
-            <p class="founder-role">Fundador · Ingeniero Industrial · Master en Marketing Digital</p>
+            <p class="founder-role">Fundador · Ingeniero Industrial · MSc Marketing</p>
 
             <p class="founder-bio">
-              Ingeniero Industrial de la Pontificia Universidad Javeriana y Máster en Marketing por ESIC Business School en Barcelona. Gestionó campañas de Paid Media para marcas globales en Omnicom Media Group, y lideró operaciones de ecommerce en Amazon para mercados europeos en Mars Inc.
+              Ingeniero Industrial de la Pontificia Universidad Javeriana. Máster en Marketing por ESIC Business School en Barcelona. Gestionó pauta digital para Frito Lay, Gatorade y Kaiser Permanente en Omnicom Media Group. Lideró operaciones de ecommerce en Amazon para mercados europeos en Mars Inc.
             </p>
 
             <p class="founder-bio">
@@ -2191,7 +2306,7 @@
           <div class="contacto-header">
             <span class="label reveal">Contacto</span>
             <h2 id="contacto-title" class="reveal" style="margin-top:20px; margin-bottom:16px;">Hablemos de tu negocio</h2>
-            <p class="subtitle reveal">Cuéntanos qué proceso te está consumiendo más tiempo. Si lo podemos automatizar, te lo decimos en la primera llamada.</p>
+            <p class="subtitle reveal">Cuéntanos qué proceso te está consumiendo más tiempo. Si lo podemos automatizar, te lo decimos en la primera llamada. Sin rodeos.</p>
           </div>
 
           <div class="contact-form-wrap reveal">
@@ -2201,11 +2316,13 @@
               <div class="form-group">
                 <label for="nombre">Nombre completo</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="name" required />
+                <span class="field-error" id="error-nombre" role="alert"></span>
               </div>
 
               <div class="form-group">
                 <label for="whatsapp">WhatsApp</label>
                 <input type="tel" id="whatsapp" name="whatsapp" placeholder="+57 300 000 0000" autocomplete="tel" required />
+                <span class="field-error" id="error-whatsapp" role="alert"></span>
               </div>
 
               <div class="form-group">
@@ -2221,27 +2338,28 @@
                   <option value="inmobiliaria">Inmobiliaria</option>
                   <option value="otro">Otro</option>
                 </select>
+                <span class="field-error" id="error-sector" role="alert"></span>
               </div>
 
               <div class="form-group">
                 <label for="proceso-input">¿Qué proceso quieres automatizar?</label>
                 <textarea id="proceso-input" name="proceso" rows="4" placeholder="Describe brevemente el proceso que más tiempo te consume..." required></textarea>
+                <span class="field-error" id="error-proceso" role="alert"></span>
               </div>
 
-              <button type="submit" class="btn-submit">Quiero saber más →</button>
+              <button type="submit" class="btn-submit" id="btnSubmit">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                <span id="btnText">Enviar por WhatsApp →</span>
+              </button>
+
+              <div class="form-success-inline" id="formSuccessMsg" role="alert" aria-live="polite">
+                <p>¡Listo! Te estamos redirigiendo a WhatsApp.<br>
+                Si no abre automáticamente, <a href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer">escríbenos directo</a>.</p>
+              </div>
 
             </form>
-
-            <div class="form-success" id="formSuccess" role="alert" aria-live="polite">
-              <div class="success-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
-                  <polyline points="22 4 12 14.01 9 11.01"/>
-                </svg>
-              </div>
-              <h3>¡Gracias! Te contactamos pronto.</h3>
-              <p>Revisaremos tu mensaje y te escribiremos al WhatsApp en menos de 24 horas.</p>
-            </div>
 
           </div>
 
@@ -2249,13 +2367,9 @@
             <span>¿Prefieres escribir directo?</span>
           </div>
 
-          <div class="reveal">
-            <p style="font-family:'Inter',sans-serif; font-size:14px; color:var(--gray-2); text-align:center; margin-bottom:14px;">Escríbenos por WhatsApp y te respondemos de inmediato</p>
-            <a href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer" class="btn-whatsapp" aria-label="Abrir WhatsApp">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
-              Escríbenos por WhatsApp
+          <div class="reveal" style="text-align:center;">
+            <a href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer" class="direct-wa-link">
+              O escríbenos directamente →
             </a>
           </div>
 
@@ -2276,7 +2390,15 @@
         <div class="footer-brand">
           <p class="footer-logo">Automa</p>
           <p class="footer-tagline">Tu negocio operando solo,<br />aunque no estés mirando.</p>
-          <p class="footer-meta">Colombia · 2026</p>
+          <div class="footer-meta">
+            <span>Colombia · 2026</span>
+            <a href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer" class="footer-wa">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              +57 317 887 8200
+            </a>
+          </div>
         </div>
 
         <nav class="footer-links" aria-label="Navegación footer">
@@ -2288,7 +2410,13 @@
         </nav>
 
         <div class="footer-right">
-          <p>Automatización con IA<br />para negocios reales</p>
+          <p>Automatización con IA<br />para negocios reales<br />en Latinoamérica</p>
+          <div class="footer-right-wa">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#10B981" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <a href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a>
+          </div>
         </div>
 
       </div>
@@ -2341,7 +2469,6 @@
         navbar.classList.remove('scrolled');
       }
 
-      // Active nav link detection
       var scrollPos = window.scrollY + 120;
       sections.forEach(function(section) {
         if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
@@ -2434,38 +2561,108 @@
     }
 
     // ----------------------------------------------------------
-    // 7. FORM SUBMIT
+    // 7. FORM SUBMIT — WhatsApp integration
     // ----------------------------------------------------------
-    var contactForm = document.getElementById('contactForm');
-    var formSuccess = document.getElementById('formSuccess');
+    var contactForm   = document.getElementById('contactForm');
+    var btnSubmit     = document.getElementById('btnSubmit');
+    var btnText       = document.getElementById('btnText');
+    var formSuccessMsg = document.getElementById('formSuccessMsg');
+
+    var fieldConfig = {
+      'nombre':        { errorId: 'error-nombre',   msg: 'Por favor escribe tu nombre' },
+      'whatsapp':      { errorId: 'error-whatsapp', msg: 'Necesitamos tu WhatsApp para contactarte' },
+      'sector':        { errorId: 'error-sector',   msg: 'Selecciona el sector de tu negocio' },
+      'proceso-input': { errorId: 'error-proceso',  msg: 'Cuéntanos qué quieres automatizar' }
+    };
+
+    function showError(fieldId, show) {
+      var fieldEl    = document.getElementById(fieldId);
+      var cfg        = fieldConfig[fieldId];
+      var errorEl    = document.getElementById(cfg.errorId);
+      var formGroup  = fieldEl.closest('.form-group');
+
+      if (show) {
+        formGroup.classList.add('has-error');
+        errorEl.textContent = cfg.msg;
+        errorEl.classList.add('visible');
+
+        function clearOnInput() {
+          var val = fieldEl.value ? fieldEl.value.trim() : '';
+          if (val) {
+            formGroup.classList.remove('has-error');
+            errorEl.textContent = '';
+            errorEl.classList.remove('visible');
+            fieldEl.removeEventListener('input', clearOnInput);
+            fieldEl.removeEventListener('change', clearOnInput);
+          }
+        }
+        fieldEl.addEventListener('input', clearOnInput);
+        fieldEl.addEventListener('change', clearOnInput);
+
+      } else {
+        formGroup.classList.remove('has-error');
+        errorEl.textContent = '';
+        errorEl.classList.remove('visible');
+      }
+    }
+
+    function shakeButton() {
+      btnSubmit.classList.remove('shake');
+      // Force reflow to restart animation
+      void btnSubmit.offsetWidth;
+      btnSubmit.classList.add('shake');
+      btnSubmit.addEventListener('animationend', function() {
+        btnSubmit.classList.remove('shake');
+      }, { once: true });
+    }
 
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
 
       var nombre  = document.getElementById('nombre').value.trim();
       var wapp    = document.getElementById('whatsapp').value.trim();
-      var sector  = document.getElementById('sector').value;
+      var sectorEl = document.getElementById('sector');
+      var sector  = sectorEl.value;
+      var sectorLabel = sector
+        ? sectorEl.options[sectorEl.selectedIndex].text
+        : '';
       var proceso = document.getElementById('proceso-input').value.trim();
 
-      if (!nombre || !wapp || !sector || !proceso) {
-        [
-          { id: 'nombre',        val: nombre },
-          { id: 'whatsapp',      val: wapp },
-          { id: 'sector',        val: sector },
-          { id: 'proceso-input', val: proceso }
-        ].forEach(function(field) {
-          var el = document.getElementById(field.id);
-          if (!field.val) {
-            el.style.borderColor = 'rgba(239,68,68,0.6)';
-            el.addEventListener('input', function() { el.style.borderColor = ''; }, { once: true });
-            el.addEventListener('change', function() { el.style.borderColor = ''; }, { once: true });
-          }
-        });
+      var hasErrors = false;
+
+      if (!nombre)  { showError('nombre', true);        hasErrors = true; }
+      if (!wapp)    { showError('whatsapp', true);      hasErrors = true; }
+      if (!sector)  { showError('sector', true);        hasErrors = true; }
+      if (!proceso) { showError('proceso-input', true); hasErrors = true; }
+
+      if (hasErrors) {
+        shakeButton();
+        var firstErrorGroup = contactForm.querySelector('.has-error');
+        if (firstErrorGroup) {
+          firstErrorGroup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
         return;
       }
 
-      contactForm.style.display = 'none';
-      formSuccess.style.display = 'flex';
+      // Build WhatsApp message
+      var msg = 'Hola Juan, me interesa automatizar mi negocio.\n\n'
+              + 'Mis datos:\n'
+              + '- Nombre: ' + nombre + '\n'
+              + '- WhatsApp: ' + wapp + '\n'
+              + '- Sector: ' + sectorLabel + '\n'
+              + '- Qué quiero automatizar: ' + proceso + '\n\n'
+              + 'Vi tu página en flowautoma.com';
+
+      var waUrl = 'https://wa.me/573178878200?text=' + encodeURIComponent(msg);
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+      // Show inline success message
+      formSuccessMsg.style.display = 'block';
+      formSuccessMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      // Update button state
+      btnSubmit.disabled = true;
+      btnText.textContent = '¡Enviado — revisa WhatsApp';
     });
   </script>
 
