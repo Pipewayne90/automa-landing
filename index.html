@@ -594,6 +594,7 @@
       line-height: 1.8;
       color: var(--gray-1);
       margin-bottom: 32px;
+      text-align: justify;
     }
 
     .pain-list {
@@ -733,6 +734,7 @@
       font-weight: 400;
       line-height: 1.75;
       color: var(--gray-1);
+      text-align: justify;
     }
 
     .cards-row {
@@ -1072,17 +1074,97 @@
       border-top: 1px solid rgba(255,255,255,0.04);
     }
 
+    .carousel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .carousel-btn {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--gray-1);
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .carousel-btn:hover {
+      border-color: var(--border-accent);
+      color: var(--white);
+      background: var(--accent-dim);
+    }
+
+    .carousel-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .carousel-counter {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--gray-3);
+      min-width: 32px;
+      text-align: center;
+    }
+
+    .carousel-viewport {
+      overflow: hidden;
+    }
+
+    .team-carousel-track {
+      display: flex;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 32px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.2s ease;
+    }
+
+    .carousel-dot.active {
+      background: var(--accent-light);
+      transform: scale(1.3);
+    }
+
     .founder-grid {
+      min-width: 100%;
       display: grid;
-      grid-template-columns: 40% 55%;
-      gap: 80px;
+      grid-template-columns: 36% 58%;
+      gap: 56px;
       align-items: center;
     }
 
     .founder-photo-wrap {
       position: relative;
-      width: 320px;
-      height: 320px;
+      width: 240px;
+      height: 240px;
       margin: 0 auto;
     }
 
@@ -1124,39 +1206,38 @@
       z-index: 2;
     }
 
-    .founder-content .label { margin-bottom: 8px; }
-
     .founder-name {
       font-family: 'Syne', sans-serif;
-      font-size: 40px;
+      font-size: 30px;
       font-weight: 800;
       color: var(--white);
       letter-spacing: -0.02em;
-      margin-bottom: 6px;
-      line-height: 1.0;
+      margin-bottom: 4px;
+      line-height: 1.1;
     }
 
     .founder-role {
       font-family: 'Inter', sans-serif;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 500;
       color: var(--accent-light);
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 28px;
+      margin-bottom: 18px;
     }
 
     .founder-bio {
       font-family: 'Inter', sans-serif;
-      font-size: 16px;
+      font-size: 15px;
       color: var(--gray-1);
-      line-height: 1.8;
-      margin-bottom: 16px;
+      line-height: 1.75;
+      margin-bottom: 12px;
+      text-align: justify;
     }
 
     .founder-quote {
-      margin: 32px 0;
-      padding: 24px 28px;
+      margin: 20px 0;
+      padding: 18px 22px;
       background: rgba(99,102,241,0.06);
       border-left: 2px solid var(--accent);
       border-radius: 0 12px 12px 0;
@@ -1164,11 +1245,12 @@
 
     .founder-quote p {
       font-family: 'Inter', sans-serif;
-      font-size: 16px;
+      font-size: 15px;
       font-style: italic;
       color: var(--gray-1);
-      line-height: 1.8;
-      margin-bottom: 14px;
+      line-height: 1.75;
+      margin-bottom: 10px;
+      text-align: justify;
     }
 
     .founder-quote cite {
@@ -1183,16 +1265,16 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 28px;
+      margin-top: 20px;
     }
 
     .badge {
       background: var(--bg-2);
       border: 1px solid var(--border);
       border-radius: 100px;
-      padding: 8px 16px;
+      padding: 7px 14px;
       font-family: 'Inter', sans-serif;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 500;
       color: var(--gray-1);
       display: inline-flex;
@@ -1210,11 +1292,6 @@
     }
 
     .badge:hover svg { color: var(--accent-light); }
-
-    .team-divider {
-      border-top: 1px solid rgba(255,255,255,0.06);
-      margin: 80px 0;
-    }
 
     /* ============================================================
        SECTION 09 — CONTACTO
@@ -1272,6 +1349,7 @@
       font-size: 18px;
       line-height: 1.75;
       color: var(--gray-1);
+      text-align: justify;
     }
 
     .contact-form-wrap {
@@ -1694,12 +1772,13 @@
 
       .founder-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 32px;
       }
       .founder-photo-wrap {
-        width: 240px;
-        height: 240px;
+        width: 180px;
+        height: 180px;
       }
+      .carousel-header { margin-bottom: 28px; }
 
       .contact-form-wrap { padding: 28px 20px; }
 
@@ -2421,125 +2500,108 @@
     </section>
 
     <!-- ============================================================
-         SECTION 08 — FUNDADOR
+         SECTION 08 — EQUIPO
     ============================================================ -->
     <section id="nosotros" aria-labelledby="nosotros-title">
       <div class="container">
+        <h2 id="nosotros-title" style="display:none;">Quién está detrás de Automa</h2>
 
-        <div class="founder-grid">
+        <div class="team-carousel-wrap reveal">
 
-          <div class="reveal" aria-hidden="true">
-            <div class="founder-photo-wrap">
-              <div class="founder-glow"></div>
-              <img src="Foto_CV.jpg" alt="Juan Campo, Fundador de Automa — Automatización con IA" />
+          <div class="carousel-header">
+            <span class="label">El equipo</span>
+            <div class="carousel-controls" role="group" aria-label="Controles del carrusel">
+              <button class="carousel-btn" id="teamPrev" aria-label="Perfil anterior">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <span class="carousel-counter" id="teamCounter" aria-live="polite">1 / 2</span>
+              <button class="carousel-btn" id="teamNext" aria-label="Siguiente perfil">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
             </div>
           </div>
 
-          <div class="reveal">
-            <span class="label" style="margin-bottom:8px;">El equipo</span>
-            <h2 id="nosotros-title" style="display:none;">Quién está detrás de Automa</h2>
-            <p class="founder-name" style="margin-top:8px;">Juan Campo</p>
-            <p class="founder-role">Fundador · Ingeniero Industrial · MSc Marketing</p>
+          <div class="carousel-viewport">
+            <div class="team-carousel-track" id="teamTrack">
 
-            <p class="founder-bio">
-              Ingeniero Industrial de la Pontificia Universidad Javeriana. Máster en Marketing por ESIC Business School en Barcelona. Gestionó pauta digital para Frito Lay, Gatorade y Kaiser Permanente en Omnicom Media Group. Lideró operaciones de ecommerce en Amazon para mercados europeos en Mars Inc.
-            </p>
+              <!-- SLIDE 1: Juan Campo -->
+              <div class="founder-grid">
+                <div aria-hidden="true">
+                  <div class="founder-photo-wrap">
+                    <div class="founder-glow"></div>
+                    <img src="Foto_CV.jpg" alt="Juan Campo, Fundador de Automa" />
+                  </div>
+                </div>
+                <div>
+                  <p class="founder-name">Juan Campo</p>
+                  <p class="founder-role">Fundador · Ingeniero Industrial · MSc Marketing</p>
+                  <p class="founder-bio">Ingeniero Industrial de la Pontificia Universidad Javeriana. Máster en Marketing por ESIC Business School en Barcelona. Gestionó pauta digital para Frito Lay, Gatorade y Kaiser Permanente en Omnicom Media Group. Lideró operaciones de ecommerce en Amazon para mercados europeos en Mars Inc.</p>
+                  <p class="founder-bio">De regreso en Colombia, unió tres capacidades en un solo modelo: la ingeniería para mapear procesos, el marketing para traer clientes, y la IA para automatizarlo todo. Ese ciclo completo es Automa.</p>
+                  <blockquote class="founder-quote">
+                    <p>"Veo dueños de negocio trabajando 12 horas al día en cosas que no requieren su talento. Automa existe para que esos mismos dueños puedan dedicar esas horas a lo que solo ellos pueden hacer."</p>
+                    <cite>— Juan Campo, Fundador</cite>
+                  </blockquote>
+                  <div class="credential-badges" role="list" aria-label="Credenciales">
+                    <span class="badge" role="listitem">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                      Ing. Industrial · Javeriana
+                    </span>
+                    <span class="badge" role="listitem">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                      MSc Marketing · ESIC Barcelona
+                    </span>
+                    <span class="badge" role="listitem">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+                      Ex Omnicom · Ex Mars Inc.
+                    </span>
+                  </div>
+                </div>
+              </div>
 
-            <p class="founder-bio">
-              De regreso en Colombia, unió tres capacidades en un solo modelo: la ingeniería para mapear procesos, el marketing para traer clientes, y la IA para automatizarlo todo. Ese ciclo completo es Automa.
-            </p>
+              <!-- SLIDE 2: Pablo David Lozano -->
+              <div class="founder-grid">
+                <div aria-hidden="true">
+                  <div class="founder-photo-wrap">
+                    <div class="founder-glow"></div>
+                    <img src="PabloCV.jpg" alt="Pablo David Lozano Calderón, Cofundador de Automa" />
+                  </div>
+                </div>
+                <div>
+                  <p class="founder-name">Pablo David Lozano</p>
+                  <p class="founder-role">Cofundador &amp; Director de Operaciones · Ing. Civil · MBA</p>
+                  <p class="founder-bio">Ingeniero Civil de la Pontificia Universidad Javeriana con MBA en Gestión Internacional de la Edificación y Construcción por la Universidad Europea de Madrid. A lo largo de su carrera lideró proyectos de infraestructura de alto impacto, desde la Metro de Bogotá hasta plantas industriales, con foco en control de costos, eficiencia operativa y toma de decisiones basada en datos.</p>
+                  <p class="founder-bio">Esa misma mentalidad de ingeniería de procesos es la que aplica hoy en Automa: identificar dónde se pierde tiempo y dinero en una operación, y construir los sistemas que lo eliminan.</p>
+                  <blockquote class="founder-quote">
+                    <p>"La inteligencia artificial no reemplaza al ser humano. Lo libera para hacer lo que realmente importa. Esa convicción es el motor detrás de cada automatización que construimos."</p>
+                    <cite>— Pablo David Lozano, Cofundador</cite>
+                  </blockquote>
+                  <div class="credential-badges" role="list" aria-label="Habilidades">
+                    <span class="badge" role="listitem">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                      Ingeniería de Procesos
+                    </span>
+                    <span class="badge" role="listitem">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                      Control Operativo
+                    </span>
+                    <span class="badge" role="listitem">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                      Automatización con IA
+                    </span>
+                    <span class="badge" role="listitem">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/></svg>
+                      Gestión de Proyectos
+                    </span>
+                  </div>
+                </div>
+              </div>
 
-            <blockquote class="founder-quote">
-              <p>"Veo dueños de negocio trabajando 12 horas al día en cosas que no requieren su talento. Automa existe para que esos mismos dueños puedan dedicar esas horas a lo que solo ellos pueden hacer."</p>
-              <cite>— Juan Campo, Fundador</cite>
-            </blockquote>
-
-            <div class="credential-badges" role="list" aria-label="Credenciales">
-              <span class="badge" role="listitem">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
-                  <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                </svg>
-                Ing. Industrial · Javeriana
-              </span>
-              <span class="badge" role="listitem">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
-                  <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                </svg>
-                MSc Marketing · ESIC Barcelona
-              </span>
-              <span class="badge" role="listitem">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-                  <rect x="2" y="7" width="20" height="14" rx="2"/>
-                  <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
-                </svg>
-                Ex Omnicom · Ex Mars Inc.
-              </span>
             </div>
           </div>
 
-        </div>
-
-        <div class="team-divider" aria-hidden="true"></div>
-
-        <div class="founder-grid">
-
-          <div class="reveal" aria-hidden="true">
-            <div class="founder-photo-wrap">
-              <div class="founder-glow"></div>
-              <img src="PabloCV.jpg.jpg" alt="Pablo David Lozano Calderón, Cofundador de Automa — Automatización con IA" />
-            </div>
-          </div>
-
-          <div class="reveal">
-            <span class="label" style="margin-bottom:8px;">El equipo</span>
-            <p class="founder-name" style="margin-top:8px;">Pablo David Lozano</p>
-            <p class="founder-role">Cofundador &amp; Director de Operaciones · Ing. Civil · MBA</p>
-
-            <p class="founder-bio">
-              Ingeniero Civil de la Pontificia Universidad Javeriana con MBA en Gestión Internacional de la Edificación y Construcción por la Universidad Europea de Madrid. A lo largo de su carrera ha liderado proyectos de infraestructura de alto impacto — desde la Metro de Bogotá hasta plantas industriales — con foco en control de costos, eficiencia operativa y toma de decisiones basada en datos.
-            </p>
-
-            <p class="founder-bio">
-              Esa misma mentalidad de ingeniería de procesos es la que aplica hoy en Automa: identificar dónde se pierde tiempo y dinero en una operación, y construir los sistemas que lo eliminan.
-            </p>
-
-            <blockquote class="founder-quote">
-              <p>"La inteligencia artificial no reemplaza al ser humano — lo libera para hacer lo que realmente importa. Esa convicción es el motor detrás de cada automatización que construimos."</p>
-              <cite>— Pablo David Lozano, Cofundador</cite>
-            </blockquote>
-
-            <div class="credential-badges" role="list" aria-label="Habilidades">
-              <span class="badge" role="listitem">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="3"/>
-                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                </svg>
-                Ingeniería de Procesos
-              </span>
-              <span class="badge" role="listitem">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-                  <line x1="18" y1="20" x2="18" y2="10"/>
-                  <line x1="12" y1="20" x2="12" y2="4"/>
-                  <line x1="6" y1="20" x2="6" y2="14"/>
-                </svg>
-                Control Operativo
-              </span>
-              <span class="badge" role="listitem">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                </svg>
-                Automatización con IA
-              </span>
-              <span class="badge" role="listitem">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-                  <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
-                  <rect x="9" y="3" width="6" height="4" rx="2"/>
-                </svg>
-                Gestión de Proyectos
-              </span>
-            </div>
+          <div class="carousel-dots" role="tablist" aria-label="Navegación del equipo">
+            <button class="carousel-dot active" role="tab" aria-selected="true" data-index="0" aria-label="Juan Campo"></button>
+            <button class="carousel-dot" role="tab" aria-selected="false" data-index="1" aria-label="Pablo David Lozano"></button>
           </div>
 
         </div>
@@ -2917,6 +2979,35 @@
       btnSubmit.disabled = true;
       btnText.textContent = '¡Enviado — revisa WhatsApp';
     });
+
+    // ---- Team Carousel ----
+    (function () {
+      var track = document.getElementById('teamTrack');
+      var prevBtn = document.getElementById('teamPrev');
+      var nextBtn = document.getElementById('teamNext');
+      var counter = document.getElementById('teamCounter');
+      var dots = document.querySelectorAll('.carousel-dot');
+      var current = 0;
+      var total = dots.length;
+
+      function goTo(index) {
+        current = index;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        counter.textContent = (current + 1) + ' / ' + total;
+        dots.forEach(function (d, i) {
+          d.classList.toggle('active', i === current);
+          d.setAttribute('aria-selected', i === current ? 'true' : 'false');
+        });
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current === total - 1;
+      }
+
+      prevBtn.addEventListener('click', function () { if (current > 0) goTo(current - 1); });
+      nextBtn.addEventListener('click', function () { if (current < total - 1) goTo(current + 1); });
+      dots.forEach(function (d, i) { d.addEventListener('click', function () { goTo(i); }); });
+
+      goTo(0);
+    }());
   </script>
 
 </body>
