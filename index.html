@@ -1089,35 +1089,38 @@
 
     .carousel-btn {
       background: var(--bg-2);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-accent);
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 52px;
+      height: 52px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      color: var(--gray-1);
+      color: var(--white);
       transition: all 0.2s ease;
       flex-shrink: 0;
     }
 
     .carousel-btn:hover {
-      border-color: var(--border-accent);
+      background: var(--accent);
+      border-color: var(--accent);
       color: var(--white);
-      background: var(--accent-dim);
+      transform: scale(1.08);
     }
 
     .carousel-btn:disabled {
-      opacity: 0.35;
+      opacity: 0.25;
       cursor: not-allowed;
+      transform: none;
     }
 
     .carousel-counter {
       font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      color: var(--gray-3);
-      min-width: 32px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gray-1);
+      min-width: 36px;
       text-align: center;
     }
 
@@ -1133,24 +1136,29 @@
     .carousel-dots {
       display: flex;
       justify-content: center;
-      gap: 8px;
-      margin-top: 32px;
+      gap: 10px;
+      margin-top: 36px;
     }
 
     .carousel-dot {
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: var(--border);
-      border: none;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.15);
       cursor: pointer;
       padding: 0;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
     }
 
     .carousel-dot.active {
       background: var(--accent-light);
-      transform: scale(1.3);
+      border-color: var(--accent-light);
+      transform: scale(1.4);
+    }
+
+    .carousel-dot:hover:not(.active) {
+      background: rgba(255,255,255,0.35);
     }
 
     .founder-grid {
@@ -2512,11 +2520,11 @@
             <span class="label">El equipo</span>
             <div class="carousel-controls" role="group" aria-label="Controles del carrusel">
               <button class="carousel-btn" id="teamPrev" aria-label="Perfil anterior">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
               </button>
               <span class="carousel-counter" id="teamCounter" aria-live="polite">1 / 2</span>
               <button class="carousel-btn" id="teamNext" aria-label="Siguiente perfil">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
               </button>
             </div>
           </div>
@@ -2537,10 +2545,6 @@
                   <p class="founder-role">Fundador · Ingeniero Industrial · MSc Marketing</p>
                   <p class="founder-bio">Ingeniero Industrial de la Pontificia Universidad Javeriana. Máster en Marketing por ESIC Business School en Barcelona. Gestionó pauta digital para Frito Lay, Gatorade y Kaiser Permanente en Omnicom Media Group. Lideró operaciones de ecommerce en Amazon para mercados europeos en Mars Inc.</p>
                   <p class="founder-bio">De regreso en Colombia, unió tres capacidades en un solo modelo: la ingeniería para mapear procesos, el marketing para traer clientes, y la IA para automatizarlo todo. Ese ciclo completo es Automa.</p>
-                  <blockquote class="founder-quote">
-                    <p>"Veo dueños de negocio trabajando 12 horas al día en cosas que no requieren su talento. Automa existe para que esos mismos dueños puedan dedicar esas horas a lo que solo ellos pueden hacer."</p>
-                    <cite>— Juan Campo, Fundador</cite>
-                  </blockquote>
                   <div class="credential-badges" role="list" aria-label="Credenciales">
                     <span class="badge" role="listitem">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
@@ -2571,10 +2575,6 @@
                   <p class="founder-role">Cofundador &amp; Director de Operaciones · Ing. Civil · MBA</p>
                   <p class="founder-bio">Ingeniero Civil de la Pontificia Universidad Javeriana con MBA en Gestión Internacional de la Edificación y Construcción por la Universidad Europea de Madrid. A lo largo de su carrera lideró proyectos de infraestructura de alto impacto, desde la Metro de Bogotá hasta plantas industriales, con foco en control de costos, eficiencia operativa y toma de decisiones basada en datos.</p>
                   <p class="founder-bio">Esa misma mentalidad de ingeniería de procesos es la que aplica hoy en Automa: identificar dónde se pierde tiempo y dinero en una operación, y construir los sistemas que lo eliminan.</p>
-                  <blockquote class="founder-quote">
-                    <p>"La inteligencia artificial no reemplaza al ser humano. Lo libera para hacer lo que realmente importa. Esa convicción es el motor detrás de cada automatización que construimos."</p>
-                    <cite>— Pablo David Lozano, Cofundador</cite>
-                  </blockquote>
                   <div class="credential-badges" role="list" aria-label="Habilidades">
                     <span class="badge" role="listitem">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
