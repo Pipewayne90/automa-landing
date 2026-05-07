@@ -576,7 +576,7 @@
       display: grid;
       grid-template-columns: 55% 45%;
       gap: 80px;
-      align-items: center;
+      align-items: start;
     }
 
     .problema-text .label {
@@ -602,38 +602,46 @@
       flex-direction: column;
       gap: 8px;
       margin-bottom: 40px;
+      list-style: none;
+      padding: 0;
     }
 
     .pain-item {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 14px 18px;
-      background: var(--red-dim);
-      border: 1px solid var(--red-border);
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.07);
       border-radius: 10px;
       font-family: 'Inter', sans-serif;
       font-size: 14px;
       color: var(--gray-1);
-      transition: all 0.25s ease;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.45s ease, transform 0.45s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .pain-item.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .pain-item:hover {
-      background: rgba(239,68,68,0.12);
-      border-color: rgba(239,68,68,0.4);
-      transform: translateX(4px);
+      border-color: rgba(255,255,255,0.14);
+      color: var(--white);
     }
 
     .pain-icon {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       flex-shrink: 0;
-      background: rgba(239,68,68,0.12);
-      border-radius: 6px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #EF4444;
+      color: var(--gray-2);
     }
 
     .problema-closing {
@@ -649,61 +657,82 @@
 
     .problema-visual {
       display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 12px;
+    }
+
+    .flow-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 22px;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .flow-step-icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* SVG Animations */
-    @keyframes spin-slow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    .flow-step-icon.manual { background: rgba(255,255,255,0.06); color: var(--gray-1); }
+    .flow-step-icon.detect { background: var(--accent-dim); color: var(--accent-light); }
+    .flow-step-icon.auto   { background: rgba(34,197,94,0.1); color: #4ADE80; }
+
+    .flow-step-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      margin-bottom: 3px;
     }
 
-    @keyframes float1 {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
-    }
-    @keyframes float2 {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-    @keyframes float3 {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
-    }
-    @keyframes float4 {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-12px); }
-    }
-    @keyframes float5 {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-9px); }
-    }
-    @keyframes float6 {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-7px); }
+    .flow-step-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
     }
 
-    @keyframes stress-pulse {
-      0%, 100% { r: 64; opacity: 0.0; }
-      50% { r: 76; opacity: 0.4; }
+    .flow-connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 44px;
     }
 
-    .orbit-ring {
-      transform-origin: 220px 255px;
-      animation: spin-slow 20s linear infinite;
-      will-change: transform;
+    .flow-connector::before {
+      content: '';
+      width: 1px;
+      flex: 1;
+      background: linear-gradient(to bottom, rgba(99,102,241,0.2), rgba(99,102,241,0.65));
     }
 
-    .bubble-1 { animation: float1 3s ease-in-out infinite 0s; will-change: transform; }
-    .bubble-2 { animation: float2 2.5s ease-in-out infinite 0.4s; will-change: transform; }
-    .bubble-3 { animation: float3 3.5s ease-in-out infinite 0.8s; will-change: transform; }
-    .bubble-4 { animation: float4 2.8s ease-in-out infinite 1.2s; will-change: transform; }
-    .bubble-5 { animation: float5 3.2s ease-in-out infinite 0.6s; will-change: transform; }
-    .bubble-6 { animation: float6 4s ease-in-out infinite 1.5s; will-change: transform; }
-
-    .stress-ring {
-      animation: stress-pulse 3s ease-in-out infinite;
+    .flow-connector::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid rgba(99,102,241,0.65);
     }
 
     /* ============================================================
@@ -1756,7 +1785,7 @@
         gap: 48px;
       }
       .problema-visual { order: -1; }
-      .problema-visual svg { width: 100%; max-width: 380px; }
+      .flow-visual { max-width: 100%; }
 
       .cards-row { grid-template-columns: 1fr; }
 
@@ -2070,52 +2099,40 @@
               El problema no es que no sepan trabajar. El problema es que pasan la mitad del día haciendo cosas que no requieren su talento.
             </p>
 
-            <ul class="pain-list reveal" aria-label="Problemas operativos comunes">
+            <ul class="pain-list" aria-label="Problemas operativos comunes">
               <li class="pain-item">
                 <div class="pain-icon" aria-hidden="true">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M2 2l8 8M10 2l-8 8" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/>
-                  </svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 </div>
                 Confirmar citas manualmente una por una
               </li>
               <li class="pain-item">
                 <div class="pain-icon" aria-hidden="true">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M2 2l8 8M10 2l-8 8" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/>
-                  </svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                 </div>
                 Hacer seguimiento a leads que quedaron sin respuesta
               </li>
               <li class="pain-item">
                 <div class="pain-icon" aria-hidden="true">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M2 2l8 8M10 2l-8 8" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/>
-                  </svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
                 </div>
                 Enviar el mismo mensaje cien veces
               </li>
               <li class="pain-item">
                 <div class="pain-icon" aria-hidden="true">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M2 2l8 8M10 2l-8 8" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/>
-                  </svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.55 5.55l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 </div>
                 Llamar proveedores para hacer pedidos rutinarios
               </li>
               <li class="pain-item">
                 <div class="pain-icon" aria-hidden="true">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M2 2l8 8M10 2l-8 8" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/>
-                  </svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                 </div>
                 Llenar informes que podrían generarse solos
               </li>
               <li class="pain-item">
                 <div class="pain-icon" aria-hidden="true">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M2 2l8 8M10 2l-8 8" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/>
-                  </svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
                 Atender consultas básicas fuera de horario
               </li>
@@ -2126,80 +2143,44 @@
             </p>
           </div>
 
-          <div class="problema-visual reveal" aria-hidden="true" style="min-width:380px;">
-            <!-- Overloaded business owner SVG -->
-            <svg width="440" height="500" viewBox="0 0 440 500" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración de caos operativo">
+          <div class="problema-visual reveal" aria-hidden="true">
+            <div class="flow-visual">
 
-              <!-- Connecting lines from center to bubbles -->
-              <line x1="220" y1="255" x2="90" y2="108" stroke="#6366F1" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="3 5"/>
-              <line x1="220" y1="255" x2="220" y2="62" stroke="#6366F1" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="3 5"/>
-              <line x1="220" y1="255" x2="352" y2="108" stroke="#6366F1" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="3 5"/>
-              <line x1="220" y1="255" x2="66" y2="308" stroke="#6366F1" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="3 5"/>
-              <line x1="220" y1="255" x2="376" y2="308" stroke="#6366F1" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="3 5"/>
-              <line x1="220" y1="255" x2="220" y2="426" stroke="#6366F1" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="3 5"/>
+              <div class="flow-step">
+                <div class="flow-step-icon manual">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="12" y2="16"/></svg>
+                </div>
+                <div>
+                  <p class="flow-step-label">Inicio</p>
+                  <p class="flow-step-name">Tarea manual</p>
+                </div>
+              </div>
 
-              <!-- Satellite bubble 1 — clock (top left) -->
-              <g class="bubble-1">
-                <circle cx="90" cy="108" r="42" fill="#0F0F16" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <circle cx="90" cy="108" r="13" stroke="white" stroke-width="1.5" fill="none"/>
-                <line x1="90" y1="108" x2="90" y2="98" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="90" y1="108" x2="97" y2="113" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-              </g>
+              <div class="flow-connector"></div>
 
-              <!-- Satellite bubble 2 — phone (top center) -->
-              <g class="bubble-2">
-                <circle cx="220" cy="62" r="42" fill="#0F0F16" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <rect x="211" y="53" width="18" height="18" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
-                <line x1="220" y1="68" x2="220" y2="68.1" stroke="white" stroke-width="2" stroke-linecap="round"/>
-              </g>
+              <div class="flow-step">
+                <div class="flow-step-icon detect">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div>
+                  <p class="flow-step-label">Proceso</p>
+                  <p class="flow-step-name">Automa lo detecta</p>
+                </div>
+              </div>
 
-              <!-- Satellite bubble 3 — document (top right) -->
-              <g class="bubble-3">
-                <circle cx="352" cy="108" r="42" fill="#0F0F16" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <rect x="343" y="97" width="18" height="22" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
-                <line x1="347" y1="104" x2="357" y2="104" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
-                <line x1="347" y1="109" x2="357" y2="109" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
-                <line x1="347" y1="114" x2="354" y2="114" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
-              </g>
+              <div class="flow-connector"></div>
 
-              <!-- Satellite bubble 4 — chat (middle left) -->
-              <g class="bubble-4">
-                <circle cx="66" cy="308" r="42" fill="#0F0F16" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <path d="M54 299h24a2 2 0 012 2v13a2 2 0 01-2 2H62l-5 5v-5h-3a2 2 0 01-2-2v-13a2 2 0 012-2z" stroke="white" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
-              </g>
+              <div class="flow-step">
+                <div class="flow-step-icon auto">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div>
+                  <p class="flow-step-label">Resultado</p>
+                  <p class="flow-step-name">Se ejecuta solo</p>
+                </div>
+              </div>
 
-              <!-- Satellite bubble 5 — calendar (middle right) -->
-              <g class="bubble-5">
-                <circle cx="376" cy="308" r="42" fill="#0F0F16" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <rect x="365" y="298" width="22" height="20" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
-                <line x1="365" y1="305" x2="387" y2="305" stroke="white" stroke-width="1.3"/>
-                <line x1="371" y1="296" x2="371" y2="300" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="381" y1="296" x2="381" y2="300" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-              </g>
-
-              <!-- Satellite bubble 6 — mail (bottom center) -->
-              <g class="bubble-6">
-                <circle cx="220" cy="426" r="42" fill="#0F0F16" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <rect x="207" y="417" width="26" height="18" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
-                <path d="M207 419l13 9 13-9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              </g>
-
-              <!-- Stress pulse ring (animated) -->
-              <circle cx="220" cy="255" r="64" fill="none" stroke="#EF4444" stroke-width="1" stroke-opacity="0" class="stress-ring"/>
-
-              <!-- Center circle -->
-              <circle cx="220" cy="255" r="64" fill="#14141D" stroke="rgba(99,102,241,0.25)" stroke-width="1.5"/>
-
-              <!-- Orbit ring (animated) -->
-              <circle cx="220" cy="255" r="84" fill="none" stroke="#6366F1" stroke-width="0.5" stroke-dasharray="4 6" stroke-opacity="0.4" class="orbit-ring"/>
-
-              <!-- Person silhouette inside center -->
-              <g opacity="0.9">
-                <circle cx="220" cy="241" r="11" fill="white"/>
-                <path d="M200 272c0-11 8.9-20 20-20s20 8.9 20 20" fill="white"/>
-              </g>
-
-            </svg>
+            </div>
           </div>
 
         </div>
@@ -2979,6 +2960,28 @@
       btnSubmit.disabled = true;
       btnText.textContent = '¡Enviado — revisa WhatsApp';
     });
+
+    // ---- Problem cards staggered fade-in ----
+    (function () {
+      var items = document.querySelectorAll('.pain-item');
+      if (!items.length || !window.IntersectionObserver) {
+        items.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var delay = parseInt(entry.target.dataset.delay, 10) || 0;
+            setTimeout(function () { entry.target.classList.add('visible'); }, delay);
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      items.forEach(function (item, i) {
+        item.dataset.delay = i * 90;
+        io.observe(item);
+      });
+    }());
 
     // ---- Team Carousel ----
     (function () {
