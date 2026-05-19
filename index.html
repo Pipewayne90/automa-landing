@@ -1754,6 +1754,20 @@
       color: var(--gray-3);
     }
 
+    .footer-legal-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-legal-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--gray-3);
+      transition: color 0.2s ease;
+    }
+
+    .footer-legal-links a:hover { color: var(--gray-1); }
+
     /* ============================================================
        CURSOR GLOW
     ============================================================ */
@@ -1840,6 +1854,7 @@
       .footer-right-wa { justify-content: center; }
       .footer-wa { justify-content: center; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .footer-legal-links { justify-content: center; }
     }
 
     @media (max-width: 520px) {
@@ -2730,7 +2745,10 @@
 
       <div class="footer-bottom">
         <p>© 2026 Automa · Todos los derechos reservados</p>
-        <p>Colombia</p>
+        <div class="footer-legal-links">
+          <a href="privacidad.html">Política de Privacidad</a>
+          <a href="terminos.html">Términos y Condiciones</a>
+        </div>
       </div>
 
     </div>

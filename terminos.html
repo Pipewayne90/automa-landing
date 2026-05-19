@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <!-- Primary Meta Tags -->
+  <title>Términos y Condiciones | Automa</title>
+  <meta name="title" content="Términos y Condiciones | Automa">
+  <meta name="description" content="Términos y Condiciones de Servicio de Automa (C&L RDM SAS). Condiciones que rigen la prestación de servicios de automatización con inteligencia artificial.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Juan Campo">
+  <meta name="language" content="Spanish">
+  <meta http-equiv="content-language" content="es-co">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.flowautoma.com/terminos.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.flowautoma.com/terminos.html">
+  <meta property="og:site_name" content="Automa">
+  <meta property="og:title" content="Términos y Condiciones | Automa">
+  <meta property="og:description" content="Términos y Condiciones de Servicio de Automa — condiciones que rigen la prestación de servicios de automatización con IA.">
+  <meta property="og:locale" content="es_CO">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Términos y Condiciones | Automa">
+  <meta name="twitter:description" content="Términos y Condiciones de Servicio de Automa.">
+
+  <!-- PWA & Theme -->
+  <meta name="theme-color" content="#050507">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-0: #050507;
+      --bg-1: #0A0A0F;
+      --bg-2: #0F0F16;
+      --bg-3: #14141D;
+      --accent: #6366F1;
+      --accent-dim: rgba(99,102,241,0.12);
+      --accent-glow: rgba(99,102,241,0.2);
+      --accent-light: #818CF8;
+      --green: #10B981;
+      --white: #FAFAFA;
+      --gray-1: #A1A1AA;
+      --gray-2: #71717A;
+      --gray-3: #3F3F46;
+      --border: rgba(255,255,255,0.05);
+      --border-accent: rgba(99,102,241,0.25);
+      --bg-card: #0F0F16;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-0);
+      color: var(--white);
+      font-family: 'Inter', -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: rgba(99,102,241,0.25); color: #fff; }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg-0); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; }
+
+    /* NAVBAR */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 68px;
+      background: rgba(5,5,7,0.85);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      padding: 0 40px;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray-1);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .nav-cta:hover {
+      background: #4F46E5;
+      box-shadow: 0 0 24px rgba(99,102,241,0.35);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: rgba(5,5,7,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 20px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--gray-1);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s ease;
+    }
+
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--white); }
+
+    .mobile-menu .mobile-cta {
+      margin-top: 8px;
+      background: var(--accent);
+      color: white;
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 15px;
+      border: none;
+    }
+
+    /* CONTENT */
+    .legal-wrapper {
+      padding-top: 68px;
+      min-height: 100vh;
+    }
+
+    .legal-hero {
+      background: var(--bg-1);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
+
+    .legal-hero .back-link {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--gray-1);
+      margin-bottom: 32px;
+      transition: color 0.2s ease;
+    }
+
+    .legal-hero .back-link:hover { color: var(--accent-light); }
+
+    .legal-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .legal-hero .meta-row {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .legal-hero .meta-item {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--gray-2);
+    }
+
+    .legal-hero .meta-item strong {
+      color: var(--gray-1);
+      font-weight: 500;
+    }
+
+    .legal-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    /* Typography */
+    .legal-content h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      margin: 48px 0 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .legal-content h2:first-child { margin-top: 0; }
+
+    .legal-content h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(15px, 2vw, 17px);
+      font-weight: 700;
+      color: var(--accent-light);
+      margin: 32px 0 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .legal-content p {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--gray-1);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .legal-content p:last-child { margin-bottom: 0; }
+
+    /* Lists */
+    .legal-content ul {
+      list-style: none;
+      margin: 12px 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .legal-content ul li {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--gray-1);
+      line-height: 1.65;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .legal-content ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Tables */
+    .legal-content .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0 28px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .legal-content table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-card);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+    }
+
+    .legal-content table thead tr {
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border-accent);
+    }
+
+    .legal-content table th {
+      font-weight: 600;
+      color: var(--white);
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    .legal-content table td {
+      padding: 12px 16px;
+      color: var(--gray-1);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .legal-content table tr:last-child td { border-bottom: none; }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-0);
+      border-top: 1px solid var(--border);
+      padding: 48px 0 32px;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .footer-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--gray-2);
+      line-height: 1.6;
+      max-width: 220px;
+      margin-bottom: 16px;
+    }
+
+    .footer-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--gray-2);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gray-2);
+      font-size: 12px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-wa:hover { color: var(--white); }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--gray-2);
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-right p {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--gray-2);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      text-align: right;
+    }
+
+    .footer-right-wa {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .footer-right-wa a {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--gray-2);
+      transition: color 0.2s ease;
+    }
+
+    .footer-right-wa a:hover { color: var(--white); }
+
+    .footer-bottom {
+      margin-top: 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .footer-bottom p {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--gray-3);
+    }
+
+    .footer-legal-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-legal-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--gray-3);
+      transition: color 0.2s ease;
+    }
+
+    .footer-legal-links a:hover { color: var(--gray-1); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-inner { padding: 0 20px; }
+
+      .legal-hero { padding: 48px 20px 40px; }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .footer-tagline { max-width: none; }
+      .footer-right p { text-align: center; }
+      .footer-right-wa { justify-content: center; }
+      .footer-wa { justify-content: center; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-legal-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav id="navbar" role="navigation" aria-label="Navegación principal">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Automa - Inicio">
+          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:#FAFAFA;letter-spacing:-0.02em;">Automa</span>
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="https://www.flowautoma.com/#servicios">Servicios</a></li>
+          <li><a href="https://www.flowautoma.com/#proceso">Proceso</a></li>
+          <li><a href="https://www.flowautoma.com/#nosotros">Nosotros</a></li>
+        </ul>
+
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="https://www.flowautoma.com/#contacto" class="nav-cta">Hablemos</a>
+          <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+      <a href="https://www.flowautoma.com/#servicios">Servicios</a>
+      <a href="https://www.flowautoma.com/#proceso">Proceso</a>
+      <a href="https://www.flowautoma.com/#nosotros">Nosotros</a>
+      <a href="https://www.flowautoma.com/#contacto" class="mobile-cta">Hablemos</a>
+    </nav>
+  </header>
+
+  <div class="legal-wrapper">
+
+    <!-- HERO -->
+    <div class="legal-hero">
+      <a href="index.html" class="back-link">← Volver al inicio</a>
+      <h1>Términos y Condiciones<br>de Servicio</h1>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Versión:</strong> 1.0</span>
+        <span class="meta-item"><strong>Fecha:</strong> Mayo 2026</span>
+        <span class="meta-item"><strong>Contacto:</strong> flowautomainfo@gmail.com</span>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="legal-content">
+
+      <h2>1. Identificación y Aceptación</h2>
+      <p><strong style="color:var(--white)">1.1 Identificación.</strong> Estos Términos y Condiciones (en adelante, "T&amp;C") regulan la relación entre Automa [C&amp;L RDM SAS, NIT: 901713525, domicilio primario en: Cra 6 # 151-80], con correo de contacto flowautomainfo@gmail.com, y cualquier persona natural o jurídica (en adelante, el "Cliente") que contrate o utilice los servicios de automatización con inteligencia artificial ofrecidos por Automa.</p>
+      <p><strong style="color:var(--white)">1.2 Aceptación.</strong> El Cliente acepta estos T&amp;C al momento de: (i) firmar una propuesta comercial o contrato de servicios con Automa, (ii) realizar un pago por los servicios, o (iii) hacer uso de cualquier sistema o entregable desarrollado por Automa. Si el Cliente no acepta estos T&amp;C, deberá abstenerse de contratar o utilizar los servicios.</p>
+      <p><strong style="color:var(--white)">1.3 Capacidad.</strong> Al aceptar estos T&amp;C, el Cliente declara tener capacidad legal para contratar en nombre propio o en representación de la empresa que representa, y que cuenta con las autorizaciones internas necesarias para obligarla.</p>
+
+      <h2>2. Descripción de los Servicios</h2>
+      <p><strong style="color:var(--white)">2.1 Objeto.</strong> Automa diseña, construye, implementa y, según el caso, mantiene flujos de automatización de procesos con inteligencia artificial para microempresas y pequeñas empresas. Los servicios pueden incluir, sin limitarse a:</p>
+      <ul>
+        <li>Chatbots de atención al cliente vía WhatsApp Business</li>
+        <li>Flujos de seguimiento y calificación de leads</li>
+        <li>Sistemas de agendamiento automático</li>
+        <li>Dashboards ejecutivos y reportes automatizados</li>
+        <li>Integraciones con plataformas de pauta digital (Meta Ads, Google Ads)</li>
+        <li>Automatizaciones operativas a medida</li>
+      </ul>
+      <p><strong style="color:var(--white)">2.2 Alcance específico.</strong> El alcance detallado de cada proyecto queda definido en la Propuesta Comercial o Contrato de Servicios suscrito entre las partes. En caso de conflicto entre estos T&amp;C y la propuesta comercial, prevalecerá la propuesta comercial en los puntos que expresamente la contradiga.</p>
+      <p><strong style="color:var(--white)">2.3 Dependencia de terceros.</strong> Los servicios de Automa se apoyan en plataformas de terceros, incluyendo: n8n (automatización), Claude API de Anthropic (inteligencia artificial), WhatsApp Business API de Meta, Google Workspace y Railway (infraestructura). Automa no controla la disponibilidad, los cambios de política ni las interrupciones de estas plataformas.</p>
+
+      <h2>3. Modalidades de Contratación y Propiedad Intelectual</h2>
+
+      <h3>3.1 Modalidad A — Implementación sin mantenimiento (pago único)</h3>
+      <p>Cuando el Cliente contrata únicamente la implementación del sistema, sin incluir plan de mantenimiento:</p>
+      <ul>
+        <li>Automa entregará el sistema funcional y probado en el entorno acordado.</li>
+        <li>Una vez recibido el pago total y firmada el acta de entrega, la propiedad de los flujos, configuraciones y desarrollos específicos creados para ese proyecto se transfiere al Cliente.</li>
+        <li>La transferencia incluye: los flujos de n8n exportados, las configuraciones de integración y la documentación técnica entregada.</li>
+        <li>La transferencia NO incluye: metodologías propietarias de Automa, prompts base reutilizables, plantillas genéricas ni conocimiento técnico acumulado.</li>
+        <li>Tras la entrega, el Cliente asume toda responsabilidad por el mantenimiento, las actualizaciones y la continuidad del sistema.</li>
+      </ul>
+
+      <h3>3.2 Modalidad B — Implementación con mantenimiento (pago recurrente)</h3>
+      <p>Cuando el Cliente contrata implementación más un plan de mantenimiento mensual:</p>
+      <ul>
+        <li>Automa retiene en todo momento la titularidad de los flujos, configuraciones, integraciones, prompts y desarrollos creados para el proyecto.</li>
+        <li>El Cliente recibe una licencia de uso no exclusiva, intransferible y revocable para utilizar el sistema mientras el contrato de mantenimiento esté vigente.</li>
+        <li>Esta licencia no autoriza al Cliente a: copiar, modificar, transferir, sublicenciar, replicar ni divulgar los desarrollos a terceros.</li>
+        <li>Al terminar el contrato de mantenimiento, la licencia se extingue automáticamente. Automa desactivará el sistema en un plazo máximo de quince (15) días calendario tras la terminación.</li>
+        <li>Si el Cliente desea adquirir la propiedad de los desarrollos al terminar el contrato, podrá solicitarlo. Automa cotizará el valor de la transferencia, el cual no está incluido en los pagos de mantenimiento previos.</li>
+      </ul>
+
+      <h3>3.3 Elementos siempre reservados de Automa</h3>
+      <p>Independientemente de la modalidad contratada, Automa retiene siempre la propiedad sobre:</p>
+      <ul>
+        <li>Su metodología de diseño y construcción de flujos</li>
+        <li>Prompts y estructuras de instrucciones genéricas o reutilizables</li>
+        <li>Plantillas, módulos o componentes preexistentes al proyecto</li>
+        <li>Conocimiento técnico, know-how y procesos internos de trabajo</li>
+      </ul>
+
+      <h2>4. Precios, Pagos y Facturación</h2>
+      <p><strong style="color:var(--white)">4.1 Tarifas.</strong> Los valores de cada proyecto o plan de mantenimiento se establecen en la Propuesta Comercial. Automa se reserva el derecho de ajustar sus tarifas con un aviso previo de treinta (30) días calendario para contratos de mantenimiento vigentes.</p>
+      <p><strong style="color:var(--white)">4.2 Condiciones de pago — Implementación.</strong> Salvo pacto en contrario en la propuesta:</p>
+      <ul>
+        <li>Cincuenta por ciento (50 %) al inicio del proyecto, antes de comenzar el desarrollo.</li>
+        <li>Cincuenta por ciento (50 %) restante contra entrega funcional y probada del sistema.</li>
+      </ul>
+      <p><strong style="color:var(--white)">4.3 Condiciones de pago — Mantenimiento.</strong> El pago mensual se realizará por adelantado dentro de los primeros cinco (5) días hábiles de cada mes. El incumplimiento de pago por más de diez (10) días hábiles faculta a Automa a suspender el servicio sin responsabilidad.</p>
+      <p><strong style="color:var(--white)">4.4 Facturación.</strong> Automa emitirá factura electrónica conforme a la normativa de la DIAN. El Cliente deberá proporcionar los datos de facturación correctos. Los impuestos aplicables (IVA u otros) corren por cuenta del Cliente, salvo que la propuesta comercial los incluya expresamente.</p>
+      <p><strong style="color:var(--white)">4.5 Mora.</strong> Los pagos no realizados en la fecha acordada causarán intereses de mora a la tasa máxima legal permitida en Colombia, calculados desde el día siguiente al vencimiento.</p>
+
+      <h2>5. Obligaciones de las Partes</h2>
+
+      <h3>5.1 Obligaciones de Automa</h3>
+      <ul>
+        <li>Ejecutar los servicios con diligencia profesional y conforme al alcance acordado.</li>
+        <li>Mantener confidencialidad sobre la información del Cliente (véase cláusula 8).</li>
+        <li>Informar oportunamente al Cliente sobre los obstáculos técnicos que afecten los plazos.</li>
+        <li>Tratar los datos personales conforme a la Política de Privacidad vigente y la Ley 1581 de 2012.</li>
+        <li>Implementar medidas de seguridad razonables para proteger los sistemas desarrollados.</li>
+      </ul>
+
+      <h3>5.2 Obligaciones del Cliente</h3>
+      <ul>
+        <li>Proporcionar oportunamente la información, los accesos y los recursos necesarios para el desarrollo del proyecto.</li>
+        <li>Designar un interlocutor con capacidad de decisión para el proyecto.</li>
+        <li>Revisar y aprobar entregables en los plazos acordados. La falta de respuesta en más de cinco (5) días hábiles se entenderá como aprobación tácita.</li>
+        <li>Garantizar que los datos que comparte con Automa han sido recopilados con las autorizaciones legales correspondientes.</li>
+        <li>No compartir con Automa datos sensibles (salud, financieros de terceros, datos de menores de edad) sin haberlo pactado expresamente y sin contar con las autorizaciones legales para ello.</li>
+        <li>Pagar en las condiciones pactadas.</li>
+      </ul>
+
+      <h2>6. Plazos y Entrega</h2>
+      <p><strong style="color:var(--white)">6.1 Estimaciones.</strong> Los plazos de entrega indicados en las propuestas comerciales son estimaciones basadas en el alcance definido. No constituyen compromisos absolutos salvo que se establezcan expresamente como fechas límite con consecuencias contractuales.</p>
+      <p><strong style="color:var(--white)">6.2 Causas de retraso imputables al Cliente.</strong> Los plazos se suspenden automáticamente cuando el retraso se deba a: demora del Cliente en entregar información o accesos, cambios de alcance solicitados durante el desarrollo, o falta de aprobación oportuna de entregables.</p>
+      <p><strong style="color:var(--white)">6.3 Cambios de alcance.</strong> Cualquier solicitud de funcionalidades o modificaciones no incluidas en el alcance original deberá ser cotizada y aprobada por escrito. Automa no está obligado a ejecutar cambios de alcance sin acuerdo previo sobre costo y plazo adicionales.</p>
+
+      <h2>7. Limitación de Responsabilidad</h2>
+      <p><strong style="color:var(--white)">7.1 Límite general.</strong> La responsabilidad total de Automa frente al Cliente por cualquier concepto derivado de la prestación de servicios no excederá el valor total pagado por el Cliente en los tres (3) meses inmediatamente anteriores al evento que origina la reclamación.</p>
+      <p><strong style="color:var(--white)">7.2 Exclusión por fallas de terceros.</strong> Automa no será responsable por interrupciones, cambios de funcionalidad, suspensiones de cuenta o cualquier falla atribuible a plataformas de terceros, incluyendo, sin limitarse a:</p>
+      <ul>
+        <li>Caídas o cambios en la API de WhatsApp Business de Meta</li>
+        <li>Cambios en los modelos o en las políticas de uso de Claude API (Anthropic)</li>
+        <li>Interrupciones en la infraestructura de Railway o Google</li>
+        <li>Cambios en las políticas de Meta Ads o Google Ads que afecten campañas automatizadas</li>
+        <li>Suspensión de cuentas del Cliente en cualquiera de estas plataformas por incumplimiento de sus propias políticas</li>
+      </ul>
+      <p><strong style="color:var(--white)">7.3 Exclusión de daños indirectos.</strong> En ningún caso Automa será responsable por lucro cesante, pérdida de oportunidad de negocio, daño a la reputación, pérdida de datos del Cliente ni cualquier daño indirecto o consecuencial, aunque Automa hubiera sido advertido de la posibilidad de dichos daños.</p>
+      <p><strong style="color:var(--white)">7.4 Uso inadecuado del sistema.</strong> Automa no responde por los resultados obtenidos cuando el Cliente o sus usuarios utilicen el sistema de forma distinta a la prevista, realicen modificaciones no autorizadas, o cuando el sistema opere sobre datos incorrectos o incompletos proporcionados por el Cliente.</p>
+      <p><strong style="color:var(--white)">7.5 Resultados de negocio.</strong> Automa no garantiza resultados comerciales específicos derivados del uso de los sistemas implementados (número de leads, ventas, conversiones u otros indicadores de negocio). Los sistemas son herramientas de automatización; su efectividad depende de factores ajenos al control de Automa.</p>
+
+      <h2>8. Confidencialidad</h2>
+      <p><strong style="color:var(--white)">8.1 Información confidencial.</strong> Cada parte se compromete a mantener en estricta confidencialidad toda la información que reciba de la otra en el marco de la relación contractual, incluyendo: información técnica, comercial, financiera, de clientes, estrategias de negocio y cualquier información que por su naturaleza deba entenderse como confidencial.</p>
+      <p><strong style="color:var(--white)">8.2 Excepciones.</strong> La obligación de confidencialidad no aplica a información que: (i) sea de dominio público sin culpa de quien la recibió, (ii) deba revelarse por mandato legal o de autoridad competente, o (iii) haya sido conocida previamente por quien la recibe de fuente legítima e independiente.</p>
+      <p><strong style="color:var(--white)">8.3 Vigencia.</strong> La obligación de confidencialidad se extiende durante la vigencia del contrato y por dos (2) años adicionales tras su terminación.</p>
+      <p><strong style="color:var(--white)">8.4 Casos de uso y portafolio.</strong> Automa podrá mencionar al Cliente como referencia comercial y describir de forma general el tipo de proyecto desarrollado (sector, tipo de automatización, resultado aproximado), sin revelar información confidencial ni datos específicos del negocio, salvo autorización expresa por escrito del Cliente. El Cliente podrá revocar esta autorización en cualquier momento.</p>
+
+      <h2>9. Terminación del Contrato</h2>
+      <p><strong style="color:var(--white)">9.1 Terminación por mutuo acuerdo.</strong> Las partes podrán terminar el contrato en cualquier momento mediante acuerdo escrito.</p>
+      <p><strong style="color:var(--white)">9.2 Terminación por incumplimiento.</strong> Cualquier parte podrá terminar el contrato si la otra incumple obligaciones esenciales y no subsana el incumplimiento dentro de los diez (10) días hábiles siguientes a la notificación escrita del mismo.</p>
+      <p><strong style="color:var(--white)">9.3 Terminación unilateral del Cliente — Contratos de mantenimiento.</strong> El Cliente podrá terminar un contrato de mantenimiento con un preaviso mínimo de treinta (30) días calendario. Los pagos realizados no son reembolsables. Si la terminación ocurre antes de completar la implementación inicial incluida en el plan, el Cliente deberá pagar el proporcional del valor de implementación no cubierto.</p>
+      <p><strong style="color:var(--white)">9.4 Terminación por Automa.</strong> Automa podrá terminar el contrato de forma inmediata y sin responsabilidad si el Cliente: (i) incumple el pago por más de veinte (20) días hábiles, (ii) utiliza los sistemas para actividades ilegales, (iii) viola derechos de terceros a través de los sistemas implementados, o (iv) incumple las condiciones de uso de las plataformas de terceros integradas.</p>
+      <p><strong style="color:var(--white)">9.5 Efectos de la terminación.</strong> Ante cualquier modalidad de terminación: (i) las obligaciones de pago causadas son exigibles de forma inmediata; (ii) en contratos bajo Modalidad B, la licencia de uso se extingue y Automa desactivará el sistema dentro de los quince (15) días calendario siguientes; (iii) cada parte devolverá o destruirá la información confidencial de la otra parte a solicitud de esta.</p>
+
+      <h2>10. Uso Aceptable</h2>
+      <p><strong style="color:var(--white)">10.1 Prohibiciones.</strong> El Cliente no podrá usar los sistemas desarrollados por Automa para:</p>
+      <ul>
+        <li>Enviar mensajes no solicitados (spam) en violación de las políticas de WhatsApp Business o de la normativa aplicable</li>
+        <li>Recopilar o tratar datos personales sin las autorizaciones legales requeridas</li>
+        <li>Realizar actividades ilegales, fraudulentas o que infrinjan derechos de terceros</li>
+        <li>Automatizar prácticas de engaño al consumidor</li>
+        <li>Cualquier actividad que viole las políticas de uso de las plataformas integradas (Meta, Google, Anthropic)</li>
+      </ul>
+      <p><strong style="color:var(--white)">10.2 Responsabilidad del Cliente por el uso.</strong> El Cliente es el único responsable del contenido que circula a través de los sistemas implementados y del cumplimiento de las normas aplicables a su sector (incluyendo normativa sectorial de salud, financiera o educativa, según corresponda).</p>
+
+      <h2>11. Protección de Datos Personales</h2>
+      <p><strong style="color:var(--white)">11.1 Roles.</strong> En el tratamiento de datos personales de los usuarios finales del Cliente, este actúa como responsable del Tratamiento y Automa como Encargado, en los términos de la Ley 1581 de 2012.</p>
+      <p><strong style="color:var(--white)">11.2 Instrucciones del responsable.</strong> Automa tratará los datos de los usuarios finales del Cliente únicamente conforme a las instrucciones documentadas de este, y no los utilizará para fines propios.</p>
+      <p><strong style="color:var(--white)">11.3 Contrato de encargo.</strong> Para proyectos que involucren tratamiento de datos personales de terceros, las partes suscribirán un Contrato de Encargo de Tratamiento como documento complementario a estos T&amp;C. La ausencia de dicho contrato no exime al Cliente de su responsabilidad como responsable del Tratamiento.</p>
+      <p><strong style="color:var(--white)">11.4 Política de privacidad.</strong> El tratamiento de datos se rige también por la <a href="privacidad.html" style="color:var(--accent-light);text-decoration:underline;text-underline-offset:3px;">Política de Privacidad y Tratamiento de Datos Personales de Automa</a>, disponible en su sitio web, cuyo contenido forma parte integral de estos T&amp;C.</p>
+      <p><strong style="color:var(--white)">11.5 Garantía del Cliente.</strong> El Cliente garantiza que los datos personales que comparte con Automa para el desarrollo y la operación de los sistemas han sido recopilados con el consentimiento válido de sus titulares y con base legal suficiente conforme a la normativa aplicable.</p>
+
+      <h2>12. Niveles de Servicio (SLA) — Contratos con Mantenimiento</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo de incidente</th>
+              <th>Tiempo de respuesta</th>
+              <th>Tiempo de resolución</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Falla crítica (sistema caído)</td>
+              <td>4 horas hábiles</td>
+              <td>24 horas hábiles</td>
+            </tr>
+            <tr>
+              <td>Falla funcional (módulo no opera)</td>
+              <td>8 horas hábiles</td>
+              <td>48 horas hábiles</td>
+            </tr>
+            <tr>
+              <td>Consulta o ajuste menor</td>
+              <td>1 día hábil</td>
+              <td>5 días hábiles</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Los tiempos anteriores aplican en días y horas hábiles (lunes a viernes, 8:00 a.m. – 6:00 p.m., hora Colombia). Las fallas atribuibles a plataformas de terceros (Meta, Anthropic, Google, Railway) no se computan dentro de estos SLA.</p>
+
+      <h2>13. Ley Aplicable y Resolución de Conflictos</h2>
+      <p><strong style="color:var(--white)">13.1 Ley aplicable.</strong> Estos T&amp;C se rigen por las leyes de la República de Colombia, incluyendo el Código Civil, el Código de Comercio, la Ley 527 de 1999 y la Ley 1581 de 2012.</p>
+      <p><strong style="color:var(--white)">13.2 Resolución directa.</strong> Ante cualquier controversia derivada de estos T&amp;C, las partes se comprometen a intentar una solución amigable dentro de los quince (15) días hábiles siguientes a la notificación del conflicto.</p>
+      <p><strong style="color:var(--white)">13.3 Jurisdicción.</strong> Si no se logra acuerdo en el plazo anterior, las partes se someten a la jurisdicción de los jueces y tribunales de la ciudad de Bogotá, Colombia, renunciando a cualquier otro fuero que pudiera corresponderles.</p>
+      <p><strong style="color:var(--white)">13.4 Clientes en el exterior.</strong> Para Clientes ubicados en países distintos a Colombia, las partes podrán pactar en la propuesta comercial el uso de arbitraje internacional conforme al Reglamento de la Cámara de Comercio de Bogotá, como mecanismo alternativo de resolución de conflictos.</p>
+
+      <h2>14. Modificaciones a estos T&amp;C</h2>
+      <p>Automa podrá modificar estos T&amp;C con un preaviso de treinta (30) días calendario publicado en su sitio web y notificado por correo electrónico a los Clientes con contratos activos. Las modificaciones no aplicarán retroactivamente a contratos en ejecución, salvo que sean requeridas por cambios normativos. El uso continuado de los servicios tras el vencimiento del preaviso implica aceptación de los cambios.</p>
+
+      <h2>15. Disposiciones Generales</h2>
+      <p><strong style="color:var(--white)">15.1 Integralidad.</strong> Estos T&amp;C, junto con la Propuesta Comercial y la Política de Privacidad de Automa, constituyen el acuerdo completo entre las partes y reemplazan cualquier comunicación o acuerdo previo sobre el mismo objeto.</p>
+      <p><strong style="color:var(--white)">15.2 Independencia de cláusulas.</strong> Si alguna cláusula de estos T&amp;C es declarada nula o inaplicable por una autoridad competente, las demás cláusulas mantendrán su plena vigencia.</p>
+      <p><strong style="color:var(--white)">15.3 No renuncia.</strong> La omisión de Automa en exigir el cumplimiento de alguna cláusula no implica renuncia a exigirla en el futuro.</p>
+      <p><strong style="color:var(--white)">15.4 Notificaciones.</strong> Las notificaciones entre las partes se realizarán por escrito al correo electrónico indicado en la Propuesta Comercial o, para el caso de Automa, al correo flowautomainfo@gmail.com.</p>
+      <p><strong style="color:var(--white)">15.5 Vigencia.</strong> Estos T&amp;C rigen a partir de su publicación en el sitio web de Automa y se aplican a todos los contratos suscritos desde esa fecha.</p>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <p class="footer-logo">Automa</p>
+          <p class="footer-tagline">Tu negocio operando solo,<br>aunque no estés mirando.</p>
+          <div class="footer-meta">
+            <span>Colombia · 2026</span>
+            <a href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer" class="footer-wa" aria-label="Contactar por WhatsApp">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              +57 317 887 8200
+            </a>
+          </div>
+        </div>
+
+        <nav class="footer-links" aria-label="Navegación footer">
+          <a href="https://www.flowautoma.com/#servicios">Servicios</a>
+          <a href="https://www.flowautoma.com/#casos">Casos de uso</a>
+          <a href="https://www.flowautoma.com/#proceso">Proceso</a>
+          <a href="https://www.flowautoma.com/#nosotros">Nosotros</a>
+          <a href="https://www.flowautoma.com/#contacto">Contacto</a>
+        </nav>
+
+        <div class="footer-right">
+          <p>Automatización con IA<br>para negocios reales<br>en Latinoamérica</p>
+          <div class="footer-right-wa">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#10B981" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <a href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">Escríbenos por WhatsApp</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Automa · Todos los derechos reservados</p>
+        <div class="footer-legal-links">
+          <a href="privacidad.html">Política de Privacidad</a>
+          <a href="terminos.html">Términos y Condiciones</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburgerBtn.classList.toggle('open', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    });
+  </script>
+
+</body>
+</html>

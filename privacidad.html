@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <!-- Primary Meta Tags -->
+  <title>Política de Privacidad | Automa</title>
+  <meta name="title" content="Política de Privacidad | Automa">
+  <meta name="description" content="Política de Privacidad y Tratamiento de Datos Personales de Automa (C&L RDM SAS). Conoce cómo tratamos tus datos conforme a la Ley 1581 de 2012 y el GDPR.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Juan Campo">
+  <meta name="language" content="Spanish">
+  <meta http-equiv="content-language" content="es-co">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.flowautoma.com/privacidad.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.flowautoma.com/privacidad.html">
+  <meta property="og:site_name" content="Automa">
+  <meta property="og:title" content="Política de Privacidad | Automa">
+  <meta property="og:description" content="Política de Privacidad y Tratamiento de Datos Personales de Automa conforme a la Ley 1581 de 2012 y el GDPR.">
+  <meta property="og:locale" content="es_CO">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Política de Privacidad | Automa">
+  <meta name="twitter:description" content="Política de Privacidad y Tratamiento de Datos Personales de Automa.">
+
+  <!-- PWA & Theme -->
+  <meta name="theme-color" content="#050507">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-0: #050507;
+      --bg-1: #0A0A0F;
+      --bg-2: #0F0F16;
+      --bg-3: #14141D;
+      --accent: #6366F1;
+      --accent-dim: rgba(99,102,241,0.12);
+      --accent-glow: rgba(99,102,241,0.2);
+      --accent-light: #818CF8;
+      --green: #10B981;
+      --white: #FAFAFA;
+      --gray-1: #A1A1AA;
+      --gray-2: #71717A;
+      --gray-3: #3F3F46;
+      --border: rgba(255,255,255,0.05);
+      --border-accent: rgba(99,102,241,0.25);
+      --bg-card: #0F0F16;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-0);
+      color: var(--white);
+      font-family: 'Inter', -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: rgba(99,102,241,0.25); color: #fff; }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg-0); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; }
+
+    /* NAVBAR */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 68px;
+      background: rgba(5,5,7,0.85);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      padding: 0 40px;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray-1);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .nav-cta:hover {
+      background: #4F46E5;
+      box-shadow: 0 0 24px rgba(99,102,241,0.35);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: rgba(5,5,7,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 20px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--gray-1);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s ease;
+    }
+
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--white); }
+
+    .mobile-menu .mobile-cta {
+      margin-top: 8px;
+      background: var(--accent);
+      color: white;
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 15px;
+      border: none;
+    }
+
+    /* CONTENT */
+    .legal-wrapper {
+      padding-top: 68px;
+      min-height: 100vh;
+    }
+
+    .legal-hero {
+      background: var(--bg-1);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
+
+    .legal-hero .back-link {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--gray-1);
+      margin-bottom: 32px;
+      transition: color 0.2s ease;
+    }
+
+    .legal-hero .back-link:hover { color: var(--accent-light); }
+
+    .legal-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .legal-hero .meta-row {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .legal-hero .meta-item {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--gray-2);
+    }
+
+    .legal-hero .meta-item strong {
+      color: var(--gray-1);
+      font-weight: 500;
+    }
+
+    .legal-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    /* Typography */
+    .legal-content h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      margin: 48px 0 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .legal-content h2:first-child { margin-top: 0; }
+
+    .legal-content h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(15px, 2vw, 17px);
+      font-weight: 700;
+      color: var(--accent-light);
+      margin: 32px 0 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .legal-content p {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--gray-1);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .legal-content p:last-child { margin-bottom: 0; }
+
+    /* Lists */
+    .legal-content ul {
+      list-style: none;
+      margin: 12px 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .legal-content ul li {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--gray-1);
+      line-height: 1.65;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .legal-content ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Tables */
+    .legal-content .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0 28px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .legal-content table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-card);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+    }
+
+    .legal-content table thead tr {
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border-accent);
+    }
+
+    .legal-content table th {
+      font-weight: 600;
+      color: var(--white);
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    .legal-content table td {
+      padding: 12px 16px;
+      color: var(--gray-1);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .legal-content table tr:last-child td { border-bottom: none; }
+
+    .legal-content table td a {
+      color: var(--accent-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Info card */
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 20px 0 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 32px;
+    }
+
+    .info-card .info-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .info-card .info-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-2);
+    }
+
+    .info-card .info-value {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--gray-1);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-0);
+      border-top: 1px solid var(--border);
+      padding: 48px 0 32px;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .footer-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--gray-2);
+      line-height: 1.6;
+      max-width: 220px;
+      margin-bottom: 16px;
+    }
+
+    .footer-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--gray-2);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gray-2);
+      font-size: 12px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-wa:hover { color: var(--white); }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--gray-2);
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-right p {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--gray-2);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      text-align: right;
+    }
+
+    .footer-right-wa {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .footer-right-wa a {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--gray-2);
+      transition: color 0.2s ease;
+    }
+
+    .footer-right-wa a:hover { color: var(--white); }
+
+    .footer-bottom {
+      margin-top: 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .footer-bottom p {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--gray-3);
+    }
+
+    .footer-legal-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-legal-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--gray-3);
+      transition: color 0.2s ease;
+    }
+
+    .footer-legal-links a:hover { color: var(--gray-1); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-inner { padding: 0 20px; }
+
+      .legal-hero { padding: 48px 20px 40px; }
+
+      .info-card { grid-template-columns: 1fr; }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .footer-tagline { max-width: none; }
+      .footer-right p { text-align: center; }
+      .footer-right-wa { justify-content: center; }
+      .footer-wa { justify-content: center; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-legal-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav id="navbar" role="navigation" aria-label="Navegación principal">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Automa - Inicio">
+          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:#FAFAFA;letter-spacing:-0.02em;">Automa</span>
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="https://www.flowautoma.com/#servicios">Servicios</a></li>
+          <li><a href="https://www.flowautoma.com/#proceso">Proceso</a></li>
+          <li><a href="https://www.flowautoma.com/#nosotros">Nosotros</a></li>
+        </ul>
+
+        <div style="display:flex;align-items:center;gap:12px;">
+          <a href="https://www.flowautoma.com/#contacto" class="nav-cta">Hablemos</a>
+          <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+      <a href="https://www.flowautoma.com/#servicios">Servicios</a>
+      <a href="https://www.flowautoma.com/#proceso">Proceso</a>
+      <a href="https://www.flowautoma.com/#nosotros">Nosotros</a>
+      <a href="https://www.flowautoma.com/#contacto" class="mobile-cta">Hablemos</a>
+    </nav>
+  </header>
+
+  <div class="legal-wrapper">
+
+    <!-- HERO -->
+    <div class="legal-hero">
+      <a href="index.html" class="back-link">← Volver al inicio</a>
+      <h1>Política de Privacidad<br>y Tratamiento de Datos Personales</h1>
+      <div class="meta-row">
+        <span class="meta-item"><strong>Versión:</strong> 1.0</span>
+        <span class="meta-item"><strong>Fecha:</strong> Mayo 2026</span>
+        <span class="meta-item"><strong>Jurisdicción:</strong> Colombia / UE</span>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="legal-content">
+
+      <h2>1. Identificación del Responsable del Tratamiento</h2>
+      <div class="info-card">
+        <div class="info-row">
+          <span class="info-label">Razón social</span>
+          <span class="info-value">C&amp;L RDM SAS</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">NIT</span>
+          <span class="info-value">901713525</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Domicilio principal</span>
+          <span class="info-value">Bogotá, Colombia. Cr 6 # 151-80</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Correo datos personales</span>
+          <span class="info-value">Flowautomainfo@gmail.com</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Sitio web</span>
+          <span class="info-value">Flowautoma.com</span>
+        </div>
+      </div>
+      <p>En adelante, "Automa", "nosotros" o "la Agencia".</p>
+
+      <h2>2. Marco Legal Aplicable</h2>
+      <p>Esta Política se rige por las siguientes normas:</p>
+      <ul>
+        <li>Ley 1581 de 2012 — Régimen General de Protección de Datos Personales de Colombia</li>
+        <li>Decreto 1377 de 2013 — Reglamentario de la Ley 1581 de 2012</li>
+        <li>Ley 527 de 1999 — Comercio electrónico en Colombia</li>
+        <li>Reglamento (UE) 2016/679 (GDPR) — Aplicable cuando tratamos datos de personas ubicadas en la Unión Europea o España</li>
+        <li>Políticas de uso de datos de Meta Platforms, Inc., Anthropic PBC, Google LLC y Railway Technologies, en su calidad de subencargados o procesadores de datos</li>
+      </ul>
+      <p>Cuando exista conflicto entre estas normas, aplicaremos el estándar de protección más alto en favor del titular.</p>
+
+      <h2>3. Ámbito de Aplicación</h2>
+      <p>Esta Política aplica a:</p>
+      <ul>
+        <li><strong style="color:var(--white)">Clientes empresariales:</strong> personas naturales o jurídicas que contratan los servicios de Automa directamente.</li>
+        <li><strong style="color:var(--white)">Usuarios finales de los sistemas automatizados:</strong> personas que interactúan con los chatbots, flujos de agendamiento, sistemas de seguimiento de leads u otras soluciones construidas por Automa para sus clientes.</li>
+        <li><strong style="color:var(--white)">Visitantes del sitio web</strong> y contactos comerciales de Automa.</li>
+      </ul>
+
+      <h2>4. Datos Personales que Tratamos</h2>
+
+      <h3>4.1 Datos de clientes empresariales</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Categoría</th>
+              <th>Datos específicos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Identificación</td><td>Nombre completo, tipo y número de documento</td></tr>
+            <tr><td>Contacto</td><td>Correo electrónico corporativo, teléfono, WhatsApp</td></tr>
+            <tr><td>Facturación</td><td>NIT o cédula, dirección de facturación, datos de contacto del área financiera</td></tr>
+            <tr><td>Operacionales</td><td>Información sobre los procesos del negocio necesaria para diseñar las automatizaciones</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>4.2 Datos de usuarios finales (tratados como Encargado)</h3>
+      <p>Estos datos son recopilados a través de los sistemas que construimos para nuestros clientes. El cliente es el responsable del Tratamiento; Automa actúa como Encargado.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Categoría</th>
+              <th>Datos específicos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Identificación básica</td><td>Nombre, número de teléfono de WhatsApp</td></tr>
+            <tr><td>Comunicaciones</td><td>Contenido de mensajes intercambiados con chatbots o asistentes automatizados</td></tr>
+            <tr><td>Comportamiento comercial</td><td>Intención de compra, productos consultados, etapa en el proceso de venta</td></tr>
+            <tr><td>Operativos del negocio</td><td>Citas agendadas, pedidos, estado de leads, datos de seguimiento postventa</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>4.3 Datos que NO tratamos</h3>
+      <p>Automa no recopila ni trata datos sensibles en los términos del artículo 6 de la Ley 1581 de 2012, tales como datos de salud, origen racial, orientación sexual, datos biométricos o afiliación política, salvo que el cliente opere en el sector salud y así lo haya informado expresamente.</p>
+
+      <h2>5. Finalidades del Tratamiento</h2>
+
+      <h3>Para datos de clientes empresariales</h3>
+      <ul>
+        <li>Gestionar la relación contractual: cotización, contratación, facturación y soporte.</li>
+        <li>Diseñar, construir y mantener los flujos de automatización contratados.</li>
+        <li>Enviar comunicaciones relacionadas con el servicio: actualizaciones, alertas de sistema, renovaciones.</li>
+        <li>Cumplir obligaciones legales, contables y tributarias ante la DIAN y demás autoridades colombianas.</li>
+        <li>Mejorar nuestros servicios a partir del análisis de los proyectos ejecutados (únicamente con datos anonimizados o agregados).</li>
+      </ul>
+
+      <h3>5.2 Para datos de usuarios finales (como Encargado)</h3>
+      <ul>
+        <li>Ejecutar los flujos automatizados instruidos por el cliente: atención por WhatsApp, agendamiento, seguimiento de leads, notificaciones operativas.</li>
+        <li>Procesar lenguaje natural a través de modelos de inteligencia artificial para generar respuestas automatizadas.</li>
+        <li>Registrar y almacenar conversaciones e interacciones según las instrucciones del cliente.</li>
+        <li>Transferir datos a los subprocesadores necesarios para la operación del servicio (ver numeral 7).</li>
+      </ul>
+      <p>Automa no utilizará los datos de usuarios finales para fines propios, distintos a los instruidos por el cliente responsable.</p>
+
+      <h2>6. Base Legal del Tratamiento</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Situación</th>
+              <th>Base legal Colombia</th>
+              <th>Base legal GDPR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Datos de clientes para ejecución del contrato</td>
+              <td>Ejecución de relación contractual (Art. 10, Ley 1581)</td>
+              <td>Art. 6.1(b) GDPR</td>
+            </tr>
+            <tr>
+              <td>Datos de usuarios finales de sistemas automatizados</td>
+              <td>Autorización de la titular obtenida por el cliente responsable</td>
+              <td>Art. 6.1(a) o (b) GDPR según contexto</td>
+            </tr>
+            <tr>
+              <td>Facturación y cumplimiento tributario</td>
+              <td>Obligación legal</td>
+              <td>Art. 6.1(c) GDPR</td>
+            </tr>
+            <tr>
+              <td>Comunicaciones comerciales de Automa</td>
+              <td>Consentimiento</td>
+              <td>Art. 6.1(a) GDPR</td>
+            </tr>
+            <tr>
+              <td>Mejora de servicios con datos anonimizados</td>
+              <td>Datos no personales tras anonimización</td>
+              <td>Art. 6.1(f) GDPR</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>7. Transferencia de Datos a Terceros y Subprocesadores</h2>
+      <p>Para prestar nuestros servicios, Automa utiliza herramientas de terceros que actúan como subencargados o procesadores de datos. Al contratar con Automa o interactuar con sus sistemas, usted reconoce que sus datos podrán ser transferidos a:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Proveedor</th>
+              <th>País / Jurisdicción</th>
+              <th>Finalidad</th>
+              <th>Política de privacidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Anthropic PBC (Claude API)</td>
+              <td>Estados Unidos</td>
+              <td>Procesamiento de lenguaje natural e IA generativa</td>
+              <td><a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">anthropic.com/privacy</a></td>
+            </tr>
+            <tr>
+              <td>Meta Platforms, Inc. (WhatsApp Business API)</td>
+              <td>Estados Unidos</td>
+              <td>Transmisión de mensajes de WhatsApp</td>
+              <td><a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">facebook.com/privacy/policy</a></td>
+            </tr>
+            <tr>
+              <td>Google LLC (Google Sheets, Google Workspace)</td>
+              <td>Estados Unidos</td>
+              <td>Almacenamiento de datos operativos y bases de datos ligeras</td>
+              <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
+            </tr>
+            <tr>
+              <td>Railway Technologies, Inc.</td>
+              <td>Estados Unidos</td>
+              <td>Infraestructura de servidores donde corren los flujos n8n</td>
+              <td><a href="https://railway.app/legal/privacy" target="_blank" rel="noopener">railway.app/legal/privacy</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Transferencias internacionales de datos: Todos los proveedores anteriores tienen sede en Estados Unidos. Para titulares colombianos, estas transferencias se realizan bajo el marco del artículo 26 de la Ley 1581 de 2012. Para titulares en la Unión Europea o España, Automa verificará que existan garantías adecuadas conforme al Capítulo V del GDPR (Cláusulas Contractuales Tipo o equivalentes).</p>
+      <p>Automa no vende, cede ni comercializa datos personales a terceros con fines distintos a los descritos en esta Política.</p>
+
+      <h2>8. Derechos de los Titulares</h2>
+      <p>Conforme a la Ley 1581 de 2012 y al GDPR (para titulares europeos), usted tiene los siguientes derechos:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Derecho</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Acceso</td><td>Conocer qué datos personales suyos tratamos y cómo los usamos</td></tr>
+            <tr><td>Rectificación</td><td>Solicitar la corrección de datos inexactos o incompletos</td></tr>
+            <tr><td>Supresión</td><td>Solicitar la eliminación de sus datos cuando no exista obligación legal de conservarlos</td></tr>
+            <tr><td>Revocación del consentimiento</td><td>Retirar su autorización para el tratamiento, sin efectos retroactivos</td></tr>
+            <tr><td>Oposición</td><td>Oponerse al tratamiento para finalidades específicas, como comunicaciones comerciales</td></tr>
+            <tr><td>Portabilidad (GDPR)</td><td>Recibir sus datos en formato estructurado y legible por máquina</td></tr>
+            <tr><td>Limitación del tratamiento (GDPR)</td><td>Solicitar que restrinjamos el uso de sus datos en ciertos supuestos</td></tr>
+            <tr><td>No ser objeto de decisiones automatizadas</td><td>Solicitar intervención humana cuando una decisión automatizada le afecte significativamente</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>8.1 Cómo ejercer sus derechos</h3>
+      <p>Envíe su solicitud a: <strong style="color:var(--accent-light)">Flowautomainfo@gmail.com</strong><br>
+      Incluya: nombre completo, documento de identidad, descripción clara de su solicitud y, si aplica, el nombre de la empresa cliente de Automa con la que está relacionado.</p>
+      <p><strong style="color:var(--white)">Tiempos de respuesta:</strong></p>
+      <ul>
+        <li>Colombia (Ley 1581): 10 días hábiles para responder; 8 días hábiles adicionales si se necesita más tiempo, informando al titular.</li>
+        <li>GDPR: 30 días calendario, prorrogables por 2 meses adicionales en casos complejos.</li>
+      </ul>
+      <p>Ante incumplimiento, el titular puede acudir a:</p>
+      <ul>
+        <li>Colombia: Superintendencia de Industria y Comercio (SIC) — www.sic.gov.co</li>
+        <li>Unión Europea / España: Autoridad de control del país de residencia del titular (ej. AEPD en España)</li>
+      </ul>
+
+      <h2>9. Medidas de Seguridad</h2>
+      <p>Automa implementa medidas técnicas y organizativas para proteger los datos personales contra acceso no autorizado, pérdida, alteración o destrucción:</p>
+      <ul>
+        <li><strong style="color:var(--white)">Cifrado en tránsito:</strong> todas las comunicaciones entre sistemas usan HTTPS/TLS.</li>
+        <li><strong style="color:var(--white)">Acceso restringido:</strong> solo el personal autorizado accede a los datos de cada cliente.</li>
+        <li><strong style="color:var(--white)">Aislamiento por cliente:</strong> cada cliente opera en flujos separados; sus datos no se mezclan con los de otros clientes.</li>
+        <li>Sin almacenamiento permanente de conversaciones en servidores propios de Automa salvo instrucción expresa del cliente.</li>
+        <li>Revisión periódica de permisos y accesos a los sistemas n8n y herramientas conectadas.</li>
+      </ul>
+
+      <h2>10. Conservación y Eliminación de Datos</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo de dato</th>
+              <th>Período de retención</th>
+              <th>Criterio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Datos de clientes (contractuales y facturación)</td>
+              <td>10 años desde la terminación del contrato</td>
+              <td>Obligación tributaria y contable (DIAN)</td>
+            </tr>
+            <tr>
+              <td>Datos de usuarios finales (durante el servicio activo)</td>
+              <td>Mientras el contrato con el cliente esté vigente</td>
+              <td>Instrucción del cliente responsable</td>
+            </tr>
+            <tr>
+              <td>Datos de usuarios finales (tras terminación del contrato)</td>
+              <td>Máximo 30 días calendario</td>
+              <td>Se eliminan o entregan al cliente</td>
+            </tr>
+            <tr>
+              <td>Comunicaciones comerciales propias</td>
+              <td>Hasta revocación del consentimiento</td>
+              <td>Solicitud del titular</td>
+            </tr>
+            <tr>
+              <td>Logs y registros de sistema</td>
+              <td>6 meses</td>
+              <td>Gestión de incidentes y soporte técnico</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Tras el vencimiento de estos plazos, los datos serán eliminados de forma segura o anonimizados de manera irreversible.</p>
+
+      <h2>11. Cookies y Tecnologías de Rastreo</h2>
+      <p>Esta sección aplica únicamente al sitio web de Automa.</p>
+      <p>Nuestro sitio web puede utilizar cookies técnicas necesarias para su funcionamiento. Si utilizamos cookies analíticas o de terceros (Google Analytics, Meta Pixel, etc.), lo informaremos mediante un banner de cookies al ingresar al sitio, donde podrá gestionar sus preferencias.</p>
+
+      <h2>12. Menores de Edad</h2>
+      <p>Los servicios de Automa están dirigidos exclusivamente a empresas y personas mayores de 18 años. No recopilamos ni tratamos intencionalmente datos de menores de edad. Si un menor ha proporcionado datos a través de alguno de los sistemas que operamos, el titular o su representante legal puede solicitarnos su eliminación inmediata a través del correo indicado en el numeral 1.</p>
+
+      <h2>13. Cambios en esta Política</h2>
+      <p>Automa podrá modificar esta Política para reflejar cambios normativos, operativos o en las herramientas que utilizamos. Cuando los cambios sean sustanciales:</p>
+      <ul>
+        <li>Notificaremos a nuestros clientes por correo electrónico con al menos 15 días de anticipación.</li>
+        <li>Publicaremos la versión actualizada en nuestro sitio web con la fecha de entrada en vigor.</li>
+      </ul>
+      <p>El uso continuado de los servicios tras la notificación implica aceptación de los cambios.</p>
+
+      <h2>14. Vigencia</h2>
+      <p>Esta Política rige a partir del 19 de mayo de 2026 y deroga cualquier versión anterior.</p>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <p class="footer-logo">Automa</p>
+          <p class="footer-tagline">Tu negocio operando solo,<br>aunque no estés mirando.</p>
+          <div class="footer-meta">
+            <span>Colombia · 2026</span>
+            <a href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer" class="footer-wa" aria-label="Contactar por WhatsApp">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              +57 317 887 8200
+            </a>
+          </div>
+        </div>
+
+        <nav class="footer-links" aria-label="Navegación footer">
+          <a href="https://www.flowautoma.com/#servicios">Servicios</a>
+          <a href="https://www.flowautoma.com/#casos">Casos de uso</a>
+          <a href="https://www.flowautoma.com/#proceso">Proceso</a>
+          <a href="https://www.flowautoma.com/#nosotros">Nosotros</a>
+          <a href="https://www.flowautoma.com/#contacto">Contacto</a>
+        </nav>
+
+        <div class="footer-right">
+          <p>Automatización con IA<br>para negocios reales<br>en Latinoamérica</p>
+          <div class="footer-right-wa">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#10B981" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <a href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">Escríbenos por WhatsApp</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Automa · Todos los derechos reservados</p>
+        <div class="footer-legal-links">
+          <a href="privacidad.html">Política de Privacidad</a>
+          <a href="terminos.html">Términos y Condiciones</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburgerBtn.classList.toggle('open', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    });
+  </script>
+
+</body>
+</html>
