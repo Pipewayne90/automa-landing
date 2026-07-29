@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <!-- Primary Meta Tags -->
-  <title>Automa | Automatización de Procesos con IA para Negocios en Colombia</title>
-  <meta name="title" content="Automa | Automatización de Procesos con IA para Negocios en Colombia">
-  <meta name="description" content="Automatizamos los procesos operativos de tu negocio con inteligencia artificial. Agendamiento automático, seguimiento de leads, chatbot 24/7 y más. Bogotá, Colombia.">
-  <meta name="keywords" content="automatización de procesos Colombia, automatización con IA, automatización pymes Colombia, n8n Colombia, chatbot WhatsApp Colombia, agendamiento automático, automatización microempresas, flujos automatizados, agencia automatización Bogotá, automatización negocios Colombia">
+  <title>Automa | Sistemas de Automatización con IA que ya operan en Colombia</title>
+  <meta name="title" content="Automa | Sistemas de Automatización con IA que ya operan en Colombia">
+  <meta name="description" content="Construimos sistemas de automatización con IA que ya están corriendo hoy: bots de pedidos por WhatsApp, plataformas de gestión para fondos de inversión y más. Bogotá, Colombia.">
+  <meta name="keywords" content="automatización de procesos Colombia, automatización con IA, bot de WhatsApp Colombia, plataforma de gestión con IA, n8n Colombia, automatización pymes, agencia automatización Bogotá, automatización fondos de inversión">
   <meta name="author" content="Juan Campo">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="googlebot" content="index, follow">
@@ -28,26 +28,26 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.flowautoma.com/">
   <meta property="og:site_name" content="Automa">
-  <meta property="og:title" content="Automa | Tu negocio operando solo, aunque no estés mirando">
-  <meta property="og:description" content="Automatizamos los procesos operativos que te consumen tiempo con inteligencia artificial. Sin contratos largos. Ves el resultado antes de pagar. Colombia.">
+  <meta property="og:title" content="Automa | Procesos que se manejan solos">
+  <meta property="og:description" content="Sistemas de automatización con IA ya corriendo en negocios reales: WhatsApp, fondos de inversión y más. Sin contratos largos. Colombia.">
   <meta property="og:locale" content="es_CO">
   <meta property="og:locale:alternate" content="es_ES">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://www.flowautoma.com/">
-  <meta name="twitter:title" content="Automa | Automatización con IA para negocios reales">
-  <meta name="twitter:description" content="Automatizamos los procesos que te consumen tiempo. Agendamiento, leads, chatbot 24/7 y más. Colombia.">
+  <meta name="twitter:title" content="Automa | Procesos que se manejan solos">
+  <meta name="twitter:description" content="Sistemas de automatización con IA que ya están corriendo en negocios reales. Colombia.">
   <meta name="twitter:creator" content="@juancampoher">
 
   <!-- PWA & Theme -->
-  <meta name="theme-color" content="#050507">
+  <meta name="theme-color" content="#030305">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Automa">
   <meta name="application-name" content="Automa">
-  <meta name="msapplication-TileColor" content="#050507">
+  <meta name="msapplication-TileColor" content="#030305">
 
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,29 +65,27 @@
     }
 
     :root {
-      --bg-0: #050507;
-      --bg-1: #0A0A0F;
-      --bg-2: #0F0F16;
-      --bg-3: #14141D;
-      --accent: #6366F1;
-      --accent-dim: rgba(99,102,241,0.12);
-      --accent-glow: rgba(99,102,241,0.2);
-      --accent-light: #818CF8;
-      --green: #10B981;
-      --green-dim: rgba(16,185,129,0.1);
-      --red-dim: rgba(239,68,68,0.08);
-      --red-border: rgba(239,68,68,0.25);
-      --white: #FAFAFA;
-      --gray-1: #A1A1AA;
-      --gray-2: #71717A;
-      --gray-3: #3F3F46;
+      --bg-0: #030305;
+      --bg-1: #080810;
+      --bg-2: #0E0E18;
+      --bg-3: #141420;
+      --accent: #10B981;
+      --accent-dim: rgba(16,185,129,0.1);
+      --accent-glow: rgba(16,185,129,0.2);
+      --accent-light: #34D399;
+      --accent-dark: #059669;
+      --white: #F9FAFB;
+      --gray-1: #9CA3AF;
+      --gray-2: #6B7280;
+      --gray-3: #374151;
       --border: rgba(255,255,255,0.05);
-      --border-accent: rgba(99,102,241,0.25);
+      --border-accent: rgba(16,185,129,0.2);
+      --red: #EF4444;
+      --red-dim: rgba(239,68,68,0.08);
+      --red-border: rgba(239,68,68,0.2);
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg-0);
@@ -98,10 +96,7 @@
       overflow-x: hidden;
     }
 
-    ::selection {
-      background: rgba(99,102,241,0.25);
-      color: #fff;
-    }
+    ::selection { background: rgba(16,185,129,0.25); color: #fff; }
 
     ::-webkit-scrollbar { width: 3px; }
     ::-webkit-scrollbar-track { background: var(--bg-0); }
@@ -116,31 +111,24 @@
     /* ============================================================
        LAYOUT
     ============================================================ */
-    .container {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    section {
-      padding: 140px 0;
-    }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 130px 0; }
 
     /* ============================================================
-       TYPOGRAPHY SYSTEM
+       TYPOGRAPHY
     ============================================================ */
     h1 {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(44px, 6vw, 80px);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
+      font-size: clamp(52px, 7vw, 92px);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
       color: var(--white);
     }
 
     h2 {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(38px, 5vw, 60px);
+      font-size: clamp(36px, 5vw, 58px);
       font-weight: 700;
       line-height: 1.0;
       letter-spacing: -0.03em;
@@ -152,7 +140,6 @@
       font-size: clamp(20px, 2.5vw, 26px);
       font-weight: 700;
       line-height: 1.2;
-      letter-spacing: -0.02em;
       color: var(--white);
     }
 
@@ -167,39 +154,30 @@
     }
 
     /* ============================================================
-       SCROLL REVEAL ANIMATIONS
+       SCROLL REVEAL
     ============================================================ */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+      transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1), transform 0.65s cubic-bezier(0.4,0,0.2,1);
     }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ============================================================
-       SECTION 01 — NAVBAR
+       NAVBAR
     ============================================================ */
     #navbar {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 100;
       height: 68px;
-      background: rgba(5,5,7,0.85);
+      background: rgba(3,3,5,0.85);
       backdrop-filter: blur(24px) saturate(180%);
       -webkit-backdrop-filter: blur(24px) saturate(180%);
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s ease;
     }
-
-    #navbar.scrolled {
-      border-bottom-color: rgba(255,255,255,0.08);
-    }
+    #navbar.scrolled { border-bottom-color: var(--border); }
 
     .nav-inner {
       display: flex;
@@ -217,74 +195,44 @@
       letter-spacing: -0.02em;
     }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-    }
+    .nav-links { display: flex; align-items: center; gap: 40px; }
 
     .nav-links a {
       font-family: 'Inter', sans-serif;
       font-size: 14px;
-      font-weight: 400;
       color: var(--gray-1);
-      transition: color 0.2s ease;
+      transition: color 0.25s ease;
       position: relative;
     }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--white);
-    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
 
     .nav-links a.active::after {
       content: '';
       position: absolute;
-      bottom: -4px;
-      left: 0;
-      right: 0;
+      bottom: -4px; left: 0; right: 0;
       height: 1px;
       background: var(--accent);
     }
 
     .nav-cta {
       background: var(--accent);
-      color: white;
+      color: #030305;
       font-family: 'Inter', sans-serif;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       padding: 10px 22px;
       border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
       display: inline-block;
     }
-
     .nav-cta:hover {
-      background: #4F46E5;
-      box-shadow: 0 0 24px rgba(99,102,241,0.35);
+      background: var(--accent-light);
+      box-shadow: 0 0 24px rgba(16,185,129,0.35);
     }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 18px;
-      height: 2px;
-      background: var(--white);
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
+    .hamburger { display: none; flex-direction: column; gap: 4px; background: none; padding: 4px; }
+    .hamburger span { display: block; width: 18px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s ease; }
     .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
@@ -292,10 +240,8 @@
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 68px;
-      left: 0;
-      right: 0;
-      background: rgba(5,5,7,0.97);
+      top: 68px; left: 0; right: 0;
+      background: rgba(3,3,5,0.97);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
       padding: 24px 20px;
@@ -303,9 +249,7 @@
       flex-direction: column;
       gap: 8px;
     }
-
     .mobile-menu.open { display: flex; }
-
     .mobile-menu a {
       font-family: 'Inter', sans-serif;
       font-size: 15px;
@@ -315,24 +259,21 @@
       border-bottom: 1px solid var(--border);
       transition: color 0.2s ease;
     }
-
     .mobile-menu a:last-child { border-bottom: none; }
     .mobile-menu a:hover { color: var(--white); }
-
     .mobile-menu .mobile-cta {
       margin-top: 8px;
       background: var(--accent);
-      color: white;
+      color: #030305;
       border-radius: 8px;
       padding: 14px;
       text-align: center;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 15px;
-      border: none;
     }
 
     /* ============================================================
-       SECTION 02 — HERO
+       HERO
     ============================================================ */
     #hero {
       min-height: 100vh;
@@ -345,21 +286,14 @@
     }
 
     .hero-bg-gradient {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
       background:
-        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(99,102,241,0.12) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 40% at 80% 85%, rgba(16,185,129,0.05) 0%, transparent 55%),
-        radial-gradient(ellipse 40% 30% at 15% 60%, rgba(99,102,241,0.04) 0%, transparent 50%);
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(16,185,129,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(16,185,129,0.03) 0%, transparent 50%);
     }
 
     .hero-grid {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
       background-image:
         linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
@@ -368,17 +302,8 @@
       mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 0%, transparent 100%);
     }
 
-    .hero-noise {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-    }
-
     .hero-inner {
-      max-width: 820px;
+      max-width: 900px;
       width: 100%;
       padding: 0 24px;
       text-align: center;
@@ -386,17 +311,11 @@
       z-index: 1;
     }
 
-    /* Hero load animation states */
-    .hero-eyebrow,
-    .hero-h1,
-    .hero-sub,
-    .hero-ctas,
-    .hero-trust {
+    .hero-eyebrow, .hero-h1, .hero-sub, .hero-ctas, .hero-trust {
       opacity: 0;
       transform: translateY(24px);
       transition: opacity 0.65s ease, transform 0.65s ease;
     }
-
     body.loaded .hero-eyebrow { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
     body.loaded .hero-h1      { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
     body.loaded .hero-sub     { opacity: 1; transform: translateY(0); transition-delay: 0.35s; }
@@ -405,10 +324,7 @@
 
     .hero-eyebrow {
       margin-bottom: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
+      display: flex; align-items: center; justify-content: center;
       font-family: 'Inter', sans-serif;
       font-size: 11px;
       font-weight: 500;
@@ -416,25 +332,18 @@
       text-transform: uppercase;
       color: var(--accent);
     }
-
-    .hero-eyebrow::before,
-    .hero-eyebrow::after {
+    .hero-eyebrow::before, .hero-eyebrow::after {
       content: '';
       display: inline-block;
-      width: 32px;
-      height: 1px;
+      width: 32px; height: 1px;
       background: var(--accent);
       opacity: 0.5;
-      vertical-align: middle;
       margin: 0 12px;
     }
 
-    .hero-h1 {
-      margin-bottom: 40px;
-    }
-
+    .hero-h1 { margin-bottom: 40px; }
     .hero-h1 .gradient-word {
-      background: linear-gradient(135deg, #6366F1 0%, #818CF8 100%);
+      background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -442,55 +351,40 @@
 
     .hero-sub {
       font-family: 'Inter', sans-serif;
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 400;
       line-height: 1.75;
       color: var(--gray-1);
-      max-width: 540px;
+      max-width: 560px;
       margin: 0 auto 52px;
     }
 
-    .hero-ctas {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 64px;
-    }
+    .hero-ctas { display: flex; gap: 12px; justify-content: center; margin-bottom: 64px; }
 
     .btn-hero-primary {
       background: var(--accent);
-      color: white;
+      color: #030305;
       font-family: 'Inter', sans-serif;
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 700;
       padding: 15px 32px;
       border-radius: 10px;
-      border: none;
-      cursor: pointer;
       position: relative;
       overflow: hidden;
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      transition: box-shadow 0.3s cubic-bezier(0.4,0,0.2,1), transform 0.3s cubic-bezier(0.4,0,0.2,1);
       display: inline-block;
       will-change: transform;
     }
-
     .btn-hero-primary::after {
       content: '';
-      position: absolute;
-      top: -50%;
-      left: -60%;
-      width: 30%;
-      height: 200%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      position: absolute; top: -50%; left: -60%;
+      width: 30%; height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
       transform: skewX(-20deg);
       transition: left 0.5s ease;
     }
-
     .btn-hero-primary:hover::after { left: 130%; }
-    .btn-hero-primary:hover {
-      box-shadow: 0 8px 32px rgba(99,102,241,0.4);
-      transform: translateY(-2px);
-    }
+    .btn-hero-primary:hover { box-shadow: 0 8px 32px rgba(16,185,129,0.4); transform: translateY(-2px); }
     .btn-hero-primary:active { transform: translateY(0); }
 
     .btn-hero-secondary {
@@ -502,75 +396,204 @@
       padding: 15px 32px;
       border-radius: 10px;
       border: 1px solid var(--border);
-      cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
       display: inline-block;
     }
-
     .btn-hero-secondary:hover {
-      border-color: rgba(255,255,255,0.15);
+      border-color: var(--border-accent);
       color: var(--white);
       background: rgba(255,255,255,0.04);
     }
 
     .hero-trust {
-      display: flex;
-      gap: 32px;
-      justify-content: center;
-      align-items: center;
+      display: flex; gap: 32px; justify-content: center; align-items: center;
       font-family: 'Inter', sans-serif;
       font-size: 13px;
       color: var(--gray-2);
       flex-wrap: wrap;
     }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
+    .trust-item { display: flex; align-items: center; gap: 6px; }
     .trust-icon {
-      width: 16px;
-      height: 16px;
-      background: var(--green-dim);
-      border: 1px solid rgba(16,185,129,0.4);
+      width: 16px; height: 16px;
+      background: var(--accent-dim);
+      border: 1px solid var(--border-accent);
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-
-    .trust-sep {
-      color: var(--gray-3);
-      margin: 0 4px;
-    }
+    .trust-sep { color: var(--gray-3); margin: 0 4px; }
 
     .scroll-indicator {
       position: absolute;
-      bottom: 40px;
-      left: 50%;
+      bottom: 40px; left: 50%;
       transform: translateX(-50%);
-      width: 1px;
-      height: 48px;
+      width: 1px; height: 48px;
       background: linear-gradient(to bottom, transparent, var(--accent));
       animation: scrollPulse 2.2s ease-in-out infinite;
       will-change: transform;
     }
-
     @keyframes scrollPulse {
       0%, 100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
       50% { opacity: 0.8; transform: translateX(-50%) translateY(0); }
     }
 
     /* ============================================================
-       SECTION 03 — EL PROBLEMA
+       SISTEMAS EN PRODUCCIÓN
     ============================================================ */
-    #problema {
-      background: var(--bg-1);
-      border-top: 1px solid var(--border);
+    #casos { background: var(--bg-1); border-top: 1px solid var(--border); }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 72px;
     }
+    .section-header .label { margin-bottom: 20px; }
+    .section-header h2 { margin-bottom: 20px; }
+    .section-header .subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--gray-1);
+    }
+
+    .production-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .production-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      position: relative;
+      transition: all 0.3s ease;
+      will-change: transform;
+    }
+    .production-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .status-badge {
+      position: absolute;
+      top: 20px; right: 20px;
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 100px;
+      padding: 4px 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .status-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    .production-icon {
+      width: 48px; height: 48px;
+      background: var(--accent-dim);
+      border: 1px solid var(--border-accent);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+      color: var(--accent);
+    }
+
+    .production-category {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-2);
+      margin-bottom: 12px;
+    }
+
+    .production-card h3 { margin-bottom: 14px; }
+
+    .production-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--gray-1);
+    }
+
+    .tech-tags {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-top: 20px;
+    }
+    .tech-tag {
+      background: var(--bg-0);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--gray-2);
+    }
+
+    /* ============================================================
+       SERVICIOS
+    ============================================================ */
+    #servicios { background: var(--bg-0); border-top: 1px solid var(--border); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      transition: all 0.3s ease;
+      will-change: transform;
+    }
+    .service-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .service-icon {
+      width: 48px; height: 48px;
+      background: var(--accent-dim);
+      border: 1px solid var(--border-accent);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+      color: var(--accent);
+    }
+
+    .service-card h3 { margin-bottom: 14px; }
+    .service-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--gray-1);
+    }
+
+    /* ============================================================
+       EL PROBLEMA
+    ============================================================ */
+    #problema { background: var(--bg-1); border-top: 1px solid var(--border); }
 
     .problema-grid {
       display: grid;
@@ -579,483 +602,126 @@
       align-items: start;
     }
 
-    #problema .container > .label {
-      display: block;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .problema-text h2 {
-      margin-bottom: 32px;
-    }
+    #problema .container > .label { display: block; margin-bottom: 20px; }
+    .problema-text h2 { margin-bottom: 32px; }
 
     .problema-text p {
       font-family: 'Inter', sans-serif;
-      font-size: 17px;
-      font-weight: 400;
-      line-height: 1.8;
+      font-size: 18px;
+      line-height: 1.75;
       color: var(--gray-1);
-      margin-bottom: 32px;
-      text-align: justify;
+      margin-bottom: 24px;
     }
+    .problema-text p.problema-lead { margin-bottom: 32px; }
 
     .pain-list {
-      display: flex;
-      flex-direction: column;
+      display: flex; flex-direction: column;
       gap: 8px;
-      margin-bottom: 40px;
-      list-style: none;
-      padding: 0;
+      margin: 40px 0;
     }
-
     .pain-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      display: flex; align-items: center; gap: 14px;
       padding: 12px 16px;
-      background: rgba(255,255,255,0.025);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
       border-radius: 10px;
       font-family: 'Inter', sans-serif;
-      font-size: 14px;
+      font-size: 15px;
       color: var(--gray-1);
       opacity: 0;
       transform: translateY(10px);
       transition: opacity 0.45s ease, transform 0.45s ease, border-color 0.2s ease, color 0.2s ease;
     }
-
-    .pain-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .pain-item:hover {
-      border-color: rgba(255,255,255,0.14);
-      color: var(--white);
-    }
+    .pain-item.visible { opacity: 1; transform: translateY(0); }
+    .pain-item:hover { border-color: var(--red-border); color: var(--white); }
 
     .pain-icon {
-      width: 32px;
-      height: 32px;
+      width: 28px; height: 28px;
       flex-shrink: 0;
       border-radius: 8px;
-      background: rgba(255,255,255,0.05);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gray-2);
+      background: var(--red-dim);
+      border: 1px solid var(--red-border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--red);
     }
 
     .problema-closing {
       font-family: 'Syne', sans-serif;
       font-size: 22px;
       font-weight: 700;
-      color: var(--white);
+      color: var(--accent);
       padding-left: 20px;
       border-left: 3px solid var(--accent);
       line-height: 1.4;
       margin-top: 40px;
     }
 
+    /* Floating bubbles visual */
     .problema-visual {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding-top: 12px;
-    }
-
-    .flow-visual {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      width: 100%;
-      max-width: 300px;
-    }
-
-    .flow-step {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 20px 22px;
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-    }
-
-    .flow-step-icon {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .flow-step-icon.manual { background: rgba(255,255,255,0.06); color: var(--gray-1); }
-    .flow-step-icon.detect { background: var(--accent-dim); color: var(--accent-light); }
-    .flow-step-icon.auto   { background: rgba(34,197,94,0.1); color: #4ADE80; }
-
-    .flow-step-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gray-3);
-      margin-bottom: 3px;
-    }
-
-    .flow-step-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.2;
-    }
-
-    .flow-connector {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 44px;
-    }
-
-    .flow-connector::before {
-      content: '';
-      width: 1px;
-      flex: 1;
-      background: linear-gradient(to bottom, rgba(99,102,241,0.2), rgba(99,102,241,0.65));
-    }
-
-    .flow-connector::after {
-      content: '';
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 6px solid rgba(99,102,241,0.65);
-    }
-
-    /* ============================================================
-       SECTION 04 — LAS 3 CAPAS
-    ============================================================ */
-    #servicios {
-      background: var(--bg-0);
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 72px;
-    }
-
-    .section-header .label {
-      margin-bottom: 20px;
-    }
-
-    .section-header h2 {
-      margin-bottom: 20px;
-    }
-
-    .section-header .subtitle {
-      font-family: 'Inter', sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.75;
-      color: var(--gray-1);
-      text-align: justify;
-    }
-
-    .cards-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 20px;
-      align-items: start;
-    }
-
-    .service-card {
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 36px 32px;
       position: relative;
-      overflow: hidden;
-      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
-      will-change: transform;
+      height: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-
-    .service-card::before {
-      content: '';
+    .bubble {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(99,102,241,0.4) 50%, transparent 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--border-accent);
-      box-shadow:
-        0 20px 40px rgba(0,0,0,0.4),
-        0 0 0 1px rgba(99,102,241,0.1);
-    }
-
-    .service-card:hover::before { opacity: 1; }
-
-
-    .card-number {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--gray-3);
-      letter-spacing: 0.05em;
-      margin-bottom: 24px;
-    }
-
-    .card-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--accent-dim);
-      border-radius: 12px;
-      border: 1px solid var(--border-accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-    }
-
-    .card-content h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 14px;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-
-    .card-content p {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      line-height: 1.75;
-      color: var(--gray-1);
-      margin-bottom: 28px;
-    }
-
-    .card-tag {
-      display: inline-flex;
-      background: var(--accent-dim);
-      border: 1px solid var(--border-accent);
-      border-radius: 100px;
-      padding: 5px 14px;
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent-light);
-    }
-
-    /* ============================================================
-       SECTION 05 — CASOS DE USO
-    ============================================================ */
-    #casos {
-      background: var(--bg-1);
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
-
-    .uso-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .uso-card {
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
       background: var(--bg-2);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px 24px;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.25s ease;
-      will-change: transform;
+      border: 1px solid var(--border-accent);
+      color: var(--accent);
+      box-shadow: 0 0 40px rgba(16,185,129,0.08);
+      animation: float 6s ease-in-out infinite;
     }
-
-    .uso-card:hover {
-      border-color: var(--border-accent);
-      background: var(--bg-3);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    .bubble-1 { width: 120px; height: 120px; top: 30px; left: 60px; animation-duration: 7s; }
+    .bubble-2 { width: 92px; height: 92px; top: 190px; right: 30px; animation-duration: 5.5s; animation-delay: 0.6s; }
+    .bubble-3 { width: 76px; height: 76px; bottom: 60px; left: 100px; animation-duration: 6.5s; animation-delay: 1.2s; }
+    .bubble-4 { width: 60px; height: 60px; top: 100px; right: 130px; animation-duration: 4.5s; animation-delay: 1.8s; }
+    .bubble-glow {
+      position: absolute;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%);
+      filter: blur(20px);
     }
-
-    .uso-category {
-      display: inline-flex;
-      background: rgba(99,102,241,0.15);
-      color: #A5B4FC;
-      border: 1px solid rgba(99,102,241,0.3);
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
-
-    .uso-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--bg-0);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      transition: all 0.25s ease;
-    }
-
-    .uso-icon svg {
-      color: var(--gray-1);
-      transition: color 0.25s ease;
-    }
-
-    .uso-card:hover .uso-icon {
-      background: var(--accent-dim);
-      border-color: var(--border-accent);
-    }
-
-    .uso-card:hover .uso-icon svg { color: var(--accent-light); }
-
-    .uso-card h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 10px;
-      letter-spacing: -0.01em;
-      line-height: 1.3;
-    }
-
-    .uso-card p {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      line-height: 1.65;
-      color: var(--gray-2);
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
     }
 
     /* ============================================================
-       SECTION 06 — SECTORES
+       PROCESO
     ============================================================ */
-    #sectores {
-      background: var(--bg-0);
-      padding: 80px 0 60px;
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
-
-    .sectores-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .sectores-header .label { margin-bottom: 20px; }
-
-    .sectores-header .sub {
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      color: var(--gray-2);
-      margin-top: 16px;
-    }
-
-    .chips-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .sector-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 10px 20px;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--gray-1);
-      transition: all 0.2s ease;
-      cursor: default;
-    }
-
-    .sector-chip svg { color: var(--gray-3); transition: color 0.2s ease; }
-
-    .sector-chip:hover {
-      background: var(--accent-dim);
-      border-color: var(--border-accent);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-
-    .sector-chip:hover svg { color: var(--accent-light); }
-
-    /* ============================================================
-       SECTION 07 — PROCESO
-    ============================================================ */
-    #proceso {
-      background: var(--bg-1);
-      padding-top: 60px;
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
+    #proceso { background: var(--bg-0); border-top: 1px solid var(--border); }
 
     .proceso-steps {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0;
       position: relative;
     }
-
     .proceso-steps::before {
       content: '';
       position: absolute;
-      top: 28px;
-      left: 12.5%;
-      right: 12.5%;
+      top: 26px; left: 12.5%; right: 12.5%;
       height: 1px;
       background: linear-gradient(90deg, transparent 0%, var(--border-accent) 15%, var(--border-accent) 85%, transparent 100%);
       z-index: 0;
     }
 
     .step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
       padding: 0 16px;
       position: relative;
       z-index: 1;
     }
 
     .step-number {
-      width: 56px;
-      height: 56px;
+      width: 52px; height: 52px;
       background: var(--bg-0);
       border: 1px solid var(--border-accent);
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       font-family: 'Syne', sans-serif;
       font-size: 18px;
       font-weight: 700;
@@ -1064,231 +730,139 @@
       position: relative;
       transition: all 0.3s ease;
     }
-
     .step-number::before {
       content: '';
       position: absolute;
       inset: -6px;
-      border: 1px solid rgba(99,102,241,0.12);
+      border: 4px solid rgba(16,185,129,0.08);
       border-radius: 50%;
     }
-
     .step:hover .step-number {
       background: var(--accent-dim);
       border-color: var(--accent);
-      box-shadow: 0 0 24px rgba(99,102,241,0.25);
+      box-shadow: 0 0 24px rgba(16,185,129,0.25);
       color: var(--white);
     }
 
-    .step h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 12px;
-      line-height: 1.3;
-    }
-
+    .step h3 { font-size: 17px; margin-bottom: 12px; }
     .step p {
       font-family: 'Inter', sans-serif;
-      font-size: 13px;
+      font-size: 14px;
       color: var(--gray-2);
       line-height: 1.7;
-      max-width: 200px;
+      max-width: 220px;
     }
 
     /* ============================================================
-       SECTION 08 — FUNDADOR
+       SECTORES
     ============================================================ */
-    #nosotros {
-      background: var(--bg-0);
-      border-top: 1px solid rgba(255,255,255,0.04);
+    #sectores {
+      background: var(--bg-1);
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
     }
+    .sectores-header { text-align: center; margin-bottom: 48px; }
+    .sectores-header .label { margin-bottom: 20px; }
 
-    .carousel-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      margin-bottom: 40px;
-    }
-
-    .carousel-header .label {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .carousel-controls {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .carousel-btn {
-      background: var(--bg-2);
-      border: 1px solid var(--border-accent);
-      border-radius: 50%;
-      width: 52px;
-      height: 52px;
-      display: flex;
-      align-items: center;
+    .chips-container {
+      display: flex; flex-wrap: wrap; gap: 10px;
       justify-content: center;
-      cursor: pointer;
-      color: var(--white);
-      transition: all 0.2s ease;
-      flex-shrink: 0;
+      max-width: 820px;
+      margin: 0 auto;
     }
-
-    .carousel-btn:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: var(--white);
-      transform: scale(1.08);
-    }
-
-    .carousel-btn:disabled {
-      opacity: 0.25;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .carousel-counter {
+    .sector-chip {
+      display: inline-flex; align-items: center;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 10px 20px;
       font-family: 'Inter', sans-serif;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--gray-1);
-      min-width: 36px;
-      text-align: center;
+      transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+      cursor: default;
+    }
+    .sector-chip:hover {
+      background: var(--accent-dim);
+      border-color: var(--border-accent);
+      color: var(--white);
+      transform: translateY(-2px);
     }
 
-    .carousel-viewport {
-      overflow: hidden;
-    }
-
-    .team-carousel-track {
-      display: flex;
-      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 36px;
-    }
-
-    .carousel-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      border: 1px solid rgba(255,255,255,0.15);
-      cursor: pointer;
-      padding: 0;
-      transition: all 0.25s ease;
-    }
-
-    .carousel-dot.active {
-      background: var(--accent-light);
-      border-color: var(--accent-light);
-      transform: scale(1.4);
-    }
-
-    .carousel-dot:hover:not(.active) {
-      background: rgba(255,255,255,0.35);
-    }
+    /* ============================================================
+       FUNDADOR
+    ============================================================ */
+    #nosotros { background: var(--bg-0); border-top: 1px solid var(--border); }
 
     .founder-grid {
-      min-width: 100%;
       display: grid;
-      grid-template-columns: 36% 58%;
+      grid-template-columns: 40% 55%;
       gap: 56px;
       align-items: center;
     }
 
     .founder-photo-wrap {
       position: relative;
-      width: 240px;
-      height: 240px;
+      width: 300px; height: 300px;
       margin: 0 auto;
     }
-
     .founder-photo-wrap::before {
       content: '';
-      position: absolute;
-      inset: -8px;
+      position: absolute; inset: -8px;
       border-radius: 50%;
-      border: 1px solid var(--border-accent);
+      border: 2px solid var(--border-accent);
+      box-shadow: 0 0 0 6px rgba(16,185,129,0.06), 0 0 40px rgba(16,185,129,0.12);
       z-index: 1;
     }
-
-    .founder-photo-wrap::after {
-      content: '';
-      position: absolute;
-      inset: -20px;
-      border-radius: 50%;
-      border: 1px solid rgba(99,102,241,0.08);
-      z-index: 0;
-    }
-
     .founder-glow {
-      position: absolute;
-      inset: -40px;
+      position: absolute; inset: -40px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%);
       z-index: 0;
       filter: blur(20px);
     }
-
     .founder-photo-wrap img {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       border-radius: 50%;
       object-fit: cover;
       object-position: center top;
-      display: block;
       position: relative;
       z-index: 2;
     }
 
     .founder-name {
       font-family: 'Syne', sans-serif;
-      font-size: 30px;
+      font-size: 42px;
       font-weight: 800;
       color: var(--white);
       letter-spacing: -0.02em;
-      margin-bottom: 4px;
-      line-height: 1.1;
+      margin-bottom: 6px;
+      line-height: 1.05;
     }
-
     .founder-role {
       font-family: 'Inter', sans-serif;
       font-size: 12px;
       font-weight: 500;
-      color: var(--accent-light);
-      letter-spacing: 0.08em;
+      color: var(--accent);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
     }
-
     .founder-bio {
       font-family: 'Inter', sans-serif;
       font-size: 15px;
       color: var(--gray-1);
       line-height: 1.75;
-      margin-bottom: 12px;
-      text-align: justify;
+      margin-bottom: 14px;
     }
-
     .founder-quote {
-      margin: 20px 0;
+      margin: 22px 0;
       padding: 18px 22px;
-      background: rgba(99,102,241,0.06);
+      background: var(--accent-dim);
       border-left: 2px solid var(--accent);
       border-radius: 0 12px 12px 0;
     }
-
     .founder-quote p {
       font-family: 'Inter', sans-serif;
       font-size: 15px;
@@ -1296,9 +870,7 @@
       color: var(--gray-1);
       line-height: 1.75;
       margin-bottom: 10px;
-      text-align: justify;
     }
-
     .founder-quote cite {
       font-family: 'Inter', sans-serif;
       font-size: 13px;
@@ -1307,13 +879,7 @@
       font-style: normal;
     }
 
-    .credential-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 20px;
-    }
-
+    .credential-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
     .badge {
       background: var(--bg-2);
       border: 1px solid var(--border);
@@ -1323,48 +889,32 @@
       font-size: 12px;
       font-weight: 500;
       color: var(--gray-1);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.25s ease;
     }
-
-    .badge svg { color: var(--gray-3); transition: color 0.2s ease; }
-
     .badge:hover {
       border-color: var(--border-accent);
       color: var(--white);
       background: var(--accent-dim);
     }
 
-    .badge:hover svg { color: var(--accent-light); }
-
     /* ============================================================
-       SECTION 09 — CONTACTO
+       CONTACTO
     ============================================================ */
-    #contacto {
-      background: var(--bg-1);
-      border-top: 1px solid rgba(255,255,255,0.04);
-      position: relative;
-      overflow: hidden;
-    }
+    #contacto { background: var(--bg-1); border-top: 1px solid var(--border); position: relative; overflow: hidden; }
 
     .contacto-deco-1 {
       position: absolute;
-      width: 600px;
-      height: 600px;
-      top: -200px;
-      left: 50%;
+      width: 700px; height: 700px;
+      top: -240px; left: 50%;
       transform: translateX(-50%);
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 65%);
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(16,185,129,0.07) 0%, transparent 70%);
       filter: blur(40px);
       pointer-events: none;
     }
-
     .contacto-deco-2 {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background-image:
         linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
@@ -1374,28 +924,15 @@
       pointer-events: none;
     }
 
-    .contacto-inner {
-      max-width: 560px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .contacto-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
+    .contacto-inner { max-width: 560px; margin: 0 auto; position: relative; z-index: 1; }
+    .contacto-header { text-align: center; margin-bottom: 48px; }
     .contacto-header .label { margin-bottom: 20px; }
-
     .contacto-header h2 { margin-bottom: 16px; }
-
     .contacto-header .subtitle {
       font-family: 'Inter', sans-serif;
       font-size: 18px;
       line-height: 1.75;
       color: var(--gray-1);
-      text-align: justify;
     }
 
     .contact-form-wrap {
@@ -1403,16 +940,10 @@
       border: 1px solid var(--border-accent);
       border-radius: 20px;
       padding: 40px;
-      box-shadow:
-        0 0 0 1px rgba(99,102,241,0.05),
-        0 40px 80px rgba(0,0,0,0.4),
-        0 0 80px rgba(99,102,241,0.06);
+      box-shadow: 0 0 60px rgba(16,185,129,0.06), 0 40px 80px rgba(0,0,0,0.4);
     }
 
-    .form-group {
-      margin-bottom: 20px;
-    }
-
+    .form-group { margin-bottom: 20px; }
     .form-group label {
       font-family: 'Inter', sans-serif;
       font-size: 13px;
@@ -1421,10 +952,7 @@
       margin-bottom: 8px;
       display: block;
     }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
+    .form-group input, .form-group select, .form-group textarea {
       width: 100%;
       background: rgba(255,255,255,0.03);
       border: 1px solid var(--border);
@@ -1433,217 +961,114 @@
       color: var(--white);
       font-family: 'Inter', sans-serif;
       font-size: 15px;
-      font-weight: 400;
       outline: none;
       transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: var(--gray-3);
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--gray-3); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
       border-color: var(--accent);
-      background: rgba(99,102,241,0.04);
-      box-shadow: 0 0 0 3px rgba(99,102,241,0.08);
+      background: rgba(16,185,129,0.04);
+      box-shadow: 0 0 0 3px rgba(16,185,129,0.08);
     }
-
     .form-group select {
-      appearance: none;
-      -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2371717A' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 16px center;
       cursor: pointer;
     }
+    .form-group select option { background: #14141D; color: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
 
-    .form-group select option {
-      background: #1a1a20;
-      color: var(--white);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    /* ---- Validation error states ---- */
     .field-error {
       display: block;
       font-family: 'Inter', sans-serif;
       font-size: 12px;
-      font-weight: 400;
-      color: #EF4444;
+      color: var(--red);
       margin-top: 6px;
       min-height: 18px;
       opacity: 0;
       transform: translateY(-4px);
       transition: opacity 0.2s ease, transform 0.2s ease;
     }
-
-    .field-error.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .form-group.has-error input,
-    .form-group.has-error select,
-    .form-group.has-error textarea {
-      border-color: #EF4444;
+    .field-error.visible { opacity: 1; transform: translateY(0); }
+    .form-group.has-error input, .form-group.has-error select, .form-group.has-error textarea {
+      border-color: var(--red);
       box-shadow: 0 0 0 3px rgba(239,68,68,0.1);
     }
 
-    /* ---- Shake animation ---- */
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
-      20%       { transform: translateX(-8px); }
-      40%       { transform: translateX(8px); }
-      60%       { transform: translateX(-4px); }
-      80%       { transform: translateX(4px); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
     }
-
-    .btn-submit.shake {
-      animation: shake 0.4s ease;
-    }
+    .btn-submit.shake { animation: shake 0.4s ease; }
 
     .btn-submit {
       width: 100%;
-      background: linear-gradient(135deg, var(--accent) 0%, #4338CA 100%);
-      color: white;
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: #030305;
       font-family: 'Inter', sans-serif;
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 700;
       padding: 16px;
       border-radius: 10px;
-      border: none;
-      cursor: pointer;
       position: relative;
       overflow: hidden;
-      transition: background 0.35s ease, box-shadow 0.3s ease, transform 0.2s ease, opacity 0.2s ease;
+      transition: box-shadow 0.3s ease, transform 0.2s ease, opacity 0.2s ease;
       margin-top: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
       will-change: transform;
       min-height: 52px;
     }
-
     .btn-submit::after {
       content: '';
-      position: absolute;
-      top: -50%;
-      left: -60%;
-      width: 30%;
-      height: 200%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      position: absolute; top: -50%; left: -60%;
+      width: 30%; height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
       transform: skewX(-20deg);
       transition: left 0.5s ease;
       pointer-events: none;
     }
-
     .btn-submit:hover::after { left: 130%; }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(16,185,129,0.35); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: 0.7; cursor: default; transform: none; }
+    .btn-submit:disabled:hover { box-shadow: none; transform: none; }
 
-    .btn-submit:hover {
-      background: linear-gradient(135deg, #6366F1 0%, #059669 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(99,102,241,0.35);
-    }
-
-    .btn-submit:active {
-      transform: translateY(0);
-    }
-
-    .btn-submit:disabled {
-      opacity: 0.7;
-      cursor: default;
-      transform: none;
-    }
-
-    .btn-submit:disabled:hover {
-      background: linear-gradient(135deg, var(--accent) 0%, #4338CA 100%);
-      box-shadow: none;
-      transform: none;
-    }
-
-    /* ---- Inline success message ---- */
     .form-success-inline {
       display: none;
       margin-top: 16px;
       padding: 16px 20px;
-      background: rgba(16,185,129,0.08);
-      border: 1px solid rgba(16,185,129,0.25);
+      background: var(--accent-dim);
+      border: 1px solid var(--border-accent);
       border-radius: 10px;
       text-align: center;
     }
+    .form-success-inline p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--gray-1); line-height: 1.65; }
+    .form-success-inline a { color: var(--accent-light); text-decoration: underline; text-underline-offset: 2px; }
+    .form-success-inline a:hover { color: var(--white); }
 
-    .form-success-inline p {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: var(--gray-1);
-      line-height: 1.65;
-    }
-
-    .form-success-inline a {
-      color: var(--accent-light);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    .form-success-inline a:hover {
-      color: var(--white);
-    }
-
-    /* ---- Direct WhatsApp link ---- */
-    .contacto-divider {
-      margin: 32px 0 20px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .contacto-divider::before,
-    .contacto-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .contacto-divider span {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      color: var(--gray-3);
-      white-space: nowrap;
-    }
+    .contacto-divider { margin: 32px 0 20px; display: flex; align-items: center; gap: 16px; }
+    .contacto-divider::before, .contacto-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .contacto-divider span { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--gray-3); white-space: nowrap; }
 
     .direct-wa-link {
-      display: block;
-      text-align: center;
+      display: block; text-align: center;
       font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 14px; font-weight: 500;
       color: var(--gray-2);
       transition: color 0.2s ease;
       padding: 6px 0;
-      letter-spacing: 0.01em;
     }
-
-    .direct-wa-link:hover {
-      color: var(--white);
-    }
+    .direct-wa-link:hover { color: var(--white); }
 
     /* ============================================================
        FOOTER
     ============================================================ */
-    footer {
-      background: var(--bg-0);
-      border-top: 1px solid var(--border);
-      padding: 64px 0 40px;
-    }
+    footer { background: var(--bg-0); border-top: 1px solid var(--border); padding: 64px 0 40px; }
 
     .footer-grid {
       display: grid;
@@ -1653,119 +1078,25 @@
       align-items: start;
     }
 
-    .footer-logo {
-      font-family: 'Syne', sans-serif;
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
+    .footer-logo { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+    .footer-tagline { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--gray-2); line-height: 1.6; margin-top: 8px; margin-bottom: 12px; max-width: 220px; }
+    .footer-meta { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--gray-3); }
 
-    .footer-tagline {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: var(--gray-2);
-      line-height: 1.6;
-      margin-top: 8px;
-      margin-bottom: 12px;
-      max-width: 220px;
-    }
-
-    .footer-meta {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      color: var(--gray-3);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .footer-wa {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      color: var(--gray-2);
-      transition: color 0.2s ease;
-      margin-top: 4px;
-    }
-
-    .footer-wa:hover { color: var(--white); }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .footer-links a {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: var(--gray-2);
-      transition: color 0.2s ease;
-      display: block;
-      margin-bottom: 12px;
-    }
-
+    .footer-links { display: flex; flex-direction: column; gap: 0; }
+    .footer-links a { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--gray-2); transition: color 0.2s ease; display: block; margin-bottom: 12px; }
     .footer-links a:hover { color: var(--white); }
 
-    .footer-right p {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      color: var(--gray-2);
-      max-width: 200px;
-      line-height: 1.7;
-      text-align: right;
-      margin-left: auto;
-      margin-bottom: 16px;
-    }
-
-    .footer-right-wa {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 8px;
-    }
-
-    .footer-right-wa a {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--accent-light);
-      transition: color 0.2s ease;
-    }
-
-    .footer-right-wa a:hover { color: var(--white); }
+    .footer-right p:first-child { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: var(--gray-1); margin-bottom: 6px; }
+    .footer-right p { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--gray-2); text-align: right; margin-left: auto; }
 
     .footer-bottom {
-      margin-top: 0;
       padding-top: 24px;
       border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
     }
-
-    .footer-bottom p {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      color: var(--gray-3);
-    }
-
-    .footer-legal-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-legal-links a {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      color: var(--gray-3);
-      transition: color 0.2s ease;
-    }
-
+    .footer-bottom p { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--gray-3); }
+    .footer-legal-links { display: flex; gap: 20px; }
+    .footer-legal-links a { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--gray-3); transition: color 0.2s ease; }
     .footer-legal-links a:hover { color: var(--gray-1); }
 
     /* ============================================================
@@ -1775,17 +1106,16 @@
       position: fixed;
       pointer-events: none;
       z-index: 9999;
-      width: 480px;
-      height: 480px;
+      width: 480px; height: 480px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(99,102,241,0.045) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(16,185,129,0.05) 0%, transparent 65%);
       transform: translate(-50%, -50%);
       transition: left 0.08s ease, top 0.08s ease;
       display: none;
     }
 
     /* ============================================================
-       RESPONSIVE — MOBILE (max-width: 768px)
+       RESPONSIVE
     ============================================================ */
     @media (max-width: 768px) {
       section { padding: 80px 0; }
@@ -1796,69 +1126,40 @@
       .hamburger { display: flex; }
 
       #hero { padding-top: 100px; min-height: auto; padding-bottom: 80px; }
-      .hero-inner { text-align: center; }
       h1 { font-size: clamp(36px, 8vw, 48px); line-height: 1.1; }
       .hero-ctas { flex-direction: column; align-items: center; max-width: 320px; margin-left: auto; margin-right: auto; }
       .btn-hero-primary, .btn-hero-secondary { width: 100%; text-align: center; justify-content: center; }
       .hero-trust { flex-wrap: wrap; gap: 12px; font-size: 12px; justify-content: center; }
       .trust-sep { display: none; }
 
-      .problema-grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-      .problema-visual { order: -1; }
-      .flow-visual { max-width: 100%; }
+      .production-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
 
-      .cards-row { grid-template-columns: 1fr; }
+      .problema-grid { grid-template-columns: 1fr; gap: 48px; }
+      .problema-visual { order: -1; height: 300px; }
 
-      .uso-grid { grid-template-columns: 1fr 1fr; }
-
-      .chips-container { flex-wrap: wrap; }
-
-      .proceso-steps {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
+      .proceso-steps { grid-template-columns: 1fr; gap: 36px; }
       .proceso-steps::before { display: none; }
-      .step {
-        flex-direction: row;
-        text-align: left;
-        gap: 20px;
-        align-items: flex-start;
-      }
+      .step { flex-direction: row; text-align: left; gap: 20px; align-items: flex-start; }
       .step-number { margin-bottom: 0; flex-shrink: 0; }
       .step p { max-width: none; }
 
-      .founder-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .founder-photo-wrap {
-        width: 180px;
-        height: 180px;
-      }
-      .carousel-header { margin-bottom: 28px; }
+      .founder-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .founder-photo-wrap { width: 200px; height: 200px; }
+      .credential-badges { justify-content: center; }
 
       .contact-form-wrap { padding: 28px 20px; }
-
       .btn-submit { font-size: 14px; padding: 16px 14px; }
 
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        text-align: center;
-      }
-      .footer-tagline { max-width: none; }
-      .footer-right p { text-align: center; margin: 0 auto 12px; }
-      .footer-right-wa { justify-content: center; }
-      .footer-wa { justify-content: center; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .footer-tagline { max-width: none; margin-left: auto; margin-right: auto; }
+      .footer-right p { text-align: center; margin: 0 auto; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
       .footer-legal-links { justify-content: center; }
     }
 
-    @media (max-width: 520px) {
-      .uso-grid { grid-template-columns: 1fr; }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .production-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 
@@ -1872,110 +1173,60 @@
         "@id": "https://www.flowautoma.com/#website",
         "url": "https://www.flowautoma.com/",
         "name": "Automa",
-        "description": "Automatización de procesos con IA para microempresas latinoamericanas",
+        "description": "Sistemas de automatización con IA en producción para negocios reales en Colombia",
         "inLanguage": "es-CO",
-        "publisher": {
-          "@id": "https://www.flowautoma.com/#organization"
-        }
+        "publisher": { "@id": "https://www.flowautoma.com/#organization" }
       },
       {
         "@type": "Organization",
         "@id": "https://www.flowautoma.com/#organization",
         "name": "Automa",
         "url": "https://www.flowautoma.com/",
-        "description": "Agencia colombiana de automatización de procesos operativos con inteligencia artificial para microempresas latinoamericanas",
+        "description": "Empresa colombiana que construye sistemas de automatización con inteligencia artificial: bots de WhatsApp, plataformas de gestión y flujos operativos.",
         "foundingDate": "2026",
-        "foundingLocation": {
-          "@type": "Place",
-          "name": "Bogotá, Colombia"
-        },
+        "foundingLocation": { "@type": "Place", "name": "Bogotá, Colombia" },
         "areaServed": [
-          {
-            "@type": "Country",
-            "name": "Colombia"
-          },
-          {
-            "@type": "Place",
-            "name": "Latinoamérica"
-          }
+          { "@type": "Country", "name": "Colombia" },
+          { "@type": "Place", "name": "Latinoamérica" }
         ],
         "founder": {
           "@type": "Person",
           "@id": "https://www.flowautoma.com/#founder",
           "name": "Juan Felipe Campo Hernández",
-          "jobTitle": "Founder & CEO",
+          "jobTitle": "Founder",
           "alumniOf": [
-            {
-              "@type": "EducationalOrganization",
-              "name": "Pontificia Universidad Javeriana"
-            },
-            {
-              "@type": "EducationalOrganization",
-              "name": "ESIC Business & Marketing School"
-            }
+            { "@type": "EducationalOrganization", "name": "Pontificia Universidad Javeriana" },
+            { "@type": "EducationalOrganization", "name": "ESIC Business & Marketing School" }
           ],
           "sameAs": "https://www.linkedin.com/in/juancampoher/"
         },
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+573186041541",
+          "email": "flowautomainfo@gmail.com",
           "contactType": "customer service",
-          "availableLanguage": "Spanish",
-          "contactOption": "TollFree"
+          "availableLanguage": "Spanish"
         },
-        "sameAs": [
-          "https://www.linkedin.com/in/juancampoher/"
-        ]
+        "sameAs": ["https://www.linkedin.com/in/juancampoher/"]
       },
       {
         "@type": "ProfessionalService",
         "@id": "https://www.flowautoma.com/#service",
-        "name": "Automa — Automatización con IA",
+        "name": "Automa — Sistemas de Automatización con IA",
         "url": "https://www.flowautoma.com/",
-        "description": "Automatizamos procesos operativos de microempresas con IA: agendamiento automático, seguimiento de leads, chatbot WhatsApp 24/7, reportes ejecutivos y pedidos automáticos a proveedores",
-        "provider": {
-          "@id": "https://www.flowautoma.com/#organization"
-        },
+        "description": "Bots de pedidos por WhatsApp, plataformas de gestión con IA, seguimiento automático de leads, agendamiento inteligente, reportes ejecutivos automatizados y paid media con automatización.",
+        "provider": { "@id": "https://www.flowautoma.com/#organization" },
         "areaServed": "Colombia",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Servicios de Automatización",
           "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Agendamiento automático con IA"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Seguimiento automático de leads"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Chatbot WhatsApp con IA 24/7"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Reportes ejecutivos automatizados"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Pedidos automáticos a proveedores"
-              }
-            }
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatización por WhatsApp" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Plataformas de gestión con IA" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguimiento automático de leads" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agendamiento inteligente" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reportes ejecutivos automatizados" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paid Media + Automatización" } }
           ]
         }
       },
@@ -1983,19 +1234,12 @@
         "@type": "WebPage",
         "@id": "https://www.flowautoma.com/#webpage",
         "url": "https://www.flowautoma.com/",
-        "name": "Automa | Automatización de Procesos con IA para Negocios en Colombia",
-        "isPartOf": {
-          "@id": "https://www.flowautoma.com/#website"
-        },
-        "about": {
-          "@id": "https://www.flowautoma.com/#organization"
-        },
-        "description": "Landing page de Automa, agencia colombiana de automatización de procesos con inteligencia artificial",
+        "name": "Automa | Sistemas de Automatización con IA que ya operan en Colombia",
+        "isPartOf": { "@id": "https://www.flowautoma.com/#website" },
+        "about": { "@id": "https://www.flowautoma.com/#organization" },
+        "description": "Landing page de Automa. Sistemas de automatización con IA en producción hoy para negocios reales en Colombia.",
         "inLanguage": "es-CO",
-        "potentialAction": {
-          "@type": "CommunicateAction",
-          "target": "https://wa.me/573186041541"
-        }
+        "potentialAction": { "@type": "CommunicateAction", "target": "https://wa.me/573186041541" }
       }
     ]
   }
@@ -2026,15 +1270,16 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
   <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
   <!-- ============================================================
-       SECTION 01 — NAVBAR
+       NAVBAR
   ============================================================ -->
   <header>
     <nav id="navbar" role="navigation" aria-label="Navegación principal">
       <div class="nav-inner">
-        <a href="#hero" class="nav-logo" aria-label="Automa - Inicio"><span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px; color: #FAFAFA; letter-spacing: -0.02em;">Automa</span></a>
+        <a href="#hero" class="nav-logo" aria-label="Automa - Inicio">Automa</a>
 
         <ul class="nav-links" role="list">
           <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#casos">Casos</a></li>
           <li><a href="#proceso">Proceso</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
         </ul>
@@ -2042,9 +1287,7 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
         <div style="display:flex; align-items:center; gap:12px;">
           <a href="#contacto" class="nav-cta">Hablemos</a>
           <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileMenu">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
           </button>
         </div>
       </div>
@@ -2052,6 +1295,7 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
 
     <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
       <a href="#servicios">Servicios</a>
+      <a href="#casos">Casos</a>
       <a href="#proceso">Proceso</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#contacto" class="mobile-cta">Hablemos</a>
@@ -2061,59 +1305,50 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
   <main role="main">
 
     <!-- ============================================================
-         SECTION 02 — HERO
+         HERO
     ============================================================ -->
     <section id="hero" aria-label="Inicio">
       <div class="hero-bg-gradient" aria-hidden="true"></div>
       <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-noise" aria-hidden="true"></div>
 
       <div class="hero-inner">
 
-        <div class="hero-eyebrow" aria-label="Automatización con IA · Colombia">
-          AUTOMATIZACIÓN CON IA · COLOMBIA
-        </div>
+        <div class="hero-eyebrow">SISTEMAS QUE YA ESTÁN CORRIENDO · COLOMBIA</div>
 
         <h1 class="hero-h1">
-          Tu negocio operando<br />
-          <span class="gradient-word">solo</span>,
+          Procesos que<br />
+          se manejan <span class="gradient-word">solos.</span>
         </h1>
 
         <p class="hero-sub">
-          Los procesos que te quitan horas cada semana, los automatizamos con IA. Tú decides qué hacer con ese tiempo.
+          Construimos flujos de automatización con IA para negocios que necesitan operar sin depender de una persona para cada tarea.
         </p>
 
         <div class="hero-ctas">
-          <a href="#contacto" class="btn-hero-primary">Quiero automatizar mi negocio</a>
-          <a href="#proceso" class="btn-hero-secondary">Ver cómo funciona</a>
+          <a href="#casos" class="btn-hero-primary">Ver cómo funciona →</a>
+          <a href="#contacto" class="btn-hero-secondary">Hablemos de tu negocio</a>
         </div>
 
         <div class="hero-trust" aria-label="Garantías">
           <div class="trust-item">
             <div class="trust-icon" aria-hidden="true">
-              <svg width="8" height="8" viewBox="0 0 10 10" fill="none">
-                <path d="M2 5l2 2 4-4" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            Sistemas funcionando hoy
+          </div>
+          <span class="trust-sep" aria-hidden="true">·</span>
+          <div class="trust-item">
+            <div class="trust-icon" aria-hidden="true">
+              <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             Sin contratos largos
           </div>
           <span class="trust-sep" aria-hidden="true">·</span>
           <div class="trust-item">
             <div class="trust-icon" aria-hidden="true">
-              <svg width="8" height="8" viewBox="0 0 10 10" fill="none">
-                <path d="M2 5l2 2 4-4" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             Ves el resultado antes de pagar
-          </div>
-          <span class="trust-sep" aria-hidden="true">·</span>
-          <div class="trust-item">
-            <div class="trust-icon" aria-hidden="true">
-              <svg width="8" height="8" viewBox="0 0 10 10" fill="none">
-                <path d="M2 5l2 2 4-4" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            Acompañamiento continuo
           </div>
         </div>
 
@@ -2123,268 +1358,65 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
     </section>
 
     <!-- ============================================================
-         SECTION 03 — EL PROBLEMA
-    ============================================================ -->
-    <section id="problema" aria-labelledby="problema-title">
-      <div class="container">
-        <span class="label reveal">El Problema</span>
-        <div class="problema-grid">
-
-          <div class="problema-text">
-            <h2 id="problema-title" class="reveal" style="margin-bottom:32px; margin-top:20px;">Eres muy bueno en lo que haces.<br />El problema es otro.</h2>
-
-            <p class="reveal">
-              El médico que atiende con dedicación. El dueño del restaurante que conoce cada detalle de su operación. El que vende y conoce su producto de memoria.
-            </p>
-
-            <p class="reveal">
-              El problema no es que no sepan trabajar. El problema es que pasan la mitad del día haciendo cosas que no requieren su talento.
-            </p>
-
-            <ul class="pain-list" aria-label="Problemas operativos comunes">
-              <li class="pain-item">
-                <div class="pain-icon" aria-hidden="true">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                </div>
-                Confirmar citas manualmente una por una
-              </li>
-              <li class="pain-item">
-                <div class="pain-icon" aria-hidden="true">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                </div>
-                Hacer seguimiento a leads que quedaron sin respuesta
-              </li>
-              <li class="pain-item">
-                <div class="pain-icon" aria-hidden="true">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
-                </div>
-                Enviar el mismo mensaje cien veces
-              </li>
-              <li class="pain-item">
-                <div class="pain-icon" aria-hidden="true">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.55 5.55l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                </div>
-                Llamar proveedores para hacer pedidos rutinarios
-              </li>
-              <li class="pain-item">
-                <div class="pain-icon" aria-hidden="true">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                </div>
-                Llenar informes que podrían generarse solos
-              </li>
-              <li class="pain-item">
-                <div class="pain-icon" aria-hidden="true">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                Atender consultas básicas fuera de horario
-              </li>
-            </ul>
-
-            <p class="problema-closing reveal">
-              Eso no es crecer. Eso es operar en modo bombero.
-            </p>
-          </div>
-
-          <div class="problema-visual reveal" aria-hidden="true">
-            <div class="flow-visual">
-
-              <div class="flow-step">
-                <div class="flow-step-icon manual">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="12" y2="16"/></svg>
-                </div>
-                <div>
-                  <p class="flow-step-label">Inicio</p>
-                  <p class="flow-step-name">Tarea manual</p>
-                </div>
-              </div>
-
-              <div class="flow-connector"></div>
-
-              <div class="flow-step">
-                <div class="flow-step-icon detect">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                </div>
-                <div>
-                  <p class="flow-step-label">Proceso</p>
-                  <p class="flow-step-name">Automa lo detecta</p>
-                </div>
-              </div>
-
-              <div class="flow-connector"></div>
-
-              <div class="flow-step">
-                <div class="flow-step-icon auto">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                </div>
-                <div>
-                  <p class="flow-step-label">Resultado</p>
-                  <p class="flow-step-name">Se ejecuta solo</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         SECTION 04 — LAS 3 CAPAS
-    ============================================================ -->
-    <section id="servicios" aria-labelledby="servicios-title">
-      <div class="container">
-
-        <div class="section-header">
-          <span class="label reveal">Cómo funciona Automa</span>
-          <h2 id="servicios-title" class="reveal" style="margin-top:20px; margin-bottom:20px;">El ciclo completo, en un solo lugar</h2>
-          <p class="subtitle reveal">La mayoría de agencias de marketing no automatizan. Los automatizadores no hacen marketing. Automa hace las dos cosas.</p>
-        </div>
-
-        <div class="cards-row">
-
-          <!-- Card 01 — ATRAER -->
-          <article class="service-card reveal" aria-label="Servicio: Atraer clientes">
-            <div class="card-number">01</div>
-            <div class="card-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 12C2 12 5 5 12 5s10 7 10 7"/>
-                <path d="M5 12c0 0 2-4 7-4s7 4 7 4"/>
-                <circle cx="12" cy="12" r="2" fill="#818CF8" stroke="none"/>
-                <line x1="12" y1="14" x2="12" y2="20"/>
-                <line x1="9" y1="20" x2="15" y2="20"/>
-              </svg>
-            </div>
-            <div class="card-content">
-              <h3>Atraer clientes calificados</h3>
-              <p>Gestión de pauta digital en Meta y Google para traer leads que sí están buscando lo que ofreces. Sin desperdiciar presupuesto en audiencias equivocadas.</p>
-            </div>
-            <span class="card-tag">Paid Media</span>
-          </article>
-
-          <!-- Card 02 — CONVERTIR -->
-          <article class="service-card reveal" aria-label="Servicio: Convertir y atender">
-            <div class="card-number">02</div>
-            <div class="card-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M13 2L4.09 12.96A1 1 0 005 14.5h5.5l-1 7.5L20 10.96A1 1 0 0019 9.5h-5.5L13 2z" fill="rgba(99,102,241,0.2)" stroke="#818CF8"/>
-              </svg>
-            </div>
-            <div class="card-content">
-              <h3>Convertir y atender automáticamente</h3>
-              <p>El sistema captura el lead, lo califica, le responde y agenda una cita — todo sin intervención humana. Funciona mientras el dueño duerme.</p>
-            </div>
-            <span class="card-tag">Automatización IA</span>
-          </article>
-
-          <!-- Card 03 — RETENER -->
-          <article class="service-card reveal" aria-label="Servicio: Retener y crecer">
-            <div class="card-number">03</div>
-            <div class="card-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9m-3 9c-1.657 0-3-4.03-3-9m0-9a9 9 0 00-9 9m9-9c1.657 0 3 4.03 3 9m-3-9c-1.657 0-3 4.03-3 9"/>
-              </svg>
-            </div>
-            <div class="card-content">
-              <h3>Retener y crecer</h3>
-              <p>Seguimiento post-servicio, reactivación de clientes inactivos y construcción de reputación digital. El negocio crece aunque el dueño no esté mirando.</p>
-            </div>
-            <span class="card-tag">Retención</span>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         SECTION 05 — CASOS DE USO
+         SISTEMAS EN PRODUCCIÓN
     ============================================================ -->
     <section id="casos" aria-labelledby="casos-title">
       <div class="container">
 
         <div class="section-header">
-          <span class="label reveal">Casos de uso</span>
-          <h2 id="casos-title" class="reveal" style="margin-top:20px; margin-bottom:20px;">Qué podemos automatizar</h2>
-          <p class="subtitle reveal">Flujos reales que ya están corriendo para negocios como el tuyo</p>
+          <span class="label reveal">En producción hoy</span>
+          <h2 id="casos-title" class="reveal" style="margin-top:20px;">Sistemas que ya están corriendo</h2>
+          <p class="subtitle reveal">No son demos. No son prototipos. Son flujos activos en negocios reales.</p>
         </div>
 
-        <div class="uso-grid">
+        <div class="production-grid">
 
-          <article class="uso-card reveal">
-            <span class="uso-category">Salud · Servicios</span>
-            <div class="uso-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2"/>
-                <line x1="16" y1="2" x2="16" y2="6"/>
-                <line x1="8" y1="2" x2="8" y2="6"/>
-                <line x1="3" y1="10" x2="21" y2="10"/>
-                <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
-              </svg>
+          <!-- CARD 1 — WhatsApp bot -->
+          <article class="production-card reveal">
+            <span class="status-badge" aria-label="Estado: activo"><span class="status-dot" aria-hidden="true"></span>Activo</span>
+            <div class="production-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             </div>
-            <h3>Agendamiento inteligente</h3>
-            <p>Confirmaciones, recordatorios y reagendamientos sin una sola llamada manual</p>
+            <span class="production-category">Restaurante · Bogotá</span>
+            <h3>Bot de pedidos por WhatsApp</h3>
+            <p>Los clientes escriben por WhatsApp, el sistema entiende el pedido, confirma disponibilidad, calcula el total, gestiona el pago y notifica a cocina. Sin que nadie en el restaurante tenga que intervenir.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">WhatsApp API</span>
+              <span class="tech-tag">Claude AI</span>
+              <span class="tech-tag">n8n</span>
+            </div>
           </article>
 
-          <article class="uso-card reveal">
-            <span class="uso-category">Ventas · CRM</span>
-            <div class="uso-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"/>
-              </svg>
+          <!-- CARD 2 — Fondo CHS -->
+          <article class="production-card reveal">
+            <span class="status-badge" aria-label="Estado: activo"><span class="status-dot" aria-hidden="true"></span>Activo</span>
+            <div class="production-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/><path d="M9 9h.01M15 9h.01M9 13h.01M15 13h.01"/></svg>
             </div>
-            <h3>Seguimiento de leads con IA</h3>
-            <p>El sistema detecta cuándo un cliente potencial lleva tiempo sin respuesta y actúa</p>
+            <span class="production-category">Fondo de inversión · Villavicencio</span>
+            <h3>Plataforma de gestión para fondo inmobiliario</h3>
+            <p>5 socios acceden a una plataforma centralizada que consolida información del fondo, registra operaciones y facilita la toma de decisiones con datos en tiempo real.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">Claude AI</span>
+            </div>
           </article>
 
-          <article class="uso-card reveal">
-            <span class="uso-category">Atención al cliente</span>
-            <div class="uso-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-                <path d="M8 10h.01M12 10h.01M16 10h.01"/>
-              </svg>
+          <!-- CARD 3 — Fondo SPC -->
+          <article class="production-card reveal">
+            <span class="status-badge" aria-label="Estado: activo"><span class="status-dot" aria-hidden="true"></span>Activo</span>
+            <div class="production-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><path d="M2 20h20"/></svg>
             </div>
-            <h3>Atención 24/7 por WhatsApp</h3>
-            <p>Chatbot con IA que responde preguntas, califica prospectos y agenda — a cualquier hora</p>
-          </article>
-
-          <article class="uso-card reveal">
-            <span class="uso-category">Operaciones</span>
-            <div class="uso-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/>
-                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
-              </svg>
+            <span class="production-category">Fondo de inversión · Villavicencio</span>
+            <h3>Segunda instancia — Fondo SPC</h3>
+            <p>9 socios. La misma arquitectura escalada. Un segundo fondo de inversión inmobiliaria operando sobre la misma plataforma con datos completamente separados.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">Multi-tenant</span>
             </div>
-            <h3>Pedidos automáticos a proveedores</h3>
-            <p>El sistema monitorea el inventario y genera el pedido cuando detecta niveles bajos</p>
-          </article>
-
-          <article class="uso-card reveal">
-            <span class="uso-category">Inteligencia de negocio</span>
-            <div class="uso-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10"/>
-                <line x1="12" y1="20" x2="12" y2="4"/>
-                <line x1="6" y1="20" x2="6" y2="14"/>
-                <path d="M2 20h20"/>
-              </svg>
-            </div>
-            <h3>Reportes ejecutivos diarios</h3>
-            <p>Los números que importan llegan cada mañana directo a tu celular, sin que nadie los arme</p>
-          </article>
-
-          <article class="uso-card reveal">
-            <span class="uso-category">Reputación digital</span>
-            <div class="uso-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-            </div>
-            <h3>Reputación en Google Maps</h3>
-            <p>Solicitud automática de reseñas a clientes satisfechos en el momento correcto</p>
           </article>
 
         </div>
@@ -2392,91 +1424,149 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
     </section>
 
     <!-- ============================================================
-         SECTION 06 — SECTORES
+         QUÉ CONSTRUIMOS
     ============================================================ -->
-    <section id="sectores" aria-labelledby="sectores-title">
+    <section id="servicios" aria-labelledby="servicios-title">
       <div class="container">
 
-        <div class="sectores-header">
-          <span class="label reveal">A quién le servimos</span>
-          <h2 id="sectores-title" class="reveal" style="margin-top:20px;">Sectores donde operamos</h2>
-          <p class="sub reveal">Si tu negocio tiene procesos que se repiten, los podemos automatizar.</p>
+        <div class="section-header">
+          <span class="label reveal">Servicios</span>
+          <h2 id="servicios-title" class="reveal" style="margin-top:20px;">Qué podemos construir para tu negocio</h2>
+          <p class="subtitle reveal">Cada sistema se diseña desde cero según el problema específico de tu operación.</p>
         </div>
 
-        <div class="chips-container reveal" role="list" aria-label="Sectores atendidos">
+        <div class="services-grid">
 
-          <div class="sector-chip" role="listitem">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
-            </svg>
-            Salud y bienestar
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <h3>Automatización por WhatsApp</h3>
+            <p>Pedidos, citas, seguimiento de leads, cobros y notificaciones — todo operando por WhatsApp sin intervención humana.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="9" x2="9" y2="21"/></svg>
+            </div>
+            <h3>Plataformas de gestión con IA</h3>
+            <p>Aplicaciones web a medida que centralizan información, automatizan reportes y facilitan decisiones para equipos pequeños.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+            </div>
+            <h3>Seguimiento automático de leads</h3>
+            <p>El sistema detecta prospectos sin respuesta, los contacta en el momento correcto y registra cada interacción.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+            </div>
+            <h3>Agendamiento inteligente</h3>
+            <p>Confirmaciones, recordatorios y reagendamientos automáticos para consultorios, estudios y servicios.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><path d="M2 20h20"/></svg>
+            </div>
+            <h3>Reportes ejecutivos automatizados</h3>
+            <p>Los datos que importan llegan directo a tu celular cada mañana, consolidados y listos para tomar decisiones.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-7-7 18-2.5-7.5L3 11z"/></svg>
+            </div>
+            <h3>Paid Media + Automatización</h3>
+            <p>Campañas en Meta y Google que traen leads, más flujos que los califican y dan seguimiento automáticamente.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EL PROBLEMA
+    ============================================================ -->
+    <section id="problema" aria-labelledby="problema-title">
+      <div class="container">
+        <span class="label reveal">El problema</span>
+        <div class="problema-grid">
+
+          <div class="problema-text">
+            <h2 id="problema-title" class="reveal" style="margin-top:20px;">Demasiado tiempo en cosas que no necesitan tu talento.</h2>
+
+            <p class="problema-lead reveal">
+              El médico que confirma citas por teléfono.<br />
+              El dueño del restaurante que toma pedidos a mano.<br />
+              El gerente del fondo que consolida datos en Excel.
+            </p>
+
+            <p class="reveal">
+              No es que no sean buenos en lo que hacen.<br />
+              Es que están usando su tiempo en tareas que una máquina puede resolver.
+            </p>
+
+            <ul class="pain-list" aria-label="Problemas operativos comunes">
+              <li class="pain-item">
+                <div class="pain-icon" aria-hidden="true">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                Confirmar citas y pedidos manualmente
+              </li>
+              <li class="pain-item">
+                <div class="pain-icon" aria-hidden="true">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                Hacer seguimiento a leads uno por uno
+              </li>
+              <li class="pain-item">
+                <div class="pain-icon" aria-hidden="true">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                Consolidar información de múltiples fuentes
+              </li>
+              <li class="pain-item">
+                <div class="pain-icon" aria-hidden="true">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                Responder las mismas preguntas todo el día
+              </li>
+              <li class="pain-item">
+                <div class="pain-icon" aria-hidden="true">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                Armar reportes que podrían generarse solos
+              </li>
+              <li class="pain-item">
+                <div class="pain-icon" aria-hidden="true">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                Atender consultas básicas fuera de horario
+              </li>
+            </ul>
+
+            <p class="problema-closing reveal">Eso no es operar. Eso es sobrevivir.</p>
           </div>
 
-          <div class="sector-chip" role="listitem">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-              <rect x="1" y="3" width="15" height="13" rx="1"/>
-              <path d="M16 8h4l3 3v5h-7V8z"/>
-              <circle cx="5.5" cy="18.5" r="2.5"/>
-              <circle cx="18.5" cy="18.5" r="2.5"/>
-            </svg>
-            Concesionarios
-          </div>
-
-          <div class="sector-chip" role="listitem">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-              <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
-              <line x1="6" y1="1" x2="6" y2="4"/>
-              <line x1="10" y1="1" x2="10" y2="4"/>
-              <line x1="14" y1="1" x2="14" y2="4"/>
-            </svg>
-            Restaurantes
-          </div>
-
-          <div class="sector-chip" role="listitem">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-              <circle cx="9" cy="21" r="1"/>
-              <circle cx="20" cy="21" r="1"/>
-              <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.96-1.61L23 6H6"/>
-            </svg>
-            Ecommerce
-          </div>
-
-          <div class="sector-chip" role="listitem">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-              <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-            Educación
-          </div>
-
-          <div class="sector-chip" role="listitem">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-              <line x1="8" y1="22" x2="8" y2="3"/>
-              <line x1="3" y1="22" x2="13" y2="22"/>
-              <line x1="2" y1="3" x2="22" y2="3"/>
-              <line x1="2" y1="3" x2="2" y2="7"/>
-              <line x1="17" y1="3" x2="17" y2="15"/>
-              <path d="M15 15 Q15 18 17 17"/>
-            </svg>
-            Constructoras
-          </div>
-
-          <div class="sector-chip" role="listitem">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-              <polyline points="9 22 9 12 15 12 15 22"/>
-            </svg>
-            Inmobiliarias
-          </div>
-
-          <div class="sector-chip" role="listitem">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-              <path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
-              <line x1="6" y1="1" x2="6" y2="4"/>
-              <line x1="10" y1="1" x2="10" y2="4"/>
-              <line x1="14" y1="1" x2="14" y2="4"/>
-            </svg>
-            Gimnasios y bienestar
+          <div class="problema-visual reveal" aria-hidden="true">
+            <div class="bubble-glow"></div>
+            <div class="bubble bubble-1">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="bubble bubble-2">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </div>
+            <div class="bubble bubble-3">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="bubble bubble-4">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
           </div>
 
         </div>
@@ -2484,14 +1574,14 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
     </section>
 
     <!-- ============================================================
-         SECTION 07 — PROCESO
+         PROCESO
     ============================================================ -->
     <section id="proceso" aria-labelledby="proceso-title">
       <div class="container">
 
         <div class="section-header">
           <span class="label reveal">Cómo trabajamos</span>
-          <h2 id="proceso-title" class="reveal" style="margin-top:20px;">Simple para ti. Poderoso por dentro.</h2>
+          <h2 id="proceso-title" class="reveal" style="margin-top:20px; margin-bottom:0;">Simple para ti. Preciso por dentro.</h2>
         </div>
 
         <div class="proceso-steps">
@@ -2500,31 +1590,31 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
             <div class="step-number" aria-hidden="true">01</div>
             <div>
               <h3>Diagnóstico</h3>
-              <p>Antes de proponer cualquier solución, entendemos tu negocio. Qué haces manualmente, cuánto tiempo te toma y cuánto te cuesta ese tiempo.</p>
+              <p>Entendemos tu operación antes de proponer nada. Qué haces manualmente, cuánto tiempo toma, cuánto cuesta ese tiempo.</p>
             </div>
           </div>
 
           <div class="step reveal">
             <div class="step-number" aria-hidden="true">02</div>
             <div>
-              <h3>Diseño de la solución</h3>
-              <p>Proponemos exactamente qué se va a automatizar, qué resultado genera y cuánto vale. Sin jerga técnica. Solo tiempo recuperado y dinero generado.</p>
+              <h3>Diseño</h3>
+              <p>Definimos exactamente qué se automatiza, cómo funciona y qué resultado genera. Sin jerga técnica.</p>
             </div>
           </div>
 
           <div class="step reveal">
             <div class="step-number" aria-hidden="true">03</div>
             <div>
-              <h3>Implementación</h3>
-              <p>Construimos y desplegamos el flujo. Ves el sistema funcionando antes de pagar el precio completo. Los pilotos son parte del proceso.</p>
+              <h3>Construcción</h3>
+              <p>Construimos y probamos el sistema. Lo ves funcionando antes de pagar el total.</p>
             </div>
           </div>
 
           <div class="step reveal">
             <div class="step-number" aria-hidden="true">04</div>
             <div>
-              <h3>Acompañamiento continuo</h3>
-              <p>El sistema queda activo y monitoreado. Si algo cambia en tu negocio, el flujo se adapta. No es un proyecto que se entrega y se olvida.</p>
+              <h3>Acompañamiento</h3>
+              <p>El sistema queda activo y monitoreado. Si algo cambia en tu negocio, el flujo se adapta.</p>
             </div>
           </div>
 
@@ -2533,108 +1623,70 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
     </section>
 
     <!-- ============================================================
-         SECTION 08 — EQUIPO
+         SECTORES
+    ============================================================ -->
+    <section id="sectores" aria-labelledby="sectores-title">
+      <div class="container">
+
+        <div class="sectores-header">
+          <span class="label reveal">A quién le servimos</span>
+          <h2 id="sectores-title" class="reveal" style="margin-top:20px;">Sectores donde operamos</h2>
+        </div>
+
+        <div class="chips-container reveal" role="list" aria-label="Sectores atendidos">
+          <div class="sector-chip" role="listitem">Salud y bienestar</div>
+          <div class="sector-chip" role="listitem">Restaurantes y servicios</div>
+          <div class="sector-chip" role="listitem">Fondos de inversión</div>
+          <div class="sector-chip" role="listitem">Ecommerce</div>
+          <div class="sector-chip" role="listitem">Concesionarios</div>
+          <div class="sector-chip" role="listitem">Educación</div>
+          <div class="sector-chip" role="listitem">Servicios profesionales</div>
+          <div class="sector-chip" role="listitem">Inmobiliarias</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FUNDADOR
     ============================================================ -->
     <section id="nosotros" aria-labelledby="nosotros-title">
       <div class="container">
-        <h2 id="nosotros-title" style="display:none;">Quién está detrás de Automa</h2>
-
-        <div class="team-carousel-wrap reveal">
-
-          <div class="carousel-header">
+        <div class="founder-grid reveal">
+          <div aria-hidden="true">
+            <div class="founder-photo-wrap">
+              <div class="founder-glow"></div>
+              <img src="Foto_CV.jpg" alt="Juan Campo, Fundador de Automa" />
+            </div>
+          </div>
+          <div>
             <span class="label">El equipo</span>
-            <div class="carousel-controls" role="group" aria-label="Controles del carrusel">
-              <button class="carousel-btn" id="teamPrev" aria-label="Perfil anterior">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-              </button>
-              <span class="carousel-counter" id="teamCounter" aria-live="polite">1 / 2</span>
-              <button class="carousel-btn" id="teamNext" aria-label="Siguiente perfil">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
+            <h2 id="nosotros-title" class="founder-name" style="margin-top:16px;">Juan Campo</h2>
+            <p class="founder-role">Fundador · Ingeniero Industrial · MSc Marketing</p>
+
+            <p class="founder-bio">Estudié Ingeniería Industrial en la Javeriana. Luego hice un Máster en Marketing en Barcelona.</p>
+            <p class="founder-bio">Trabajé en Omnicom Media Group gestionando pauta para Frito Lay, Gatorade y Kaiser Permanente. Después lideré ecommerce en Amazon para mercados europeos en Mars Inc.</p>
+            <p class="founder-bio">De regreso en Colombia, vi un patrón: los dueños de negocio más talentosos del país perdiendo horas en tareas que no los necesitaban a ellos.</p>
+            <p class="founder-bio">Automa existe para resolver eso.</p>
+
+            <div class="founder-quote">
+              <p>"No construimos tecnología por construirla. Construimos sistemas que liberan tiempo real para personas reales."</p>
+              <cite>— Juan Campo, Fundador</cite>
+            </div>
+
+            <div class="credential-badges" role="list" aria-label="Credenciales">
+              <span class="badge" role="listitem">🎓 Ing. Industrial · Javeriana</span>
+              <span class="badge" role="listitem">🎓 MSc Marketing · ESIC Barcelona</span>
+              <span class="badge" role="listitem">💼 Ex Omnicom Media Group</span>
+              <span class="badge" role="listitem">💼 Ex Mars Inc. · Barcelona</span>
             </div>
           </div>
-
-          <div class="carousel-viewport">
-            <div class="team-carousel-track" id="teamTrack">
-
-              <!-- SLIDE 1: Juan Campo -->
-              <div class="founder-grid">
-                <div aria-hidden="true">
-                  <div class="founder-photo-wrap">
-                    <div class="founder-glow"></div>
-                    <img src="Foto_CV.jpg" alt="Juan Campo, Fundador de Automa" />
-                  </div>
-                </div>
-                <div>
-                  <p class="founder-name">Juan Campo</p>
-                  <p class="founder-role">Fundador · Ingeniero Industrial · MSc Marketing</p>
-                  <p class="founder-bio">Ingeniero Industrial de la Pontificia Universidad Javeriana. Máster en Marketing por ESIC Business School en Barcelona. Gestionó pauta digital para Frito Lay, Gatorade y Kaiser Permanente en Omnicom Media Group. Lideró operaciones de ecommerce en Amazon para mercados europeos en Mars Inc.</p>
-                  <p class="founder-bio">De regreso en Colombia, unió tres capacidades en un solo modelo: la ingeniería para mapear procesos, el marketing para traer clientes, y la IA para automatizarlo todo. Ese ciclo completo es Automa.</p>
-                  <div class="credential-badges" role="list" aria-label="Credenciales">
-                    <span class="badge" role="listitem">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                      Ing. Industrial · Javeriana
-                    </span>
-                    <span class="badge" role="listitem">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                      MSc Marketing · ESIC Barcelona
-                    </span>
-                    <span class="badge" role="listitem">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
-                      Ex Omnicom · Ex Mars Inc.
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- SLIDE 2: Pablo David Lozano -->
-              <div class="founder-grid">
-                <div aria-hidden="true">
-                  <div class="founder-photo-wrap">
-                    <div class="founder-glow"></div>
-                    <img src="PabloCV.jpg" alt="Pablo David Lozano Calderón, Cofundador de Automa" />
-                  </div>
-                </div>
-                <div>
-                  <p class="founder-name">Pablo David Lozano</p>
-                  <p class="founder-role">Cofundador &amp; Director de Operaciones · Ing. Civil · MBA</p>
-                  <p class="founder-bio">Ingeniero Civil de la Pontificia Universidad Javeriana con MBA en Gestión Internacional de la Edificación y Construcción por la Universidad Europea de Madrid. A lo largo de su carrera lideró proyectos de infraestructura de alto impacto, con foco en control de costos, eficiencia operativa y toma de decisiones basada en datos.</p>
-                  <p class="founder-bio">Esa misma mentalidad de ingeniería de procesos es la que aplica hoy en Automa: identificar dónde se pierde tiempo y dinero en una operación, y construir los sistemas que lo eliminan.</p>
-                  <div class="credential-badges" role="list" aria-label="Habilidades">
-                    <span class="badge" role="listitem">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                      Ingeniería de Procesos
-                    </span>
-                    <span class="badge" role="listitem">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                      Control Operativo
-                    </span>
-                    <span class="badge" role="listitem">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                      Automatización con IA
-                    </span>
-                    <span class="badge" role="listitem">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/></svg>
-                      Gestión de Proyectos
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="carousel-dots" role="tablist" aria-label="Navegación del equipo">
-            <button class="carousel-dot active" role="tab" aria-selected="true" data-index="0" aria-label="Juan Campo"></button>
-            <button class="carousel-dot" role="tab" aria-selected="false" data-index="1" aria-label="Pablo David Lozano"></button>
-          </div>
-
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         SECTION 09 — CONTACTO
+         CONTACTO
     ============================================================ -->
     <section id="contacto" aria-labelledby="contacto-title">
       <div class="contacto-deco-1" aria-hidden="true"></div>
@@ -2645,12 +1697,11 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
 
           <div class="contacto-header">
             <span class="label reveal">Contacto</span>
-            <h2 id="contacto-title" class="reveal" style="margin-top:20px; margin-bottom:16px;">Hablemos de tu negocio</h2>
-            <p class="subtitle reveal">Cuéntanos qué proceso te está consumiendo más tiempo. Si lo podemos automatizar, te lo decimos en la primera llamada. Sin rodeos.</p>
+            <h2 id="contacto-title" class="reveal" style="margin-top:20px;">Cuéntanos qué proceso quieres automatizar.</h2>
+            <p class="subtitle reveal">Si lo podemos resolver, te lo decimos en la primera llamada. Sin compromiso.</p>
           </div>
 
           <div class="contact-form-wrap reveal">
-
             <form id="contactForm" novalidate aria-label="Formulario de contacto">
 
               <div class="form-group">
@@ -2670,12 +1721,13 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
                 <select id="sector" name="sector" required>
                   <option value="" disabled selected>Selecciona tu sector</option>
                   <option value="salud">Salud y bienestar</option>
-                  <option value="concesionario">Concesionario / distribución</option>
-                  <option value="restaurante">Restaurante / servicio</option>
+                  <option value="restaurante">Restaurantes y servicios</option>
+                  <option value="fondo">Fondos de inversión</option>
                   <option value="ecommerce">Ecommerce</option>
+                  <option value="concesionario">Concesionarios</option>
                   <option value="educacion">Educación</option>
                   <option value="servicios">Servicios profesionales</option>
-                  <option value="inmobiliaria">Inmobiliaria</option>
+                  <option value="inmobiliaria">Inmobiliarias</option>
                   <option value="otro">Otro</option>
                 </select>
                 <span class="field-error" id="error-sector" role="alert"></span>
@@ -2688,7 +1740,7 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
               </div>
 
               <button type="submit" class="btn-submit" id="btnSubmit">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#030305" aria-hidden="true" style="flex-shrink:0;">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
                 <span id="btnText">Enviar por WhatsApp →</span>
@@ -2696,21 +1748,16 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
 
               <div class="form-success-inline" id="formSuccessMsg" role="alert" aria-live="polite">
                 <p>¡Listo! Te estamos redirigiendo a WhatsApp.<br>
-                Si no abre automáticamente, <a href="https://wa.me/573186041541" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" title="Escríbenos por WhatsApp — Automa">escríbenos directo</a>.</p>
+                Si no abre automáticamente, <a href="https://wa.me/573186041541" target="_blank" rel="noopener noreferrer">escríbenos directo</a>.</p>
               </div>
 
             </form>
-
           </div>
 
-          <div class="contacto-divider reveal">
-            <span>¿Prefieres escribir directo?</span>
-          </div>
+          <div class="contacto-divider reveal"><span>¿Prefieres escribir directo?</span></div>
 
           <div class="reveal" style="text-align:center;">
-            <a href="https://wa.me/573186041541" target="_blank" rel="noopener noreferrer" class="direct-wa-link" aria-label="Contactar por WhatsApp" title="Escríbenos por WhatsApp — Automa">
-              O escríbenos directamente →
-            </a>
+            <a href="https://wa.me/573186041541" target="_blank" rel="noopener noreferrer" class="direct-wa-link">O escríbenos directamente →</a>
           </div>
 
         </div>
@@ -2728,41 +1775,28 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
       <div class="footer-grid">
 
         <div class="footer-brand">
-          <p class="footer-logo"><span style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; color: #FAFAFA; letter-spacing: -0.02em;">Automa</span></p>
-          <p class="footer-tagline">Tu negocio operando solo,<br />aunque no estés mirando.</p>
-          <div class="footer-meta">
-            <span>Colombia · 2026</span>
-            <a href="https://wa.me/573186041541" target="_blank" rel="noopener noreferrer" class="footer-wa" aria-label="Contactar por WhatsApp" title="Escríbenos por WhatsApp — Automa">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
-              +57 318 604 1541
-            </a>
-          </div>
+          <p class="footer-logo">Automa</p>
+          <p class="footer-tagline">Automatización con IA para negocios reales</p>
+          <p class="footer-meta">Bogotá, Colombia · 2026</p>
         </div>
 
         <nav class="footer-links" aria-label="Navegación footer">
           <a href="#servicios">Servicios</a>
-          <a href="#casos">Casos de uso</a>
+          <a href="#casos">Casos</a>
           <a href="#proceso">Proceso</a>
           <a href="#nosotros">Nosotros</a>
           <a href="#contacto">Contacto</a>
         </nav>
 
         <div class="footer-right">
-          <p>Automatización con IA<br />para negocios reales<br />en Latinoamérica</p>
-          <div class="footer-right-wa">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="#10B981" aria-hidden="true">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            <a href="https://wa.me/573186041541" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" title="Escríbenos por WhatsApp — Automa">Escríbenos por WhatsApp</a>
-          </div>
+          <p>flowautomainfo@gmail.com</p>
+          <p>+57 318 604 1541</p>
         </div>
 
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 Automa · Todos los derechos reservados</p>
+        <p>© 2026 Automa — C&amp;L RDM SAS · NIT 901713525</p>
         <div class="footer-legal-links">
           <a href="privacidad.html">Política de Privacidad</a>
           <a href="terminos.html">Términos y Condiciones</a>
@@ -2776,16 +1810,12 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
        JAVASCRIPT
   ============================================================ -->
   <script>
-    // ----------------------------------------------------------
     // 1. PAGE LOAD — hero animation
-    // ----------------------------------------------------------
     document.addEventListener('DOMContentLoaded', function() {
       document.body.classList.add('loaded');
     });
 
-    // ----------------------------------------------------------
-    // 2. SMOOTH SCROLL for anchor links
-    // ----------------------------------------------------------
+    // 2. SMOOTH SCROLL
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
         var target = document.querySelector(this.getAttribute('href'));
@@ -2798,9 +1828,7 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
       });
     });
 
-    // ----------------------------------------------------------
     // 3. NAVBAR scroll + active state
-    // ----------------------------------------------------------
     var navbar = document.getElementById('navbar');
     var navLinks = document.querySelectorAll('.nav-links a');
     var sections = document.querySelectorAll('section[id]');
@@ -2825,13 +1853,10 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
         }
       });
     }
-
     window.addEventListener('scroll', handleNavbarScroll, { passive: true });
     handleNavbarScroll();
 
-    // ----------------------------------------------------------
     // 4. MOBILE MENU
-    // ----------------------------------------------------------
     var hamburgerBtn = document.getElementById('hamburgerBtn');
     var mobileMenu   = document.getElementById('mobileMenu');
 
@@ -2858,17 +1883,13 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
       }
     });
 
-    // ----------------------------------------------------------
     // 5. SCROLL REVEAL via IntersectionObserver
-    // ----------------------------------------------------------
     var revealEls = document.querySelectorAll('.reveal');
-
     if ('IntersectionObserver' in window) {
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
-            // Stagger children of grids
-            var parent = entry.target.closest('.cards-row, .uso-grid, .proceso-steps');
+            var parent = entry.target.closest('.production-grid, .services-grid, .proceso-steps');
             if (parent) {
               var siblings = parent.querySelectorAll('.reveal');
               siblings.forEach(function(sib, i) {
@@ -2879,21 +1900,14 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
             observer.unobserve(entry.target);
           }
         });
-      }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-      });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-      revealEls.forEach(function(el) {
-        observer.observe(el);
-      });
+      revealEls.forEach(function(el) { observer.observe(el); });
     } else {
       revealEls.forEach(function(el) { el.classList.add('visible'); });
     }
 
-    // ----------------------------------------------------------
     // 6. CURSOR GLOW (desktop only)
-    // ----------------------------------------------------------
     if (window.matchMedia('(pointer: fine)').matches) {
       var glow = document.getElementById('cursorGlow');
       glow.style.display = 'block';
@@ -2903,9 +1917,7 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
       });
     }
 
-    // ----------------------------------------------------------
     // 7. FORM SUBMIT — WhatsApp integration
-    // ----------------------------------------------------------
     var contactForm   = document.getElementById('contactForm');
     var btnSubmit     = document.getElementById('btnSubmit');
     var btnText       = document.getElementById('btnText');
@@ -2941,7 +1953,6 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
         }
         fieldEl.addEventListener('input', clearOnInput);
         fieldEl.addEventListener('change', clearOnInput);
-
       } else {
         formGroup.classList.remove('has-error');
         errorEl.textContent = '';
@@ -2951,7 +1962,6 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
 
     function shakeButton() {
       btnSubmit.classList.remove('shake');
-      // Force reflow to restart animation
       void btnSubmit.offsetWidth;
       btnSubmit.classList.add('shake');
       btnSubmit.addEventListener('animationend', function() {
@@ -2966,13 +1976,10 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
       var wapp    = document.getElementById('whatsapp').value.trim();
       var sectorEl = document.getElementById('sector');
       var sector  = sectorEl.value;
-      var sectorLabel = sector
-        ? sectorEl.options[sectorEl.selectedIndex].text
-        : '';
+      var sectorLabel = sector ? sectorEl.options[sectorEl.selectedIndex].text : '';
       var proceso = document.getElementById('proceso-input').value.trim();
 
       var hasErrors = false;
-
       if (!nombre)  { showError('nombre', true);        hasErrors = true; }
       if (!wapp)    { showError('whatsapp', true);      hasErrors = true; }
       if (!sector)  { showError('sector', true);        hasErrors = true; }
@@ -2987,7 +1994,6 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
         return;
       }
 
-      // Build WhatsApp message
       var msg = 'Hola Juan, me interesa automatizar mi negocio.\n\n'
               + 'Mis datos:\n'
               + '- Nombre: ' + nombre + '\n'
@@ -2999,16 +2005,14 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
       var waUrl = 'https://wa.me/573186041541?text=' + encodeURIComponent(msg);
       window.open(waUrl, '_blank', 'noopener,noreferrer');
 
-      // Show inline success message
       formSuccessMsg.style.display = 'block';
       formSuccessMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
-      // Update button state
       btnSubmit.disabled = true;
       btnText.textContent = '¡Enviado — revisa WhatsApp';
     });
 
-    // ---- Problem cards staggered fade-in ----
+    // 8. Pain list staggered fade-in
     (function () {
       var items = document.querySelectorAll('.pain-item');
       if (!items.length || !window.IntersectionObserver) {
@@ -3028,35 +2032,6 @@ src="https://www.facebook.com/tr?id=2764807580521357&ev=PageView&noscript=1"
         item.dataset.delay = i * 90;
         io.observe(item);
       });
-    }());
-
-    // ---- Team Carousel ----
-    (function () {
-      var track = document.getElementById('teamTrack');
-      var prevBtn = document.getElementById('teamPrev');
-      var nextBtn = document.getElementById('teamNext');
-      var counter = document.getElementById('teamCounter');
-      var dots = document.querySelectorAll('.carousel-dot');
-      var current = 0;
-      var total = dots.length;
-
-      function goTo(index) {
-        current = index;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
-        counter.textContent = (current + 1) + ' / ' + total;
-        dots.forEach(function (d, i) {
-          d.classList.toggle('active', i === current);
-          d.setAttribute('aria-selected', i === current ? 'true' : 'false');
-        });
-        prevBtn.disabled = current === 0;
-        nextBtn.disabled = current === total - 1;
-      }
-
-      prevBtn.addEventListener('click', function () { if (current > 0) goTo(current - 1); });
-      nextBtn.addEventListener('click', function () { if (current < total - 1) goTo(current + 1); });
-      dots.forEach(function (d, i) { d.addEventListener('click', function () { goTo(i); }); });
-
-      goTo(0);
     }());
   </script>
 
