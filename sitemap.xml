@@ -3,10 +3,22 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.flowautoma.com/</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es-co"
       href="https://www.flowautoma.com/"/>
+  </url>
+  <url>
+    <loc>https://www.flowautoma.com/privacidad.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.flowautoma.com/terminos.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
