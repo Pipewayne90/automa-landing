@@ -261,8 +261,8 @@
   .hero-visual { grid-column: 7 / 13; position: relative; }
   .hero .lead { margin-bottom: 32px; }
   .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
-  .assure { margin-top: 32px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding-top: 24px; border-top: 1px solid var(--line); }
-  .assure li { display: flex; align-items: flex-start; gap: 8px; font-size: .875rem; line-height: 1.45; color: var(--ink-2); }
+  .assure { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px 24px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .assure li { display: flex; align-items: flex-start; gap: 8px; white-space: nowrap; font-size: .875rem; line-height: 1.45; color: var(--ink-2); }
   .assure .ico-check { margin-top: 2px; }
   /* The one decorative element of the hero: a soft emerald glow. */
   .hero-glow { position: absolute; z-index: 0; inset: -96px -120px -64px -64px; pointer-events: none; background: radial-gradient(50% 50% at 55% 50%, rgba(16,185,129,.16), rgba(16,185,129,0) 70%); }
@@ -274,7 +274,7 @@
   /* ============================================================
      08 · PROBLEMA
   ============================================================ */
-  .problem-copy { grid-column: 1 / 7; }
+  .problem-copy { grid-column: 1 / 7; align-self: center; }
   .problem-copy .lead { margin-top: 32px; }
   .problem-copy .lead + .lead { margin-top: 16px; }
   .problem-visual { grid-column: 8 / 13; }
@@ -330,7 +330,7 @@
      12 · CASOS (dark band)
   ============================================================ */
   #casos, #contacto { padding: 0; }
-  #contacto { padding-top: var(--pad); }
+  #contacto { background: linear-gradient(var(--bg-soft) 50%, var(--bg) 50%); }
   .case { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 72px; align-items: center; margin-bottom: 112px; }
   .case:last-of-type { margin-bottom: 0; }
   .case.reverse .case-visual { order: 2; }
@@ -403,9 +403,11 @@
      16 · FOOTER
   ============================================================ */
   footer { padding: 80px 0 40px; }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; }
+  .footer-grid { display: grid; grid-template-columns: 5fr 4fr 3fr; gap: 48px; }
   .footer-brand .small { margin-top: 12px; max-width: 28em; }
   .footer-h { font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); margin-bottom: 8px; }
+  .footer-nav { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; align-content: start; }
+  .footer-nav .footer-h { grid-column: 1 / -1; }
   .footer-col a { display: flex; align-items: center; min-height: 40px; font-size: .9375rem; color: var(--muted); transition: color .2s var(--ease); }
   .footer-col a:hover { color: var(--ink); }
   .footer-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: .8125rem; color: var(--muted); }
@@ -434,7 +436,7 @@
   .feed-card { padding: 28px; max-width: 508px; margin-left: auto; }
   .feed-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 16px; margin-bottom: 4px; border-bottom: 1px solid var(--line); }
   .feed-title { font-weight: 600; font-size: 16px; color: var(--ink); }
-  .feed-sample { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); padding: 4px 10px; border-radius: 100px; background: var(--slate-100); }
+  .feed-sample { white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); padding: 4px 10px; border-radius: 100px; background: var(--slate-100); }
   .feed-sample i { width: 6px; height: 6px; border-radius: 50%; background: #94A3B8; display: block; }
   .feed-item { display: grid; grid-template-rows: 1fr; opacity: 1; transition: grid-template-rows .5s var(--ease), opacity .5s var(--ease), transform .5s var(--ease); }
   .feed-item > div { overflow: hidden; min-height: 0; }
@@ -584,8 +586,12 @@
     .hero h1 { margin-bottom: 24px; }
     .hero .lead { font-size: 1.0625rem; margin-bottom: 24px; }
     .hero-ctas .btn { width: 100%; }
-    .assure { grid-template-columns: 1fr; gap: 10px; margin-top: 24px; padding-top: 20px; }
+    .assure { flex-direction: column; gap: 10px; margin-top: 24px; padding-top: 20px; }
+    .assure li { white-space: normal; }
     .hero-glow { inset: -40px -24px -40px -24px; }
+    .feed-card, .day-card { padding: 20px; }
+    .feed-title { font-size: 15px; }
+    .feed-text { font-size: 14px; }
     .svc-grid { grid-template-columns: 1fr; gap: 40px; }
 
     /* Timeline turns vertical: connectors run down the tile column. */
@@ -1216,7 +1222,7 @@
           <p class="wordmark">Automa</p>
           <p class="small">Automatización con inteligencia artificial para negocios reales. Bogotá, Colombia.</p>
         </div>
-        <nav class="footer-col" aria-label="Navegación del pie de página">
+        <nav class="footer-col footer-nav" aria-label="Navegación del pie de página">
           <p class="footer-h">Navegación</p>
           <a href="#problema">Problema</a>
           <a href="#servicios">Servicios</a>
