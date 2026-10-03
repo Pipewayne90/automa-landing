@@ -41,11 +41,13 @@
   <!-- ===================== FONTS ===================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;600&display=swap">
 
   <style>
   /* ============================================================
-     01 · RESET & TOKENS
+     01 · TOKENS
+     Type: two families, five styles (Display, Lead, Title, Body, Label)
+     plus the price. Spacing: 8 12 16 24 32 48 64 96 128. Radius: 8 16 24.
   ============================================================ */
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -69,106 +71,96 @@
     --dink-1: #C7CEDB;
     --dink-2: #8B95A7;
     --border: #E5E7EB;
-    --border-mid: #D5D9E0;
-    --dborder: rgba(255,255,255,0.09);
-    --warn-soft: #FEF2F2;
-    --warn-edge: #FCA5A5;
-    --warn: #DC2626;
-    --sh-sm: 0 1px 2px rgba(10,14,23,.05);
-    --sh-md: 0 4px 16px rgba(10,14,23,.06);
-    --sh-lg: 0 12px 32px rgba(10,14,23,.08);
-    --sh-xl: 0 24px 56px rgba(10,14,23,.10);
-    --sh-acc: 0 8px 28px rgba(5,150,105,.22);
+    --dborder: rgba(255,255,255,0.10);
+    --sh-card: 0 16px 48px rgba(10,14,23,.08);
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
     --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
     --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   }
 
-  html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; -webkit-text-size-adjust: 100%; }
 
   body {
     background: var(--bg-0);
-    color: var(--ink-1);
+    color: var(--ink-2);
     font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.65;
+    font-variant-numeric: tabular-nums;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection { background: rgba(5,150,105,.18); color: #0A0E17; }
-
   img, svg { display: block; max-width: 100%; }
-  ul { list-style: none; }
+  ul, ol { list-style: none; }
   a { color: inherit; text-decoration: none; }
   button { font: inherit; color: inherit; background: none; border: none; }
 
-  :focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-    border-radius: 6px;
-  }
-  .slab :focus-visible, footer :focus-visible {
-    outline-color: var(--accent-lite);
-  }
+  :focus-visible { outline: 2px solid var(--accent-deep); outline-offset: 3px; border-radius: 8px; }
+  .slab :focus-visible, footer :focus-visible { outline-color: var(--accent-lite); }
 
   /* ============================================================
-     02 · TYPE SCALE
+     02 · TYPE — the only five text styles outside the mockups
   ============================================================ */
-  h1, h2, h3 { color: var(--ink-0); }
-
-  h1 {
+  /* DISPLAY: h1 and h2 share one size; hierarchy comes from position
+     and whitespace, not from a second display size. */
+  h1, h2 {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(40px, 5.4vw, 70px);
-    line-height: 1.0;
-    letter-spacing: -0.025em;
-    text-wrap: balance;
-  }
-  h2 {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(36px, 5vw, 62px);
+    font-size: clamp(40px, 4.5vw, 64px);
     line-height: 1.04;
     letter-spacing: -0.02em;
+    color: var(--ink-0);
     text-wrap: balance;
-    max-width: 16ch;
   }
-  p, li, blockquote { text-wrap: pretty; }
-  /* Instrument Serif is too delicate below 28px: h3 stays in Geist. */
-  h3 {
+  h2 { max-width: 16ch; }
+  .accent { font-style: italic; color: var(--accent-deep); white-space: nowrap; }
+  .accent.wraps { white-space: normal; }
+
+  /* LEAD */
+  .lead { font-size: 18px; line-height: 1.6; font-weight: 400; color: var(--ink-1); max-width: 36em; }
+  /* TITLE (h3, buttons, questions) */
+  h3, .title { font-family: var(--font-sans); font-size: 18px; line-height: 1.35; font-weight: 600; color: var(--ink-0); letter-spacing: -0.01em; }
+  /* BODY */
+  p, li { text-wrap: pretty; }
+  .body { font-size: 15px; line-height: 1.65; font-weight: 400; color: var(--ink-2); max-width: 36em; }
+  /* LABEL */
+  .label {
     font-family: var(--font-sans);
     font-weight: 600;
-    font-size: clamp(17px, 1.9vw, 20px);
-    line-height: 1.35;
-    letter-spacing: -0.01em;
-  }
-
-  /* The signature: one italic emerald phrase per headline. */
-  /* --accent-deep: 5.5:1 on white; --accent (3.8:1) only passes as large text. */
-  .accent { font-style: italic; color: var(--accent-deep); white-space: nowrap; }
-  /* Phrases longer than three words may wrap. */
-  .accent.wraps { white-space: normal; }
-  .slab .accent { color: var(--accent-lite); }
-
-  .lead { font-size: 19px; line-height: 1.65; color: var(--ink-1); }
-  .small { font-size: 14px; line-height: 1.6; color: var(--ink-2); }
-  .label {
-    font-family: var(--font-mono);
-    font-weight: 500;
     font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
     line-height: 1.4;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
   }
-  .num { font-family: var(--font-mono); font-weight: 500; font-size: .94em; letter-spacing: -0.01em; }
+
+  .slab h1, .slab h2, .slab h3, .slab .title { color: var(--dink-0); }
+  .slab .accent { color: var(--accent-lite); }
+  .slab .lead { color: var(--dink-1); }
+  .slab .body { color: var(--dink-1); }
+  .slab .label { color: var(--dink-2); }
+
+  /* Text links: the one green inline text. */
+  .link {
+    display: inline-flex; align-items: center; gap: 8px;
+    min-height: 44px;
+    font-size: 15px; font-weight: 400;
+    color: var(--accent-deep);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+  .link:hover { text-decoration-thickness: 2px; }
+  .link svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.75; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 
   /* ============================================================
      03 · LAYOUT
   ============================================================ */
   .container { max-width: 1140px; margin-inline: auto; padding-inline: 24px; }
+  .grid12 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; }
 
   section { padding: 96px 0; position: relative; }
   .has-rule { border-top: 1px solid var(--border); }
@@ -178,1427 +170,457 @@
     margin-inline: auto;
     width: calc(100% - 32px);
     background: var(--dark-0);
-    border-radius: 32px;
+    border-radius: 24px;
     padding: 96px 0;
     position: relative;
-    z-index: 2;
     overflow: hidden;
-  }
-  .slab h1, .slab h2, .slab h3 { color: var(--dink-0); }
-  .slab .lead { color: var(--dink-1); }
-  .slab .small { color: var(--dink-2); }
-  .slab-deco { position: absolute; inset: 0; pointer-events: none; }
-
-  /* Warm paper: a fine grain fixed over the light page. The slabs and the
-     footer sit above it (z-index 2), so the grain never touches them. */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.025;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size: 180px 180px;
   }
 
   .skip-link {
-    position: absolute;
-    left: 16px; top: -60px;
-    z-index: 200;
-    background: var(--accent);
-    color: #fff;
-    font-weight: 600; font-size: 14px;
-    padding: 12px 20px;
-    border-radius: 0 0 10px 10px;
-    transition: top .2s var(--ease);
+    position: absolute; left: 16px; top: -64px; z-index: 200;
+    background: var(--ink-0); color: #fff;
+    font-weight: 600; font-size: 15px;
+    padding: 12px 24px; border-radius: 0 0 8px 8px;
   }
   .skip-link:focus { top: 0; }
 
-  /* ============================================================
-     04 · COMPONENTS
-  ============================================================ */
-  /* Editorial section index: "01 — El problema" + a hairline to the edge. */
-  .sec-index {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 40px;
-    color: var(--ink-2);
-    white-space: nowrap;
-  }
-  .sec-index::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--border-mid);
-  }
-  .sec-index b { font-weight: 500; color: var(--accent-deep); }
-  .slab .sec-index { color: var(--dink-2); }
+  /* Section index: "01 — El problema" and a hairline to the edge. */
+  .sec-index { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; white-space: nowrap; }
+  .sec-index::after { content: ""; flex: 1; height: 1px; background: var(--border); }
   .slab .sec-index::after { background: var(--dborder); }
-  .slab .sec-index b { color: var(--accent-lite); }
 
-  /* Editorial heads: always left-aligned. Above a grid, the head splits:
-     h2 on columns 1-7, lead on 8-12, bottom-aligned with the h2. */
-  .section-head { text-align: left; max-width: 720px; margin: 0 0 48px; }
-  .section-head .lead { margin-top: 20px; }
-  .section-head.split {
-    max-width: none;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 24px;
-    align-items: end;
-  }
+  .section-head { margin-bottom: 48px; }
+  .section-head .lead { margin-top: 24px; }
+  .section-head.split { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: end; }
   .section-head.split h2 { grid-column: 1 / 8; }
-  .section-head.split .lead { grid-column: 8 / 13; margin-top: 0; font-size: 17px; }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 16px;
-    padding: 16px 28px;
-    border-radius: 12px;
-    min-height: 48px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: transform .2s var(--ease), box-shadow .25s var(--ease), background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
-  }
-  .btn:active { transform: translateY(1px) scale(.99); }
-  .btn svg { flex-shrink: 0; }
-
-  /* White on --accent is 3.8:1; --accent-deep keeps button text above 4.5:1. */
-  .btn-primary { background: var(--accent-deep); color: #fff; box-shadow: var(--sh-acc); }
-  .btn-primary:hover { background: #065F46; transform: translateY(-2px); box-shadow: 0 14px 38px rgba(5,150,105,.30); }
-  .btn-primary::after {
-    content: "";
-    position: absolute;
-    top: -50%; left: -60%;
-    width: 30%; height: 200%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
-    transform: skewX(-20deg);
-    transition: left .55s var(--ease);
-    pointer-events: none;
-  }
-  .btn-primary:hover::after { left: 130%; }
-
-  .btn-secondary {
-    background: #fff;
-    color: var(--ink-1);
-    border: 1px solid var(--border-mid);
-    box-shadow: var(--sh-sm);
-  }
-  .btn-secondary:hover { border-color: var(--ink-3); background: var(--bg-1); color: var(--ink-0); }
-
-  .btn-on-dark { background: var(--accent-lite); color: var(--dark-0); font-weight: 700; }
-  .btn-on-dark:hover { background: #34D399; transform: translateY(-2px); box-shadow: 0 16px 46px rgba(16,185,129,.34); }
-
-  .card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 28px 26px;
-    box-shadow: var(--sh-sm);
-    transition: border-color .26s var(--ease), transform .26s var(--ease), box-shadow .26s var(--ease), background .26s var(--ease);
-  }
-  .card.hoverable:hover { border-color: var(--accent-edge); transform: translateY(-4px); box-shadow: var(--sh-lg); }
-
-  .icon-tile {
-    width: 48px; height: 48px;
-    border-radius: 12px;
-    background: var(--accent-soft);
-    border: 1px solid var(--accent-edge);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    transition: background .26s var(--ease), border-color .26s var(--ease);
-  }
-  .icon-tile svg {
-    width: 22px; height: 22px;
-    stroke: var(--accent);
-    stroke-width: 1.75;
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: stroke .26s var(--ease);
-  }
-  .card.hoverable:hover .icon-tile { background: var(--accent); border-color: var(--accent); }
-  .card.hoverable:hover .icon-tile svg { stroke: #fff; }
-
-  .status-badge {
-    display: inline-flex; align-items: center; gap: 7px;
-    border-radius: 100px;
-    padding: 6px 13px;
-    font-family: var(--font-mono);
-    font-weight: 500; font-size: 12px;
-    letter-spacing: .08em; text-transform: uppercase;
-    background: rgba(16,185,129,.12);
-    border: 1px solid rgba(16,185,129,.28);
-    color: var(--accent-lite);
-    line-height: 1.4;
-  }
-
-  .live-dot {
-    position: relative;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: currentColor;
-    flex-shrink: 0;
-  }
-  .live-dot::after {
-    content: "";
-    position: absolute; inset: 0;
-    border-radius: 50%;
-    background: currentColor;
-    animation: ringOut 2.2s ease-out infinite;
-  }
-  @keyframes ringOut {
-    from { transform: scale(.7); opacity: .55; }
-    to   { transform: scale(1.9); opacity: 0; }
-  }
-
-  .chip {
-    display: inline-flex; align-items: center; justify-content: center;
-    border-radius: 100px;
-    padding: 9px 18px;
-    font-weight: 500; font-size: 14px;
-    min-height: 44px;
-    cursor: pointer;
-    transition: background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
-  }
-
-  .check-list li {
-    display: flex; gap: 10px; align-items: flex-start;
-    margin-bottom: 12px;
-    font-size: 15px;
-    line-height: 1.6;
-  }
-  .check-list li:last-child { margin-bottom: 0; }
-  .check-list svg {
-    width: 18px; height: 18px;
-    stroke: var(--accent);
-    stroke-width: 2; fill: none;
-    stroke-linecap: round; stroke-linejoin: round;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .reveal { transition: opacity .7s var(--ease), transform .7s var(--ease); }
-  html.js .reveal { opacity: 0; transform: translateY(24px); }
-  html.js .reveal.in { opacity: 1; transform: none; }
+  .section-head.split .lead { grid-column: 8 / 13; margin-top: 0; }
 
   /* ============================================================
-     05 · SCROLL PROGRESS
+     04 · BUTTONS — one style per role
   ============================================================ */
-  .progress {
-    position: fixed; top: 0; left: 0;
-    height: 3px; width: 0;
-    background: var(--accent);
-    z-index: 101;
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+    font-family: var(--font-sans); font-weight: 600; font-size: 18px; line-height: 1.35;
+    padding: 16px 32px;
+    min-height: 56px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .2s var(--ease), color .2s var(--ease);
   }
+  .btn svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+  /* White on --accent-deep: 5.5:1. */
+  .btn-primary { background: var(--accent-deep); color: #fff; }
+  .btn-primary:hover { background: #065F46; }
+  .btn-on-dark { background: var(--accent-lite); color: var(--dark-0); }
+  .btn-on-dark:hover { background: #34D399; }
+
+  .live-dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; display: inline-block; }
+  .slab .live-dot { background: var(--accent-lite); }
+  .live-dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: inherit; animation: ringOut 2.4s ease-out infinite; }
+  @keyframes ringOut { from { transform: scale(.7); opacity: .5; } to { transform: scale(2); opacity: 0; } }
+
+  .caption { text-align: center; margin-top: 16px; }
+
+  .reveal { transition: opacity .6s var(--ease); }
+  html.js .reveal { opacity: 0; }
+  html.js .reveal.in { opacity: 1; }
 
   /* ============================================================
-     06 · NAVBAR
+     05 · NAVBAR
   ============================================================ */
   .nav {
-    position: sticky; top: 0;
-    height: 70px;
-    z-index: 100;
-    background: rgba(255,255,255,.82);
-    backdrop-filter: blur(18px) saturate(180%);
-    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    position: sticky; top: 0; z-index: 100;
+    height: 72px;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid transparent;
-    transition: border-color .25s var(--ease), box-shadow .25s var(--ease);
+    transition: border-color .25s var(--ease);
   }
-  .nav.scrolled { border-bottom-color: var(--border); box-shadow: var(--sh-sm); }
-  .nav-inner {
-    height: 100%;
-    max-width: 1140px;
-    margin-inline: auto;
-    padding-inline: 24px;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 20px;
-  }
-  .wordmark {
-    display: inline-flex; align-items: center; min-height: 44px;
-    font-family: var(--font-display);
-    font-weight: 400; font-size: 29px;
-    color: var(--ink-0);
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-  .nav-links { display: flex; align-items: center; gap: 28px; }
-  .nav-links a {
-    position: relative;
-    display: inline-flex; align-items: center; min-height: 44px;
-    font-weight: 500; font-size: 14.5px;
-    color: var(--ink-2);
-    transition: color .2s var(--ease);
-  }
-  .nav-links a:hover { color: var(--ink-0); }
-  .nav-links a.active { color: var(--ink-0); }
-  .nav-links a.active::after {
-    content: "";
-    position: absolute; bottom: 5px; left: 0; right: 0;
-    height: 2px; border-radius: 2px;
-    background: var(--accent);
-  }
-  .nav-right { display: flex; align-items: center; gap: 10px; }
-  .nav-cta { padding: 10px 18px; font-size: 14.5px; min-height: 44px; }
+  .nav.scrolled { border-bottom-color: var(--border); }
+  .nav-inner { height: 100%; max-width: 1140px; margin-inline: auto; padding-inline: 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  /* Wordmark: the brand logo, set in the display face. */
+  .wordmark { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-display); font-size: 28px; line-height: 1; letter-spacing: -0.02em; color: var(--ink-0); }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; color: var(--ink-2); transition: color .2s var(--ease); }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink-0); }
+  .nav-links a.active { text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 1px; }
+  .nav-right { display: flex; align-items: center; gap: 12px; }
+  .nav-cta { min-height: 44px; padding: 8px 16px; }
+  .nav-cta svg { width: 18px; height: 18px; }
 
-  .burger {
-    display: none;
-    width: 44px; height: 44px;
-    align-items: center; justify-content: center;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    border-radius: 10px;
-  }
-  .burger span {
-    display: block;
-    width: 20px; height: 1.5px;
-    background: var(--ink-0);
-    border-radius: 2px;
-    transition: transform .3s var(--ease), opacity .2s var(--ease);
-  }
-  .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .burger { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; flex-direction: column; gap: 8px; cursor: pointer; border-radius: 8px; }
+  .burger span { display: block; width: 20px; height: 1.5px; background: var(--ink-0); transition: transform .3s var(--ease), opacity .2s var(--ease); }
+  .burger.open span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
   .burger.open span:nth-child(2) { opacity: 0; }
-  .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  .burger.open span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
 
   .mobile-panel {
-    position: fixed;
-    inset: 70px 0 0 0;
-    background: rgba(255,255,255,.98);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    z-index: 99;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 26px;
-    padding: 44px 24px 40px;
+    position: fixed; inset: 72px 0 0 0; z-index: 99;
+    background: #fff;
+    display: none; flex-direction: column; align-items: flex-start;
+    gap: 8px;
+    padding: 32px 24px;
     overflow-y: auto;
   }
   .mobile-panel.open { display: flex; }
-  .mobile-panel a.m-link {
-    font-weight: 500; font-size: 21px;
-    color: var(--ink-0);
-    display: flex; align-items: center; min-height: 44px; padding-inline: 16px;
-    opacity: 0;
-    transform: translateY(10px);
-    animation: mIn .4s var(--ease) forwards;
-  }
-  .mobile-panel a.m-link:nth-child(1) { animation-delay: .05s; }
-  .mobile-panel a.m-link:nth-child(2) { animation-delay: .10s; }
-  .mobile-panel a.m-link:nth-child(3) { animation-delay: .15s; }
-  .mobile-panel a.m-link:nth-child(4) { animation-delay: .20s; }
-  .mobile-panel a.m-link:nth-child(5) { animation-delay: .25s; }
-  .mobile-panel a.m-link:nth-child(6) { animation-delay: .30s; }
-  @keyframes mIn { to { opacity: 1; transform: none; } }
-  .mobile-panel .btn { width: 100%; max-width: 300px; margin-top: 18px; }
+  .mobile-panel .m-link { display: flex; align-items: center; min-height: 48px; width: 100%; border-bottom: 1px solid var(--border); }
+  .mobile-panel .btn { width: 100%; margin-top: 24px; }
   body.menu-open { overflow: hidden; }
 
   /* ============================================================
-     07 · HERO
+     06 · HERO
   ============================================================ */
-  .hero {
-    padding: 112px 0 72px;
-    position: relative;
-    overflow: hidden;
-    border-top: none;
-  }
-  .hero-deco { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-  .hero-deco i { position: absolute; inset: 0; display: block; }
-  .hero-deco .g1 { background: radial-gradient(ellipse 70% 50% at 30% -8%, rgba(5,150,105,.08) 0%, transparent 62%); }
-  .hero-deco .g2 { background: radial-gradient(ellipse 45% 35% at 92% 85%, rgba(59,130,246,.05) 0%, transparent 58%); }
-  .hero-deco .dots {
-    background-image: radial-gradient(circle, #D5D9E0 1px, transparent 1px);
-    background-size: 28px 28px;
-    opacity: .5;
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 40% 40%, black, transparent);
-    mask-image: radial-gradient(ellipse 70% 60% at 40% 40%, black, transparent);
-  }
-  .hero-grid {
-    position: relative; z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 60fr) minmax(0, 40fr);
-    gap: 48px;
-    align-items: center;
-    width: 100%;
-  }
-
-  .hero-pill {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--accent-soft);
-    border: 1px solid var(--accent-edge);
-    border-radius: 100px;
-    padding: 7px 16px;
-    font-weight: 600; font-size: 12.5px;
-    color: var(--accent-deep);
-    line-height: 1.5;
-  }
-
-  .hero-pill .num { font-weight: 500; }
-  .hero h1 { margin-top: 26px; }
+  .hero { padding: 96px 0 96px; }
+  .hero-grid { align-items: center; row-gap: 48px; }
+  .hero-copy { grid-column: 1 / 8; }
+  .hero-visual { grid-column: 8 / 13; }
   .hl { display: block; }
-  /* Two clean lines on desktop: line 1 never breaks from 1100px up. */
   @media (min-width: 1100px) { .hero h1 .hl:first-child { white-space: nowrap; } }
+  .hero .lead { margin: 24px 0 32px; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
 
-  .hero .lead { margin: 22px 0 28px; max-width: 540px; }
-  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
-  .hero-reassure {
-    margin-top: 16px;
-    display: flex; flex-wrap: wrap;
-    gap: 6px 18px;
-    font-size: 13.5px;
-    color: var(--ink-2);
-    line-height: 1.5;
-  }
-  .hero-reassure span { display: inline-flex; align-items: center; gap: 6px; }
-  .hero-reassure svg { width: 14px; height: 14px; stroke: var(--accent); stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  /* Proof sits right under the ask. */
+  .proof { margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+  .proof-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--ink-1); }
+  .proof-link:hover { color: var(--ink-0); }
+  .proof-link .arrow { width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.75; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .reassure { margin-top: 8px; color: var(--ink-2); }
 
-  html.js .hero-anim { opacity: 0; transform: translateY(22px); }
-  html.js body.loaded .hero-anim { opacity: 1; transform: none; }
-  .hero-anim { transition: opacity .7s var(--ease), transform .7s var(--ease); }
-  .d1 { transition-delay: .05s; } .d2 { transition-delay: .15s; }
-  .d3 { transition-delay: .25s; } .d4 { transition-delay: .4s; }
-  .d5 { transition-delay: .52s; } .d6 { transition-delay: .64s; }
-  .d7 { transition-delay: .5s; }
-
-  /* feed card */
-  .feed-wrap { position: relative; max-width: 440px; margin-inline: auto; }
-  .feed-card { padding: 22px; border-radius: 20px; box-shadow: var(--sh-xl); }
-  .feed-head {
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    margin-bottom: 16px; padding-bottom: 14px;
-    border-bottom: 1px solid var(--border);
-  }
-  .feed-title { font-weight: 600; font-size: 15px; color: var(--ink-0); }
-
-  /* Hero seal: rotating mark anchored on the activity card's top-left corner.
-     The card header is indented while the seal shows, so they never touch. */
-  .seal {
-    position: absolute;
-    top: -40px; left: -40px;
-    z-index: 2;
-    width: 104px; height: 104px;
-    border-radius: 50%;
-    background: #fff;
-    border: 1px solid var(--border-mid);
-    box-shadow: var(--sh-md);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .seal svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .seal-ring { transform-origin: 52px 52px; animation: sealSpin 28s linear infinite; }
-  .seal:hover .seal-ring { animation-play-state: paused; }
-  .seal-ring text {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: .22em;
-    fill: var(--ink-1);
-  }
-  .feed-wrap .feed-head { padding-left: 52px; }
-  @media (max-width: 1179px) {
-    .seal { display: none; }
-    .feed-wrap .feed-head { padding-left: 0; }
-  }
-  .seal-a {
-    position: relative;
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 30px;
-    line-height: 1;
-    color: var(--accent);
-  }
-  @keyframes sealSpin { to { transform: rotate(360deg); } }
-  .feed-tag {
-    font-family: var(--font-mono);
-    font-weight: 500; font-size: 12px;
-    letter-spacing: .06em; text-transform: uppercase;
-    color: var(--ink-2);
-    background: var(--bg-1);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 4px 10px;
-    white-space: nowrap;
-  }
-  .feed-list { display: block; }
-  .feed-item {
-    display: grid;
-    grid-template-rows: 1fr;
-    opacity: 1;
-    transition: grid-template-rows .5s var(--ease), opacity .5s var(--ease), transform .5s var(--ease);
-  }
-  .feed-item > div { overflow: hidden; min-height: 0; }
-  .feed-item.enter { grid-template-rows: 0fr; opacity: 0; transform: translateY(-6px); }
-  .feed-item.leave { grid-template-rows: 0fr; opacity: 0; }
-  .feed-row {
-    display: flex; gap: 12px; align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .feed-item:last-child .feed-row { border-bottom: none; }
-  .feed-row .icon-tile { width: 32px; height: 32px; border-radius: 9px; }
-  .feed-row .icon-tile svg { width: 16px; height: 16px; }
-  .feed-text { font-weight: 500; font-size: 14px; color: var(--ink-1); line-height: 1.45; }
-  .feed-time { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-2); margin-left: auto; white-space: nowrap; }
-  .feed-caption { text-align: center; font-size: 12.5px; color: var(--ink-2); margin-top: 14px; line-height: 1.5; }
+  html.js .hero-anim { opacity: 0; }
+  html.js body.loaded .hero-anim { opacity: 1; }
+  .hero-anim { transition: opacity .7s var(--ease); }
+  .d2 { transition-delay: .1s; } .d3 { transition-delay: .2s; } .d4 { transition-delay: .3s; }
 
   /* ============================================================
-     08 · STACK STRIP
+     07 · PROBLEMA
   ============================================================ */
-  #stack {
-    background: var(--bg-1);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 24px 0;
-  }
-  .stack-row {
-    display: flex; align-items: center; justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 32px;
-  }
-  .stack-label {
-    font-family: var(--font-mono);
-    font-weight: 500; font-size: 12px;
-    letter-spacing: .08em; text-transform: uppercase;
-    color: var(--ink-2);
-  }
-  .stack-items { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-start; }
-  .stack-items span {
-    font-weight: 500; font-size: 14.5px;
-    color: var(--ink-2);
-    transition: color .2s var(--ease);
-  }
-  .stack-items span:hover { color: var(--accent-deep); }
-  .dot-sep {
-    display: inline-block;
-    width: 3px; height: 3px;
-    border-radius: 50%;
-    background: var(--border-mid);
-    margin: 0 10px;
-    flex-shrink: 0;
-  }
+  .problem-copy { grid-column: 1 / 7; }
+  .problem-copy .lead + .lead { margin-top: 24px; }
+  .problem-visual { grid-column: 8 / 13; }
 
   /* ============================================================
-     09 · PROBLEMA
+     08 · SERVICIOS
   ============================================================ */
-  .split-52 { display: grid; grid-template-columns: 52fr 48fr; gap: 72px; align-items: start; }
-
-  .pain-list { margin-top: 28px; display: flex; flex-direction: column; gap: 9px; }
-  .pain-list li {
-    display: flex; gap: 13px; align-items: center;
-    padding: 14px 18px;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--warn-edge);
-    border-radius: 0 12px 12px 0;
-    box-shadow: var(--sh-sm);
-    font-size: 15px;
-    color: var(--ink-1);
-    line-height: 1.5;
-    transition: border-left-color .22s var(--ease), transform .22s var(--ease), box-shadow .22s var(--ease);
-  }
-  .pain-list li:hover { border-left-color: #EF4444; transform: translateX(5px); box-shadow: var(--sh-md); }
-  .pain-ico {
-    width: 26px; height: 26px;
-    border-radius: 7px;
-    background: var(--warn-soft);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .pain-ico svg { width: 11px; height: 11px; stroke: var(--warn); stroke-width: 2; fill: none; stroke-linecap: round; }
-
-  .closing-line {
-    margin-top: 32px;
-    padding-left: 20px;
-    border-left: 3px solid var(--accent);
-    font-family: var(--font-display);
-    font-weight: 400; font-size: 30px;
-    letter-spacing: -0.01em;
-    color: var(--ink-0);
-    line-height: 1.18;
-  }
-
-  .day-card { padding: 26px; border-radius: 20px; box-shadow: var(--sh-lg); max-width: 440px; margin-inline: auto; }
-
-  /* The control switch: the visitor holds the control. */
-  .ctl {
-    display: flex; align-items: center; justify-content: center;
-    gap: 10px;
-    min-height: 44px;
-    margin: -6px 0 18px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--border);
-    white-space: nowrap;
-  }
-  .ctl-label {
-    color: var(--ink-2);
-    cursor: pointer;
-    user-select: none;
-    transition: color .35s var(--ease);
-  }
-  .ctl-label.is-on { color: var(--ink-0); }
-  .ctl-label.ctl-on.is-on { color: var(--accent-deep); }
-  .switch {
-    width: 56px; height: 44px;
-    display: inline-flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    flex-shrink: 0;
-    border-radius: 100px;
-  }
-  .switch-track {
-    position: relative;
-    width: 52px; height: 30px;
-    border-radius: 100px;
-    background: var(--bg-2);
-    border: 1px solid var(--border-mid);
-    transition: background .35s var(--ease), border-color .35s var(--ease);
-  }
-  .switch-knob {
-    position: absolute;
-    top: 2px; left: 2px;
-    width: 24px; height: 24px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 1px 3px rgba(10,14,23,.18);
-    transition: transform .35s var(--ease);
-  }
-  .switch[aria-checked="true"] .switch-track { background: var(--accent); border-color: var(--accent); }
-  .switch[aria-checked="true"] .switch-knob { transform: translateX(22px); }
-  .switch:hover .switch-track { border-color: var(--ink-3); }
-  .switch[aria-checked="true"]:hover .switch-track { border-color: var(--accent-deep); }
-
-  .day-title { font-weight: 600; font-size: 16px; color: var(--ink-0); }
-  .day-sub { font-size: 13px; color: var(--ink-2); margin-top: 2px; margin-bottom: 8px; line-height: 1.5; }
-  .task-row {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 14px;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .task-row:last-of-type { border-bottom: none; }
-  .task-name { font-weight: 500; font-size: 14px; color: var(--ink-1); line-height: 1.45; }
-  .owner { display: grid; min-width: 86px; flex-shrink: 0; }
-  .owner > span {
-    grid-area: 1 / 1;
-    display: inline-flex; align-items: center; justify-content: center; gap: 5px;
-    font-weight: 600; font-size: 12px;
-    border-radius: 100px;
-    padding: 5px 12px;
-    line-height: 1.4;
-    border: 1px solid transparent;
-    transition: opacity .3s var(--ease), transform .3s var(--ease);
-  }
-  .owner .o-tu { background: var(--bg-2); color: var(--ink-2); }
-  .owner .o-sys {
-    background: var(--accent-soft); color: var(--accent-deep);
-    border-color: var(--accent-edge);
-    opacity: 0; transform: scale(.94);
-  }
-  .owner .o-sys svg { width: 12px; height: 12px; stroke: var(--accent-deep); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  .owner.done .o-tu { opacity: 0; transform: scale(.94); }
-  .owner.done .o-sys { opacity: 1; transform: scale(1); }
-
-  .day-close {
-    background: var(--accent-soft);
-    border-radius: 12px;
-    padding: 12px 14px;
-    margin-top: 14px;
-    font-weight: 600; font-size: 14px;
-    color: var(--accent-deep);
-    display: flex; align-items: center; gap: 9px;
-    line-height: 1.45;
-    opacity: 0;
-    transition: opacity .5s var(--ease);
-  }
-  .day-close.show { opacity: 1; }
-  .day-close svg { width: 15px; height: 15px; stroke: var(--accent-deep); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-  .day-caption { text-align: center; font-size: 12.5px; color: var(--ink-2); margin-top: 14px; }
+  .svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 24px; }
+  .svc { border-top: 1px solid var(--border); padding-top: 24px; }
+  .svc h3 { margin-bottom: 8px; }
+  .sectors { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .sectors .label { grid-column: 1 / 4; line-height: 1.65; }
+  .sectors .body { grid-column: 4 / 13; max-width: none; }
 
   /* ============================================================
-     10 · SERVICIOS
+     09 · CÓMO TRABAJAMOS (proceso + reglas)
   ============================================================ */
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  .svc .icon-tile { margin-bottom: 20px; }
-  .svc h3 { margin-bottom: 10px; }
-  .svc p { font-size: 15px; color: var(--ink-2); line-height: 1.68; }
-
-  /* Where we already operate (true) vs. what we can build (secondary). */
-  .operating {
-    margin-top: 64px;
-    padding-top: 40px;
-    border-top: 1px solid var(--border-mid);
-  }
-  .op-label { color: var(--ink-2); margin-bottom: 16px; }
-  .op-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .op-card {
-    display: flex; align-items: center; gap: 14px;
-    background: #fff;
-    border: 1px solid var(--accent-edge);
-    border-radius: 16px;
-    padding: 20px 22px;
-    box-shadow: var(--sh-sm);
-    color: var(--accent);
-    transition: transform .26s var(--ease), box-shadow .26s var(--ease);
-  }
-  .op-card:hover { transform: translateY(-3px); box-shadow: var(--sh-md); }
-  .op-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-  .op-name { font-weight: 600; font-size: 17px; color: var(--ink-0); line-height: 1.35; }
-  .op-count { font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); line-height: 1.5; }
-  .op-arrow {
-    width: 16px; height: 16px;
-    margin-left: auto;
-    flex-shrink: 0;
-    stroke: var(--accent); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round;
-    transition: transform .26s var(--ease);
-  }
-  .op-card:hover .op-arrow { transform: translateX(3px); }
-
-  .could { margin-top: 36px; }
-  .could-label { color: var(--ink-2); margin-bottom: 12px; }
-  .could-list {
-    display: flex; flex-wrap: wrap; align-items: center;
-    font-size: 15px; color: var(--ink-2);
-    line-height: 2;
-  }
+  .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+  .step { border-top: 1px solid var(--ink-0); padding-top: 24px; }
+  .step .label { margin-bottom: 16px; }
+  .step h3 { margin-bottom: 8px; }
+  .rules { margin-top: 96px; row-gap: 32px; }
+  .rules > .label { grid-column: 1 / 4; padding-top: 24px; }
+  .rule { grid-column: span 3; border-top: 1px solid var(--border); padding-top: 24px; }
+  .rule h3 { margin-bottom: 8px; }
 
   /* ============================================================
-     11 · PROCESO
+     10 · NOSOTROS
   ============================================================ */
-  .steps {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    position: relative;
-  }
-  .steps::before {
-    content: "";
-    position: absolute;
-    /* From the first circle's center to the last one's (circles sit at the
-       left of each 25% column). */
-    top: 30px; left: 30px; right: calc(25% - 30px);
-    height: 2px;
-    background: repeating-linear-gradient(90deg, var(--border-mid) 0 6px, transparent 6px 12px);
-  }
-  .step { text-align: left; padding: 0 24px 0 0; position: relative; z-index: 1; }
-  .step-num {
-    width: 60px; height: 60px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid var(--border-mid);
-    font-family: var(--font-mono);
-    font-weight: 500; font-size: 17px;
-    color: var(--ink-2);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 0 26px;
-    transition: border-color .25s var(--ease), color .25s var(--ease), box-shadow .25s var(--ease), transform .25s var(--ease);
-  }
-  .step:hover .step-num {
-    border-color: var(--accent);
-    color: var(--accent);
-    box-shadow: 0 0 0 6px var(--accent-soft);
-    transform: translateY(-3px);
-  }
-  .step h3 { margin-bottom: 10px; }
-  .step p { font-size: 15px; color: var(--ink-2); max-width: 240px; line-height: 1.68; }
-
-  /* ============================================================
-     12 · CONFIANZA
-  ============================================================ */
-  .split-40 { display: grid; grid-template-columns: 40fr 60fr; gap: 64px; align-items: start; }
-  .sticky-col { position: sticky; top: 110px; }
-  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .rule .icon-tile { margin-bottom: 18px; }
-  .rule h3 { margin-bottom: 10px; }
-  .rule p { font-size: 15px; color: var(--ink-2); line-height: 1.68; }
-
-  /* ============================================================
-     13 · NOSOTROS
-  ============================================================ */
-  .split-36 { display: grid; grid-template-columns: 36fr 58fr; gap: 68px; align-items: start; }
-  .photo-wrap { width: 320px; max-width: 100%; aspect-ratio: 4 / 5; position: relative; }
-  /* The crop lives in its own overflow box so the scaled image never
-     spills over the offset frame behind it. */
-  .photo-crop {
-    position: relative;
-    z-index: 2;
-    width: 100%; height: 100%;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: var(--sh-xl);
-    background: var(--bg-2);
-  }
-  .photo-crop img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: 50% 22%;
-    transform: scale(1.35);
-    transform-origin: 50% 30%;
-  }
-  .photo-frame {
-    position: absolute;
-    top: 14px; left: 14px; right: -14px; bottom: -14px;
-    border-radius: 24px;
-    border: 2px solid var(--accent-edge);
-    z-index: 1;
-  }
+  .founder { align-items: start; }
+  .photo-col { grid-column: 1 / 5; }
+  .photo-crop { width: 100%; max-width: 280px; aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden; background: var(--bg-2); }
+  .photo-crop img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; transform: scale(1.9); transform-origin: 50% 24%; }
+  .founder-copy { grid-column: 6 / 13; }
   .founder-copy h2 { margin-bottom: 32px; }
-  .founder-name {
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 18px;
-    color: var(--ink-0);
-    line-height: 1.4;
-    margin-bottom: 4px;
-  }
-  .founder-role {
-    color: var(--ink-2);
-    margin-bottom: 26px;
-  }
-  .bio p { font-size: 16.5px; color: var(--ink-1); line-height: 1.75; margin-bottom: 15px; }
-  .quote {
-    margin: 30px 0;
-    padding: 26px 28px 24px;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    border-radius: 0 14px 14px 0;
-    box-shadow: var(--sh-sm);
-  }
-  .quote p {
-    font-family: var(--font-display);
-    font-size: 28px;
-    color: var(--ink-0);
-    line-height: 1.22;
-    letter-spacing: -0.01em;
-  }
-  /* Founder sign-off */
-  .signoff { margin-top: 22px; }
-  .signoff-line { display: flex; align-items: center; gap: 14px; }
-  .signoff-line::before { content: ""; width: 40px; height: 1px; background: var(--accent); flex-shrink: 0; }
-  .signoff-name {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 30px;
-    line-height: 1.1;
-    color: var(--ink-0);
-  }
-  .signoff-role {
-    display: block;
-    margin: 6px 0 0 54px;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--ink-2);
-  }
-
-  .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
-  .badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 9px 16px;
-    font-weight: 500; font-size: 13.5px;
-    color: var(--ink-2);
-    box-shadow: var(--sh-sm);
-    line-height: 1.4;
-    transition: border-color .22s var(--ease), color .22s var(--ease), background .22s var(--ease);
-  }
-  .badge svg { width: 15px; height: 15px; stroke: var(--ink-3); stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; transition: stroke .22s var(--ease); }
-  .badge:hover { border-color: var(--accent-edge); color: var(--ink-0); background: var(--accent-soft); }
-  .badge:hover svg { stroke: var(--accent); }
-
-  .link-under {
-    display: inline-flex; align-items: center; gap: 7px;
-    margin-top: 12px;
-    padding-block: 10px;
-    min-height: 44px;
-    font-weight: 600; font-size: 14.5px;
-    color: var(--accent-deep);
-    background-image: linear-gradient(var(--accent), var(--accent));
-    background-size: 0% 2px;
-    background-position: 0 100%;
-    background-repeat: no-repeat;
-    background-origin: content-box;
-    transition: background-size .3s var(--ease);
-  }
-  .link-under:hover { background-size: 100% 2px; }
-  .link-under svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .founder-role { margin-top: 8px; margin-bottom: 24px; }
+  .bio .body + .body { margin-top: 16px; }
+  .quote { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .quote p { color: var(--ink-0); }
 
   /* ============================================================
-     14 · CASOS
+     11 · CASOS (dark slab)
   ============================================================ */
-  #casos, #contacto { padding: 0; border-top: none; }
-  #casos { background: var(--bg-0); padding-block: 0; }
-  #contacto { background: var(--bg-1); padding-block: 0; }
-  .slab-wrap { padding: 0; }
-
-  .case {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 60px; align-items: start;
-    margin-bottom: 72px;
-  }
-  .case-copy { padding-top: 24px; }
-  .case:last-child { margin-bottom: 0; }
+  #casos, #contacto { padding: 0; }
+  .case { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: start; margin-bottom: 96px; }
+  .case:last-of-type { margin-bottom: 0; }
   .case.reverse .case-visual { order: 2; }
-  .case.reverse .case-copy { order: 1; }
-  .case-cat {
-    font-family: var(--font-mono);
-    font-weight: 500; font-size: 12px;
-    letter-spacing: .08em; text-transform: uppercase;
-    color: var(--dink-2);
-    margin: 16px 0 12px;
-  }
-  .case-copy h3 { margin-bottom: 14px; font-size: 24px; }
-  .case-copy p { font-size: 15.5px; color: var(--dink-1); line-height: 1.75; }
-  .tech-tags { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 6px; }
-  .tech-tags span {
-    background: rgba(255,255,255,.045);
-    border: 1px solid var(--dborder);
-    border-radius: 6px;
-    padding: 5px 11px;
-    font-family: var(--font-mono);
-    font-weight: 400; font-size: 12px;
-    color: var(--dink-2);
-    line-height: 1.5;
-  }
-  .mock-caption { text-align: center; font-size: 12.5px; color: var(--dink-2); margin-top: 14px; line-height: 1.5; }
-
-  /* Mockup depth: gentle cursor tilt (desktop, fine pointer only). */
-  .tilt { transition: transform .4s var(--ease); transform: perspective(900px) rotateX(0) rotateY(0); }
-
-  /* WhatsApp chat mockup */
-  .wa-mock {
-    max-width: 320px; width: 100%;
-    margin-inline: auto;
-    background: #0B141A;
-    border-radius: 20px;
-    border: 1px solid var(--dborder);
-    padding: 16px;
-    box-shadow: 0 28px 70px rgba(0,0,0,.6);
-    display: flex; flex-direction: column;
-  }
-  .wa-head {
-    display: flex; gap: 10px; align-items: center;
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(255,255,255,.06);
-    margin-bottom: 14px;
-  }
-  .wa-avatar {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background: var(--accent-lite);
-    color: var(--dark-0);
-    font-family: var(--font-sans);
-    font-weight: 600; font-size: 16px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .wa-name { font-weight: 600; font-size: 13px; color: #F9FAFB; line-height: 1.4; }
-  .wa-status { font-size: 11px; color: var(--accent-lite); line-height: 1.4; }
-  .bubble {
-    max-width: 80%;
-    padding: 9px 12px;
-    margin-bottom: 8px;
-    font-size: 13px;
-    color: #F9FAFB;
-    line-height: 1.45;
-  }
-  .bubble.in { align-self: flex-start; background: #1F2C34; border-radius: 14px 14px 14px 5px; }
-  .bubble.out { align-self: flex-end; background: #005C4B; border-radius: 14px 14px 5px 14px; }
-  .bubble time { display: block; text-align: right; font-family: var(--font-mono); font-size: 9.5px; color: rgba(255,255,255,.74); margin-top: 3px; }
-  .bubble .inline-check { display: inline-block; vertical-align: -1px; width: 12px; height: 12px; stroke: var(--accent-lite); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; margin-right: 4px; }
-  .img-bubble {
-    width: 104px; height: 128px;
-    background: rgba(255,255,255,.07);
-    border-radius: 9px;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 8px;
-  }
-  .img-bubble svg { width: 30px; height: 30px; stroke: rgba(255,255,255,.35); stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  .img-bubble small { font-size: 10px; color: rgba(255,255,255,.62); }
-  .typing {
-    align-self: flex-start;
-    background: #1F2C34;
-    border-radius: 14px;
-    padding: 10px 13px;
-    display: flex; gap: 4px; align-items: center;
-  }
-  .typing i {
-    width: 5px; height: 5px; border-radius: 50%;
-    background: var(--dink-2);
-    display: block;
-    animation: typingDot 1.4s infinite;
-  }
-  .typing i:nth-child(2) { animation-delay: .18s; }
-  .typing i:nth-child(3) { animation-delay: .36s; }
-  @keyframes typingDot {
-    0%, 60%, 100% { opacity: .25; transform: translateY(0); }
-    30% { opacity: 1; transform: translateY(-3px); }
-  }
-
-  /* Dashboard mockup */
-  .dash {
-    max-width: 400px; width: 100%;
-    margin-inline: auto;
-    background: var(--dark-1);
-    border-radius: 20px;
-    border: 1px solid var(--dborder);
-    padding: 20px;
-    box-shadow: 0 28px 70px rgba(0,0,0,.6);
-  }
-  .dash-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
-  .dash-name { font-weight: 600; font-size: 15px; color: var(--dink-0); }
-  .avatars { display: flex; align-items: center; }
-  .avatars i {
-    width: 22px; height: 22px; border-radius: 50%;
-    border: 2px solid var(--dark-1);
-    display: block;
-    margin-left: -7px;
-  }
-  .avatars i:first-child { margin-left: 0; }
-  .plus-chip {
-    background: var(--dark-2);
-    border-radius: 100px;
-    padding: 3px 8px;
-    font-family: var(--font-mono);
-    font-weight: 500; font-size: 10px;
-    color: var(--dink-2);
-    margin-left: 6px;
-    line-height: 1.5;
-  }
-  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
-  .stat {
-    background: var(--dark-2);
-    border-radius: 11px;
-    padding: 12px;
-    border: 1px solid var(--dborder);
-  }
-  .stat-label {
-    font-family: var(--font-mono);
-    font-weight: 500; font-size: 9.5px;
-    letter-spacing: .08em; text-transform: uppercase;
-    color: var(--dink-2);
-    margin-bottom: 6px;
-    line-height: 1.4;
-  }
-  .stat-val {
-    font-family: var(--font-mono);
-    font-weight: 500; font-size: 18px;
-    letter-spacing: -0.02em;
-    color: var(--dink-0);
-    line-height: 1.1;
-    display: flex; align-items: center; gap: 5px;
-  }
-  .stat-val svg { width: 10px; height: 10px; stroke: var(--accent-lite); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-
-  .chart { height: 92px; display: flex; align-items: flex-end; gap: 6px; margin-bottom: 0; }
-  .chart .bar {
-    width: 100%;
-    border-radius: 4px 4px 0 0;
-    background: var(--accent-lite);
-    transform-origin: bottom;
-  }
-  .dash.animate-bars .bar { animation: growUp .75s var(--ease) both; }
-  .dash.animate-bars .bar:nth-child(1) { animation-delay: 0s; }
-  .dash.animate-bars .bar:nth-child(2) { animation-delay: .07s; }
-  .dash.animate-bars .bar:nth-child(3) { animation-delay: .14s; }
-  .dash.animate-bars .bar:nth-child(4) { animation-delay: .21s; }
-  .dash.animate-bars .bar:nth-child(5) { animation-delay: .28s; }
-  .dash.animate-bars .bar:nth-child(6) { animation-delay: .35s; }
-  @keyframes growUp { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-  .chart-axis { height: 1px; background: var(--dborder); margin-top: 6px; }
-  .chart-labels { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 9px; color: var(--dink-2); margin-top: 6px; margin-bottom: 18px; }
-  .act-row {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 12px;
-    padding: 9px 0;
-    border-bottom: 1px solid var(--dborder);
-  }
-  .act-row:last-child { border-bottom: none; }
-  .act-left { display: flex; align-items: center; gap: 9px; font-size: 12px; color: var(--dink-1); line-height: 1.45; }
-  .act-left i { width: 6px; height: 6px; border-radius: 50%; display: block; flex-shrink: 0; }
-  .act-time { font-family: var(--font-mono); font-weight: 400; font-size: 10.5px; color: var(--dink-2); white-space: nowrap; }
-
-  /* Fondo SPC mockup: same container as CHS, table-led instead of chart-led. */
-  .spc { position: relative; }
-  .spc-isolated {
-    position: absolute; top: -13px; right: 18px;
-    display: inline-flex; align-items: center; gap: 6px;
-    background: var(--dark-0);
-    border: 1px solid rgba(16,185,129,.35);
-    border-radius: 100px;
-    padding: 4px 11px;
-    font-family: var(--font-mono);
-    font-weight: 500; font-size: 10.5px;
-    letter-spacing: .06em; text-transform: uppercase;
-    color: var(--accent-lite);
-    line-height: 1.5;
-    white-space: nowrap;
-  }
-  .spc-isolated svg { width: 11px; height: 11px; stroke: currentColor; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  .fund-pill {
-    display: inline-flex; align-items: center; gap: 7px;
-    background: var(--dark-2);
-    border: 1px solid var(--dborder);
-    border-radius: 100px;
-    padding: 6px 12px;
-    font-weight: 600; font-size: 14px;
-    color: var(--dink-0);
-    line-height: 1.3;
-    white-space: nowrap;
-  }
-  .fund-pill svg { width: 12px; height: 12px; stroke: var(--dink-2); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  .spc .avatars i { width: 20px; height: 20px; margin-left: -6px; }
-  .spc .avatars i:first-child { margin-left: 0; }
-  .seg {
-    display: grid; grid-template-columns: 1fr 1fr;
-    background: var(--dark-0);
-    border: 1px solid var(--dborder);
-    border-radius: 10px;
-    padding: 3px;
-    margin-bottom: 14px;
-  }
-  .seg span {
-    text-align: center;
-    font-family: var(--font-mono);
-    font-weight: 500; font-size: 11px;
-    color: var(--dink-2);
-    padding: 6px 8px;
-    border-radius: 7px;
-    line-height: 1.4;
-  }
-  .seg span.on { background: var(--dark-2); color: var(--dink-0); box-shadow: 0 1px 2px rgba(0,0,0,.4); }
-  .spc-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
-  .spc-table th {
-    text-align: left;
-    font-family: var(--font-mono);
-    font-weight: 500; font-size: 9.5px;
-    letter-spacing: .08em; text-transform: uppercase;
-    color: var(--dink-2);
-    padding: 0 0 8px;
-    border-bottom: 1px solid var(--dborder);
-  }
-  .spc-table td {
-    font-size: 12.5px;
-    color: var(--dink-1);
-    padding: 9px 0;
-    border-bottom: 1px solid var(--dborder);
-    line-height: 1.4;
-  }
-  .spc-table th:last-child, .spc-table td:last-child { text-align: right; }
-  .spc-table td.num-cell { font-family: var(--font-mono); color: var(--dink-2); }
-  .ok-pill {
-    display: inline-block;
-    background: rgba(16,185,129,.14);
-    border: 1px solid rgba(16,185,129,.3);
-    color: var(--accent-lite);
-    border-radius: 100px;
-    padding: 2px 9px;
-    font-weight: 600; font-size: 11px;
-    line-height: 1.5;
-  }
-  .spc-import {
-    display: flex; align-items: center; gap: 10px;
-    background: var(--dark-2);
-    border: 1px solid var(--dborder);
-    border-radius: 11px;
-    padding: 10px 12px;
-    font-size: 12.5px;
-    color: var(--dink-1);
-    line-height: 1.4;
-  }
-  .spc-import svg { width: 16px; height: 16px; flex-shrink: 0; stroke: var(--accent-lite); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  .spc-import .act-time { margin-left: auto; }
+  .case-copy { padding-top: 24px; }
+  .case-status { display: inline-flex; align-items: center; gap: 8px; }
+  .slab .case-status { color: var(--accent-lite); }
+  .case-copy .case-cat { margin: 16px 0 8px; }
+  .case-copy h3 { margin-bottom: 16px; }
+  .case-copy .stack { margin-top: 24px; }
+  .case-cta { margin-top: 96px; padding-top: 48px; border-top: 1px solid var(--dborder); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+  .case-cta .lead { color: var(--dink-0); }
 
   /* ============================================================
-     15 · INVERSIÓN
+     12 · INVERSIÓN
   ============================================================ */
-  .price-grid {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 20px;
-    align-items: stretch;
-    max-width: 900px;
-  }
-  .price-grid > * { min-width: 0; }
-  .price-card { padding: 36px 32px; border-radius: 20px; box-shadow: var(--sh-md); position: relative; }
-  .price-card.featured { border-color: var(--accent-edge); box-shadow: var(--sh-lg); }
-  .price-badge {
-    position: absolute; top: 18px; right: 18px;
-    font-family: var(--font-mono);
-    font-weight: 500; font-size: 12px;
-    letter-spacing: .08em; text-transform: uppercase;
-    background: var(--accent-soft);
-    color: var(--accent-deep);
-    border: 1px solid var(--accent-edge);
-    border-radius: 100px;
-    padding: 4px 11px;
-    line-height: 1.5;
-  }
-  .price-label { color: var(--ink-2); }
-  .price-row { margin: 14px 0 4px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-  .price-from { font-weight: 400; font-size: 16px; color: var(--ink-2); }
-  .price-amount {
-    font-family: var(--font-mono);
-    font-weight: 500;
-    /* "desde $1.200.000" at 40px mono is ~285px: fits the ~344px desktop row.
-       Under 640px the row is ~279px, so the size steps down there. */
-    font-size: 40px;
-    color: var(--ink-0);
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-  }
-  .price-sub { font-size: 15px; color: var(--ink-2); }
-  .price-divider { height: 1px; background: var(--border); margin: 22px 0; }
-  .plus-node {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: #fff;
-    border: 1px solid var(--border-mid);
-    box-shadow: var(--sh-sm);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto;
-    align-self: center;
-    flex-shrink: 0;
-  }
-  .plus-node svg { width: 18px; height: 18px; stroke: var(--accent); stroke-width: 2; fill: none; stroke-linecap: round; }
-  .price-note {
-    margin: 30px 0 0;
-    max-width: 640px;
-    font-size: 15px;
-    color: var(--ink-2);
-    line-height: 1.7;
-  }
-  .price-cta { margin-top: 28px; }
+  .price-grid { display: grid; grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr); gap: 16px; align-items: stretch; }
+  .price-card { background: #fff; border: 1px solid var(--border); border-radius: 24px; padding: 48px 32px; box-shadow: var(--sh-card); }
+  .price-row { margin-top: 16px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .price { font-family: var(--font-display); font-weight: 400; font-size: 48px; line-height: 1; color: var(--ink-0); letter-spacing: -0.01em; }
+  .price-sub { margin-top: 8px; }
+  .price-list { margin-top: 32px; border-top: 1px solid var(--border); }
+  .price-list li { display: flex; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--ink-1); }
+  .price-list svg { width: 16px; height: 16px; flex-shrink: 0; stroke: var(--ink-0); stroke-width: 1.75; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .plus { align-self: center; justify-self: center; width: 24px; height: 24px; stroke: var(--ink-2); stroke-width: 1.5; fill: none; stroke-linecap: round; }
+  .price-foot { margin-top: 48px; align-items: center; row-gap: 24px; }
+  .price-foot .body { grid-column: 1 / 8; }
+  .price-foot .btn { grid-column: 9 / 13; justify-self: end; }
 
   /* ============================================================
-     16 · FAQ
+     13 · FAQ
   ============================================================ */
-  .faq-list { max-width: 800px; }
-  .faq-item {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    margin-bottom: 10px;
-    overflow: hidden;
-    transition: border-color .25s var(--ease);
-  }
-  .faq-item.open { border-color: var(--accent-edge); }
-  .faq-q {
-    width: 100%;
-    cursor: pointer;
-    text-align: left;
-    padding: 22px 24px;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 20px;
-    min-height: 48px;
-  }
-  .faq-q span {
-    font-weight: 600; font-size: 17px;
-    letter-spacing: -0.01em;
-    color: var(--ink-0);
-    line-height: 1.4;
-  }
-  .faq-toggle { position: relative; width: 22px; height: 22px; flex-shrink: 0; transition: transform .3s var(--ease); }
-  .faq-toggle i {
-    position: absolute;
-    background: var(--accent);
-    border-radius: 2px;
-    transition: opacity .3s var(--ease);
-  }
-  .faq-toggle i:nth-child(1) { left: 0; right: 0; top: 10px; height: 2px; }
-  .faq-toggle i:nth-child(2) { top: 0; bottom: 0; left: 10px; width: 2px; }
+  .faq-head { grid-column: 1 / 6; align-self: start; position: sticky; top: 120px; }
+  .faq-head .lead { margin-top: 24px; }
+  .faq-list { grid-column: 7 / 13; border-top: 1px solid var(--border); }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q { width: 100%; cursor: pointer; text-align: left; padding: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 48px; }
+  .faq-toggle { position: relative; width: 16px; height: 16px; flex-shrink: 0; transition: transform .3s var(--ease); }
+  .faq-toggle i { position: absolute; background: var(--ink-0); }
+  .faq-toggle i:nth-child(1) { left: 0; right: 0; top: 7.5px; height: 1px; }
+  .faq-toggle i:nth-child(2) { top: 0; bottom: 0; left: 7.5px; width: 1px; transition: opacity .3s var(--ease); }
   .faq-item.open .faq-toggle { transform: rotate(45deg); }
   .faq-item.open .faq-toggle i:nth-child(2) { opacity: 0; }
-  /* 0fr -> 1fr animates to the panel's real height: no measuring, no jump. */
-  .faq-panel {
-    display: grid;
-    grid-template-rows: 0fr;
-    opacity: 0;
-    transition: grid-template-rows .38s var(--ease), opacity .28s ease;
-  }
+  .faq-panel { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .38s var(--ease), opacity .28s ease; }
   .faq-panel > div { overflow: hidden; min-height: 0; }
   .faq-item.open .faq-panel { grid-template-rows: 1fr; opacity: 1; }
-  .faq-panel p { font-size: 15px; color: var(--ink-1); line-height: 1.78; padding: 0 24px 22px; }
+  .faq-panel p { padding: 0 48px 24px 0; }
   .faq-panel a { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
 
   /* ============================================================
-     17 · CONTACTO
+     14 · CONTACTO (dark slab, the one centered block)
   ============================================================ */
-  .contact-inner { max-width: 720px; margin-inline: auto; text-align: center; position: relative; z-index: 1; }
-  .contact-inner h2 { margin-bottom: 18px; }
-  .contact-inner .lead { max-width: 560px; margin: 0 auto 38px; }
-  .chip-label { font-weight: 400; font-size: 13.5px; color: var(--dink-2); margin-bottom: 14px; }
-  .contact-secondary .num { font-weight: 400; }
-  .chip-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin-bottom: 32px; }
-  .chip-dark {
-    background: rgba(255,255,255,.05);
+  .contact-inner { max-width: 720px; margin-inline: auto; text-align: center; }
+  .contact-inner h2, .contact-inner .body { margin-inline: auto; }
+  .contact-inner .lead { margin: 24px auto 48px; }
+  .chip-label { margin-bottom: 16px; }
+  .slab .chip-label { color: var(--dink-2); }
+  .chip-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 32px; }
+  .chip {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; padding: 8px 16px;
+    border-radius: 24px;
+    font-size: 15px; font-weight: 400;
+    background: transparent;
     border: 1px solid var(--dborder);
     color: var(--dink-1);
+    cursor: pointer;
+    transition: background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
   }
-  .chip-dark:hover { border-color: rgba(16,185,129,.4); color: var(--dink-0); }
-  .chip-dark.active { background: var(--accent-lite); border-color: var(--accent-lite); color: var(--dark-0); font-weight: 600; }
-  .btn-lg { font-size: 17px; padding: 18px 38px; border-radius: 14px; }
-  .btn-lg svg { width: 20px; height: 20px; }
-  .contact-secondary {
-    margin-top: 34px;
-    padding-top: 26px;
-    border-top: 1px solid var(--dborder);
-    display: flex; flex-wrap: wrap;
-    align-items: center; justify-content: center;
-    gap: 28px;
-  }
-  .contact-secondary a {
-    display: inline-flex; align-items: center; gap: 9px;
-    font-size: 14px;
-    color: var(--dink-2);
-    min-height: 44px;
-    transition: color .2s var(--ease);
-  }
+  .chip:hover { border-color: rgba(255,255,255,.3); color: var(--dink-0); }
+  .chip.active { background: var(--dink-0); border-color: var(--dink-0); color: var(--dark-0); }
+  .contact-secondary { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--dborder); display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 32px; }
+  .contact-secondary a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--dink-2); transition: color .2s var(--ease); }
   .contact-secondary a:hover { color: var(--dink-0); }
-  .contact-secondary svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.7; fill: none; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .contact-secondary svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.75; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 
   /* ============================================================
-     18 · FOOTER
+     15 · FOOTER
   ============================================================ */
-  footer { background: var(--dark-1); padding: 60px 0 34px; color: var(--dink-2); position: relative; z-index: 2; }
-  .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
-  .footer-logo { font-family: var(--font-display); font-weight: 400; font-size: 30px; line-height: 1; color: var(--dink-0); letter-spacing: -0.01em; }
-  .footer-tag { margin-top: 10px; max-width: 230px; font-size: 13.5px; color: var(--dink-2); line-height: 1.6; }
-  .footer-place { font-size: 12.5px; color: var(--dink-2); margin-top: 8px; }
-  .footer-nav a { display: flex; align-items: center; min-height: 44px; font-size: 14px; color: var(--dink-2); transition: color .2s var(--ease); }
-  .footer-nav a:hover { color: var(--dink-0); }
-  .footer-contact a { display: flex; align-items: center; min-height: 44px; font-size: 14px; color: var(--dink-2); transition: color .2s var(--ease); }
-  .footer-contact a:hover { color: var(--dink-0); }
-  .footer-bottom {
-    margin-top: 46px;
-    padding-top: 22px;
-    border-top: 1px solid var(--dborder);
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 12px; flex-wrap: wrap;
-    font-size: 12.5px;
-    color: var(--dink-2);
-  }
-  .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
-  .footer-legal a { display: inline-flex; align-items: center; min-height: 44px; transition: color .2s var(--ease); }
-  .footer-legal a:hover { color: var(--dink-0); }
+  footer { padding: 64px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+  .footer-grid .wordmark { font-size: 28px; }
+  .footer-grid .body { margin-top: 8px; }
+  .footer-nav a, .footer-contact a { display: flex; align-items: center; min-height: 44px; color: var(--ink-2); transition: color .2s var(--ease); }
+  .footer-nav a:hover, .footer-contact a:hover { color: var(--ink-0); }
+  .footer-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .footer-legal { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-legal a { display: inline-flex; align-items: center; min-height: 44px; }
+  .footer-legal a:hover { color: var(--ink-0); }
 
   /* ============================================================
-     19 · FLOATING WHATSAPP
+     16 · WHATSAPP: floating circle (desktop) / sticky bar (mobile)
   ============================================================ */
   .wa-float {
-    position: fixed;
-    bottom: 24px; right: 24px;
-    z-index: 99;
-    width: 56px; height: 56px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 8px 28px rgba(5,150,105,.36);
+    position: fixed; bottom: 24px; right: 24px; z-index: 98;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--accent-deep);
     display: flex; align-items: center; justify-content: center;
-    opacity: 0;
-    transform: scale(.7) translateY(12px);
-    pointer-events: none;
-    transition: opacity .35s var(--ease), transform .35s var(--ease), background .2s var(--ease);
+    opacity: 0; transform: translateY(16px); pointer-events: none;
+    transition: opacity .3s var(--ease), transform .3s var(--ease), background .2s var(--ease);
   }
   .wa-float.show { opacity: 1; transform: none; pointer-events: auto; }
-  .wa-float:hover { background: var(--accent-deep); transform: scale(1.06); }
-  .wa-float svg { width: 26px; height: 26px; fill: #fff; }
+  .wa-float:hover { background: #065F46; }
+  .wa-float svg { width: 24px; height: 24px; fill: #fff; }
+  .m-bar {
+    display: none;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 98;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: #fff;
+    border-top: 1px solid var(--border);
+    transform: translateY(100%);
+    transition: transform .3s var(--ease);
+  }
+  .m-bar.show { transform: none; }
+  .m-bar .btn { width: 100%; }
 
   /* ============================================================
-     20 · RESPONSIVE
+     MOCKUPS START — illustrative UI. Own type sizes and spacing,
+     Geist only, green allowed. Excluded from the type/spacing audit.
   ============================================================ */
-  @media (max-width: 1180px) {
-    .nav-links { gap: 20px; }
-  }
+  .mock-card { background: #fff; border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--sh-card); }
 
+  /* Hero activity card */
+  .feed-card { padding: 24px; max-width: 440px; margin-left: auto; }
+  .feed-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 14px; margin-bottom: 4px; border-bottom: 1px solid var(--border); }
+  .feed-title { font-weight: 600; font-size: 15px; color: var(--ink-0); }
+  .feed-live { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-2); }
+  .feed-item { display: grid; grid-template-rows: 1fr; opacity: 1; transition: grid-template-rows .5s var(--ease), opacity .5s var(--ease), transform .5s var(--ease); }
+  .feed-item > div { overflow: hidden; min-height: 0; }
+  .feed-item.enter { grid-template-rows: 0fr; opacity: 0; transform: translateY(-6px); }
+  .feed-item.leave { grid-template-rows: 0fr; opacity: 0; }
+  .feed-row { display: flex; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .feed-item:last-child .feed-row { border-bottom: none; }
+  .feed-row .icon-tile { width: 32px; height: 32px; border-radius: 8px; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .feed-row .icon-tile svg { width: 16px; height: 16px; stroke: var(--accent-deep); stroke-width: 1.75; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .feed-text { font-weight: 400; font-size: 14px; color: var(--ink-1); line-height: 1.45; }
+  .feed-time { font-size: 12px; color: var(--ink-2); margin-left: auto; white-space: nowrap; }
+
+  /* Switch card: the visitor holds the control. */
+  .day-card { padding: 24px; max-width: 440px; margin-left: auto; }
+  .ctl { display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 44px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  .ctl-label { color: var(--ink-2); cursor: pointer; user-select: none; transition: color .35s var(--ease); }
+  .ctl-label.is-on { color: var(--ink-0); }
+  .switch { width: 56px; height: 44px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; border-radius: 24px; }
+  .switch-track { position: relative; width: 52px; height: 30px; border-radius: 24px; background: var(--bg-2); border: 1px solid var(--border); transition: background .35s var(--ease), border-color .35s var(--ease); }
+  .switch-knob { position: absolute; top: 2px; left: 2px; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(10,14,23,.18); transition: transform .35s var(--ease); }
+  .switch[aria-checked="true"] .switch-track { background: var(--ink-0); border-color: var(--ink-0); }
+  .switch[aria-checked="true"] .switch-knob { transform: translateX(22px); }
+  .day-title { font-weight: 600; font-size: 15px; color: var(--ink-0); }
+  .day-sub { font-size: 13px; color: var(--ink-2); margin-bottom: 4px; }
+  .task-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .task-row:last-of-type { border-bottom: none; }
+  .task-name { font-size: 14px; color: var(--ink-1); line-height: 1.45; }
+  .owner { display: grid; min-width: 88px; flex-shrink: 0; }
+  .owner > span { grid-area: 1 / 1; display: inline-flex; align-items: center; justify-content: center; gap: 4px; font-weight: 600; font-size: 12px; border-radius: 24px; padding: 4px 12px; line-height: 1.4; border: 1px solid transparent; transition: opacity .3s var(--ease), transform .3s var(--ease); }
+  .owner .o-tu { background: var(--bg-2); color: var(--ink-2); }
+  .owner .o-sys { background: var(--accent-soft); color: var(--accent-deep); border-color: var(--accent-edge); opacity: 0; transform: scale(.94); }
+  .owner .o-sys svg { width: 12px; height: 12px; stroke: var(--accent-deep); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .owner.done .o-tu { opacity: 0; transform: scale(.94); }
+  .owner.done .o-sys { opacity: 1; transform: scale(1); }
+  .day-close { background: var(--accent-soft); border-radius: 8px; padding: 12px 16px; margin-top: 12px; font-weight: 600; font-size: 14px; color: var(--accent-deep); display: flex; align-items: center; gap: 8px; line-height: 1.45; opacity: 0; transition: opacity .5s var(--ease); }
+  .day-close.show { opacity: 1; }
+  .day-close svg { width: 16px; height: 16px; stroke: var(--accent-deep); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+  /* WhatsApp chat */
+  .wa-mock { max-width: 320px; width: 100%; margin-inline: auto; background: #0B141A; border-radius: 24px; border: 1px solid var(--dborder); padding: 16px; box-shadow: 0 28px 70px rgba(0,0,0,.6); display: flex; flex-direction: column; }
+  .wa-head { display: flex; gap: 10px; align-items: center; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.06); margin-bottom: 14px; }
+  .wa-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--accent-lite); color: var(--dark-0); font-weight: 600; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .wa-name { display: block; font-weight: 600; font-size: 13px; color: #F9FAFB; line-height: 1.4; }
+  .wa-status { display: block; font-size: 11px; color: var(--accent-lite); line-height: 1.4; }
+  .bubble { max-width: 80%; padding: 9px 12px; margin-bottom: 8px; font-size: 13px; color: #F9FAFB; line-height: 1.45; }
+  .bubble.in { align-self: flex-start; background: #1F2C34; border-radius: 14px 14px 14px 5px; }
+  .bubble.out { align-self: flex-end; background: #005C4B; border-radius: 14px 14px 5px 14px; }
+  .bubble time { display: block; text-align: right; font-size: 10px; color: rgba(255,255,255,.74); margin-top: 3px; }
+  .bubble .inline-check { display: inline-block; vertical-align: -1px; width: 12px; height: 12px; stroke: var(--accent-lite); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; margin-right: 4px; }
+  .img-bubble { width: 104px; height: 128px; background: rgba(255,255,255,.07); border-radius: 9px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+  .img-bubble svg { width: 30px; height: 30px; stroke: rgba(255,255,255,.35); stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .img-bubble small { font-size: 10px; color: rgba(255,255,255,.62); }
+  .typing { align-self: flex-start; background: #1F2C34; border-radius: 14px; padding: 10px 13px; display: flex; gap: 4px; align-items: center; }
+  .typing i { width: 5px; height: 5px; border-radius: 50%; background: var(--dink-2); display: block; animation: typingDot 1.4s infinite; }
+  .typing i:nth-child(2) { animation-delay: .18s; }
+  .typing i:nth-child(3) { animation-delay: .36s; }
+  @keyframes typingDot { 0%, 60%, 100% { opacity: .25; } 30% { opacity: 1; } }
+
+  /* Fund dashboards */
+  .dash { max-width: 400px; width: 100%; margin-inline: auto; background: var(--dark-1); border-radius: 24px; border: 1px solid var(--dborder); padding: 20px; box-shadow: 0 28px 70px rgba(0,0,0,.6); position: relative; }
+  .dash-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+  .dash-name { font-weight: 600; font-size: 15px; color: var(--dink-0); }
+  .avatars { display: flex; align-items: center; }
+  .avatars i { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--dark-1); display: block; margin-left: -7px; }
+  .avatars i:first-child { margin-left: 0; }
+  .plus-chip { background: var(--dark-2); border-radius: 100px; padding: 3px 8px; font-weight: 600; font-size: 10px; color: var(--dink-2); margin-left: 6px; line-height: 1.5; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
+  .stat { background: var(--dark-2); border-radius: 11px; padding: 12px; border: 1px solid var(--dborder); }
+  .stat-label { font-weight: 600; font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--dink-2); margin-bottom: 6px; line-height: 1.4; }
+  .stat-val { font-weight: 600; font-size: 18px; color: var(--dink-0); line-height: 1.1; display: flex; align-items: center; gap: 5px; }
+  .stat-val svg { width: 10px; height: 10px; stroke: var(--accent-lite); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .chart { height: 92px; display: flex; align-items: flex-end; gap: 6px; }
+  .chart .bar { width: 100%; border-radius: 4px 4px 0 0; background: var(--accent-lite); }
+  .chart-axis { height: 1px; background: var(--dborder); margin-top: 6px; }
+  .chart-labels { display: flex; justify-content: space-between; font-size: 9.5px; color: var(--dink-2); margin-top: 6px; margin-bottom: 18px; }
+  .act-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--dborder); }
+  .act-row:last-child { border-bottom: none; }
+  .act-left { display: flex; align-items: center; gap: 9px; font-size: 12px; color: var(--dink-1); line-height: 1.45; }
+  .act-left i { width: 6px; height: 6px; border-radius: 50%; display: block; flex-shrink: 0; }
+  .act-time { font-size: 11px; color: var(--dink-2); white-space: nowrap; }
+  .spc-isolated { position: absolute; top: -13px; right: 18px; display: inline-flex; align-items: center; gap: 6px; background: var(--dark-0); border: 1px solid rgba(16,185,129,.35); border-radius: 100px; padding: 4px 11px; font-weight: 600; font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-lite); line-height: 1.5; white-space: nowrap; }
+  .spc-isolated svg { width: 11px; height: 11px; stroke: currentColor; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .fund-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--dark-2); border: 1px solid var(--dborder); border-radius: 100px; padding: 6px 12px; font-weight: 600; font-size: 14px; color: var(--dink-0); line-height: 1.3; white-space: nowrap; }
+  .fund-pill svg { width: 12px; height: 12px; stroke: var(--dink-2); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .spc .avatars i { width: 20px; height: 20px; margin-left: -6px; }
+  .spc .avatars i:first-child { margin-left: 0; }
+  .seg { display: grid; grid-template-columns: 1fr 1fr; background: var(--dark-0); border: 1px solid var(--dborder); border-radius: 10px; padding: 3px; margin-bottom: 14px; }
+  .seg span { text-align: center; font-weight: 600; font-size: 11px; color: var(--dink-2); padding: 6px 8px; border-radius: 7px; line-height: 1.4; }
+  .seg span.on { background: var(--dark-2); color: var(--dink-0); }
+  .spc-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+  .spc-table th { text-align: left; font-weight: 600; font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--dink-2); padding: 0 0 8px; border-bottom: 1px solid var(--dborder); }
+  .spc-table td { font-size: 12.5px; color: var(--dink-1); padding: 9px 0; border-bottom: 1px solid var(--dborder); line-height: 1.4; }
+  .spc-table th:last-child, .spc-table td:last-child { text-align: right; }
+  .spc-table td.num-cell { color: var(--dink-2); }
+  .ok-pill { display: inline-block; background: rgba(16,185,129,.14); border: 1px solid rgba(16,185,129,.3); color: var(--accent-lite); border-radius: 100px; padding: 2px 9px; font-weight: 600; font-size: 11px; line-height: 1.5; }
+  .spc-import { display: flex; align-items: center; gap: 10px; background: var(--dark-2); border: 1px solid var(--dborder); border-radius: 11px; padding: 10px 12px; font-size: 12.5px; color: var(--dink-1); line-height: 1.4; }
+  .spc-import svg { width: 16px; height: 16px; flex-shrink: 0; stroke: var(--accent-lite); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .spc-import .act-time { margin-left: auto; }
+  /* MOCKUPS END */
+
+  /* ============================================================
+     17 · RESPONSIVE
+  ============================================================ */
   @media (max-width: 1023px) {
     .nav-links { display: none; }
     .burger { display: flex; }
-    .nav-cta { font-size: 13px; padding: 10px 15px; }
 
-    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-copy, .hero-visual, .problem-copy, .problem-visual,
+    .photo-col, .founder-copy, .faq-head, .faq-list { grid-column: 1 / -1; }
+    .feed-card, .day-card { margin-inline: 0; }
+    .problem-visual { margin-top: 48px; }
+    .founder-copy { margin-top: 48px; }
+    .faq-head { position: static; margin-bottom: 48px; }
 
-    .split-52, .split-40, .split-36 { grid-template-columns: 1fr; gap: 44px; }
-    .sticky-col { position: static; }
-    .split-52 .day-card { order: 2; }
+    .section-head.split { display: block; }
+    .section-head.split .lead { margin-top: 24px; }
 
-    .section-head.split { display: block; max-width: 720px; }
-    .section-head.split .lead { margin-top: 20px; }
+    .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 24px; }
+    .rules > .label { grid-column: 1 / -1; padding-top: 0; }
+    .rule { grid-column: span 4; }
 
-    .case, .case.reverse { grid-template-columns: 1fr; gap: 28px; margin-bottom: 72px; }
-    .case .case-visual, .case.reverse .case-visual { order: -1; }
-    .case .case-copy, .case.reverse .case-copy { order: 2; padding-top: 0; }
-
-    .steps { grid-template-columns: 1fr; gap: 28px; }
-    .steps::before {
-      top: 12px; bottom: 12px; left: 29px; right: auto;
-      width: 2px; height: auto;
-      background: repeating-linear-gradient(180deg, var(--border-mid) 0 6px, transparent 6px 12px);
-    }
-    .step { display: flex; gap: 20px; text-align: left; padding: 0; align-items: flex-start; }
-    .step-num { margin: 0; flex-shrink: 0; width: 60px; height: 60px; }
-    .step p { max-width: none; margin-inline: 0; }
+    .case, .case.reverse { grid-template-columns: 1fr; gap: 32px; margin-bottom: 64px; }
+    .case.reverse .case-visual { order: 0; }
+    .case-copy { padding-top: 0; }
 
     .price-grid { grid-template-columns: 1fr; max-width: 560px; }
-
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
-  }
-
-  @media (max-width: 959px) {
-    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .price-foot .body, .price-foot .btn { grid-column: 1 / -1; justify-self: start; }
+    .sectors .label, .sectors .body { grid-column: 1 / -1; }
+    .sectors .body { margin-top: 8px; }
   }
 
   @media (max-width: 767px) {
     section { padding: 64px 0; }
-    .slab { border-radius: 20px; padding: 64px 0; }
-    .sec-index { gap: 14px; }
-    .stack-row { flex-direction: column; align-items: flex-start; gap: 12px; }
-    .stack-items span { font-size: 13px; }
-    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-    .footer-bottom { flex-direction: column; text-align: center; }
-    .footer-legal { justify-content: center; }
-  }
-
-  @media (max-width: 639px) {
-    .grid-3, .grid-2, .op-grid { grid-template-columns: 1fr; }
-    /* 40px floor at 375px: "repetitivo." and "al mando." never break. */
-    .hero h1 { font-size: clamp(40px, 10.8vw, 48px); }
-    .hero { padding: 56px 0 64px; }
-    .hero h1 { margin-top: 20px; }
-    .hero .lead { font-size: 17px; margin: 18px 0 24px; }
-    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .slab { border-radius: 16px; padding: 64px 0; width: calc(100% - 16px); }
+    .hero { padding: 48px 0 64px; }
     .hero-ctas .btn { width: 100%; }
-    .photo-wrap { width: 260px; }
-    .price-card { padding: 28px 24px; }
-    /* Row is ~279px at 375px; 34px mono keeps "desde $1.200.000" on one line. */
-    .price-amount { font-size: 34px; }
-    .faq-q { padding: 20px 18px; }
-    .faq-q span { font-size: 16px; }
-    .faq-panel p { padding-inline: 18px; }
-    .chip { font-size: 13.5px; padding: 8px 15px; }
-    .closing-line { font-size: 28px; }
-    .day-card { padding: 22px 20px; }
-    .contact-secondary { gap: 8px 24px; }
-    .wa-float { bottom: 18px; right: 18px; width: 52px; height: 52px; }
-  }
-
-  @media (max-width: 399px) {
-    .ctl { gap: 6px; }
-    .ctl-label { letter-spacing: .04em; }
+    .svc-grid { grid-template-columns: 1fr; gap: 32px; }
+    .steps { grid-template-columns: 1fr; gap: 32px; }
+    .rules { margin-top: 64px; }
+    .rule { grid-column: 1 / -1; }
+    .case-cta { margin-top: 64px; }
+    .case-cta .btn { width: 100%; }
+    .price-card { padding: 32px 24px; }
+    .price-foot .btn { width: 100%; }
+    .contact-inner .btn { width: 100%; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
+    .footer-legal { justify-content: center; }
+    footer { padding-bottom: 96px; }
+    .wa-float { display: none; }
+    .m-bar { display: block; }
+    .nav-cta span { display: none; }
+    .nav-cta { padding: 8px 12px; }
   }
 
   /* ============================================================
-     21 · REDUCED MOTION
+     18 · REDUCED MOTION
   ============================================================ */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -1607,16 +629,18 @@
       transition-duration: .01ms !important;
       scroll-behavior: auto !important;
     }
-    .seal-ring { animation: none !important; }
-    .tilt { transform: none !important; }
   }
   </style>
   <script>document.documentElement.className += ' js';</script>
 </head>
 
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  </svg>
   <a class="skip-link" href="#main">Saltar al contenido</a>
-  <div class="progress" id="progress" aria-hidden="true"></div>
 
   <!-- ============================================================
        NAVBAR
@@ -1639,23 +663,23 @@
           <button class="burger" id="burger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobilePanel">
             <span></span><span></span><span></span>
           </button>
-          <a class="btn btn-primary nav-cta js-wa" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Escríbenos
+          <a class="btn btn-primary nav-cta js-wa" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
+            <svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>
+            <span>Escríbenos</span>
           </a>
         </div>
       </div>
     </nav>
 
     <div class="mobile-panel" id="mobilePanel">
-      <a class="m-link" href="#problema">Problema</a>
-      <a class="m-link" href="#servicios">Servicios</a>
-      <a class="m-link" href="#proceso">Proceso</a>
-      <a class="m-link" href="#nosotros">Nosotros</a>
-      <a class="m-link" href="#casos">Casos</a>
-      <a class="m-link" href="#contacto">Contacto</a>
-      <a class="btn btn-primary js-wa" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <a class="m-link title" href="#problema">Problema</a>
+      <a class="m-link title" href="#servicios">Servicios</a>
+      <a class="m-link title" href="#proceso">Proceso</a>
+      <a class="m-link title" href="#nosotros">Nosotros</a>
+      <a class="m-link title" href="#casos">Casos</a>
+      <a class="m-link title" href="#contacto">Contacto</a>
+      <a class="btn btn-primary js-wa" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>
         Escríbenos por WhatsApp
       </a>
     </div>
@@ -1667,75 +691,42 @@
          HERO
     ============================================================ -->
     <section class="hero" id="top">
-      <div class="hero-deco" aria-hidden="true">
-        <i class="g1"></i><i class="g2"></i><i class="dots"></i>
-      </div>
-      <div class="container">
-        <div class="hero-grid">
+      <div class="container grid12 hero-grid">
 
-          <div class="hero-copy">
-            <p class="hero-pill hero-anim d1"><span class="live-dot" style="color:var(--accent)" aria-hidden="true"></span><span><span class="num">3</span> proyectos entregados y operando en Colombia</span></p>
+        <div class="hero-copy">
+          <h1><span class="hl hero-anim">La IA hace lo repetitivo.</span><span class="hl hero-anim d2">Tú sigues <em class="accent">al mando.</em></span></h1>
 
-            <h1><span class="hl hero-anim d2">La IA hace lo repetitivo.</span><span class="hl hero-anim d3">Tú sigues <em class="accent">al mando.</em></span></h1>
+          <p class="lead hero-anim d3">Sistemas con inteligencia artificial que atienden clientes, toman pedidos, agendan y arman reportes. Tú pones las reglas y el sistema las cumple, de día y de noche.</p>
 
-            <p class="lead hero-anim d4">Construimos sistemas con inteligencia artificial que atienden clientes, toman pedidos, agendan y arman reportes por ti. Tú defines las reglas y el sistema las cumple de día y de noche.</p>
-
-            <div class="hero-ctas hero-anim d5">
-              <a class="btn btn-primary js-wa" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <div class="hero-anim d4">
+            <div class="hero-ctas">
+              <a class="btn btn-primary js-wa" id="ctaHero" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer">
+                <svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>
                 Escríbenos por WhatsApp
               </a>
-              <a class="btn btn-secondary" href="#casos">Ver proyectos entregados</a>
             </div>
-
-            <div class="hero-reassure hero-anim d6">
-              <span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m20 6-11 11-5-5"/></svg>Primera conversación sin costo</span>
-              <span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m20 6-11 11-5-5"/></svg>Sin contratos de permanencia</span>
-              <span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m20 6-11 11-5-5"/></svg>Lo ves funcionando antes de pagar el total</span>
+            <div class="proof">
+              <a class="proof-link body" href="#casos">
+                <span class="live-dot" aria-hidden="true"></span>
+                3 sistemas entregados y operando
+                <svg class="arrow" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg>
+              </a>
             </div>
-          </div>
-
-          <div class="hero-visual hero-anim d7">
-            <div class="feed-wrap">
-            <div class="seal" aria-hidden="true">
-              <svg viewBox="0 0 104 104" focusable="false">
-                <defs><path id="sealPath" d="M52 52 m-41 0 a41 41 0 1 1 82 0 a41 41 0 1 1 -82 0"/></defs>
-                <g class="seal-ring"><text><textPath href="#sealPath" textLength="257" lengthAdjust="spacing">ENTREGADO · HECHO EN BOGOTÁ · </textPath></text></g>
-              </svg>
-              <span class="seal-a">A</span>
-            </div>
-            <div class="card feed-card" id="feedCard">
-              <div class="feed-head">
-                <span class="feed-title">Actividad del sistema</span>
-                <span class="feed-tag">Vista de ejemplo</span>
-              </div>
-              <div class="feed-list" id="feedList" aria-live="off">
-                <!-- rows injected / static fallback below -->
-              </div>
-            </div>
-            </div>
-            <p class="feed-caption">Ejemplo ilustrativo.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         FRANJA DE STACK
-    ============================================================ -->
-    <section id="stack">
-      <div class="container">
-        <div class="stack-row">
-          <span class="stack-label">Construido sobre</span>
-          <div class="stack-items">
-            <span>n8n</span><i class="dot-sep" aria-hidden="true"></i>
-            <span>Claude AI</span><i class="dot-sep" aria-hidden="true"></i>
-            <span>WhatsApp Business API</span><i class="dot-sep" aria-hidden="true"></i>
-            <span>React</span><i class="dot-sep" aria-hidden="true"></i>
-            <span>Supabase</span>
+            <p class="reassure body">Primera conversación sin costo · Lo ves funcionando antes de pagar el total</p>
           </div>
         </div>
+
+        <div class="hero-visual hero-anim d3">
+          <div class="mock-card feed-card" id="feedCard" data-mock>
+            <div class="feed-head">
+              <span class="feed-title">Actividad del sistema</span>
+              <span class="feed-live"><span class="live-dot" aria-hidden="true"></span>En vivo</span>
+            </div>
+            <div class="feed-list" id="feedList" aria-live="off"></div>
+          </div>
+          <p class="caption label">Ejemplo ilustrativo</p>
+        </div>
+
       </div>
     </section>
 
@@ -1744,65 +735,36 @@
     ============================================================ -->
     <section id="problema" class="has-rule">
       <div class="container">
-        <p class="sec-index label reveal"><span><b>01</b> — El problema</span></p>
-        <div class="split-52">
-
-          <div class="reveal">
+        <p class="sec-index label reveal">01 — El problema</p>
+        <div class="grid12">
+          <div class="problem-copy reveal">
             <h2>Tus mejores horas se van en tareas que <em class="accent">no te necesitan.</em></h2>
-            <p class="lead" style="margin-top:22px">Confirmar citas, tomar pedidos a mano y armar el mismo reporte cada mes llena tu día. Un sistema hace ese trabajo más rápido y sin olvidarse.</p>
-
-            <ul class="pain-list">
-              <li><span class="pain-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Confirmar citas y pedidos uno por uno</li>
-              <li><span class="pain-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Responder las mismas preguntas todo el día</li>
-              <li><span class="pain-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Perseguir clientes que nunca contestaron</li>
-              <li><span class="pain-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Perder ventas por no contestar fuera de horario</li>
-            </ul>
-
-            <p class="closing-line">Eso no es crecer. Es apenas mantenerse a flote.</p>
+            <p class="lead" style="margin-top:32px">Confirmar citas una por una, responder las mismas preguntas, perseguir clientes que no contestaron. Y fuera de horario, nadie responde y la venta se pierde.</p>
+            <p class="lead">Un sistema puede hacer ese trabajo por ti. Prueba el interruptor.</p>
           </div>
 
-          <div class="reveal">
-            <div class="card day-card" id="dayCard">
+          <div class="problem-visual reveal">
+            <div class="mock-card day-card" id="dayCard" data-mock>
               <div class="ctl">
-                <span class="ctl-label label ctl-off is-on" id="ctlOff">Modo manual</span>
+                <span class="ctl-label label is-on" id="ctlOff">Modo manual</span>
                 <button type="button" class="switch" id="ctlSwitch" role="switch" aria-checked="false" aria-label="Con Automa">
                   <span class="switch-track" aria-hidden="true"><span class="switch-knob"></span></span>
                 </button>
-                <span class="ctl-label label ctl-on" id="ctlOn">Con Automa</span>
+                <span class="ctl-label label" id="ctlOn">Con Automa</span>
               </div>
               <p class="day-title">Un día en un consultorio</p>
               <p class="day-sub">¿Quién hace cada tarea?</p>
 
-              <div class="task-row">
-                <span class="task-name">Confirmar las citas de mañana</span>
-                <span class="owner"><span class="o-tu">Tú</span><span class="o-sys"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m20 6-11 11-5-5"/></svg>Sistema</span></span>
-              </div>
-              <div class="task-row">
-                <span class="task-name">Responder «¿cuánto cuesta?»</span>
-                <span class="owner"><span class="o-tu">Tú</span><span class="o-sys"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m20 6-11 11-5-5"/></svg>Sistema</span></span>
-              </div>
-              <div class="task-row">
-                <span class="task-name">Recordar pagos pendientes</span>
-                <span class="owner"><span class="o-tu">Tú</span><span class="o-sys"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m20 6-11 11-5-5"/></svg>Sistema</span></span>
-              </div>
-              <div class="task-row">
-                <span class="task-name">Reagendar cancelaciones</span>
-                <span class="owner"><span class="o-tu">Tú</span><span class="o-sys"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m20 6-11 11-5-5"/></svg>Sistema</span></span>
-              </div>
-              <div class="task-row">
-                <span class="task-name">Enviar el resumen del día</span>
-                <span class="owner"><span class="o-tu">Tú</span><span class="o-sys"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m20 6-11 11-5-5"/></svg>Sistema</span></span>
-              </div>
-              <div class="task-row">
-                <span class="task-name">Pedir reseñas a pacientes satisfechos</span>
-                <span class="owner"><span class="o-tu">Tú</span><span class="o-sys"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m20 6-11 11-5-5"/></svg>Sistema</span></span>
-              </div>
+              <div class="task-row"><span class="task-name">Confirmar las citas de mañana</span><span class="owner"><span class="o-tu">Tú</span><span class="o-sys"><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Sistema</span></span></div>
+              <div class="task-row"><span class="task-name">Responder «¿cuánto cuesta?»</span><span class="owner"><span class="o-tu">Tú</span><span class="o-sys"><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Sistema</span></span></div>
+              <div class="task-row"><span class="task-name">Recordar pagos pendientes</span><span class="owner"><span class="o-tu">Tú</span><span class="o-sys"><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Sistema</span></span></div>
+              <div class="task-row"><span class="task-name">Reagendar cancelaciones</span><span class="owner"><span class="o-tu">Tú</span><span class="o-sys"><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Sistema</span></span></div>
+              <div class="task-row"><span class="task-name">Enviar el resumen del día</span><span class="owner"><span class="o-tu">Tú</span><span class="o-sys"><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Sistema</span></span></div>
 
               <p class="day-close" id="dayClose"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>Tu tiempo queda para atender pacientes.</p>
             </div>
-            <p class="day-caption">Ejemplo ilustrativo.</p>
+            <p class="caption label">Ejemplo ilustrativo</p>
           </div>
-
         </div>
       </div>
     </section>
@@ -1810,171 +772,53 @@
     <!-- ============================================================
          SERVICIOS
     ============================================================ -->
-    <section id="servicios" class="has-rule" style="background:var(--bg-1)">
+    <section id="servicios" class="has-rule">
       <div class="container">
-        <p class="sec-index label reveal"><span><b>02</b> — Qué construimos</span></p>
+        <p class="sec-index label reveal">02 — Qué construimos</p>
         <div class="section-head split reveal">
           <h2>Sistemas hechos sobre <em class="accent wraps">tu forma de trabajar.</em></h2>
           <p class="lead">Cada negocio pierde tiempo en un lugar distinto. Empezamos por encontrar el tuyo.</p>
         </div>
 
-        <div class="grid-3">
-          <article class="card hoverable svc reveal">
-            <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-            <h3>Atención y ventas por WhatsApp</h3>
-            <p>Un asistente de WhatsApp con inteligencia artificial que responde preguntas, toma pedidos, agenda citas y hace seguimiento. Contesta a las once de la noche igual que a las diez de la mañana.</p>
-          </article>
-
-          <article class="card hoverable svc reveal">
-            <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg></div>
-            <h3>Plataformas de gestión a la medida</h3>
-            <p>La información de tu negocio vive en un solo lugar, actualizada y sin depender de archivos sueltos.</p>
-          </article>
-
-          <article class="card hoverable svc reveal">
-            <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 3H2l8 9.46V19l4 2v-8.54z"/></svg></div>
-            <h3>Seguimiento automático de clientes</h3>
-            <p>El sistema detecta quién quedó sin respuesta, lo contacta en el momento correcto y deja registro de cada interacción.</p>
-          </article>
-
-          <article class="card hoverable svc reveal">
-            <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2.5"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
-            <h3>Agendamiento y recordatorios</h3>
-            <p>Confirmaciones, recordatorios y reagendamientos que salen solos. Menos citas perdidas y cero llamadas manuales.</p>
-          </article>
-
-          <article class="card hoverable svc reveal">
-            <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-6"/></svg></div>
-            <h3>Reportes automáticos</h3>
-            <p>Los números que importan llegan a tu celular cada mañana, ya consolidados y listos para decidir.</p>
-          </article>
-
-          <article class="card hoverable svc reveal">
-            <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg></div>
-            <h3>Campañas + automatización</h3>
-            <p>Pauta en Meta y Google para atraer clientes. Un sistema los califica y les hace seguimiento sin que nadie mueva un dedo.</p>
-          </article>
+        <div class="svc-grid">
+          <article class="svc reveal"><h3>Atención y ventas por WhatsApp</h3><p class="body">Responde preguntas, toma pedidos y agenda citas. A las once de la noche igual que a las diez de la mañana.</p></article>
+          <article class="svc reveal"><h3>Plataformas de gestión a la medida</h3><p class="body">La información de tu negocio en un solo lugar, al día y sin archivos sueltos.</p></article>
+          <article class="svc reveal"><h3>Seguimiento automático de clientes</h3><p class="body">Contacta a quien quedó sin respuesta en el momento correcto y registra cada interacción.</p></article>
+          <article class="svc reveal"><h3>Agendamiento y recordatorios</h3><p class="body">Confirmaciones y recordatorios que salen solos. Menos citas perdidas, cero llamadas manuales.</p></article>
+          <article class="svc reveal"><h3>Reportes automáticos</h3><p class="body">Los números que importan llegan a tu celular cada mañana, listos para decidir.</p></article>
+          <article class="svc reveal"><h3>Campañas y automatización</h3><p class="body">Pauta en Meta y Google para atraer clientes, y un sistema que los califica y les hace seguimiento.</p></article>
         </div>
 
-        <div class="operating reveal" id="operando">
-          <p class="label op-label">Ya operando en</p>
-          <div class="op-grid">
-            <a class="op-card" href="#casos" aria-label="Ver proyectos de Restaurantes">
-              <span class="live-dot" aria-hidden="true"></span>
-              <span class="op-body">
-                <span class="op-name">Restaurantes</span>
-                <span class="op-count">1 proyecto entregado</span>
-              </span>
-              <svg class="op-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-            <a class="op-card" href="#casos" aria-label="Ver proyectos de Fondos de inversión inmobiliaria">
-              <span class="live-dot" aria-hidden="true"></span>
-              <span class="op-body">
-                <span class="op-name">Fondos de inversión inmobiliaria</span>
-                <span class="op-count">2 proyectos entregados</span>
-              </span>
-              <svg class="op-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-          </div>
-
-          <div class="could">
-            <p class="label could-label">También podemos construir para</p>
-            <p class="could-list">
-              <span>Salud y bienestar</span><i class="dot-sep" aria-hidden="true"></i>
-              <span>Ecommerce</span><i class="dot-sep" aria-hidden="true"></i>
-              <span>Servicios profesionales</span><i class="dot-sep" aria-hidden="true"></i>
-              <span>Inmobiliarias</span><i class="dot-sep" aria-hidden="true"></i>
-              <span>Concesionarios</span><i class="dot-sep" aria-hidden="true"></i>
-              <span>Educación</span>
-            </p>
-          </div>
+        <div class="sectors grid12 reveal">
+          <p class="label">Ya operando en</p>
+          <p class="body">Restaurantes y fondos de inversión inmobiliaria. También construimos para salud y bienestar, ecommerce, servicios profesionales, inmobiliarias, concesionarios y educación.</p>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         PROCESO
+         CÓMO TRABAJAMOS — proceso + reglas de la IA
     ============================================================ -->
     <section id="proceso" class="has-rule">
       <div class="container">
-        <p class="sec-index label reveal"><span><b>03</b> — Cómo trabajamos</span></p>
+        <p class="sec-index label reveal">03 — Cómo trabajamos</p>
         <div class="section-head split reveal">
           <h2>Cuatro pasos. <em class="accent">Cero sorpresas.</em></h2>
-          <p class="lead">Sabes qué pasa en cada etapa, cuánto cuesta y cuándo termina.</p>
+          <p class="lead">Sabes qué pasa en cada etapa, cuánto cuesta y cuándo termina. Y la IA trabaja con reglas que no se negocian.</p>
         </div>
 
-        <div class="steps">
-          <div class="step reveal">
-            <div class="step-num">01</div>
-            <div>
-              <h3>Conversación</h3>
-              <p>Nos cuentas qué te consume el día. Sin formularios largos y sin propuestas antes de entender el problema.</p>
-            </div>
-          </div>
-          <div class="step reveal">
-            <div class="step-num">02</div>
-            <div>
-              <h3>Propuesta clara</h3>
-              <p>Te decimos qué vamos a automatizar, cómo funciona, cuánto cuesta y cuánto tarda. En español, no en tecnicismos.</p>
-            </div>
-          </div>
-          <div class="step reveal">
-            <div class="step-num">03</div>
-            <div>
-              <h3>Construcción</h3>
-              <p>Construimos y probamos el sistema con datos reales de tu negocio. Lo ves funcionando antes de pagar el saldo.</p>
-            </div>
-          </div>
-          <div class="step reveal">
-            <div class="step-num">04</div>
-            <div>
-              <h3>Entrega y soporte</h3>
-              <p>El sistema queda entregado, funcionando y monitoreado. Si tu negocio cambia, lo ajustamos.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <ol class="steps">
+          <li class="step reveal"><p class="label">Paso 1</p><h3>Conversación</h3><p class="body">Nos cuentas qué te consume el día. Sin formularios largos ni propuestas antes de entender el problema.</p></li>
+          <li class="step reveal"><p class="label">Paso 2</p><h3>Propuesta clara</h3><p class="body">Qué vamos a automatizar, cómo funciona, cuánto cuesta y cuánto tarda. En español, sin tecnicismos.</p></li>
+          <li class="step reveal"><p class="label">Paso 3</p><h3>Construcción</h3><p class="body">Lo probamos con datos reales de tu negocio. Lo ves funcionando antes de pagar el saldo.</p></li>
+          <li class="step reveal"><p class="label">Paso 4</p><h3>Entrega y soporte</h3><p class="body">Queda entregado, funcionando y monitoreado. Si tu negocio cambia, lo ajustamos.</p></li>
+        </ol>
 
-    <!-- ============================================================
-         IA CON REGLAS CLARAS
-    ============================================================ -->
-    <section id="confianza" class="has-rule" style="background:var(--bg-1)">
-      <div class="container">
-        <p class="sec-index label reveal"><span><b>04</b> — IA con reglas claras</span></p>
-        <div class="split-40">
-
-          <div class="sticky-col reveal">
-            <h2>Automatizar no es <em class="accent">perder el control.</em></h2>
-            <p class="lead" style="margin-top:18px">Desconfiar de la inteligencia artificial es razonable. Por eso cada sistema que construimos sigue cuatro reglas que no negociamos.</p>
-          </div>
-
-          <div class="grid-2">
-            <article class="card hoverable rule reveal">
-              <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg></div>
-              <h3>Hace solo lo que acordamos</h3>
-              <p>El sistema trabaja dentro de las reglas de tu negocio: precios, horarios, tono y límites. Nada improvisado.</p>
-            </article>
-
-            <article class="card hoverable rule reveal">
-              <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-              <h3>Sabe cuándo pasarte la conversación</h3>
-              <p>Si una pregunta sale de lo previsto o necesita criterio, la IA le pasa la conversación a una persona de tu equipo.</p>
-            </article>
-
-            <article class="card hoverable rule reveal">
-              <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-              <h3>Tus datos no se mezclan</h3>
-              <p>Cada cliente opera en un entorno separado. Tratamos la información conforme a la Ley 1581 de 2012.</p>
-            </article>
-
-            <article class="card hoverable rule reveal">
-              <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
-              <h3>Lo ves funcionando antes de pagar el total</h3>
-              <p>Pagas el 50% al inicio y el otro 50% contra entrega del sistema funcionando y probado.</p>
-            </article>
-          </div>
-
+        <div class="rules grid12 reveal" id="confianza">
+          <p class="label">Reglas que no negociamos</p>
+          <div class="rule"><h3>Hace solo lo que acordamos</h3><p class="body">Trabaja dentro de las reglas de tu negocio: precios, horarios, tono y límites.</p></div>
+          <div class="rule"><h3>Te pasa la conversación</h3><p class="body">Si una pregunta sale de lo previsto o necesita criterio, la atiende una persona de tu equipo.</p></div>
+          <div class="rule"><h3>Tus datos no se mezclan</h3><p class="body">Cada cliente opera en un entorno separado, conforme a la Ley 1581 de 2012.</p></div>
         </div>
       </div>
     </section>
@@ -1984,50 +828,29 @@
     ============================================================ -->
     <section id="nosotros" class="has-rule">
       <div class="container">
-        <p class="sec-index label reveal"><span><b>05</b> — Quién está detrás</span></p>
-        <div class="split-36">
-
-          <div class="reveal">
-            <div class="photo-wrap">
-              <span class="photo-frame" aria-hidden="true"></span>
-              <div class="photo-crop">
-                <!-- Replace Foto_CV.jpg with a professional head-and-shoulders photo, neutral background, 1200×1500px. -->
-                <img src="Foto_CV.jpg" alt="Juan Campo, fundador de Automa" width="1224" height="1848" loading="lazy" decoding="async">
-              </div>
+        <p class="sec-index label reveal">04 — Quién está detrás</p>
+        <div class="grid12 founder">
+          <div class="photo-col reveal">
+            <div class="photo-crop">
+              <!-- Replace Foto_CV.jpg with a professional head-and-shoulders photo, neutral background, 1200×1500px. -->
+              <img src="Foto_CV.jpg" alt="Juan Campo, fundador de Automa" width="1224" height="1848" loading="lazy" decoding="async">
             </div>
           </div>
 
           <div class="founder-copy reveal">
             <h2>Detrás de cada sistema hay <em class="accent">una persona.</em></h2>
-            <p class="founder-name">Juan Campo</p>
-            <p class="founder-role label">Fundador · Ingeniero Industrial · MSc Marketing</p>
-
+            <p class="title">Juan Campo</p>
+            <p class="label founder-role">Fundador · Ingeniero Industrial · MSc Marketing</p>
             <div class="bio">
-              <p>Soy Ingeniero Industrial de la Javeriana con un Máster en Marketing de ESIC Business School, en Barcelona.</p>
-              <p>Trabajé gestionando pauta digital para Frito Lay, Gatorade y Kaiser Permanente en Omnicom Media Group. Después lideré las operaciones de ecommerce en Amazon para mercados europeos en Mars Inc.</p>
-              <p>Volví a Colombia y encontré el mismo patrón en todos lados. Gente muy capaz perdía sus mejores horas en tareas que no la necesitaban. Automa nació ahí.</p>
+              <p class="body">Ingeniero Industrial de la Javeriana, con un Máster en Marketing de ESIC Business School, en Barcelona.</p>
+              <p class="body">Gestioné pauta digital para Frito Lay, Gatorade y Kaiser Permanente en Omnicom Media Group. Después lideré las operaciones de ecommerce en Amazon para mercados europeos en Mars Inc.</p>
+              <p class="body">Al volver a Colombia vi el mismo patrón en todos lados: gente muy capaz perdiendo sus mejores horas en tareas que no la necesitaban. Automa nació ahí.</p>
             </div>
-
-            <figure class="quote">
-              <blockquote>
-                <p>«No construimos tecnología por construirla. Construimos sistemas que liberan tiempo real para personas reales.»</p>
-              </blockquote>
-              <figcaption class="signoff">
-                <span class="signoff-line"><span class="signoff-name">Juan Campo</span></span>
-                <span class="signoff-role">Fundador · Automa</span>
-              </figcaption>
-            </figure>
-
-            <div class="badges">
-              <span class="badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg>Ing. Industrial · Javeriana</span>
-              <span class="badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg>MSc Marketing · ESIC Barcelona</span>
-              <span class="badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2.5"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Ex Omnicom Media Group</span>
-              <span class="badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="14" rx="2.5"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Ex Mars Inc. · Barcelona</span>
-            </div>
-
-            <a class="link-under" href="https://www.linkedin.com/in/juancampoher/" target="_blank" rel="noopener noreferrer">Ver perfil en LinkedIn<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <blockquote class="quote">
+              <p class="lead">«No construimos tecnología por construirla. Construimos sistemas que liberan tiempo real para personas reales.»</p>
+            </blockquote>
+            <a class="link" href="https://www.linkedin.com/in/juancampoher/" target="_blank" rel="noopener noreferrer" style="margin-top:16px">Ver perfil en LinkedIn<svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
           </div>
-
         </div>
       </div>
     </section>
@@ -2037,10 +860,9 @@
     ============================================================ -->
     <section id="casos">
       <div class="slab">
-        <div class="slab-deco" aria-hidden="true" style="background:radial-gradient(ellipse 60% 40% at 50% 0%, rgba(16,185,129,.09) 0%, transparent 60%)"></div>
-        <div class="container" style="position:relative;z-index:1">
+        <div class="container">
 
-          <p class="sec-index label reveal"><span><b>06</b> — Proyectos entregados</span></p>
+          <p class="sec-index label reveal">05 — Proyectos entregados</p>
           <div class="section-head split reveal">
             <h2>Tres sistemas entregados. <em class="accent">Operando hoy.</em></h2>
             <p class="lead">No son demos ni pilotos. Son proyectos cerrados, entregados a sus clientes y funcionando en producción.</p>
@@ -2049,13 +871,10 @@
           <!-- CASE 1 -->
           <article class="case reveal">
             <div class="case-visual">
-              <div class="wa-mock tilt">
+              <div class="wa-mock" data-mock>
                 <div class="wa-head">
                   <span class="wa-avatar" aria-hidden="true">R</span>
-                  <span>
-                    <span class="wa-name">Restaurante</span>
-                    <span class="wa-status">en línea</span>
-                  </span>
+                  <span><span class="wa-name">Restaurante</span><span class="wa-status">en línea</span></span>
                 </div>
                 <p class="bubble in">Buenas, quiero 2 bandejas paisas a domicilio<time>7:42 p. m.</time></p>
                 <p class="bubble out">Claro. 2 bandejas paisas $56.000 más $5.000 de domicilio. Total $61.000. ¿Te la enviamos a la dirección de siempre?<time>7:42 p. m.</time></p>
@@ -2068,27 +887,25 @@
                   </span>
                   <time>7:45 p. m.</time>
                 </div>
-                <p class="bubble out"><svg class="inline-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m20 6-11 11-5-5"/></svg>Pago verificado. Tu pedido ya está en cocina. Llega en 35 minutos.<time>7:45 p. m.</time></p>
+                <p class="bubble out"><svg class="inline-check" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Pago verificado. Tu pedido ya está en cocina. Llega en 35 minutos.<time>7:45 p. m.</time></p>
                 <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
               </div>
-              <p class="mock-caption">Recreación ilustrativa.</p>
+              <p class="caption label">Recreación ilustrativa</p>
             </div>
 
             <div class="case-copy">
-              <span class="status-badge"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</span>
-              <p class="case-cat">Restaurante · Bogotá</p>
+              <p class="label case-status"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</p>
+              <p class="label case-cat">Restaurante · Bogotá</p>
               <h3>Pedidos por WhatsApp que se atienden solos</h3>
-              <p>Un asistente de WhatsApp entiende el pedido, confirma disponibilidad y calcula el total. Después verifica el comprobante de pago y manda la comanda a cocina. El restaurante solo cocina.</p>
-              <div class="tech-tags">
-                <span>WhatsApp Business API</span><span>Claude AI</span><span>n8n</span><span>Supabase</span>
-              </div>
+              <p class="body">Un asistente de WhatsApp entiende el pedido, confirma disponibilidad y calcula el total. Después verifica el comprobante de pago y manda la comanda a cocina. El restaurante solo cocina.</p>
+              <p class="label stack">WhatsApp Business API · Claude AI · n8n · Supabase</p>
             </div>
           </article>
 
           <!-- CASE 2 -->
           <article class="case reverse reveal">
             <div class="case-visual">
-              <div class="dash tilt" id="dashCHS">
+              <div class="dash" id="dashCHS" data-mock>
                 <div class="dash-top">
                   <span class="dash-name">Fondo CHS</span>
                   <span class="avatars" aria-hidden="true">
@@ -2096,22 +913,11 @@
                     <span class="plus-chip">+2</span>
                   </span>
                 </div>
-
                 <div class="stats">
-                  <div class="stat">
-                    <p class="stat-label">Capital</p>
-                    <p class="stat-val">—</p>
-                  </div>
-                  <div class="stat">
-                    <p class="stat-label">Propiedades</p>
-                    <p class="stat-val">4<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 7l-8.5 8.5-4-4L2 19"/><path d="M16 7h6v6"/></svg></p>
-                  </div>
-                  <div class="stat">
-                    <p class="stat-label">Socios</p>
-                    <p class="stat-val">5</p>
-                  </div>
+                  <div class="stat"><p class="stat-label">Capital</p><p class="stat-val">—</p></div>
+                  <div class="stat"><p class="stat-label">Propiedades</p><p class="stat-val">4<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 7l-8.5 8.5-4-4L2 19"/><path d="M16 7h6v6"/></svg></p></div>
+                  <div class="stat"><p class="stat-label">Socios</p><p class="stat-val">5</p></div>
                 </div>
-
                 <div class="chart" aria-hidden="true">
                   <span class="bar" style="height:42%;opacity:.35"></span>
                   <span class="bar" style="height:64%;opacity:.48"></span>
@@ -2121,41 +927,27 @@
                   <span class="bar" style="height:94%;opacity:1"></span>
                 </div>
                 <div class="chart-axis" aria-hidden="true"></div>
-                <div class="chart-labels" aria-hidden="true">
-                  <span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span>
-                </div>
-
-                <div class="act-row">
-                  <span class="act-left"><i style="background:#10B981"></i>Operación registrada</span>
-                  <span class="act-time">hace 2 h</span>
-                </div>
-                <div class="act-row">
-                  <span class="act-left"><i style="background:#8B95A7"></i>Reporte generado</span>
-                  <span class="act-time">hace 1 d</span>
-                </div>
-                <div class="act-row">
-                  <span class="act-left"><i style="background:#374151"></i>Nuevo inmueble</span>
-                  <span class="act-time">hace 3 d</span>
-                </div>
+                <div class="chart-labels" aria-hidden="true"><span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span></div>
+                <div class="act-row"><span class="act-left"><i style="background:#10B981"></i>Operación registrada</span><span class="act-time">hace 2 h</span></div>
+                <div class="act-row"><span class="act-left"><i style="background:#8B95A7"></i>Reporte generado</span><span class="act-time">hace 1 d</span></div>
+                <div class="act-row"><span class="act-left"><i style="background:#374151"></i>Nuevo inmueble</span><span class="act-time">hace 3 d</span></div>
               </div>
-              <p class="mock-caption">Recreación ilustrativa.</p>
+              <p class="caption label">Recreación ilustrativa</p>
             </div>
 
             <div class="case-copy">
-              <span class="status-badge"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</span>
-              <p class="case-cat">Fondo de inversión · Cliente 1</p>
+              <p class="label case-status"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</p>
+              <p class="label case-cat">Fondo de inversión · Cliente 1</p>
               <h3>Plataforma de gestión — Fondo CHS</h3>
-              <p>Cinco socios entran a una sola plataforma de gestión que consolida el estado del fondo. Registra cada compra y venta de inmuebles y muestra la posición de cada socio en tiempo real. Se acabaron los Excel desactualizados.</p>
-              <div class="tech-tags">
-                <span>React</span><span>Supabase</span><span>Claude AI</span>
-              </div>
+              <p class="body">Cinco socios entran a una sola plataforma que consolida el estado del fondo. Registra cada compra y venta de inmuebles y muestra la posición de cada socio en tiempo real. Se acabaron los Excel desactualizados.</p>
+              <p class="label stack">React · Supabase · Claude AI</p>
             </div>
           </article>
 
           <!-- CASE 3 -->
           <article class="case reveal">
             <div class="case-visual">
-              <div class="dash spc tilt" role="img" aria-label="Plataforma del Fondo SPC: dos subfondos con datos aislados, tabla de socios e importación de Excel">
+              <div class="dash spc" data-mock role="img" aria-label="Plataforma del Fondo SPC: dos subfondos con datos aislados, tabla de socios e importación de Excel">
                 <span class="spc-isolated" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Datos aislados</span>
                 <div class="dash-top" aria-hidden="true">
                   <span class="fund-pill">Fondo SPC<svg viewBox="0 0 24 24" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span>
@@ -2164,9 +956,7 @@
                     <span class="plus-chip">+4</span>
                   </span>
                 </div>
-
                 <div class="seg" aria-hidden="true"><span class="on">Subfondo A</span><span>Subfondo B</span></div>
-
                 <table class="spc-table" aria-hidden="true">
                   <thead><tr><th>Socio</th><th>Participación</th><th>Estado</th></tr></thead>
                   <tbody>
@@ -2176,26 +966,31 @@
                     <tr><td>Socio 4</td><td class="num-cell">—</td><td><span class="ok-pill">Al día</span></td></tr>
                   </tbody>
                 </table>
-
                 <div class="spc-import" aria-hidden="true">
                   <svg viewBox="0 0 24 24" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
                   <span>Importación de Excel completada</span>
                   <span class="act-time">hace 1 d</span>
                 </div>
               </div>
-              <p class="mock-caption">Recreación ilustrativa.</p>
+              <p class="caption label">Recreación ilustrativa</p>
             </div>
 
             <div class="case-copy">
-              <span class="status-badge"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</span>
-              <p class="case-cat">Fondo de inversión · Cliente 2</p>
+              <p class="label case-status"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</p>
+              <p class="label case-cat">Fondo de inversión · Cliente 2</p>
               <h3>Plataforma de gestión — Fondo SPC</h3>
-              <p>Un segundo fondo, un cliente distinto. Nueve socios sobre una arquitectura que mantiene los datos de cada fondo totalmente separados. El mismo sistema, escalado para otra operación.</p>
-              <div class="tech-tags">
-                <span>React</span><span>Supabase</span><span>Multi-tenant</span><span>Importación Excel</span>
-              </div>
+              <p class="body">Un segundo fondo, un cliente distinto. Nueve socios sobre una arquitectura que mantiene los datos de cada fondo totalmente separados. El mismo sistema, escalado para otra operación.</p>
+              <p class="label stack">React · Supabase · Multi-tenant · Importación Excel</p>
             </div>
           </article>
+
+          <div class="case-cta reveal">
+            <p class="lead">¿Quieres algo así para tu negocio? Cuéntanos tu caso.</p>
+            <a class="btn btn-on-dark js-wa" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>
+              Escríbenos por WhatsApp
+            </a>
+          </div>
 
         </div>
       </div>
@@ -2206,58 +1001,46 @@
     ============================================================ -->
     <section id="inversion">
       <div class="container">
-        <p class="sec-index label reveal"><span><b>07</b> — Inversión</span></p>
+        <p class="sec-index label reveal">06 — Inversión</p>
         <div class="section-head split reveal">
           <h2>Sabes cuánto cuesta <em class="accent">antes de empezar.</em></h2>
-          <p class="lead">Cada proyecto tiene dos partes: la implementación del sistema y su mantenimiento mensual. Estos son los puntos de partida.</p>
+          <p class="lead">Cada proyecto tiene dos partes: la implementación y el mantenimiento mensual. Estos son los puntos de partida.</p>
         </div>
 
         <div class="price-grid">
-          <article class="card price-card reveal">
-            <p class="price-label label">Implementación</p>
-            <p class="price-row">
-              <span class="price-from">desde</span>
-              <span class="price-amount">$1.200.000</span>
-            </p>
-            <p class="price-sub">COP · pago único</p>
-            <div class="price-divider"></div>
-            <ul class="check-list">
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Diagnóstico del proceso</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Diseño y construcción del sistema</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Pruebas con datos reales de tu negocio</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Entrega, documentación y capacitación</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span><span class="num">50%</span> al inicio y <span class="num">50%</span> contra entrega funcional</span></li>
+          <article class="price-card reveal">
+            <p class="label">Implementación</p>
+            <p class="price-row"><span class="body">desde</span><span class="price">$1.200.000</span></p>
+            <p class="body price-sub">COP · pago único</p>
+            <ul class="price-list">
+              <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Diagnóstico del proceso</li>
+              <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Diseño y construcción del sistema</li>
+              <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Pruebas con datos reales de tu negocio</li>
+              <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Entrega, documentación y capacitación</li>
+              <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>50% al inicio y 50% contra entrega funcional</li>
             </ul>
           </article>
 
-          <div class="plus-node reveal" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-          </div>
+          <svg class="plus" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
 
-          <article class="card price-card featured reveal">
-            <span class="price-badge">Recomendado</span>
-            <p class="price-label label">Mantenimiento</p>
-            <p class="price-row">
-              <span class="price-from">desde</span>
-              <span class="price-amount">$600.000</span>
-            </p>
-            <p class="price-sub">COP al mes · sin permanencia</p>
-            <div class="price-divider"></div>
-            <ul class="check-list">
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Monitoreo del sistema en producción</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Corrección de fallas del sistema</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Ajustes menores cuando cambie tu operación</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Infraestructura incluida</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Cancelas con <span class="num">30</span> días de aviso</span></li>
+          <article class="price-card reveal">
+            <p class="label">Mantenimiento · Recomendado</p>
+            <p class="price-row"><span class="body">desde</span><span class="price">$600.000</span></p>
+            <p class="body price-sub">COP al mes · sin permanencia</p>
+            <ul class="price-list">
+              <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Monitoreo del sistema en producción</li>
+              <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Corrección de fallas del sistema</li>
+              <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Ajustes menores cuando cambie tu operación</li>
+              <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Infraestructura incluida</li>
+              <li><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Cancelas con 30 días de aviso</li>
             </ul>
           </article>
         </div>
 
-        <p class="price-note reveal">El valor final depende de la complejidad del proceso, del uso de inteligencia artificial y de cuántas herramientas hay que conectar. La gestión de pauta se cotiza aparte, y el presupuesto publicitario lo pagas directamente a Meta o Google.</p>
-
-        <div class="price-cta reveal">
-          <a class="btn btn-primary" id="ctaPricing" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20quiero%20saber%20cu%C3%A1nto%20costar%C3%ADa%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Preguntar por mi caso por WhatsApp">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <div class="price-foot grid12 reveal">
+          <p class="body">El valor final depende de la complejidad del proceso, del uso de inteligencia artificial y de cuántas herramientas hay que conectar. La pauta se cotiza aparte; el presupuesto publicitario lo pagas directamente a Meta o Google.</p>
+          <a class="btn btn-primary" id="ctaPricing" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>
             Preguntar por mi caso
           </a>
         </div>
@@ -2267,92 +1050,94 @@
     <!-- ============================================================
          FAQ
     ============================================================ -->
-    <section id="faq" class="has-rule" style="background:var(--bg-1)">
+    <section id="faq" class="has-rule">
       <div class="container">
-        <p class="sec-index label reveal"><span><b>08</b> — Preguntas frecuentes</span></p>
-        <div class="section-head split reveal">
-          <h2>Lo que nos preguntan <em class="accent">siempre.</em></h2>
-          <p class="lead">Si tu duda no está aquí, escríbenos por WhatsApp y te respondemos en la misma conversación.</p>
-        </div>
-
-        <div class="faq-list" id="faqList">
-          <div class="faq-item reveal">
-            <button class="faq-q" type="button" id="fq1" aria-expanded="false" aria-controls="fp1">
-              <span>¿Esto sirve para un negocio pequeño como el mío?</span>
-              <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
-            </button>
-            <div class="faq-panel" id="fp1" role="region" aria-labelledby="fq1" inert>
-              <div><p>Sí. Los tres sistemas que tenemos operando son de negocios pequeños y medianos: un restaurante y dos fondos de inversión con menos de diez socios cada uno. Entre más manual sea tu operación, más sentido tiene.</p></div>
-            </div>
+        <p class="sec-index label reveal">07 — Preguntas frecuentes</p>
+        <div class="grid12">
+          <div class="faq-head reveal">
+            <h2>Lo que siempre <em class="accent">nos preguntan.</em></h2>
+            <p class="lead">Si tu duda no está aquí, escríbenos por WhatsApp.</p>
           </div>
 
-          <div class="faq-item reveal">
-            <button class="faq-q" type="button" id="fq2" aria-expanded="false" aria-controls="fp2">
-              <span>¿Cuánto tarda tener el sistema funcionando?</span>
-              <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
-            </button>
-            <div class="faq-panel" id="fp2" role="region" aria-labelledby="fq2" inert>
-              <div><p>Depende del alcance. Un sistema sencillo puede estar listo en pocos días. Un asistente de WhatsApp o una plataforma de gestión toma varias semanas. El plazo exacto queda escrito en la propuesta, antes de empezar.</p></div>
+          <div class="faq-list" id="faqList">
+  <div class="faq-item">
+              <button class="faq-q" type="button" id="fq1" aria-expanded="false" aria-controls="fp1">
+                <span class="title">¿Esto sirve para un negocio pequeño como el mío?</span>
+                <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
+              </button>
+              <div class="faq-panel" id="fp1" role="region" aria-labelledby="fq1" inert>
+                <div><p class="body">Sí. Los tres sistemas que tenemos operando son de negocios pequeños y medianos: un restaurante y dos fondos de inversión con menos de diez socios cada uno. Entre más manual sea tu operación, más sentido tiene.</p></div>
+              </div>
             </div>
-          </div>
 
-          <div class="faq-item reveal">
-            <button class="faq-q" type="button" id="fq3" aria-expanded="false" aria-controls="fp3">
-              <span>¿Necesito saber de tecnología para usarlo?</span>
-              <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
-            </button>
-            <div class="faq-panel" id="fp3" role="region" aria-labelledby="fq3" inert>
-              <div><p>No. El sistema se entrega funcionando y con capacitación. Lo que necesitas cambiar seguido, como precios, horarios o mensajes, queda en herramientas que ya conoces.</p></div>
+  <div class="faq-item">
+              <button class="faq-q" type="button" id="fq2" aria-expanded="false" aria-controls="fp2">
+                <span class="title">¿Cuánto tarda tener el sistema funcionando?</span>
+                <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
+              </button>
+              <div class="faq-panel" id="fp2" role="region" aria-labelledby="fq2" inert>
+                <div><p class="body">Depende del alcance. Un sistema sencillo puede estar listo en pocos días. Un asistente de WhatsApp o una plataforma de gestión toma varias semanas. El plazo exacto queda escrito en la propuesta, antes de empezar.</p></div>
+              </div>
             </div>
-          </div>
 
-          <div class="faq-item reveal">
-            <button class="faq-q" type="button" id="fq4" aria-expanded="false" aria-controls="fp4">
-              <span>¿Qué pasa si la inteligencia artificial responde algo mal?</span>
-              <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
-            </button>
-            <div class="faq-panel" id="fp4" role="region" aria-labelledby="fq4" inert>
-              <div><p>El sistema opera dentro de reglas que definimos contigo. Cuando algo sale de lo previsto, le pasa la conversación a una persona. Antes de entregarlo lo probamos con casos reales de tu negocio, y durante el mantenimiento lo seguimos ajustando.</p></div>
+  <div class="faq-item">
+              <button class="faq-q" type="button" id="fq3" aria-expanded="false" aria-controls="fp3">
+                <span class="title">¿Necesito saber de tecnología para usarlo?</span>
+                <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
+              </button>
+              <div class="faq-panel" id="fp3" role="region" aria-labelledby="fq3" inert>
+                <div><p class="body">No. El sistema se entrega funcionando y con capacitación. Lo que necesitas cambiar seguido, como precios, horarios o mensajes, queda en herramientas que ya conoces.</p></div>
+              </div>
             </div>
-          </div>
 
-          <div class="faq-item reveal">
-            <button class="faq-q" type="button" id="fq5" aria-expanded="false" aria-controls="fp5">
-              <span>¿De quién es el sistema?</span>
-              <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
-            </button>
-            <div class="faq-panel" id="fp5" role="region" aria-labelledby="fq5" inert>
-              <div><p>Si contratas solo la implementación, los desarrollos hechos para tu proyecto pasan a ser tuyos al completar el pago. Si contratas implementación con mantenimiento, recibes una licencia de uso mientras el contrato esté vigente. Todo está detallado en nuestros <a href="terminos.html">Términos y Condiciones</a>.</p></div>
+  <div class="faq-item">
+              <button class="faq-q" type="button" id="fq4" aria-expanded="false" aria-controls="fp4">
+                <span class="title">¿Qué pasa si la inteligencia artificial responde algo mal?</span>
+                <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
+              </button>
+              <div class="faq-panel" id="fp4" role="region" aria-labelledby="fq4" inert>
+                <div><p class="body">El sistema opera dentro de reglas que definimos contigo. Cuando algo sale de lo previsto, le pasa la conversación a una persona. Antes de entregarlo lo probamos con casos reales de tu negocio, y durante el mantenimiento lo seguimos ajustando.</p></div>
+              </div>
             </div>
-          </div>
 
-          <div class="faq-item reveal">
-            <button class="faq-q" type="button" id="fq6" aria-expanded="false" aria-controls="fp6">
-              <span>¿Qué pasa con los datos de mis clientes?</span>
-              <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
-            </button>
-            <div class="faq-panel" id="fp6" role="region" aria-labelledby="fq6" inert>
-              <div><p>Cada cliente opera en un entorno separado y los datos no se mezclan. Actuamos como encargados del tratamiento y seguimos las instrucciones de tu negocio, conforme a la Ley 1581 de 2012. Consulta nuestra <a href="privacidad.html">Política de Privacidad</a>.</p></div>
+  <div class="faq-item">
+              <button class="faq-q" type="button" id="fq5" aria-expanded="false" aria-controls="fp5">
+                <span class="title">¿De quién es el sistema?</span>
+                <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
+              </button>
+              <div class="faq-panel" id="fp5" role="region" aria-labelledby="fq5" inert>
+                <div><p class="body">Si contratas solo la implementación, los desarrollos hechos para tu proyecto pasan a ser tuyos al completar el pago. Si contratas implementación con mantenimiento, recibes una licencia de uso mientras el contrato esté vigente. Todo está detallado en nuestros <a href="terminos.html">Términos y Condiciones</a>.</p></div>
+              </div>
             </div>
-          </div>
 
-          <div class="faq-item reveal">
-            <button class="faq-q" type="button" id="fq7" aria-expanded="false" aria-controls="fp7">
-              <span>¿Trabajan con negocios fuera de Bogotá?</span>
-              <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
-            </button>
-            <div class="faq-panel" id="fp7" role="region" aria-labelledby="fq7" inert>
-              <div><p>Sí. Todo el proceso funciona a distancia, desde la primera conversación hasta el soporte. Ya tenemos proyectos entregados fuera de Bogotá.</p></div>
+  <div class="faq-item">
+              <button class="faq-q" type="button" id="fq6" aria-expanded="false" aria-controls="fp6">
+                <span class="title">¿Qué pasa con los datos de mis clientes?</span>
+                <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
+              </button>
+              <div class="faq-panel" id="fp6" role="region" aria-labelledby="fq6" inert>
+                <div><p class="body">Cada cliente opera en un entorno separado y los datos no se mezclan. Actuamos como encargados del tratamiento y seguimos las instrucciones de tu negocio, conforme a la Ley 1581 de 2012. Consulta nuestra <a href="privacidad.html">Política de Privacidad</a>.</p></div>
+              </div>
             </div>
-          </div>
 
-          <div class="faq-item reveal">
-            <button class="faq-q" type="button" id="fq8" aria-expanded="false" aria-controls="fp8">
-              <span>¿Y si al final no funciona como esperaba?</span>
-              <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
-            </button>
-            <div class="faq-panel" id="fp8" role="region" aria-labelledby="fq8" inert>
-              <div><p>Ves el sistema funcionando antes de pagar el saldo. Si en la entrega no cumple lo que quedó escrito en la propuesta, lo ajustamos hasta que lo cumpla. Por eso cobramos la mitad al inicio y no el total.</p></div>
+  <div class="faq-item">
+              <button class="faq-q" type="button" id="fq7" aria-expanded="false" aria-controls="fp7">
+                <span class="title">¿Trabajan con negocios fuera de Bogotá?</span>
+                <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
+              </button>
+              <div class="faq-panel" id="fp7" role="region" aria-labelledby="fq7" inert>
+                <div><p class="body">Sí. Todo el proceso funciona a distancia, desde la primera conversación hasta el soporte. Ya tenemos proyectos entregados fuera de Bogotá.</p></div>
+              </div>
+            </div>
+
+  <div class="faq-item">
+              <button class="faq-q" type="button" id="fq8" aria-expanded="false" aria-controls="fp8">
+                <span class="title">¿Y si al final no funciona como esperaba?</span>
+                <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
+              </button>
+              <div class="faq-panel" id="fp8" role="region" aria-labelledby="fq8" inert>
+                <div><p class="body">Ves el sistema funcionando antes de pagar el saldo. Si en la entrega no cumple lo que quedó escrito en la propuesta, lo ajustamos hasta que lo cumpla. Por eso cobramos la mitad al inicio y no el total.</p></div>
+              </div>
             </div>
           </div>
         </div>
@@ -2364,40 +1149,37 @@
     ============================================================ -->
     <section id="contacto">
       <div class="slab">
-        <div class="slab-deco" aria-hidden="true" style="background:radial-gradient(ellipse 70% 55% at 50% 40%, rgba(16,185,129,.10) 0%, transparent 65%)"></div>
-        <div class="slab-deco" aria-hidden="true" style="background-image:radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);background-size:28px 28px;-webkit-mask-image:radial-gradient(ellipse 65% 60% at 50% 50%, black, transparent);mask-image:radial-gradient(ellipse 65% 60% at 50% 50%, black, transparent)"></div>
-
-        <div class="container" style="position:relative;z-index:1">
-          <p class="sec-index label reveal"><span><b>09</b> — Contacto</span></p>
+        <div class="container">
+          <p class="sec-index label reveal">08 — Contacto</p>
           <div class="contact-inner reveal">
             <h2>Cuéntanos qué te está <em class="accent">quitando tiempo.</em></h2>
             <p class="lead">En la misma conversación te decimos si lo podemos automatizar, cuánto cuesta y cuánto tarda. Sin formularios y sin compromiso.</p>
 
-            <p class="chip-label" id="sectorLabel">¿En qué sector estás? (opcional)</p>
-            <div class="chip-row" role="group" aria-label="Sector de tu negocio">
-              <button type="button" class="chip chip-dark js-chip" aria-pressed="false">Restaurante</button>
-              <button type="button" class="chip chip-dark js-chip" aria-pressed="false">Salud y bienestar</button>
-              <button type="button" class="chip chip-dark js-chip" aria-pressed="false">Fondo de inversión</button>
-              <button type="button" class="chip chip-dark js-chip" aria-pressed="false">Ecommerce</button>
-              <button type="button" class="chip chip-dark js-chip" aria-pressed="false">Servicios profesionales</button>
-              <button type="button" class="chip chip-dark js-chip" aria-pressed="false">Inmobiliaria</button>
-              <button type="button" class="chip chip-dark js-chip" aria-pressed="false">Concesionario</button>
-              <button type="button" class="chip chip-dark js-chip" aria-pressed="false">Otro</button>
+            <p class="body chip-label" id="sectorLabel">¿En qué sector estás? (opcional)</p>
+            <div class="chip-row" role="group" aria-labelledby="sectorLabel">
+              <button type="button" class="chip js-chip" aria-pressed="false">Restaurante</button>
+              <button type="button" class="chip js-chip" aria-pressed="false">Salud y bienestar</button>
+              <button type="button" class="chip js-chip" aria-pressed="false">Fondo de inversión</button>
+              <button type="button" class="chip js-chip" aria-pressed="false">Ecommerce</button>
+              <button type="button" class="chip js-chip" aria-pressed="false">Servicios profesionales</button>
+              <button type="button" class="chip js-chip" aria-pressed="false">Inmobiliaria</button>
+              <button type="button" class="chip js-chip" aria-pressed="false">Concesionario</button>
+              <button type="button" class="chip js-chip" aria-pressed="false">Otro</button>
             </div>
 
-            <a class="btn btn-on-dark btn-lg" id="ctaContact" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <a class="btn btn-on-dark" id="ctaContact" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>
               Escríbenos por WhatsApp
             </a>
 
             <div class="contact-secondary">
-              <a href="mailto:flowautomainfo@gmail.com">
+              <a class="body" href="mailto:flowautomainfo@gmail.com">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m2 7 10 6 10-6"/></svg>
                 flowautomainfo@gmail.com
               </a>
-              <a class="js-wa" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp al +57 317 887 8200">
+              <a class="body js-wa" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp al +57 317 887 8200">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-                <span class="num">+57 317 887 8200</span>
+                +57 317 887 8200
               </a>
             </div>
           </div>
@@ -2413,14 +1195,11 @@
   <footer id="footer">
     <div class="container">
       <div class="footer-grid">
-
         <div>
-          <p class="footer-logo">Automa</p>
-          <p class="footer-tag">Automatización con inteligencia artificial para negocios reales.</p>
-          <p class="footer-place">Bogotá, Colombia · 2026</p>
+          <p class="wordmark">Automa</p>
+          <p class="body">Automatización con inteligencia artificial para negocios reales. Bogotá, Colombia.</p>
         </div>
-
-        <nav class="footer-nav" aria-label="Navegación del pie de página">
+        <nav class="footer-nav body" aria-label="Navegación del pie de página">
           <a href="#problema">Problema</a>
           <a href="#servicios">Servicios</a>
           <a href="#proceso">Proceso</a>
@@ -2428,15 +1207,12 @@
           <a href="#casos">Casos</a>
           <a href="#contacto">Contacto</a>
         </nav>
-
-        <div class="footer-contact">
+        <div class="footer-contact body">
           <a href="mailto:flowautomainfo@gmail.com">flowautomainfo@gmail.com</a>
-          <a class="js-wa" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp al +57 317 887 8200">+57 317 887 8200</a>
+          <a class="js-wa" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp al +57 317 887 8200">+57 317 887 8200</a>
         </div>
-
       </div>
-
-      <div class="footer-bottom">
+      <div class="footer-bottom label">
         <p>&copy; 2026 Automa — C&amp;L RDM SAS · NIT 901713525</p>
         <div class="footer-legal">
           <a href="privacidad.html">Política de Privacidad</a>
@@ -2447,11 +1223,17 @@
   </footer>
 
   <!-- ============================================================
-       FLOATING WHATSAPP
+       WHATSAPP — floating circle (≥768px) / sticky bar (<768px)
   ============================================================ -->
-  <a class="wa-float js-wa" id="waFloat" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <a class="wa-float js-wa" id="waFloat" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
+    <svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>
   </a>
+  <div class="m-bar" id="mBar">
+    <a class="btn btn-primary js-wa" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer">
+      <svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>
+      Escríbenos por WhatsApp
+    </a>
+  </div>
 
   <!-- ============================================================
        JSON-LD
@@ -2549,33 +1331,23 @@
     'use strict';
 
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var each = function (sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); };
 
     /* ---------- WhatsApp links ---------- */
     const WA = "573178878200";
     var MSG_DEFAULT = 'Hola Juan, vi la página de Automa y quiero automatizar un proceso de mi negocio.';
+    var MSG_PRICING = 'Hola Juan, quiero saber cuánto costaría automatizar un proceso de mi negocio.';
     var waUrl = function (t) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(t); };
 
-    Array.prototype.forEach.call(document.querySelectorAll('.js-wa'), function (a) {
-      a.href = waUrl(MSG_DEFAULT);
-    });
-
-    /* ---------- Scroll progress ---------- */
-    var bar = document.getElementById('progress');
-    var ticking = false;
-    function onScroll() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        var h = document.documentElement.scrollHeight - window.innerHeight;
-        var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
-        bar.style.width = pct + '%';
-        nav.classList.toggle('scrolled', window.scrollY > 30);
-        ticking = false;
-      });
-    }
+    each('.js-wa', function (a) { a.href = waUrl(MSG_DEFAULT); });
+    var ctaPricing = document.getElementById('ctaPricing');
+    if (ctaPricing) ctaPricing.href = waUrl(MSG_PRICING);
+    var ctaContact = document.getElementById('ctaContact');
+    if (ctaContact) ctaContact.href = waUrl(MSG_DEFAULT);
 
     /* ---------- Navbar ---------- */
     var nav = document.getElementById('nav');
+    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 24); };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
@@ -2584,103 +1356,52 @@
     var panel = document.getElementById('mobilePanel');
     var menuOpen = false;
 
-    function focusables() {
-      return Array.prototype.slice.call(
-        panel.querySelectorAll('a[href], button:not([disabled])')
-      );
-    }
+    function focusables() { return Array.prototype.slice.call(panel.querySelectorAll('a[href], button:not([disabled])')); }
     function setMenu(open) {
       menuOpen = open;
       panel.classList.toggle('open', open);
       burger.classList.toggle('open', open);
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
       document.body.classList.toggle('menu-open', open);
-      if (open) {
-        var f = focusables();
-        if (f.length) f[0].focus();
-      } else {
-        burger.focus();
-      }
-      updateFloat();
+      if (open) { var f = focusables(); if (f.length) f[0].focus(); } else { burger.focus(); }
+      updateWa();
     }
     burger.addEventListener('click', function () { setMenu(!menuOpen); });
-    panel.addEventListener('click', function (e) {
-      if (e.target.closest('a')) setMenu(false);
-    });
+    panel.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
     document.addEventListener('keydown', function (e) {
       if (!menuOpen) return;
       if (e.key === 'Escape') { setMenu(false); return; }
       if (e.key !== 'Tab') return;
-      var f = focusables();
-      if (!f.length) return;
+      var f = focusables(); if (!f.length) return;
       var first = f[0], last = f[f.length - 1];
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
-    window.addEventListener('resize', function () {
-      if (menuOpen && window.innerWidth >= 1024) setMenu(false);
-    });
+    window.addEventListener('resize', function () { if (menuOpen && window.innerWidth >= 1024) setMenu(false); });
 
-    /* ---------- Reveal on scroll ---------- */
-    function onReveal(entries, obs) {
+    /* ---------- Reveal on scroll (fade only) ---------- */
+    var revealObs = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
         en.target.classList.add('in');
         obs.unobserve(en.target);
       });
-    }
-    var revealObs = new IntersectionObserver(onReveal, { threshold: 0.14 });
-    // Tall blocks (a case row on a short screen) can never show 14% of
-    // themselves early enough, so they reveal as soon as 5% is in view.
-    var tallObs = new IntersectionObserver(onReveal, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
-
-    Array.prototype.forEach.call(document.querySelectorAll('.reveal'), function (el) {
-      if (el.classList.contains('case') || el.offsetHeight > window.innerHeight * 0.8) {
-        tallObs.observe(el);
-        return;
-      }
-      var parent = el.parentElement;
-      if (parent) {
-        var sibs = Array.prototype.filter.call(parent.children, function (c) {
-          return c.classList.contains('reveal');
-        });
-        if (sibs.length > 1) {
-          var i = sibs.indexOf(el);
-          el.style.transitionDelay = Math.min(i * 0.07, 0.45) + 's';
-        }
-      }
-      revealObs.observe(el);
-    });
-
-    /* ---------- will-change hygiene ---------- */
-    document.addEventListener('transitionstart', function (e) {
-      if (e.target instanceof Element) e.target.style.willChange = 'transform, opacity';
-    }, true);
-    document.addEventListener('transitionend', function (e) {
-      if (e.target instanceof Element) e.target.style.willChange = '';
-    }, true);
+    }, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
+    each('.reveal', function (el) { revealObs.observe(el); });
 
     /* ---------- Active nav link ---------- */
     var navLinks = Array.prototype.slice.call(document.querySelectorAll('#navLinks a'));
-    var ids = navLinks.map(function (a) { return a.getAttribute('href').slice(1); });
-    var sectionEls = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
-
-    // The band left by rootMargin is ~335px tall, so a section taller than
-    // ~1117px can never reach a 0.3 ratio. Track which sections are inside
-    // the band and highlight the topmost one in document order.
+    var sectionEls = navLinks.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);
     var inBand = Object.create(null);
     var activeObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        inBand[en.target.id] = en.isIntersecting;
-      });
+      entries.forEach(function (en) { inBand[en.target.id] = en.isIntersecting; });
       var current = null;
       for (var i = sectionEls.length - 1; i >= 0; i--) {
         if (inBand[sectionEls[i].id]) { current = sectionEls[i].id; break; }
       }
-      navLinks.forEach(function (a) {
-        a.classList.toggle('active', current !== null && a.getAttribute('href') === '#' + current);
-      });
-    }, { threshold: [0, 0.3], rootMargin: '-70px 0px -55% 0px' });
+      navLinks.forEach(function (a) { a.classList.toggle('active', current !== null && a.getAttribute('href') === '#' + current); });
+    }, { threshold: [0, 0.3], rootMargin: '-72px 0px -55% 0px' });
     sectionEls.forEach(function (s) { activeObs.observe(s); });
 
     /* ---------- Hero activity feed ---------- */
@@ -2703,7 +1424,6 @@
       ['handoff', 'Conversación pasada a una persona del equipo']
     ];
     var TIMES = ['ahora', 'hace 1 min', 'hace 4 min', 'hace 9 min'];
-
     var feedList = document.getElementById('feedList');
     var feedCard = document.getElementById('feedCard');
     var cursor = 0;
@@ -2725,25 +1445,16 @@
         if (t) t.textContent = TIMES[i] || '';
       });
     }
-    // seed 4 rows
-    for (var s = 0; s < 4; s++) {
-      feedList.appendChild(makeRow(EVENTS[s]));
-      cursor = s + 1;
-    }
+    for (var s = 0; s < 4; s++) { feedList.appendChild(makeRow(EVENTS[s])); cursor = s + 1; }
     stampTimes();
 
-    var feedTimer = null;
-    var heroVisible = true;
-
+    var feedTimer = null, heroVisible = true;
     function pushEvent() {
-      var ev = EVENTS[cursor % EVENTS.length];
+      var row = makeRow(EVENTS[cursor % EVENTS.length]);
       cursor++;
-      var row = makeRow(ev);
       row.classList.add('enter');
       feedList.insertBefore(row, feedList.firstChild);
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () { row.classList.remove('enter'); });
-      });
+      requestAnimationFrame(function () { requestAnimationFrame(function () { row.classList.remove('enter'); }); });
       var items = feedList.querySelectorAll('.feed-item');
       if (items.length > 4) {
         var old = items[items.length - 1];
@@ -2752,22 +1463,12 @@
       }
       stampTimes();
     }
-    function startFeed() {
-      if (reduceMotion || feedTimer) return;
-      feedTimer = setInterval(pushEvent, 2600);
-    }
-    function stopFeed() {
-      if (feedTimer) { clearInterval(feedTimer); feedTimer = null; }
-    }
     function syncFeed() {
-      if (heroVisible && !document.hidden) startFeed(); else stopFeed();
+      if (heroVisible && !document.hidden && !reduceMotion) { if (!feedTimer) feedTimer = setInterval(pushEvent, 3200); }
+      else if (feedTimer) { clearInterval(feedTimer); feedTimer = null; }
     }
-
     if (!reduceMotion && feedCard) {
-      new IntersectionObserver(function (entries) {
-        heroVisible = entries[0].isIntersecting;
-        syncFeed();
-      }, { threshold: 0.1 }).observe(feedCard);
+      new IntersectionObserver(function (entries) { heroVisible = entries[0].isIntersecting; syncFeed(); }, { threshold: 0.1 }).observe(feedCard);
       document.addEventListener('visibilitychange', syncFeed);
       syncFeed();
     }
@@ -2780,10 +1481,7 @@
       var owners = Array.prototype.slice.call(dayCard.querySelectorAll('.owner'));
       var ctlOff = document.getElementById('ctlOff');
       var ctlOn = document.getElementById('ctlOn');
-      var STAGGER = 120;
-      var flipTimers = [];
-      var touched = false;
-      var autoTimer = null;
+      var STAGGER = 120, flipTimers = [], touched = false, autoTimer = null;
 
       function setOwner(o, sys) {
         o.classList.toggle('done', sys);
@@ -2797,8 +1495,6 @@
         ctlOff.classList.toggle('is-on', !on);
         ctlOn.classList.toggle('is-on', on);
         if (!on && dayClose) dayClose.classList.remove('show');
-
-        // On: flip top to bottom. Off: reverse, bottom to top.
         var order = on ? owners : owners.slice().reverse();
         order.forEach(function (o, i) {
           if (reduceMotion) { setOwner(o, on); return; }
@@ -2814,63 +1510,21 @@
         if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; }
         setControl(on);
       }
-
       owners.forEach(function (o) { setOwner(o, false); });
-      ctlSwitch.addEventListener('click', function () {
-        userToggle(ctlSwitch.getAttribute('aria-checked') !== 'true');
-      });
+      ctlSwitch.addEventListener('click', function () { userToggle(ctlSwitch.getAttribute('aria-checked') !== 'true'); });
       ctlOff.addEventListener('click', function () { userToggle(false); });
       ctlOn.addEventListener('click', function () { userToggle(true); });
 
       // Plays the story once if the visitor never touches the switch.
-      var autoObs = new IntersectionObserver(function (entries, obs) {
+      new IntersectionObserver(function (entries, obs) {
         if (!entries[0].isIntersecting) return;
         obs.disconnect();
         if (touched) return;
-        autoTimer = setTimeout(function () {
-          autoTimer = null;
-          if (!touched) setControl(true);
-        }, 1200);
-      }, { threshold: 0.35 });
-      autoObs.observe(dayCard);
+        autoTimer = setTimeout(function () { autoTimer = null; if (!touched) setControl(true); }, 1200);
+      }, { threshold: 0.35 }).observe(dayCard);
     }
 
-    /* ---------- Mockup depth (cursor tilt) ---------- */
-    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 1024px)');
-    if (!reduceMotion) {
-      Array.prototype.forEach.call(document.querySelectorAll('.case-visual'), function (zone) {
-        var mock = zone.querySelector('.tilt');
-        if (!mock) return;
-        var raf = null;
-        zone.addEventListener('mousemove', function (e) {
-          if (!finePointer.matches) return;
-          if (raf) cancelAnimationFrame(raf);
-          raf = requestAnimationFrame(function () {
-            var r = mock.getBoundingClientRect();
-            var x = Math.max(-1, Math.min(1, ((e.clientX - r.left) / r.width) * 2 - 1));
-            var y = Math.max(-1, Math.min(1, ((e.clientY - r.top) / r.height) * 2 - 1));
-            mock.style.transform = 'perspective(900px) rotateX(' + (-y * 4).toFixed(2) + 'deg) rotateY(' + (x * 4).toFixed(2) + 'deg)';
-          });
-        });
-        zone.addEventListener('mouseleave', function () {
-          if (raf) cancelAnimationFrame(raf);
-          mock.style.transform = '';
-        });
-      });
-    }
-
-    /* ---------- Dashboard bars ---------- */
-    var dash = document.getElementById('dashCHS');
-    if (dash && !reduceMotion) {
-      var barObs = new IntersectionObserver(function (entries, obs) {
-        if (!entries[0].isIntersecting) return;
-        dash.classList.add('animate-bars');
-        obs.disconnect();
-      }, { threshold: 0.3 });
-      barObs.observe(dash);
-    }
-
-    /* ---------- FAQ accordion ---------- */
+    /* ---------- FAQ accordion: one open at a time ---------- */
     var faqList = document.getElementById('faqList');
     if (faqList) {
       var items = Array.prototype.slice.call(faqList.querySelectorAll('.faq-item'));
@@ -2895,52 +1549,37 @@
 
     /* ---------- Sector chips ---------- */
     var chips = Array.prototype.slice.call(document.querySelectorAll('.js-chip'));
-    var ctaContact = document.getElementById('ctaContact');
     chips.forEach(function (chip) {
       chip.addEventListener('click', function () {
         var wasActive = chip.classList.contains('active');
-        chips.forEach(function (c) {
-          c.classList.remove('active');
-          c.setAttribute('aria-pressed', 'false');
-        });
-        if (!wasActive) {
-          chip.classList.add('active');
-          chip.setAttribute('aria-pressed', 'true');
-        }
+        chips.forEach(function (c) { c.classList.remove('active'); c.setAttribute('aria-pressed', 'false'); });
+        if (!wasActive) { chip.classList.add('active'); chip.setAttribute('aria-pressed', 'true'); }
         var sel = wasActive ? null : chip.textContent.trim();
-        if (ctaContact) {
-          ctaContact.href = sel
-            ? waUrl(MSG_DEFAULT + '\n\nSector: ' + sel)
-            : waUrl(MSG_DEFAULT);
-        }
+        if (ctaContact) ctaContact.href = sel ? waUrl(MSG_DEFAULT + '\n\nSector: ' + sel) : waUrl(MSG_DEFAULT);
       });
     });
 
-    /* ---------- Floating WhatsApp button ---------- */
+    /* ---------- Floating button (desktop) / sticky bar (mobile) ---------- */
     var waFloat = document.getElementById('waFloat');
-    var hero = document.getElementById('top');
-    var contacto = document.getElementById('contacto');
-    var footerEl = document.getElementById('footer');
-    var pastHero = false, contactInView = false, footerInView = false;
+    var mBar = document.getElementById('mBar');
+    var heroCta = document.getElementById('ctaHero');
+    var heroCtaVisible = true, contactInView = false, footerInView = false;
 
-    function updateFloat() {
-      var show = pastHero && !contactInView && !footerInView && !menuOpen;
+    function updateWa() {
+      var show = !heroCtaVisible && !contactInView && !footerInView && !menuOpen;
       waFloat.classList.toggle('show', show);
+      mBar.classList.toggle('show', show);
+      mBar.setAttribute('aria-hidden', show ? 'false' : 'true');
+      mBar.querySelector('a').tabIndex = show ? 0 : -1;
     }
-    window.addEventListener('scroll', function () {
-      var threshold = hero.offsetTop + hero.offsetHeight * 0.7;
-      var next = window.scrollY > threshold;
-      if (next !== pastHero) { pastHero = next; updateFloat(); }
-    }, { passive: true });
-
-    [[contacto, function (v) { contactInView = v; }], [footerEl, function (v) { footerInView = v; }]]
+    [[heroCta, function (v) { heroCtaVisible = v; }],
+     [document.getElementById('contacto'), function (v) { contactInView = v; }],
+     [document.getElementById('footer'), function (v) { footerInView = v; }]]
       .forEach(function (pair) {
         if (!pair[0]) return;
-        new IntersectionObserver(function (entries) {
-          pair[1](entries[0].isIntersecting);
-          updateFloat();
-        }, { threshold: 0.01 }).observe(pair[0]);
+        new IntersectionObserver(function (entries) { pair[1](entries[0].isIntersecting); updateWa(); }, { threshold: 0 }).observe(pair[0]);
       });
+    updateWa();
 
     /* ---------- Hero entrance ---------- */
     if (document.readyState === 'loading') {
