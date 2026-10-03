@@ -41,7 +41,7 @@
   <!-- ===================== FONTS ===================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&display=swap">
 
   <style>
   /* ============================================================
@@ -80,6 +80,9 @@
     --sh-xl: 0 24px 56px rgba(10,14,23,.10);
     --sh-acc: 0 8px 28px rgba(5,150,105,.22);
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+    --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   }
 
   html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
@@ -87,9 +90,9 @@
   body {
     background: var(--bg-0);
     color: var(--ink-1);
-    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-family: var(--font-sans);
     font-size: 16px;
-    line-height: 1.72;
+    line-height: 1.7;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -114,29 +117,46 @@
   /* ============================================================
      02 · TYPE SCALE
   ============================================================ */
-  h1, h2, h3 { font-family: 'Syne', 'Inter', sans-serif; color: var(--ink-0); }
+  h1, h2, h3 { color: var(--ink-0); }
 
   h1 {
-    font-weight: 800;
-    font-size: clamp(38px, 6.2vw, 76px);
-    line-height: 1.02;
-    letter-spacing: -0.035em;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(44px, 7vw, 92px);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
   }
   h2 {
-    font-weight: 700;
-    font-size: clamp(30px, 4.2vw, 50px);
-    line-height: 1.08;
-    letter-spacing: -0.028em;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(36px, 5vw, 62px);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
   }
+  /* Instrument Serif is too delicate below 28px: h3 stays in Geist. */
   h3 {
-    font-weight: 700;
-    font-size: clamp(18px, 2.2vw, 23px);
-    line-height: 1.3;
-    letter-spacing: -0.018em;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: clamp(17px, 1.9vw, 20px);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
   }
 
-  .lead { font-size: 19px; line-height: 1.7; color: var(--ink-1); }
+  /* The signature: one italic emerald phrase per headline. */
+  .accent { font-style: italic; color: var(--accent); }
+  .slab .accent { color: var(--accent-lite); }
+
+  .lead { font-size: 19px; line-height: 1.65; color: var(--ink-1); }
   .small { font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+  .label {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  .num { font-family: var(--font-mono); font-weight: 500; font-size: .94em; letter-spacing: -0.01em; }
 
   /* ============================================================
      03 · LAYOUT
@@ -154,13 +174,27 @@
     border-radius: 32px;
     padding: 110px 0;
     position: relative;
+    z-index: 2;
     overflow: hidden;
   }
   .slab h1, .slab h2, .slab h3 { color: var(--dink-0); }
   .slab .lead { color: var(--dink-1); }
   .slab .small { color: var(--dink-2); }
-  .slab .eyebrow { color: var(--accent-lite); }
   .slab-deco { position: absolute; inset: 0; pointer-events: none; }
+
+  /* Warm paper: a fine grain fixed over the light page. The slabs and the
+     footer sit above it (z-index 2), so the grain never touches them. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.025;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
 
   .skip-link {
     position: absolute;
@@ -178,25 +212,35 @@
   /* ============================================================
      04 · COMPONENTS
   ============================================================ */
-  .eyebrow {
-    font-weight: 600;
-    font-size: 11.5px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 14px;
-    line-height: 1.4;
+  /* Editorial section index: "01 — El problema" + a hairline to the edge. */
+  .sec-index {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 56px;
+    color: var(--ink-2);
+    white-space: nowrap;
   }
+  .sec-index::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border-mid);
+  }
+  .sec-index b { font-weight: 500; color: var(--accent-deep); }
+  .slab .sec-index { color: var(--dink-2); }
+  .slab .sec-index::after { background: var(--dborder); }
+  .slab .sec-index b { color: var(--accent-lite); }
 
-  .section-head { text-align: center; max-width: 680px; margin: 0 auto 60px; }
-  .section-head .lead { margin-top: 18px; }
+  .section-head { text-align: center; max-width: 720px; margin: 0 auto 60px; }
+  .section-head .lead { margin-top: 20px; }
 
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 9px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     font-weight: 600;
     font-size: 16px;
     padding: 16px 28px;
@@ -272,8 +316,9 @@
     display: inline-flex; align-items: center; gap: 7px;
     border-radius: 100px;
     padding: 6px 13px;
-    font-weight: 700; font-size: 10.5px;
-    letter-spacing: .09em; text-transform: uppercase;
+    font-family: var(--font-mono);
+    font-weight: 500; font-size: 10.5px;
+    letter-spacing: .08em; text-transform: uppercase;
     background: rgba(16,185,129,.12);
     border: 1px solid rgba(16,185,129,.28);
     color: var(--accent-lite);
@@ -363,10 +408,11 @@
   }
   .wordmark {
     display: inline-flex; align-items: center; min-height: 44px;
-    font-family: 'Syne', sans-serif;
-    font-weight: 800; font-size: 21px;
+    font-family: var(--font-display);
+    font-weight: 400; font-size: 29px;
     color: var(--ink-0);
     letter-spacing: -0.02em;
+    line-height: 1;
   }
   .nav-links { display: flex; align-items: center; gap: 28px; }
   .nav-links a {
@@ -483,28 +529,12 @@
     line-height: 1.5;
   }
 
-  .hero h1 { margin-top: 24px; }
+  .hero-pill .num { font-weight: 500; }
+  .hero h1 { margin-top: 26px; }
   .hl { display: block; }
-  .acc { color: var(--accent); position: relative; white-space: nowrap; }
-  .acc-underline {
-    position: absolute;
-    left: 0; bottom: -6px;
-    width: 100%; height: 11px;
-    overflow: visible;
-  }
-  .acc-underline path {
-    stroke: var(--accent);
-    stroke-width: 3;
-    stroke-linecap: round;
-    fill: none;
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-  }
-  body.loaded .acc-underline path { animation: drawLine .9s ease-out .9s forwards; }
-  html:not(.js) .acc-underline path { stroke-dashoffset: 0; }
-  @keyframes drawLine { to { stroke-dashoffset: 0; } }
+  .hero h1 .accent { white-space: nowrap; }
 
-  .hero .lead { margin: 26px 0 36px; max-width: 540px; }
+  .hero .lead { margin: 28px 0 36px; max-width: 540px; }
   .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
   .hero-reassure {
     margin-top: 22px;
@@ -526,15 +556,48 @@
   .d7 { transition-delay: .5s; }
 
   /* feed card */
-  .feed-card { padding: 22px; border-radius: 20px; box-shadow: var(--sh-xl); max-width: 440px; margin-inline: auto; }
+  .feed-wrap { position: relative; max-width: 440px; margin-inline: auto; }
+  .feed-card { padding: 22px; border-radius: 20px; box-shadow: var(--sh-xl); }
   .feed-head {
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
     margin-bottom: 16px; padding-bottom: 14px;
     border-bottom: 1px solid var(--border);
   }
-  .feed-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--ink-0); }
+  .feed-title { font-weight: 600; font-size: 15px; color: var(--ink-0); }
+
+  /* Hero seal: rotating mark overlapping the card's top-left corner. */
+  .seal {
+    position: absolute;
+    top: -78px; left: -42px;
+    z-index: 3;
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid var(--border-mid);
+    box-shadow: var(--sh-md);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .seal svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .seal-ring { transform-origin: 48px 48px; animation: sealSpin 28s linear infinite; }
+  .seal:hover .seal-ring { animation-play-state: paused; }
+  .seal-ring text {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    letter-spacing: .12em;
+    fill: var(--ink-2);
+  }
+  .seal-a {
+    position: relative;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--accent);
+  }
+  @keyframes sealSpin { to { transform: rotate(360deg); } }
   .feed-tag {
-    font-weight: 600; font-size: 10.5px;
+    font-family: var(--font-mono);
+    font-weight: 500; font-size: 10.5px;
     letter-spacing: .08em; text-transform: uppercase;
     color: var(--ink-2);
     background: var(--bg-1);
@@ -562,7 +625,7 @@
   .feed-row .icon-tile { width: 32px; height: 32px; border-radius: 9px; }
   .feed-row .icon-tile svg { width: 16px; height: 16px; }
   .feed-text { font-weight: 500; font-size: 14px; color: var(--ink-1); line-height: 1.45; }
-  .feed-time { font-size: 12px; color: var(--ink-3); margin-left: auto; white-space: nowrap; }
+  .feed-time { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-3); margin-left: auto; white-space: nowrap; }
   .feed-caption { text-align: center; font-size: 12.5px; color: var(--ink-2); margin-top: 14px; line-height: 1.5; }
 
   /* ============================================================
@@ -580,8 +643,9 @@
     gap: 32px;
   }
   .stack-label {
-    font-weight: 600; font-size: 10.5px;
-    letter-spacing: .14em; text-transform: uppercase;
+    font-family: var(--font-mono);
+    font-weight: 500; font-size: 11px;
+    letter-spacing: .08em; text-transform: uppercase;
     color: var(--ink-3);
   }
   .stack-items { display: flex; align-items: center; flex-wrap: wrap; justify-content: center; }
@@ -633,14 +697,63 @@
     margin-top: 32px;
     padding-left: 20px;
     border-left: 3px solid var(--accent);
-    font-family: 'Syne', sans-serif;
-    font-weight: 700; font-size: 22px;
+    font-family: var(--font-display);
+    font-weight: 400; font-size: 30px;
+    letter-spacing: -0.01em;
     color: var(--ink-0);
-    line-height: 1.35;
+    line-height: 1.18;
   }
 
   .day-card { padding: 26px; border-radius: 20px; box-shadow: var(--sh-lg); max-width: 440px; margin-inline: auto; }
-  .day-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; color: var(--ink-0); }
+
+  /* The control switch: the visitor holds the control. */
+  .ctl {
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px;
+    min-height: 44px;
+    margin: -6px 0 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .ctl-label {
+    color: var(--ink-3);
+    cursor: pointer;
+    user-select: none;
+    transition: color .35s var(--ease);
+  }
+  .ctl-label.is-on { color: var(--ink-0); }
+  .ctl-label.ctl-on.is-on { color: var(--accent-deep); }
+  .switch {
+    width: 56px; height: 44px;
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    border-radius: 100px;
+  }
+  .switch-track {
+    position: relative;
+    width: 52px; height: 30px;
+    border-radius: 100px;
+    background: var(--bg-2);
+    border: 1px solid var(--border-mid);
+    transition: background .35s var(--ease), border-color .35s var(--ease);
+  }
+  .switch-knob {
+    position: absolute;
+    top: 2px; left: 2px;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(10,14,23,.18);
+    transition: transform .35s var(--ease);
+  }
+  .switch[aria-checked="true"] .switch-track { background: var(--accent); border-color: var(--accent); }
+  .switch[aria-checked="true"] .switch-knob { transform: translateX(22px); }
+  .switch:hover .switch-track { border-color: var(--ink-3); }
+  .switch[aria-checked="true"]:hover .switch-track { border-color: var(--accent-deep); }
+
+  .day-title { font-weight: 600; font-size: 16px; color: var(--ink-0); }
   .day-sub { font-size: 13px; color: var(--ink-2); margin-top: 2px; margin-bottom: 8px; line-height: 1.5; }
   .task-row {
     display: flex; align-items: center; justify-content: space-between;
@@ -685,7 +798,7 @@
   }
   .day-close.show { opacity: 1; }
   .day-close svg { width: 15px; height: 15px; stroke: var(--accent-deep); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-  .day-caption { text-align: center; font-size: 12px; color: var(--ink-2); margin-top: 14px; }
+  .day-caption { text-align: center; font-size: 12.5px; color: var(--ink-2); margin-top: 14px; }
 
   /* ============================================================
      10 · SERVICIOS
@@ -695,21 +808,44 @@
   .svc h3 { margin-bottom: 10px; }
   .svc p { font-size: 14.5px; color: var(--ink-2); line-height: 1.68; }
 
-  .sectors {
-    margin-top: 56px;
-    padding-top: 36px;
+  /* Where we already operate (true) vs. what we can build (secondary). */
+  .operating {
+    margin-top: 64px;
+    padding-top: 40px;
     border-top: 1px solid var(--border-mid);
-    text-align: center;
   }
-  .sectors-list {
+  .op-label { color: var(--accent-deep); margin-bottom: 16px; }
+  .op-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .op-card {
+    display: flex; align-items: center; gap: 14px;
+    background: #fff;
+    border: 1px solid var(--accent-edge);
+    border-radius: 16px;
+    padding: 20px 22px;
+    box-shadow: var(--sh-sm);
+    color: var(--accent);
+    transition: transform .26s var(--ease), box-shadow .26s var(--ease);
+  }
+  .op-card:hover { transform: translateY(-3px); box-shadow: var(--sh-md); }
+  .op-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .op-name { font-weight: 600; font-size: 17px; color: var(--ink-0); line-height: 1.35; }
+  .op-count { font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); line-height: 1.5; }
+  .op-arrow {
+    width: 16px; height: 16px;
+    margin-left: auto;
+    flex-shrink: 0;
+    stroke: var(--accent); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round;
+    transition: transform .26s var(--ease);
+  }
+  .op-card:hover .op-arrow { transform: translateX(3px); }
+
+  .could { margin-top: 36px; }
+  .could-label { color: var(--ink-3); margin-bottom: 12px; }
+  .could-list {
+    display: flex; flex-wrap: wrap; align-items: center;
     font-size: 15px; color: var(--ink-2);
     line-height: 2;
-    max-width: 740px;
-    margin: 0 auto;
-    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
   }
-  .sectors-list span { transition: color .2s var(--ease); }
-  .sectors-list span:hover { color: var(--ink-0); }
 
   /* ============================================================
      11 · PROCESO
@@ -731,8 +867,8 @@
     border-radius: 50%;
     background: #fff;
     border: 2px solid var(--border-mid);
-    font-family: 'Syne', sans-serif;
-    font-weight: 700; font-size: 19px;
+    font-family: var(--font-mono);
+    font-weight: 500; font-size: 17px;
     color: var(--ink-3);
     display: flex; align-items: center; justify-content: center;
     margin: 0 auto 26px;
@@ -778,34 +914,57 @@
     border: 2px solid var(--accent-edge);
     z-index: 1;
   }
+  .founder-head { margin-bottom: 44px; }
   .founder-name {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: clamp(30px, 3.8vw, 40px);
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(32px, 3.6vw, 40px);
     color: var(--ink-0);
-    letter-spacing: -0.025em;
-    line-height: 1.1;
-    margin-bottom: 6px;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    margin-bottom: 8px;
   }
   .founder-role {
-    font-weight: 600; font-size: 13px;
-    letter-spacing: .08em; text-transform: uppercase;
     color: var(--accent-deep);
     margin-bottom: 26px;
-    line-height: 1.5;
   }
-  .bio p { font-size: 16.5px; color: var(--ink-1); line-height: 1.8; margin-bottom: 15px; }
+  .bio p { font-size: 16.5px; color: var(--ink-1); line-height: 1.75; margin-bottom: 15px; }
   .quote {
-    margin: 28px 0;
-    padding: 22px 26px;
+    margin: 30px 0;
+    padding: 26px 28px 24px;
     background: #fff;
     border: 1px solid var(--border);
     border-left: 3px solid var(--accent);
     border-radius: 0 14px 14px 0;
     box-shadow: var(--sh-sm);
   }
-  .quote p { font-size: 16px; font-style: italic; color: var(--ink-1); line-height: 1.8; }
-  .quote cite { display: block; font-style: normal; font-weight: 600; font-size: 13px; color: var(--accent-deep); margin-top: 12px; }
+  .quote p {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--ink-0);
+    line-height: 1.22;
+    letter-spacing: -0.01em;
+  }
+  /* Founder sign-off */
+  .signoff { margin-top: 22px; }
+  .signoff-line { display: flex; align-items: center; gap: 14px; }
+  .signoff-line::before { content: ""; width: 40px; height: 1px; background: var(--accent); flex-shrink: 0; }
+  .signoff-name {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 30px;
+    line-height: 1.1;
+    color: var(--ink-0);
+  }
+  .signoff-role {
+    display: block;
+    margin: 6px 0 0 54px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
 
   .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
   .badge {
@@ -858,24 +1017,29 @@
   .case.reverse .case-visual { order: 2; }
   .case.reverse .case-copy { order: 1; }
   .case-cat {
-    font-weight: 600; font-size: 11px;
-    letter-spacing: .13em; text-transform: uppercase;
+    font-family: var(--font-mono);
+    font-weight: 500; font-size: 11px;
+    letter-spacing: .08em; text-transform: uppercase;
     color: var(--dink-2);
     margin: 16px 0 12px;
   }
-  .case-copy h3 { margin-bottom: 14px; font-size: clamp(20px, 2.5vw, 26px); }
-  .case-copy p { font-size: 15.5px; color: var(--dink-1); line-height: 1.78; }
+  .case-copy h3 { margin-bottom: 14px; font-size: clamp(20px, 2.3vw, 24px); }
+  .case-copy p { font-size: 15.5px; color: var(--dink-1); line-height: 1.75; }
   .tech-tags { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 6px; }
   .tech-tags span {
     background: rgba(255,255,255,.045);
     border: 1px solid var(--dborder);
     border-radius: 6px;
     padding: 5px 11px;
-    font-weight: 500; font-size: 11.5px;
+    font-family: var(--font-mono);
+    font-weight: 400; font-size: 11.5px;
     color: var(--dink-2);
     line-height: 1.5;
   }
-  .mock-caption { text-align: center; font-size: 12px; color: var(--dink-2); margin-top: 14px; line-height: 1.5; }
+  .mock-caption { text-align: center; font-size: 12.5px; color: var(--dink-2); margin-top: 14px; line-height: 1.5; }
+
+  /* Mockup depth: gentle cursor tilt (desktop, fine pointer only). */
+  .tilt { transition: transform .4s var(--ease); transform: perspective(900px) rotateX(0) rotateY(0); }
 
   /* WhatsApp chat mockup */
   .wa-mock {
@@ -899,8 +1063,8 @@
     border-radius: 50%;
     background: var(--accent-lite);
     color: var(--dark-0);
-    font-family: 'Syne', sans-serif;
-    font-weight: 700; font-size: 16px;
+    font-family: var(--font-sans);
+    font-weight: 600; font-size: 16px;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
   }
@@ -916,7 +1080,7 @@
   }
   .bubble.in { align-self: flex-start; background: #1F2C34; border-radius: 14px 14px 14px 5px; }
   .bubble.out { align-self: flex-end; background: #005C4B; border-radius: 14px 14px 5px 14px; }
-  .bubble time { display: block; text-align: right; font-size: 10px; color: rgba(255,255,255,.42); margin-top: 3px; }
+  .bubble time { display: block; text-align: right; font-family: var(--font-mono); font-size: 9.5px; color: rgba(255,255,255,.42); margin-top: 3px; }
   .bubble .inline-check { display: inline-block; vertical-align: -1px; width: 12px; height: 12px; stroke: var(--accent-lite); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; margin-right: 4px; }
   .img-bubble {
     width: 104px; height: 128px;
@@ -959,7 +1123,7 @@
     box-shadow: 0 28px 70px rgba(0,0,0,.6);
   }
   .dash-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
-  .dash-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--dink-0); }
+  .dash-name { font-weight: 600; font-size: 15px; color: var(--dink-0); }
   .avatars { display: flex; align-items: center; }
   .avatars i {
     width: 22px; height: 22px; border-radius: 50%;
@@ -972,6 +1136,7 @@
     background: var(--dark-2);
     border-radius: 100px;
     padding: 3px 8px;
+    font-family: var(--font-mono);
     font-weight: 500; font-size: 10px;
     color: var(--dink-2);
     margin-left: 6px;
@@ -985,15 +1150,17 @@
     border: 1px solid var(--dborder);
   }
   .stat-label {
-    font-weight: 600; font-size: 9.5px;
-    letter-spacing: .09em; text-transform: uppercase;
+    font-family: var(--font-mono);
+    font-weight: 500; font-size: 9.5px;
+    letter-spacing: .08em; text-transform: uppercase;
     color: var(--dink-2);
     margin-bottom: 6px;
     line-height: 1.4;
   }
   .stat-val {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700; font-size: 19px;
+    font-family: var(--font-mono);
+    font-weight: 500; font-size: 18px;
+    letter-spacing: -0.02em;
     color: var(--dink-0);
     line-height: 1.1;
     display: flex; align-items: center; gap: 5px;
@@ -1016,7 +1183,7 @@
   .dash.animate-bars .bar:nth-child(6) { animation-delay: .35s; }
   @keyframes growUp { from { transform: scaleY(0); } to { transform: scaleY(1); } }
   .chart-axis { height: 1px; background: var(--dborder); margin-top: 6px; }
-  .chart-labels { display: flex; justify-content: space-between; font-size: 9px; color: var(--dink-2); margin-top: 6px; margin-bottom: 18px; }
+  .chart-labels { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 9px; color: var(--dink-2); margin-top: 6px; margin-bottom: 18px; }
   .act-row {
     display: flex; align-items: center; justify-content: space-between;
     gap: 12px;
@@ -1026,7 +1193,7 @@
   .act-row:last-child { border-bottom: none; }
   .act-left { display: flex; align-items: center; gap: 9px; font-size: 12px; color: var(--dink-1); line-height: 1.45; }
   .act-left i { width: 6px; height: 6px; border-radius: 50%; display: block; flex-shrink: 0; }
-  .act-time { font-weight: 500; font-size: 11px; color: var(--dink-2); white-space: nowrap; }
+  .act-time { font-family: var(--font-mono); font-weight: 400; font-size: 10.5px; color: var(--dink-2); white-space: nowrap; }
 
   /* Architecture diagram */
   .arch { max-width: 400px; width: 100%; margin-inline: auto; display: block; }
@@ -1049,8 +1216,9 @@
   .price-card.featured { border-color: var(--accent-edge); box-shadow: var(--sh-lg); }
   .price-badge {
     position: absolute; top: 18px; right: 18px;
-    font-weight: 700; font-size: 10px;
-    letter-spacing: .1em; text-transform: uppercase;
+    font-family: var(--font-mono);
+    font-weight: 500; font-size: 10px;
+    letter-spacing: .08em; text-transform: uppercase;
     background: var(--accent-soft);
     color: var(--accent-deep);
     border: 1px solid var(--accent-edge);
@@ -1058,22 +1226,17 @@
     padding: 4px 11px;
     line-height: 1.5;
   }
-  .price-label {
-    font-weight: 600; font-size: 11px;
-    letter-spacing: .13em; text-transform: uppercase;
-    color: var(--ink-2);
-  }
-  .price-row { margin: 14px 0 4px; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-  .price-from { font-size: 16px; color: var(--ink-2); }
+  .price-label { color: var(--ink-2); }
+  .price-row { margin: 14px 0 4px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .price-from { font-weight: 400; font-size: 16px; color: var(--ink-2); }
   .price-amount {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    /* 38px makes "desde $1.200.000" overflow the 342px row and wrap, which
-       breaks alignment against the Mantenimiento card. 34px is the largest
-       size that keeps both cards on a single line. */
-    font-size: 34px;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    /* "desde $1.200.000" at 40px mono is ~285px: fits the ~344px desktop row.
+       Under 640px the row is ~279px, so the size steps down there. */
+    font-size: 40px;
     color: var(--ink-0);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     line-height: 1.05;
   }
   .price-sub { font-size: 14px; color: var(--ink-2); }
@@ -1122,8 +1285,8 @@
     min-height: 48px;
   }
   .faq-q span {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700; font-size: 16.5px;
+    font-weight: 600; font-size: 17px;
+    letter-spacing: -0.01em;
     color: var(--ink-0);
     line-height: 1.4;
   }
@@ -1154,7 +1317,8 @@
   .contact-inner { max-width: 720px; margin-inline: auto; text-align: center; position: relative; z-index: 1; }
   .contact-inner h2 { margin-bottom: 18px; }
   .contact-inner .lead { max-width: 560px; margin: 0 auto 38px; }
-  .chip-label { font-weight: 500; font-size: 13px; color: var(--dink-2); margin-bottom: 14px; }
+  .chip-label { font-weight: 400; font-size: 13.5px; color: var(--dink-2); margin-bottom: 14px; }
+  .contact-secondary .num { font-weight: 400; }
   .chip-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin-bottom: 32px; }
   .chip-dark {
     background: rgba(255,255,255,.05);
@@ -1186,9 +1350,9 @@
   /* ============================================================
      18 · FOOTER
   ============================================================ */
-  footer { background: var(--dark-1); padding: 60px 0 34px; color: var(--dink-2); }
+  footer { background: var(--dark-1); padding: 60px 0 34px; color: var(--dink-2); position: relative; z-index: 2; }
   .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
-  .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 19px; color: var(--dink-0); letter-spacing: -0.02em; }
+  .footer-logo { font-family: var(--font-display); font-weight: 400; font-size: 30px; line-height: 1; color: var(--dink-0); letter-spacing: -0.01em; }
   .footer-tag { margin-top: 10px; max-width: 230px; font-size: 13.5px; color: var(--dink-2); line-height: 1.6; }
   .footer-place { font-size: 12.5px; color: #6B7280; margin-top: 8px; }
   .footer-nav a { display: flex; align-items: center; min-height: 44px; font-size: 14px; color: var(--dink-2); transition: color .2s var(--ease); }
@@ -1252,8 +1416,9 @@
     .split-52 .day-card, .split-36 .photo-wrap { order: 2; }
     .split-36 { text-align: center; }
     .split-36 .photo-wrap { order: -1; }
-    .split-36 .badges, .split-36 .sectors-list { justify-content: center; }
+    .split-36 .badges { justify-content: center; }
     .split-36 .quote { text-align: left; }
+    .seal { display: none; }
 
     .case, .case.reverse { grid-template-columns: 1fr; gap: 28px; margin-bottom: 60px; }
     .case .case-visual, .case.reverse .case-visual { order: -1; }
@@ -1283,6 +1448,7 @@
     .slab { border-radius: 20px; padding: 72px 0; }
     .section-head { margin-bottom: 44px; }
     #casos .section-head { margin-bottom: 52px; }
+    .sec-index { margin-bottom: 40px; gap: 14px; }
     .stack-row { flex-direction: column; gap: 12px; }
     .stack-items span { font-size: 13px; }
     .footer-grid { grid-template-columns: 1fr; gap: 30px; text-align: center; }
@@ -1292,22 +1458,29 @@
   }
 
   @media (max-width: 639px) {
-    .grid-3, .grid-2 { grid-template-columns: 1fr; }
-    .hero h1 { font-size: clamp(34px, 8.6vw, 46px); }
+    .grid-3, .grid-2, .op-grid { grid-template-columns: 1fr; }
+    /* 40px floor at 375px: "repetitivo." and "al mando." never break. */
+    .hero h1 { font-size: clamp(40px, 10.8vw, 48px); }
     .hero { padding: 104px 0 72px; }
     .hero-ctas { flex-direction: column; align-items: center; }
     .hero-ctas .btn { width: 100%; max-width: 340px; }
     .photo-wrap { width: 240px; }
     .price-card { padding: 28px 24px; }
-    /* Syne 800 at 34px still floors the 1fr track above a 375px viewport. */
-    .price-amount { font-size: 30px; }
+    /* Row is ~279px at 375px; 34px mono keeps "desde $1.200.000" on one line. */
+    .price-amount { font-size: 34px; }
     .faq-q { padding: 20px 18px; }
     .faq-q span { font-size: 16px; }
     .faq-item.open .faq-panel, .faq-panel { padding-inline: 18px; }
     .chip { font-size: 13.5px; padding: 8px 15px; }
-    .closing-line { font-size: 20px; }
+    .closing-line { font-size: 28px; }
+    .day-card { padding: 22px 20px; }
     .contact-secondary { gap: 8px 24px; }
     .wa-float { bottom: 18px; right: 18px; width: 52px; height: 52px; }
+  }
+
+  @media (max-width: 399px) {
+    .ctl { gap: 6px; }
+    .ctl-label { font-size: 10.5px; letter-spacing: .06em; }
   }
 
   /* ============================================================
@@ -1320,6 +1493,8 @@
       transition-duration: .01ms !important;
       scroll-behavior: auto !important;
     }
+    .seal-ring { animation: none !important; }
+    .tilt { transform: none !important; }
   }
   </style>
   <script>document.documentElement.className += ' js';</script>
@@ -1350,7 +1525,7 @@
           <button class="burger" id="burger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobilePanel">
             <span></span><span></span><span></span>
           </button>
-          <a class="btn btn-primary nav-cta js-wa" href="https://wa.me/573186041541?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
+          <a class="btn btn-primary nav-cta js-wa" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Escríbenos
           </a>
@@ -1365,7 +1540,7 @@
       <a class="m-link" href="#nosotros">Nosotros</a>
       <a class="m-link" href="#casos">Casos</a>
       <a class="m-link" href="#contacto">Contacto</a>
-      <a class="btn btn-primary js-wa" href="https://wa.me/573186041541?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
+      <a class="btn btn-primary js-wa" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Escríbenos por WhatsApp
       </a>
@@ -1385,14 +1560,14 @@
         <div class="hero-grid">
 
           <div class="hero-copy">
-            <p class="hero-pill hero-anim d1"><span class="live-dot" style="color:var(--accent)" aria-hidden="true"></span>3 proyectos entregados y operando en Colombia</p>
+            <p class="hero-pill hero-anim d1"><span class="live-dot" style="color:var(--accent)" aria-hidden="true"></span><span><span class="num">3</span> proyectos entregados y operando en Colombia</span></p>
 
-            <h1><span class="hl hero-anim d2">La IA hace lo repetitivo.</span><span class="hl hero-anim d3">Tú sigues <span class="acc">al mando.<svg class="acc-underline" viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="100" d="M2 7.4C26 4.2 54 2.6 92 3.1c14 .2 27 .7 40 1.6 22 1.5 44 2.7 66 3.1"/></svg></span></span></h1>
+            <h1><span class="hl hero-anim d2">La IA hace lo repetitivo.</span><span class="hl hero-anim d3">Tú sigues <em class="accent">al mando.</em></span></h1>
 
-            <p class="lead hero-anim d4">Construimos sistemas que responden clientes, toman pedidos, agendan, hacen seguimiento y arman reportes por ti. Tú defines las reglas. El sistema las cumple de día y de noche.</p>
+            <p class="lead hero-anim d4">Construimos sistemas con inteligencia artificial que atienden clientes, toman pedidos, agendan y arman reportes por ti. Tú defines las reglas y el sistema las cumple de día y de noche.</p>
 
             <div class="hero-ctas hero-anim d5">
-              <a class="btn btn-primary js-wa" href="https://wa.me/573186041541?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
+              <a class="btn btn-primary js-wa" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 Escríbenos por WhatsApp
               </a>
@@ -1407,6 +1582,14 @@
           </div>
 
           <div class="hero-visual hero-anim d7">
+            <div class="feed-wrap">
+            <div class="seal" aria-hidden="true">
+              <svg viewBox="0 0 96 96" focusable="false">
+                <defs><path id="sealPath" d="M48 48 m-37 0 a37 37 0 1 1 74 0 a37 37 0 1 1 -74 0"/></defs>
+                <g class="seal-ring"><text><textPath href="#sealPath" textLength="232" lengthAdjust="spacing">PROYECTOS ENTREGADOS · HECHO EN BOGOTÁ · </textPath></text></g>
+              </svg>
+              <span class="seal-a">A</span>
+            </div>
             <div class="card feed-card" id="feedCard">
               <div class="feed-head">
                 <span class="feed-title">Actividad del sistema</span>
@@ -1416,7 +1599,8 @@
                 <!-- rows injected / static fallback below -->
               </div>
             </div>
-            <p class="feed-caption">Ejemplo ilustrativo. Cada sistema se configura con las reglas de tu negocio.</p>
+            </div>
+            <p class="feed-caption">Ejemplo ilustrativo.</p>
           </div>
 
         </div>
@@ -1446,13 +1630,12 @@
     ============================================================ -->
     <section id="problema" class="has-rule">
       <div class="container">
+        <p class="sec-index label reveal"><span><b>01</b> — El problema</span></p>
         <div class="split-52">
 
           <div class="reveal">
-            <p class="eyebrow">El problema</p>
-            <h2>No es que trabajes poco. Es que trabajas en lo que no deberías.</h2>
-            <p class="lead" style="margin-top:22px">El odontólogo que confirma citas por teléfono. El dueño del restaurante que toma pedidos a mano. El gerente que arma el mismo reporte en Excel cada mes.</p>
-            <p class="lead" style="margin-top:14px">Todos son buenos en lo suyo. Y todos gastan sus mejores horas en tareas que un sistema hace más rápido y sin olvidarse.</p>
+            <h2>Tus mejores horas se van en tareas que <em class="accent">no te necesitan.</em></h2>
+            <p class="lead" style="margin-top:22px">Confirmar citas, tomar pedidos a mano y armar el mismo reporte cada mes llena tu día. Un sistema hace ese trabajo más rápido y sin olvidarse.</p>
 
             <ul class="pain-list">
               <li><span class="pain-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Confirmar citas y pedidos uno por uno</li>
@@ -1468,6 +1651,13 @@
 
           <div class="reveal">
             <div class="card day-card" id="dayCard">
+              <div class="ctl">
+                <span class="ctl-label label ctl-off is-on" id="ctlOff">Modo manual</span>
+                <button type="button" class="switch" id="ctlSwitch" role="switch" aria-checked="false" aria-label="Con Automa">
+                  <span class="switch-track" aria-hidden="true"><span class="switch-knob"></span></span>
+                </button>
+                <span class="ctl-label label ctl-on" id="ctlOn">Con Automa</span>
+              </div>
               <p class="day-title">Un día en un consultorio</p>
               <p class="day-sub">¿Quién hace cada tarea?</p>
 
@@ -1510,9 +1700,9 @@
     ============================================================ -->
     <section id="servicios" class="has-rule" style="background:var(--bg-1)">
       <div class="container">
+        <p class="sec-index label reveal"><span><b>02</b> — Qué construimos</span></p>
         <div class="section-head reveal">
-          <p class="eyebrow">Qué construimos</p>
-          <h2>Sistemas hechos sobre tu proceso, no sobre una plantilla</h2>
+          <h2>Sistemas hechos sobre <em class="accent">tu forma de trabajar.</em></h2>
           <p class="lead">Cada negocio pierde tiempo en un lugar distinto. Empezamos por encontrar el tuyo.</p>
         </div>
 
@@ -1520,13 +1710,13 @@
           <article class="card hoverable svc reveal">
             <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
             <h3>Atención y ventas por WhatsApp</h3>
-            <p>Un asistente que responde preguntas, toma pedidos, agenda citas y hace seguimiento. Contesta a las once de la noche igual que a las diez de la mañana.</p>
+            <p>Un asistente de WhatsApp con inteligencia artificial que responde preguntas, toma pedidos, agenda citas y hace seguimiento. Contesta a las once de la noche igual que a las diez de la mañana.</p>
           </article>
 
           <article class="card hoverable svc reveal">
             <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg></div>
             <h3>Plataformas de gestión a la medida</h3>
-            <p>Una aplicación web donde la información de tu negocio vive en un solo lugar, actualizada, sin depender de archivos sueltos.</p>
+            <p>La información de tu negocio vive en un solo lugar, actualizada y sin depender de archivos sueltos.</p>
           </article>
 
           <article class="card hoverable svc reveal">
@@ -1550,19 +1740,41 @@
           <article class="card hoverable svc reveal">
             <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg></div>
             <h3>Campañas + automatización</h3>
-            <p>Pauta en Meta y Google que trae clientes, más un sistema que los califica y les da seguimiento sin que nadie mueva un dedo.</p>
+            <p>Pauta en Meta y Google para atraer clientes. Un sistema los califica y les hace seguimiento sin que nadie mueva un dedo.</p>
           </article>
         </div>
 
-        <div class="sectors reveal">
-          <p class="eyebrow">Sectores donde ya trabajamos</p>
-          <div class="sectors-list">
-            <span>Restaurantes</span><i class="dot-sep" aria-hidden="true"></i>
-            <span>Fondos de inversión</span><i class="dot-sep" aria-hidden="true"></i>
-            <span>Salud y bienestar</span><i class="dot-sep" aria-hidden="true"></i>
-            <span>Ecommerce</span><i class="dot-sep" aria-hidden="true"></i>
-            <span>Servicios profesionales</span><i class="dot-sep" aria-hidden="true"></i>
-            <span>Inmobiliarias</span>
+        <div class="operating reveal" id="operando">
+          <p class="label op-label">Ya operando en</p>
+          <div class="op-grid">
+            <a class="op-card" href="#casos" aria-label="Ver proyectos de Restaurantes">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span class="op-body">
+                <span class="op-name">Restaurantes</span>
+                <span class="op-count">1 proyecto entregado</span>
+              </span>
+              <svg class="op-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="op-card" href="#casos" aria-label="Ver proyectos de Fondos de inversión inmobiliaria">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span class="op-body">
+                <span class="op-name">Fondos de inversión inmobiliaria</span>
+                <span class="op-count">2 proyectos entregados</span>
+              </span>
+              <svg class="op-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+
+          <div class="could">
+            <p class="label could-label">También podemos construir para</p>
+            <p class="could-list">
+              <span>Salud y bienestar</span><i class="dot-sep" aria-hidden="true"></i>
+              <span>Ecommerce</span><i class="dot-sep" aria-hidden="true"></i>
+              <span>Servicios profesionales</span><i class="dot-sep" aria-hidden="true"></i>
+              <span>Inmobiliarias</span><i class="dot-sep" aria-hidden="true"></i>
+              <span>Concesionarios</span><i class="dot-sep" aria-hidden="true"></i>
+              <span>Educación</span>
+            </p>
           </div>
         </div>
       </div>
@@ -1573,9 +1785,9 @@
     ============================================================ -->
     <section id="proceso" class="has-rule">
       <div class="container">
+        <p class="sec-index label reveal"><span><b>03</b> — Cómo trabajamos</span></p>
         <div class="section-head reveal">
-          <p class="eyebrow">Cómo trabajamos</p>
-          <h2>Cuatro pasos. Sin sorpresas.</h2>
+          <h2>Cuatro pasos. <em class="accent">Cero sorpresas.</em></h2>
           <p class="lead">Sabes qué pasa en cada etapa, cuánto cuesta y cuándo termina.</p>
         </div>
 
@@ -1605,7 +1817,7 @@
             <div class="step-num">04</div>
             <div>
               <h3>Entrega y soporte</h3>
-              <p>El sistema queda entregado, funcionando y monitoreado. Si tu operación cambia, el sistema se ajusta.</p>
+              <p>El sistema queda entregado, funcionando y monitoreado. Si tu negocio cambia, lo ajustamos.</p>
             </div>
           </div>
         </div>
@@ -1617,11 +1829,11 @@
     ============================================================ -->
     <section id="confianza" class="has-rule" style="background:var(--bg-1)">
       <div class="container">
+        <p class="sec-index label reveal"><span><b>04</b> — IA con reglas claras</span></p>
         <div class="split-40">
 
           <div class="sticky-col reveal">
-            <p class="eyebrow">IA con reglas claras</p>
-            <h2>Automatizar no es perder el control.</h2>
+            <h2>Automatizar no es <em class="accent">perder el control.</em></h2>
             <p class="lead" style="margin-top:18px">Desconfiar de la inteligencia artificial es razonable. Por eso cada sistema que construimos sigue cuatro reglas que no negociamos.</p>
           </div>
 
@@ -1635,7 +1847,7 @@
             <article class="card hoverable rule reveal">
               <div class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
               <h3>Sabe cuándo pasarte la conversación</h3>
-              <p>Si una pregunta sale de lo previsto o necesita criterio, la conversación llega a una persona de tu equipo.</p>
+              <p>Si una pregunta sale de lo previsto o necesita criterio, la IA le pasa la conversación a una persona de tu equipo.</p>
             </article>
 
             <article class="card hoverable rule reveal">
@@ -1660,6 +1872,10 @@
     ============================================================ -->
     <section id="nosotros" class="has-rule">
       <div class="container">
+        <p class="sec-index label reveal"><span><b>05</b> — Quién está detrás</span></p>
+        <div class="section-head founder-head reveal">
+          <h2>Detrás de cada sistema hay <em class="accent">una persona.</em></h2>
+        </div>
         <div class="split-36">
 
           <div class="reveal">
@@ -1670,20 +1886,24 @@
           </div>
 
           <div class="reveal">
-            <p class="eyebrow">Quién está detrás</p>
             <p class="founder-name">Juan Campo</p>
-            <p class="founder-role">Fundador · Ingeniero Industrial · MSc Marketing</p>
+            <p class="founder-role label">Fundador · Ingeniero Industrial · MSc Marketing</p>
 
             <div class="bio">
               <p>Soy Ingeniero Industrial de la Javeriana con un Máster en Marketing de ESIC Business School, en Barcelona.</p>
               <p>Trabajé gestionando pauta digital para Frito Lay, Gatorade y Kaiser Permanente en Omnicom Media Group. Después lideré las operaciones de ecommerce en Amazon para mercados europeos en Mars Inc.</p>
-              <p>Volví a Colombia y encontré el mismo patrón en todos lados: gente muy capaz perdiendo sus mejores horas en tareas que no la necesitaban. Automa nació ahí.</p>
+              <p>Volví a Colombia y encontré el mismo patrón en todos lados. Gente muy capaz perdía sus mejores horas en tareas que no la necesitaban. Automa nació ahí.</p>
             </div>
 
-            <blockquote class="quote">
-              <p>«No construimos tecnología por construirla. Construimos sistemas que liberan tiempo real para personas reales.»</p>
-              <cite>Juan Campo, fundador</cite>
-            </blockquote>
+            <figure class="quote">
+              <blockquote>
+                <p>«No construimos tecnología por construirla. Construimos sistemas que liberan tiempo real para personas reales.»</p>
+              </blockquote>
+              <figcaption class="signoff">
+                <span class="signoff-line"><span class="signoff-name">Juan Campo</span></span>
+                <span class="signoff-role">Fundador · Automa</span>
+              </figcaption>
+            </figure>
 
             <div class="badges">
               <span class="badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg>Ing. Industrial · Javeriana</span>
@@ -1707,16 +1927,16 @@
         <div class="slab-deco" aria-hidden="true" style="background:radial-gradient(ellipse 60% 40% at 50% 0%, rgba(16,185,129,.09) 0%, transparent 60%)"></div>
         <div class="container" style="position:relative;z-index:1">
 
+          <p class="sec-index label reveal"><span><b>06</b> — Proyectos entregados</span></p>
           <div class="section-head reveal" style="margin-bottom:76px">
-            <p class="eyebrow">Proyectos entregados</p>
-            <h2>Tres sistemas entregados. Operando hoy.</h2>
+            <h2>Tres sistemas entregados. <em class="accent">Operando hoy.</em></h2>
             <p class="lead">No son demos ni pilotos. Son proyectos cerrados, entregados a sus clientes y funcionando en producción.</p>
           </div>
 
           <!-- CASE 1 -->
           <article class="case reveal">
             <div class="case-visual">
-              <div class="wa-mock">
+              <div class="wa-mock tilt">
                 <div class="wa-head">
                   <span class="wa-avatar" aria-hidden="true">R</span>
                   <span>
@@ -1738,14 +1958,14 @@
                 <p class="bubble out"><svg class="inline-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m20 6-11 11-5-5"/></svg>Pago verificado. Tu pedido ya está en cocina. Llega en 35 minutos.<time>7:45 p. m.</time></p>
                 <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
               </div>
-              <p class="mock-caption">Recreación ilustrativa del sistema.</p>
+              <p class="mock-caption">Recreación ilustrativa.</p>
             </div>
 
             <div class="case-copy">
               <span class="status-badge"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</span>
               <p class="case-cat">Restaurante · Bogotá</p>
               <h3>Pedidos por WhatsApp que se atienden solos</h3>
-              <p>El cliente escribe, el sistema entiende el pedido, confirma disponibilidad, calcula el total, verifica el comprobante de pago y manda la comanda a cocina. El restaurante solo cocina.</p>
+              <p>Un asistente de WhatsApp entiende el pedido, confirma disponibilidad y calcula el total. Después verifica el comprobante de pago y manda la comanda a cocina. El restaurante solo cocina.</p>
               <div class="tech-tags">
                 <span>WhatsApp Business API</span><span>Claude AI</span><span>n8n</span><span>Supabase</span>
               </div>
@@ -1755,7 +1975,7 @@
           <!-- CASE 2 -->
           <article class="case reverse reveal">
             <div class="case-visual">
-              <div class="dash" id="dashCHS">
+              <div class="dash tilt" id="dashCHS">
                 <div class="dash-top">
                   <span class="dash-name">Fondo CHS</span>
                   <span class="avatars" aria-hidden="true">
@@ -1805,14 +2025,14 @@
                   <span class="act-time">hace 3 d</span>
                 </div>
               </div>
-              <p class="mock-caption">Recreación ilustrativa del sistema.</p>
+              <p class="mock-caption">Recreación ilustrativa.</p>
             </div>
 
             <div class="case-copy">
               <span class="status-badge"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</span>
               <p class="case-cat">Fondo de inversión · Cliente 1</p>
               <h3>Plataforma de gestión — Fondo CHS</h3>
-              <p>Cinco socios entran a una sola plataforma que consolida el estado del fondo, registra cada compra y venta de inmuebles y muestra la posición de cada uno en tiempo real. Se acabaron los Excel desactualizados.</p>
+              <p>Cinco socios entran a una sola plataforma de gestión que consolida el estado del fondo. Registra cada compra y venta de inmuebles y muestra la posición de cada socio en tiempo real. Se acabaron los Excel desactualizados.</p>
               <div class="tech-tags">
                 <span>React</span><span>Supabase</span><span>Claude AI</span>
               </div>
@@ -1822,37 +2042,37 @@
           <!-- CASE 3 -->
           <article class="case reveal">
             <div class="case-visual">
-              <svg class="arch" viewBox="0 0 400 320" role="img" aria-label="Diagrama: un fondo gestor con dos subfondos de datos aislados">
+              <svg class="arch tilt" viewBox="0 0 400 320" role="img" aria-label="Diagrama: un fondo gestor con dos subfondos de datos aislados">
                 <rect x="130" y="18" width="140" height="46" rx="11" fill="#1A2233" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
-                <text x="200" y="46" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#F9FAFB" text-anchor="middle">Fondo gestor</text>
+                <text x="200" y="46" font-family="Geist, system-ui, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#F9FAFB" text-anchor="middle">Fondo gestor</text>
 
                 <path class="flow" d="M200 64 V 110 H 110 V 150" fill="none" stroke="#10B981" stroke-width="1.25" opacity="0.42" stroke-dasharray="5 6"/>
                 <path class="flow" d="M200 64 V 110 H 290 V 150" fill="none" stroke="#10B981" stroke-width="1.25" opacity="0.42" stroke-dasharray="5 6"/>
 
                 <rect x="50" y="150" width="120" height="42" rx="10" fill="#111827" stroke="rgba(255,255,255,0.09)" stroke-width="1"/>
-                <text x="110" y="176" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#C7CEDB" text-anchor="middle">Subfondo A</text>
+                <text x="110" y="176" font-family="Geist, system-ui, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#C7CEDB" text-anchor="middle">Subfondo A</text>
 
                 <rect x="230" y="150" width="120" height="42" rx="10" fill="#111827" stroke="rgba(255,255,255,0.09)" stroke-width="1"/>
-                <text x="290" y="176" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#C7CEDB" text-anchor="middle">Subfondo B</text>
+                <text x="290" y="176" font-family="Geist, system-ui, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#C7CEDB" text-anchor="middle">Subfondo B</text>
 
                 <circle cx="86" cy="228" r="6" fill="#10B981" opacity="0.6"/>
                 <circle cx="102" cy="228" r="6" fill="#10B981" opacity="0.6"/>
                 <circle cx="118" cy="228" r="6" fill="#10B981" opacity="0.6"/>
                 <circle cx="134" cy="228" r="6" fill="#10B981" opacity="0.6"/>
-                <text x="110" y="252" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9.5" fill="#8B95A7" text-anchor="middle">4 socios</text>
+                <text x="110" y="252" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#8B95A7" text-anchor="middle">4 socios</text>
 
                 <circle cx="258" cy="228" r="6" fill="#10B981" opacity="0.6"/>
                 <circle cx="274" cy="228" r="6" fill="#10B981" opacity="0.6"/>
                 <circle cx="290" cy="228" r="6" fill="#10B981" opacity="0.6"/>
                 <circle cx="306" cy="228" r="6" fill="#10B981" opacity="0.6"/>
                 <circle cx="322" cy="228" r="6" fill="#10B981" opacity="0.6"/>
-                <text x="290" y="252" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9.5" fill="#8B95A7" text-anchor="middle">5 socios</text>
+                <text x="290" y="252" font-family="Geist Mono, ui-monospace, Menlo, monospace" font-size="9.5" fill="#8B95A7" text-anchor="middle">5 socios</text>
 
                 <line x1="200" y1="140" x2="200" y2="262" stroke="rgba(255,255,255,0.09)" stroke-width="1" stroke-dasharray="3 5" opacity="0.55"/>
 
-                <text x="200" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" fill="#8B95A7" text-anchor="middle">Datos aislados por fondo</text>
+                <text x="200" y="296" font-family="Geist, system-ui, Helvetica, Arial, sans-serif" font-size="11" fill="#8B95A7" text-anchor="middle">Datos aislados por fondo</text>
               </svg>
-              <p class="mock-caption">Recreación ilustrativa del sistema.</p>
+              <p class="mock-caption">Recreación ilustrativa.</p>
             </div>
 
             <div class="case-copy">
@@ -1875,15 +2095,15 @@
     ============================================================ -->
     <section id="inversion">
       <div class="container">
+        <p class="sec-index label reveal"><span><b>07</b> — Inversión</span></p>
         <div class="section-head reveal">
-          <p class="eyebrow">Inversión</p>
-          <h2>Precios claros desde la primera conversación.</h2>
+          <h2>Sabes cuánto cuesta <em class="accent">antes de empezar.</em></h2>
           <p class="lead">Cada proyecto tiene dos partes: la implementación del sistema y su mantenimiento mensual. Estos son los puntos de partida.</p>
         </div>
 
         <div class="price-grid">
           <article class="card price-card reveal">
-            <p class="price-label">Implementación</p>
+            <p class="price-label label">Implementación</p>
             <p class="price-row">
               <span class="price-from">desde</span>
               <span class="price-amount">$1.200.000</span>
@@ -1895,7 +2115,7 @@
               <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Diseño y construcción del sistema</li>
               <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Pruebas con datos reales de tu negocio</li>
               <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Entrega, documentación y capacitación</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>50% al inicio y 50% contra entrega funcional</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span><span class="num">50%</span> al inicio y <span class="num">50%</span> contra entrega funcional</span></li>
             </ul>
           </article>
 
@@ -1905,7 +2125,7 @@
 
           <article class="card price-card featured reveal">
             <span class="price-badge">Recomendado</span>
-            <p class="price-label">Mantenimiento</p>
+            <p class="price-label label">Mantenimiento</p>
             <p class="price-row">
               <span class="price-from">desde</span>
               <span class="price-amount">$600.000</span>
@@ -1914,10 +2134,10 @@
             <div class="price-divider"></div>
             <ul class="check-list">
               <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Monitoreo del sistema en producción</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Corrección de fallas del flujo</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Corrección de fallas del sistema</li>
               <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Ajustes menores cuando cambie tu operación</li>
               <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Infraestructura incluida</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg>Cancelas con 30 días de aviso</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 5-5"/></svg><span>Cancelas con <span class="num">30</span> días de aviso</span></li>
             </ul>
           </article>
         </div>
@@ -1925,7 +2145,7 @@
         <p class="price-note reveal">El valor final depende de la complejidad del proceso, del uso de inteligencia artificial y de cuántas herramientas hay que conectar. La gestión de pauta se cotiza aparte, y el presupuesto publicitario lo pagas directamente a Meta o Google.</p>
 
         <div class="price-cta reveal">
-          <a class="btn btn-primary" id="ctaPricing" href="https://wa.me/573186041541?text=Hola%20Juan%2C%20quiero%20saber%20cu%C3%A1nto%20costar%C3%ADa%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
+          <a class="btn btn-primary" id="ctaPricing" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20quiero%20saber%20cu%C3%A1nto%20costar%C3%ADa%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Preguntar por mi caso por WhatsApp">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Preguntar por mi caso
           </a>
@@ -1938,9 +2158,9 @@
     ============================================================ -->
     <section id="faq" class="has-rule" style="background:var(--bg-1)">
       <div class="container">
+        <p class="sec-index label reveal"><span><b>08</b> — Preguntas frecuentes</span></p>
         <div class="section-head reveal">
-          <p class="eyebrow">Preguntas frecuentes</p>
-          <h2>Lo que todos preguntan antes de empezar</h2>
+          <h2>Lo que nos preguntan <em class="accent">siempre.</em></h2>
         </div>
 
         <div class="faq-list" id="faqList">
@@ -1960,7 +2180,7 @@
               <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
             </button>
             <div class="faq-panel" id="fp2" role="region" aria-labelledby="fq2" aria-hidden="true">
-              <p>Depende del alcance. Un flujo sencillo puede estar listo en pocos días; un asistente de WhatsApp o una plataforma completa toma varias semanas. El plazo exacto queda escrito en la propuesta, antes de empezar.</p>
+              <p>Depende del alcance. Un sistema sencillo puede estar listo en pocos días. Un asistente de WhatsApp o una plataforma de gestión toma varias semanas. El plazo exacto queda escrito en la propuesta, antes de empezar.</p>
             </div>
           </div>
 
@@ -1980,7 +2200,7 @@
               <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
             </button>
             <div class="faq-panel" id="fp4" role="region" aria-labelledby="fq4" aria-hidden="true">
-              <p>El sistema opera dentro de reglas que definimos contigo y le pasa la conversación a una persona cuando algo sale de lo previsto. Antes de entregarlo lo probamos con casos reales de tu negocio, y durante el mantenimiento lo seguimos ajustando.</p>
+              <p>El sistema opera dentro de reglas que definimos contigo. Cuando algo sale de lo previsto, le pasa la conversación a una persona. Antes de entregarlo lo probamos con casos reales de tu negocio, y durante el mantenimiento lo seguimos ajustando.</p>
             </div>
           </div>
 
@@ -2000,7 +2220,7 @@
               <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
             </button>
             <div class="faq-panel" id="fp6" role="region" aria-labelledby="fq6" aria-hidden="true">
-              <p>Cada cliente opera en un entorno separado y los datos no se mezclan. Automa actúa como encargado del tratamiento y sigue las instrucciones de tu negocio, conforme a la Ley 1581 de 2012. Consulta nuestra <a href="privacidad.html">Política de Privacidad</a>.</p>
+              <p>Cada cliente opera en un entorno separado y los datos no se mezclan. Actuamos como encargados del tratamiento y seguimos las instrucciones de tu negocio, conforme a la Ley 1581 de 2012. Consulta nuestra <a href="privacidad.html">Política de Privacidad</a>.</p>
             </div>
           </div>
 
@@ -2020,7 +2240,7 @@
               <span class="faq-toggle" aria-hidden="true"><i></i><i></i></span>
             </button>
             <div class="faq-panel" id="fp8" role="region" aria-labelledby="fq8" aria-hidden="true">
-              <p>Ves el sistema funcionando antes de pagar el saldo. Si en la entrega no cumple lo que quedó escrito en la propuesta, se ajusta hasta que lo cumpla. Por eso cobramos la mitad al inicio y no el total.</p>
+              <p>Ves el sistema funcionando antes de pagar el saldo. Si en la entrega no cumple lo que quedó escrito en la propuesta, lo ajustamos hasta que lo cumpla. Por eso cobramos la mitad al inicio y no el total.</p>
             </div>
           </div>
         </div>
@@ -2035,11 +2255,11 @@
         <div class="slab-deco" aria-hidden="true" style="background:radial-gradient(ellipse 70% 55% at 50% 40%, rgba(16,185,129,.10) 0%, transparent 65%)"></div>
         <div class="slab-deco" aria-hidden="true" style="background-image:radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);background-size:28px 28px;-webkit-mask-image:radial-gradient(ellipse 65% 60% at 50% 50%, black, transparent);mask-image:radial-gradient(ellipse 65% 60% at 50% 50%, black, transparent)"></div>
 
-        <div class="container">
+        <div class="container" style="position:relative;z-index:1">
+          <p class="sec-index label reveal"><span><b>09</b> — Contacto</span></p>
           <div class="contact-inner reveal">
-            <p class="eyebrow">Hablemos</p>
-            <h2>Cuéntanos qué te está quitando el tiempo.</h2>
-            <p class="lead">Escríbenos por WhatsApp. En la misma conversación te decimos si lo podemos automatizar, cuánto cuesta y cuánto tarda. Sin formularios y sin compromiso.</p>
+            <h2>Cuéntanos qué te está <em class="accent">quitando tiempo.</em></h2>
+            <p class="lead">En la misma conversación te decimos si lo podemos automatizar, cuánto cuesta y cuánto tarda. Sin formularios y sin compromiso.</p>
 
             <p class="chip-label" id="sectorLabel">¿En qué sector estás? (opcional)</p>
             <div class="chip-row" role="group" aria-label="Sector de tu negocio">
@@ -2053,9 +2273,9 @@
               <button type="button" class="chip chip-dark js-chip" aria-pressed="false">Otro</button>
             </div>
 
-            <a class="btn btn-on-dark btn-lg" id="ctaContact" href="https://wa.me/573186041541?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
+            <a class="btn btn-on-dark btn-lg" id="ctaContact" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Escribir por WhatsApp
+              Escríbenos por WhatsApp
             </a>
 
             <div class="contact-secondary">
@@ -2063,9 +2283,9 @@
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m2 7 10 6 10-6"/></svg>
                 flowautomainfo@gmail.com
               </a>
-              <a class="js-wa" href="https://wa.me/573186041541?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
+              <a class="js-wa" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp al +57 317 887 8200">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-                +57 318 604 1541
+                <span class="num">+57 317 887 8200</span>
               </a>
             </div>
           </div>
@@ -2099,7 +2319,7 @@
 
         <div class="footer-contact">
           <a href="mailto:flowautomainfo@gmail.com">flowautomainfo@gmail.com</a>
-          <a class="js-wa" href="https://wa.me/573186041541?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">+57 318 604 1541</a>
+          <a class="js-wa" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp al +57 317 887 8200">+57 317 887 8200</a>
         </div>
 
       </div>
@@ -2117,7 +2337,7 @@
   <!-- ============================================================
        FLOATING WHATSAPP
   ============================================================ -->
-  <a class="wa-float js-wa" id="waFloat" href="https://wa.me/573186041541?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
+  <a class="wa-float js-wa" id="waFloat" href="https://wa.me/573178878200?text=Hola%20Juan%2C%20vi%20la%20p%C3%A1gina%20de%20Automa%20y%20quiero%20automatizar%20un%20proceso%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
@@ -2136,7 +2356,7 @@
         "taxID": "901713525",
         "url": "https://www.flowautoma.com/",
         "email": "flowautomainfo@gmail.com",
-        "telephone": "+573186041541",
+        "telephone": "+573178878200",
         "foundingDate": "2026",
         "address": {
           "@type": "PostalAddress",
@@ -2171,7 +2391,7 @@
           {
             "@type": "Question",
             "name": "¿Cuánto tarda tener el sistema funcionando?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Depende del alcance. Un flujo sencillo puede estar listo en pocos días; un asistente de WhatsApp o una plataforma completa toma varias semanas. El plazo exacto queda escrito en la propuesta, antes de empezar." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Depende del alcance. Un sistema sencillo puede estar listo en pocos días. Un asistente de WhatsApp o una plataforma de gestión toma varias semanas. El plazo exacto queda escrito en la propuesta, antes de empezar." }
           },
           {
             "@type": "Question",
@@ -2181,7 +2401,7 @@
           {
             "@type": "Question",
             "name": "¿Qué pasa si la inteligencia artificial responde algo mal?",
-            "acceptedAnswer": { "@type": "Answer", "text": "El sistema opera dentro de reglas que definimos contigo y le pasa la conversación a una persona cuando algo sale de lo previsto. Antes de entregarlo lo probamos con casos reales de tu negocio, y durante el mantenimiento lo seguimos ajustando." }
+            "acceptedAnswer": { "@type": "Answer", "text": "El sistema opera dentro de reglas que definimos contigo. Cuando algo sale de lo previsto, le pasa la conversación a una persona. Antes de entregarlo lo probamos con casos reales de tu negocio, y durante el mantenimiento lo seguimos ajustando." }
           },
           {
             "@type": "Question",
@@ -2191,7 +2411,7 @@
           {
             "@type": "Question",
             "name": "¿Qué pasa con los datos de mis clientes?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Cada cliente opera en un entorno separado y los datos no se mezclan. Automa actúa como encargado del tratamiento y sigue las instrucciones de tu negocio, conforme a la Ley 1581 de 2012. Consulta nuestra Política de Privacidad." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Cada cliente opera en un entorno separado y los datos no se mezclan. Actuamos como encargados del tratamiento y seguimos las instrucciones de tu negocio, conforme a la Ley 1581 de 2012. Consulta nuestra Política de Privacidad." }
           },
           {
             "@type": "Question",
@@ -2201,7 +2421,7 @@
           {
             "@type": "Question",
             "name": "¿Y si al final no funciona como esperaba?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Ves el sistema funcionando antes de pagar el saldo. Si en la entrega no cumple lo que quedó escrito en la propuesta, se ajusta hasta que lo cumpla. Por eso cobramos la mitad al inicio y no el total." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Ves el sistema funcionando antes de pagar el saldo. Si en la entrega no cumple lo que quedó escrito en la propuesta, lo ajustamos hasta que lo cumpla. Por eso cobramos la mitad al inicio y no el total." }
           }
         ]
       }
@@ -2219,7 +2439,7 @@
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ---------- WhatsApp links ---------- */
-    var WA = '573186041541';
+    const WA = "573178878200";
     var MSG_DEFAULT = 'Hola Juan, vi la página de Automa y quiero automatizar un proceso de mi negocio.';
     var waUrl = function (t) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(t); };
 
@@ -2432,27 +2652,91 @@
       syncFeed();
     }
 
-    /* ---------- Consultorio pill flips ---------- */
+    /* ---------- Control switch (Modo manual / Con Automa) ---------- */
     var dayCard = document.getElementById('dayCard');
     var dayClose = document.getElementById('dayClose');
-    if (dayCard) {
+    var ctlSwitch = document.getElementById('ctlSwitch');
+    if (dayCard && ctlSwitch) {
       var owners = Array.prototype.slice.call(dayCard.querySelectorAll('.owner'));
-      if (reduceMotion) {
-        owners.forEach(function (o) { o.classList.add('done'); });
-        if (dayClose) dayClose.classList.add('show');
-      } else {
-        var flipObs = new IntersectionObserver(function (entries, obs) {
-          if (!entries[0].isIntersecting) return;
-          obs.disconnect();
-          owners.forEach(function (o, i) {
-            setTimeout(function () { o.classList.add('done'); }, i * 380);
-          });
-          setTimeout(function () {
-            if (dayClose) dayClose.classList.add('show');
-          }, owners.length * 380 + 260);
-        }, { threshold: 0.35 });
-        flipObs.observe(dayCard);
+      var ctlOff = document.getElementById('ctlOff');
+      var ctlOn = document.getElementById('ctlOn');
+      var STAGGER = 120;
+      var flipTimers = [];
+      var touched = false;
+      var autoTimer = null;
+
+      function setOwner(o, sys) {
+        o.classList.toggle('done', sys);
+        o.querySelector('.o-tu').setAttribute('aria-hidden', sys ? 'true' : 'false');
+        o.querySelector('.o-sys').setAttribute('aria-hidden', sys ? 'false' : 'true');
       }
+      function setControl(on) {
+        flipTimers.forEach(clearTimeout);
+        flipTimers = [];
+        ctlSwitch.setAttribute('aria-checked', on ? 'true' : 'false');
+        ctlOff.classList.toggle('is-on', !on);
+        ctlOn.classList.toggle('is-on', on);
+        if (!on && dayClose) dayClose.classList.remove('show');
+
+        // On: flip top to bottom. Off: reverse, bottom to top.
+        var order = on ? owners : owners.slice().reverse();
+        order.forEach(function (o, i) {
+          if (reduceMotion) { setOwner(o, on); return; }
+          flipTimers.push(setTimeout(function () { setOwner(o, on); }, i * STAGGER));
+        });
+        if (on && dayClose) {
+          if (reduceMotion) dayClose.classList.add('show');
+          else flipTimers.push(setTimeout(function () { dayClose.classList.add('show'); }, owners.length * STAGGER + 160));
+        }
+      }
+      function userToggle(on) {
+        touched = true;
+        if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; }
+        setControl(on);
+      }
+
+      owners.forEach(function (o) { setOwner(o, false); });
+      ctlSwitch.addEventListener('click', function () {
+        userToggle(ctlSwitch.getAttribute('aria-checked') !== 'true');
+      });
+      ctlOff.addEventListener('click', function () { userToggle(false); });
+      ctlOn.addEventListener('click', function () { userToggle(true); });
+
+      // Plays the story once if the visitor never touches the switch.
+      var autoObs = new IntersectionObserver(function (entries, obs) {
+        if (!entries[0].isIntersecting) return;
+        obs.disconnect();
+        if (touched) return;
+        autoTimer = setTimeout(function () {
+          autoTimer = null;
+          if (!touched) setControl(true);
+        }, 1200);
+      }, { threshold: 0.35 });
+      autoObs.observe(dayCard);
+    }
+
+    /* ---------- Mockup depth (cursor tilt) ---------- */
+    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 1024px)');
+    if (!reduceMotion) {
+      Array.prototype.forEach.call(document.querySelectorAll('.case-visual'), function (zone) {
+        var mock = zone.querySelector('.tilt');
+        if (!mock) return;
+        var raf = null;
+        zone.addEventListener('mousemove', function (e) {
+          if (!finePointer.matches) return;
+          if (raf) cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(function () {
+            var r = mock.getBoundingClientRect();
+            var x = Math.max(-1, Math.min(1, ((e.clientX - r.left) / r.width) * 2 - 1));
+            var y = Math.max(-1, Math.min(1, ((e.clientY - r.top) / r.height) * 2 - 1));
+            mock.style.transform = 'perspective(900px) rotateX(' + (-y * 4).toFixed(2) + 'deg) rotateY(' + (x * 4).toFixed(2) + 'deg)';
+          });
+        });
+        zone.addEventListener('mouseleave', function () {
+          if (raf) cancelAnimationFrame(raf);
+          mock.style.transform = '';
+        });
+      });
     }
 
     /* ---------- Dashboard bars ---------- */
