@@ -407,6 +407,9 @@
      15 · CONTACTO (dark band — the one centered block)
   ============================================================ */
   .contact-inner { max-width: 720px; margin-inline: auto; text-align: center; }
+  /* Optical balance: the eyebrow line box adds ~12px above its text, so the top
+     padding is trimmed by that much; text-to-edge is equal top and bottom. */
+  #contacto .band { padding: 64px 0 76px; }
   .contact-inner .eyebrow { justify-content: center; }
   .contact-inner h2, .contact-inner .lead, .contact-inner .small { margin-inline: auto; }
   .contact-inner .lead { margin-top: 24px; margin-bottom: 48px; }
@@ -425,17 +428,28 @@
      16 · FOOTER
   ============================================================ */
   footer { padding: 80px 0 40px; }
-  .footer-grid { display: grid; grid-template-columns: 5fr 4fr 3fr; gap: 48px; }
-  .footer-brand .small { margin-top: 12px; max-width: 28em; }
-  .footer-h { font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); margin-bottom: 8px; }
-  .footer-nav { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; align-content: start; }
-  .footer-nav .footer-h { grid-column: 1 / -1; }
-  .footer-col a { display: flex; align-items: center; min-height: 44px; font-size: .9375rem; color: var(--muted); transition: color .2s var(--ease); }
-  .footer-col a:hover { color: var(--ink); }
-  .footer-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: .8125rem; color: var(--muted); }
+  .footer-grid { align-items: start; row-gap: 48px; }
+  .footer-brand { grid-column: 1 / 5; }
+  .footer-nav { grid-column: 6 / 10; }
+  .footer-contact { grid-column: 10 / 13; }
+  /* Wordmark and headings share one top line: both use line-height 1 and the
+     headings drop by the wordmark's cap offset (set below) so cap tops align. */
+  .footer-brand .wordmark { display: block; min-height: 0; line-height: 1; }
+  .footer-brand .small { margin-top: 16px; max-width: 30em; }
+  .footer-h { font-size: .75rem; font-weight: 600; line-height: 1; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); padding-top: var(--cap-offset, 1.5px); margin-bottom: 12px; }
+  .footer-links { display: grid; }
+  .footer-links.two { grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: 32px; justify-content: start; }
+  .footer-links a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: .9375rem; color: var(--muted); text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color .2s var(--ease); }
+  .footer-links a:hover { color: var(--ink); text-decoration: underline; }
+  .footer-links svg { width: 16px; height: 16px; flex-shrink: 0; stroke: currentColor; stroke-width: 1.75; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .footer a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+  .btn-outline { margin-top: 24px; min-height: 44px; padding: 10px 18px; font-size: .9375rem; gap: 10px; background: transparent; color: var(--accent-strong); border: 1.5px solid var(--accent-strong); }
+  .btn-outline svg { width: 18px; height: 18px; }
+  .btn-outline:hover { background: var(--accent-tint); }
+  .footer-bottom { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; align-items: baseline; justify-content: space-between; gap: 8px 24px; flex-wrap: wrap; font-size: .8125rem; line-height: 1.5; color: var(--muted); }
   .footer-legal { display: flex; gap: 24px; flex-wrap: wrap; }
-  .footer-legal a { display: inline-flex; align-items: center; min-height: 44px; }
-  .footer-legal a:hover { color: var(--ink); }
+  .footer-legal a { display: inline-flex; align-items: center; min-height: 44px; text-underline-offset: 3px; }
+  .footer-legal a:hover { color: var(--ink); text-decoration: underline; }
 
   /* ============================================================
      17 · WHATSAPP: floating circle (≥768px) / sticky bar (<768px)
@@ -601,8 +615,9 @@
     .price-foot .small, .price-foot .btn { grid-column: 1 / -1; justify-self: start; }
     .sectors .eyebrow, .sectors .body { grid-column: 1 / -1; }
     .sectors .body { margin-top: 12px; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
     .footer-brand { grid-column: 1 / -1; }
+    .footer-nav { grid-column: 1 / 8; }
+    .footer-contact { grid-column: 8 / 13; }
   }
 
   @media (max-width: 767px) {
@@ -610,6 +625,7 @@
     .band-wrap { padding: 0 8px; }
     .band { border-radius: 20px; }
     #contacto { padding-bottom: 8px; }
+    #contacto .band { padding: 36px 0 48px; }
     .hero { padding: 40px 0 64px; }
     .hero h1 { margin-bottom: 24px; }
     .hero .lead { font-size: 1.0625rem; margin-bottom: 24px; }
@@ -644,13 +660,19 @@
     .price-foot .btn { width: 100%; }
     .faq-panel p { padding-right: 0; }
     .contact-inner .btn { width: 100%; }
-    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-    .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
-    footer { padding-bottom: 112px; }
     .wa-float { display: none; }
     .m-bar { display: block; }
     .nav-cta span { display: none; }
     .nav-cta { padding: 8px 12px; min-width: 48px; }
+  }
+
+  @media (max-width: 640px) {
+    footer { padding: 64px 0 calc(32px + env(safe-area-inset-bottom)); }
+    .footer-grid { row-gap: 40px; }
+    .footer-brand, .footer-nav, .footer-contact { grid-column: 1 / -1; }
+    .footer-links.two { column-gap: 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 4px; margin-top: 40px; }
+    .footer-legal { gap: 20px; flex-wrap: nowrap; }
   }
 
   /* ============================================================
@@ -685,6 +707,7 @@
     <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></symbol>
   </svg>
   <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -1249,29 +1272,37 @@
   <!-- ============================================================
        FOOTER
   ============================================================ -->
-  <footer id="footer">
+  <footer id="footer" class="footer">
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-grid grid12">
         <div class="footer-brand">
           <p class="wordmark">Automa</p>
           <p class="small">Automatización con inteligencia artificial para negocios reales. Bogotá, Colombia.</p>
+          <a class="btn btn-outline js-wa" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>
+            Escríbenos por WhatsApp
+          </a>
         </div>
-        <nav class="footer-col footer-nav" aria-label="Navegación del pie de página">
+        <nav class="footer-nav" aria-label="Navegación del pie de página">
           <p class="footer-h">Navegación</p>
-          <a href="#problema">Problema</a>
-          <a href="#servicios">Servicios</a>
-          <a href="#proceso">Proceso</a>
-          <a href="#nosotros">Nosotros</a>
-          <a href="#casos">Casos</a>
-          <a href="#inversion">Inversión</a>
-          <a href="#faq">Preguntas frecuentes</a>
-          <a href="#contacto">Contacto</a>
+          <div class="footer-links two">
+            <a href="#problema">Problema</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#proceso">Proceso</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#casos">Casos</a>
+            <a href="#inversion">Inversión</a>
+            <a href="#faq">Preguntas frecuentes</a>
+            <a href="#contacto">Contacto</a>
+          </div>
         </nav>
-        <div class="footer-col">
+        <div class="footer-contact">
           <p class="footer-h">Contacto</p>
-          <a href="mailto:flowautomainfo@gmail.com">flowautomainfo@gmail.com</a>
-          <a class="js-wa" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp al +57 317 887 8200">+57 317 887 8200</a>
-          <a href="https://www.linkedin.com/in/juancampoher/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <div class="footer-links">
+            <a href="mailto:flowautomainfo@gmail.com"><svg aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>flowautomainfo@gmail.com</a>
+            <a class="js-wa" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp al +57 317 887 8200"><svg aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>+57 317 887 8200</a>
+            <a href="https://www.linkedin.com/in/juancampoher/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false"><use href="#i-linkedin"/></svg>LinkedIn</a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
