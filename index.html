@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="color-scheme" content="only light">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <!-- ===================== PRIMARY META ===================== -->
@@ -25,25 +26,40 @@
   <meta property="og:site_name" content="Automa">
   <meta property="og:url" content="https://www.flowautoma.com/">
   <meta property="og:locale" content="es_CO">
-  <meta property="og:title" content="Automa | La IA hace lo repetitivo. Tú sigues al mando.">
-  <meta property="og:description" content="Construimos sistemas con inteligencia artificial que responden, agendan, cobran y reportan por tu negocio. Tres proyectos entregados y operando en Colombia.">
+  <meta property="og:title" content="Automa — Automatización con IA para negocios">
+  <meta property="og:description" content="Sistemas con inteligencia artificial que atienden clientes, toman pedidos, agendan y arman reportes.">
   <meta property="og:image" content="https://www.flowautoma.com/og-image.png">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Automa — La IA hace lo repetitivo. Tú sigues al mando.">
 
   <!-- ===================== TWITTER ===================== -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Automa | La IA hace lo repetitivo. Tú sigues al mando.">
-  <meta name="twitter:description" content="Construimos sistemas con inteligencia artificial que responden, agendan, cobran y reportan por tu negocio. Tres proyectos entregados y operando en Colombia.">
+  <meta name="twitter:title" content="Automa — Automatización con IA para negocios">
+  <meta name="twitter:description" content="Sistemas con inteligencia artificial que atienden clientes, toman pedidos, agendan y arman reportes.">
   <meta name="twitter:image" content="https://www.flowautoma.com/og-image.png">
+  <meta name="twitter:image:alt" content="Automa — La IA hace lo repetitivo. Tú sigues al mando.">
 
   <!-- ===================== FONTS ===================== -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap">
+  <link rel="preload" href="fonts/geist-latin-v5.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/instrument-serif-latin-v5.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
+  /* ============================================================
+     00 · FONTS — self-hosted (OFL, see /fonts), versioned file names.
+     Fallback faces are metric-matched so the swap does not move text.
+  ============================================================ */
+  @font-face { font-family: "Geist"; font-style: normal; font-weight: 400 600; font-display: swap; src: url("fonts/geist-latin-ext-v5.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: "Instrument Serif"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/instrument-serif-latin-ext-v5.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url("fonts/instrument-serif-italic-latin-ext-v5.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: "Geist"; font-style: normal; font-weight: 400 600; font-display: swap; src: url("fonts/geist-latin-v5.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Instrument Serif"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/instrument-serif-latin-v5.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url("fonts/instrument-serif-italic-latin-v5.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Geist Fallback"; src: local("Arial"), local("ArialMT"), local("Roboto"), local("Helvetica"); size-adjust: 101.61%; ascent-override: 99.4%; descent-override: 29.53%; line-gap-override: 0%; }
+  @font-face { font-family: "Instrument Serif Fallback"; font-style: normal; src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Noto Serif"), local("Georgia"); size-adjust: 83.16%; ascent-override: 119.05%; descent-override: 37.28%; line-gap-override: 0%; }
+  @font-face { font-family: "Instrument Serif Fallback"; font-style: italic; src: local("Times New Roman Italic"), local("TimesNewRomanPS-ItalicMT"), local("Noto Serif Italic"), local("Georgia Italic"); size-adjust: 87.38%; ascent-override: 113.29%; descent-override: 35.48%; line-gap-override: 0%; }
+
   /* ============================================================
      01 · TOKENS
   ============================================================ */
@@ -81,8 +97,9 @@
     --r-panel: 24px;
 
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
-    --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
-    --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-display: "Instrument Serif", "Instrument Serif Fallback", Georgia, "Times New Roman", serif;
+    --font-sans: "Geist", "Geist Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: only light;
 
     --pad: 120px;
   }
@@ -198,8 +215,9 @@
   .skip-link:focus { top: 0; }
 
   .reveal { transition: opacity .7s var(--ease), transform .7s var(--ease); }
-  html.js .reveal { opacity: 0; transform: translateY(12px); }
-  html.js .reveal.in { opacity: 1; transform: none; }
+  /* Visible by default. The hidden state exists only once the script has run
+     and opted in (html.reveal-on); see 'Reveal on scroll' in the script. */
+  html.reveal-on .reveal:not(.in) { opacity: 0; transform: translateY(12px); }
 
   /* ============================================================
      05 · BUTTONS
@@ -240,12 +258,14 @@
   .nav-right { display: flex; align-items: center; gap: 12px; }
   .nav-cta { min-height: 44px; padding: 8px 18px; font-size: .9375rem; box-shadow: none; }
   .nav-cta svg { width: 18px; height: 18px; }
-  .burger { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; flex-direction: column; gap: 6px; cursor: pointer; border-radius: 8px; }
-  .burger span { display: block; width: 20px; height: 1.5px; background: var(--ink); transition: transform .3s var(--ease), opacity .2s var(--ease); }
-  .burger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
-  .burger.open span:nth-child(2) { opacity: 0; }
-  .burger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
-  .mobile-panel { position: fixed; inset: 72px 0 0 0; z-index: 99; background: #fff; display: none; flex-direction: column; padding: 24px; overflow-y: auto; }
+  /* Lines are SVG strokes in currentColor: forced-dark modes invert them with the text. */
+  .burger { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; cursor: pointer; border-radius: 8px; color: var(--ink); }
+  .burger svg { width: 20px; height: 14px; overflow: visible; stroke: currentColor; stroke-width: 1.5; fill: none; }
+  .burger path { transform-box: view-box; transform-origin: 10px 7px; transition: transform .3s var(--ease), opacity .2s var(--ease); }
+  .burger.open path:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .burger.open path:nth-child(2) { opacity: 0; }
+  .burger.open path:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .mobile-panel { position: fixed; top: 72px; left: 0; right: 0; bottom: 0; height: calc(100dvh - 72px); z-index: 99; background: #fff; display: none; flex-direction: column; padding: 24px max(24px, env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left)); overflow-y: auto; overscroll-behavior: contain; }
   .mobile-panel.open { display: flex; }
   .mobile-panel .m-link { display: flex; align-items: center; min-height: 52px; font-size: 1.125rem; font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--line); }
   .mobile-panel .btn { width: 100%; margin-top: 24px; }
@@ -268,10 +288,6 @@
   .assure .ico-check { margin-top: 2px; }
   /* The one decorative element of the hero: a soft emerald glow. */
   .hero-glow { position: absolute; z-index: 0; inset: -96px -120px -64px -64px; pointer-events: none; background: radial-gradient(50% 50% at 55% 50%, rgba(16,185,129,.16), rgba(16,185,129,0) 70%); }
-  html.js .hero-anim { opacity: 0; transform: translateY(12px); }
-  html.js body.loaded .hero-anim { opacity: 1; transform: none; }
-  .hero-anim { transition: opacity .8s var(--ease), transform .8s var(--ease); }
-  .d2 { transition-delay: .08s; } .d3 { transition-delay: .18s; } .d4 { transition-delay: .28s; }
 
   /* ============================================================
      08 · PROBLEMA
@@ -680,10 +696,8 @@
   ============================================================ */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-    html.js .reveal, html.js .hero-anim { transform: none; }
   }
   </style>
-  <script>document.documentElement.className += ' js';</script>
 </head>
 
 <body>
@@ -732,7 +746,7 @@
 
         <div class="nav-right">
           <button class="burger" id="burger" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobilePanel">
-            <span></span><span></span><span></span>
+            <svg viewBox="0 0 20 14" aria-hidden="true" focusable="false"><path d="M0 1h20"/><path d="M0 7h20"/><path d="M0 13h20"/></svg>
           </button>
           <a class="btn btn-primary nav-cta js-wa" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
             <svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>
@@ -764,10 +778,10 @@
     ============================================================ -->
     <section class="hero" id="top">
       <div class="container grid12">
-        <p class="eyebrow hero-eyebrow hero-anim">Automatización con inteligencia artificial · Bogotá, Colombia</p>
-        <h1><span class="hl hero-anim">La IA hace lo repetitivo.</span><span class="hl hero-anim d2">Tú sigues <em class="accent">al mando.</em></span></h1>
+        <p class="eyebrow hero-eyebrow">Automatización con inteligencia artificial · Bogotá, Colombia</p>
+        <h1><span class="hl">La IA hace lo repetitivo.</span><span class="hl">Tú sigues <em class="accent">al mando.</em></span></h1>
 
-        <div class="hero-copy hero-anim d3">
+        <div class="hero-copy">
           <p class="lead">Sistemas con inteligencia artificial que atienden clientes, toman pedidos, agendan y arman reportes. Tú pones las reglas y el sistema las cumple, de día y de noche.</p>
           <div class="hero-ctas">
             <a class="btn btn-primary js-wa" id="ctaHero" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer">
@@ -782,14 +796,20 @@
           </ul>
         </div>
 
-        <div class="hero-visual hero-anim d4">
+        <div class="hero-visual">
           <div class="hero-glow" aria-hidden="true"></div>
           <div class="mock-card feed-card" id="feedCard" data-mock>
             <div class="feed-head">
               <span class="feed-title">Actividad del sistema</span>
               <span class="feed-sample"><i aria-hidden="true"></i>Vista de ejemplo</span>
             </div>
-            <div class="feed-list" id="feedList" aria-live="off"></div>
+            <!-- First rows are in the HTML so the card is complete without JS; the script rotates them. -->
+            <div class="feed-list" id="feedList" aria-live="off">
+              <div class="feed-item"><div><div class="feed-row"><span class="tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="feed-text">Pedido confirmado y enviado a cocina</span><span class="feed-time">ahora</span></div></div></div>
+              <div class="feed-item"><div><div class="feed-row"><span class="tile" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2.5"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span class="feed-text">Cita agendada para el jueves, 10:00 a. m.</span><span class="feed-time">hace 1 min</span></div></div></div>
+              <div class="feed-item"><div><div class="feed-row"><span class="tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><span class="feed-text">Recordatorios de mañana enviados</span><span class="feed-time">hace 4 min</span></div></div></div>
+              <div class="feed-item"><div><div class="feed-row"><span class="tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 2h14v20l-2.3-1.6-2.4 1.6-2.3-1.6L9.7 22l-2.4-1.6L5 22z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></span><span class="feed-text">Comprobante de pago verificado</span><span class="feed-time">hace 9 min</span></div></div></div>
+            </div>
           </div>
         </div>
       </div>
@@ -1473,15 +1493,29 @@
     });
     window.addEventListener('resize', function () { if (menuOpen && window.innerWidth >= 1024) setMenu(false); });
 
-    /* ---------- Reveal on scroll (fade only) ---------- */
-    var revealObs = new IntersectionObserver(function (entries, obs) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        en.target.classList.add('in');
-        obs.unobserve(en.target);
+    /* ---------- Reveal on scroll (progressive enhancement) ----------
+       Content is visible without JS. Here, blocks already on screen are marked
+       shown, the rest get the hidden state and fade in when they enter. If the
+       observer never reports (odd in-app WebViews), everything is shown. */
+    var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    var revealAll = function () { revealEls.forEach(function (el) { el.classList.add('in'); }); };
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      var ioAlive = false;
+      var revealObs = new IntersectionObserver(function (entries, obs) {
+        ioAlive = true;
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          en.target.classList.add('in');
+          obs.unobserve(en.target);
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
+      revealEls.forEach(function (el) {
+        if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+        else revealObs.observe(el);
       });
-    }, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
-    each('.reveal', function (el) { revealObs.observe(el); });
+      document.documentElement.classList.add('reveal-on');
+      setTimeout(function () { if (!ioAlive) revealAll(); }, 1500);
+    }
 
     /* ---------- Active nav link ---------- */
     var navLinks = Array.prototype.slice.call(document.querySelectorAll('#navLinks a'));
@@ -1538,8 +1572,7 @@
         if (t) t.textContent = TIMES[i] || '';
       });
     }
-    for (var s = 0; s < 4; s++) { feedList.appendChild(makeRow(EVENTS[s])); cursor = s + 1; }
-    stampTimes();
+    cursor = feedList.querySelectorAll('.feed-item').length;
 
     var feedTimer = null, heroVisible = true;
     function pushEvent() {
@@ -1685,12 +1718,6 @@
       });
     updateWa();
 
-    /* ---------- Hero entrance ---------- */
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function () { document.body.classList.add('loaded'); });
-    } else {
-      document.body.classList.add('loaded');
-    }
   })();
   </script>
 </body>
