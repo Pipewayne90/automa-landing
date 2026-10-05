@@ -692,6 +692,176 @@
   }
 
   /* ============================================================
+     20 · MOBILE & TABLET (<1024px). Desktop (>=1024px) is untouched:
+     the base rules here only hide elements that exist for small screens.
+  ============================================================ */
+  .case-tabs, .bio-more { display: none; }
+  .bio-rest { margin-top: 16px; }
+  @keyframes sheetIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  @keyframes caseIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+  @media (max-width: 1023px) {
+    /* Header: 64px, condenses to 56px once the page scrolls. */
+    :root { --nav-h: 64px; }
+    html.nav-condensed { --nav-h: 56px; }
+    html { scroll-padding-top: 72px; }
+    .nav { height: var(--nav-h); transition: height .25s var(--ease), border-color .25s var(--ease); }
+    .burger { width: 48px; height: 48px; }
+    .wordmark, .btn-outline { min-height: 48px; }
+    .nav-cta { min-height: 48px; }
+
+    /* Menu: full-screen sheet, numbered sections, WhatsApp anchored at the bottom. */
+    .mobile-panel { top: var(--nav-h); height: calc(100dvh - var(--nav-h)); padding-top: 8px; counter-reset: m; }
+    .mobile-panel.open { animation: sheetIn .22s var(--ease); }
+    .mobile-panel .m-link { counter-increment: m; gap: 16px; min-height: 56px; font-family: var(--font-display); font-weight: 400; font-size: 1.75rem; line-height: 1.1; letter-spacing: -0.01em; }
+    .mobile-panel .m-link::before { content: counter(m, decimal-leading-zero); min-width: 20px; font-family: var(--font-sans); font-size: .75rem; font-weight: 600; letter-spacing: .12em; color: var(--accent-strong); }
+    .mobile-panel .m-cta { margin-top: auto; flex-shrink: 0; }
+    .mobile-panel .m-link:last-of-type { margin-bottom: 24px; }
+
+    /* Hero feed: fixed-height slots, content swaps in place (no layout shift). */
+    .feed-row { height: 76px; padding: 0; }
+    .feed-row > * { transition: opacity .25s var(--ease), transform .25s var(--ease); }
+    .feed-list.swapping .feed-row > * { opacity: 0; transform: translateY(4px); }
+    .feed-text { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+    /* Problema: the switch card is the star; bigger thumb target. */
+    .ctl { white-space: normal; gap: 8px; }
+    .ctl-label { text-align: center; line-height: 1.3; }
+    .switch { width: 76px; height: 48px; }
+    .switch-track { width: 64px; height: 36px; }
+    .switch-knob { width: 30px; height: 30px; }
+    .switch[aria-checked="true"] .switch-knob { transform: translateX(28px); }
+    .task-row { min-height: 52px; }
+    .day-sub, .day-close { font-size: 15px; }
+
+    /* Casos: light section, dark mockups as objects, one case at a time. */
+    #casos.band-wrap { padding: 0; background: var(--bg-soft); }
+    #casos .band { max-width: none; border-radius: 0; background: transparent; }
+    #casos .band-glow { display: none; }
+    #casos h2, #casos h3 { color: var(--ink); }
+    #casos .accent { color: var(--accent-strong); }
+    #casos .lead { color: var(--ink-2); }
+    #casos .body { color: var(--muted); }
+    #casos .eyebrow, #casos .caption, #casos .case-cat { color: var(--muted); }
+    #casos .eyebrow .n, #casos .case-status { color: var(--accent-strong); }
+    #casos .stack-tags span { color: var(--ink-2); background: #fff; border-color: var(--line); }
+    #casos :focus-visible { outline-color: var(--accent-strong); }
+    #casos .case-pair .case { border-top-color: var(--line); }
+    #casos .case-cta { background: #fff; border-color: var(--line); }
+    #casos .case-cta .lead { color: var(--ink); }
+    #casos .case-cta .btn-on-dark { background: transparent; color: var(--accent-strong); border: 1.5px solid var(--accent-strong); }
+    #casos .case-cta .btn-on-dark:hover { background: var(--accent-tint); }
+    #casos.tabs-on .case-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; margin-bottom: 40px; background: #E6ECEA; border-radius: 14px; }
+    .case-tab { min-height: 52px; padding: 6px 8px; border-radius: 10px; font-size: .9375rem; font-weight: 600; line-height: 1.25; text-align: center; color: var(--muted); cursor: pointer; transition: background .2s var(--ease), color .2s var(--ease), box-shadow .2s var(--ease); }
+    .case-tab[aria-selected="true"] { background: #fff; color: var(--ink); box-shadow: 0 1px 2px rgba(11,18,32,.08), 0 4px 12px rgba(11,18,32,.06); }
+    #casos.tabs-on .case-pair { display: block; margin: 0; }
+    #casos.tabs-on .case-pair .case { margin: 0; padding: 0; border: 0; }
+    #casos.tabs-on .case[data-inactive] { display: none; }
+    #casos.tabs-on .case.is-entering { animation: caseIn .25s var(--ease); }
+    #casos.tabs-on .case-cta { margin-top: 64px; }
+    #casos.tabs-on .case { touch-action: pan-y; }
+
+    /* Mockups: every label at 12px or more. */
+    .bubble time, .img-bubble small, .wa-status, .act-time, .plus-chip, .seg span, .ok-pill, .chart-labels, .iso-badge { font-size: 12px; }
+    .stat-label, .partner-table th { font-size: 12px; letter-spacing: 0; text-transform: none; }
+    .stat { padding: 10px; }
+    .act-left, .partner-table td, .import-row { font-size: 13px; }
+
+    .link, .footer-links a, .footer-legal a, .contact-secondary a { min-height: 48px; }
+    .avatar--cv img { position: static; width: 100%; height: 100%; object-fit: cover; }
+  }
+
+  /* Tablet: a real two-column layout, not a stretched phone. */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-copy { grid-column: 1 / 7; }
+    .hero-visual { grid-column: 7 / 13; margin-top: 0; align-self: start; }
+    .problem-copy { grid-column: 1 / 7; }
+    .problem-visual { grid-column: 7 / 13; margin-top: 0; }
+    .founder-left { grid-column: 1 / 6; }
+    .founder-right { grid-column: 7 / 13; margin-top: 0; }
+    #casos.tabs-on .case { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+    #casos.tabs-on .case .case-visual { margin: 0; }
+    .price-grid { grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr); max-width: none; }
+    .plus { margin: 0; }
+    .price-card { padding: 28px; }
+    .price { font-size: 2.5rem; }
+    .faq-list { max-width: 680px; }
+  }
+
+  /* Phone */
+  @media (max-width: 767px) {
+    :root { --pad: 64px; }
+    .container, .nav-inner { padding-inline: 20px; }
+    h1 { font-size: clamp(2.75rem, 11vw, 3.25rem); line-height: 1.02; }
+    h2 { font-size: clamp(2.1rem, 8.5vw, 2.4rem); line-height: 1.08; }
+    .body, .lead, .hero .lead { font-size: 1.0625rem; line-height: 1.6; }
+    .small { font-size: .9375rem; }
+    .eyebrow { margin-bottom: 16px; }
+    .section-head { margin-bottom: 40px; }
+
+    .hero { padding: 28px 0 56px; }
+    .hero-eyebrow { margin-bottom: 16px; }
+    .hero h1 { margin-bottom: 20px; }
+    .assure li { font-size: .9375rem; }
+    .hero-visual { margin-top: 40px; }
+    .feed-card { max-width: none; }
+    .feed-text { font-size: 15px; }
+    .feed-item:nth-child(n+3) { display: none; }
+
+    .problem-visual { margin-top: 32px; }
+    .day-card { max-width: none; }
+
+    /* Servicios: compact list, all six visible, two lines of text each. */
+    .svc-grid { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line); }
+    .svc { grid-template-columns: 44px minmax(0, 1fr); column-gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .svc h3 { margin: 0 0 4px; padding-top: 0; font-size: 1.0625rem; }
+    .svc .body { font-size: .9375rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .sectors { margin-top: 40px; }
+
+    /* Cómo trabajamos: tighter timeline. */
+    .steps { gap: 28px; }
+    .step { column-gap: 16px; }
+    .step .tile { grid-row: 1 / span 2; }
+    .step-num { margin: 0 0 4px; font-size: 1.75rem; }
+    .step:not(:last-child)::before { top: 52px; bottom: -20px; }
+    .step:not(:last-child)::after { top: auto; bottom: -17px; }
+    .rules-panel { padding: 24px 20px; margin-top: 48px; }
+    .rules-panel h3.panel-title { margin-bottom: 20px; }
+    .rules { gap: 20px; }
+
+    /* Nosotros: person first, then the quote, short bio, trayectoria, LinkedIn. */
+    #nosotros .grid12 { display: flex; flex-direction: column; }
+    .founder-left, .founder-right { display: contents; }
+    #nosotros .eyebrow { order: 1; }
+    #nosotros h2 { order: 2; margin-bottom: 32px; }
+    .founder-id { order: 3; margin-bottom: 24px; }
+    .quote { order: 4; margin: 0 0 24px; }
+    .quote p { font-size: 1.5rem; }
+    .bio { order: 5; }
+    #nosotros .track-label { order: 6; margin: 32px 0 0; }
+    .track { order: 7; }
+    .track > div { padding: 12px 0; }
+    .founder-right .link { order: 8; margin-top: 16px; align-self: flex-start; }
+    .bio-more { display: inline-flex; align-items: center; min-height: 48px; margin-top: 4px; font-weight: 600; color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 5px; text-decoration-thickness: 1.5px; cursor: pointer; }
+    .bio-more[hidden] { display: none; }
+    .bio-rest { display: none; margin-top: 8px; }
+    .bio-rest.open { display: block; }
+    .bio-rest:focus { outline: none; }
+
+    .price-card { padding: 24px 20px; }
+    .price { font-size: 2.5rem; }
+    .price-row { margin-top: 16px; }
+    .price-list { margin-top: 20px; padding-top: 20px; gap: 12px; }
+    .price-list li { font-size: .9375rem; }
+    .plus { width: 32px; height: 32px; margin: 12px auto; }
+    .price-foot { margin-top: 32px; }
+
+    .faq-head { margin-bottom: 32px; }
+    .faq-q { padding: 18px 0; min-height: 64px; font-size: 1.0625rem; }
+    .chip { min-height: 48px; padding: 10px 18px; }
+  }
+
+  /* ============================================================
      19 · REDUCED MOTION
   ============================================================ */
   @media (prefers-reduced-motion: reduce) {
@@ -763,8 +933,9 @@
       <a class="m-link" href="#nosotros">Nosotros</a>
       <a class="m-link" href="#casos">Casos</a>
       <a class="m-link" href="#inversion">Inversión</a>
+      <a class="m-link" href="#faq">Preguntas frecuentes</a>
       <a class="m-link" href="#contacto">Contacto</a>
-      <a class="btn btn-primary js-wa" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer">
+      <a class="btn btn-primary m-cta js-wa" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer">
         <svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>
         Escríbenos por WhatsApp
       </a>
@@ -937,7 +1108,10 @@
           <div class="founder-id">
             <div class="avatar avatar--cv">
               <!-- To swap: point src at a head-and-shoulders photo (about 1200×1500px) and remove the avatar--cv class. -->
-              <img src="Foto_CV.jpg" alt="Juan Campo, fundador de Automa" width="1224" height="1848" loading="lazy" decoding="async">
+              <picture>
+                <source media="(max-width: 1023px)" srcset="avatar-juan-v1-224.jpg 224w, avatar-juan-v1-336.jpg 336w" sizes="(max-width: 767px) 112px, 144px">
+                <img src="Foto_CV.jpg" alt="Juan Campo, fundador de Automa" width="1224" height="1848" loading="lazy" decoding="async">
+              </picture>
             </div>
             <div>
               <h3>Juan Campo</h3>
@@ -946,8 +1120,11 @@
           </div>
           <div class="bio">
             <p class="body">Ingeniero Industrial de la Javeriana, con un Máster en Marketing de ESIC Business School, en Barcelona.</p>
+            <button type="button" class="bio-more" id="bioMore" aria-expanded="false" aria-controls="bioRest">Leer más</button>
+            <div class="bio-rest" id="bioRest">
             <p class="body">Gestioné pauta digital para Frito Lay, Gatorade y Kaiser Permanente en Omnicom Media Group. Después lideré las operaciones de ecommerce en Amazon para mercados europeos en Mars Inc.</p>
             <p class="body">Al volver a Colombia vi el mismo patrón en todos lados: gente muy capaz perdiendo sus mejores horas en tareas que no la necesitaban. Automa nació ahí.</p>
+            </div>
           </div>
           <a class="link" href="https://www.linkedin.com/in/juancampoher/" target="_blank" rel="noopener noreferrer">Ver perfil en LinkedIn<svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
         </div>
@@ -968,8 +1145,15 @@
             <p class="lead">No son demos ni pilotos. Son proyectos cerrados, entregados a sus clientes y funcionando en producción.</p>
           </div>
 
+          <!-- Below 1024px the three cases become tabs; on desktop the tablist is hidden. -->
+          <div class="case-tabs" role="tablist" aria-label="Proyectos entregados">
+            <button type="button" class="case-tab" role="tab" id="tabCase1" aria-controls="case1" aria-selected="true">Restaurante</button>
+            <button type="button" class="case-tab" role="tab" id="tabCase2" aria-controls="case2" aria-selected="false" tabindex="-1">Fondo inmobiliario</button>
+            <button type="button" class="case-tab" role="tab" id="tabCase3" aria-controls="case3" aria-selected="false" tabindex="-1">Fondo de inversión</button>
+          </div>
+
           <!-- CASE 1 · featured -->
-          <article class="case case-feature reveal">
+          <div class="case case-feature reveal" id="case1">
             <div class="case-copy">
               <p class="case-status"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</p>
               <p class="case-cat">Restaurante · Bogotá</p>
@@ -1000,11 +1184,11 @@
               <p class="caption">Recreación ilustrativa</p>
             </div>
 
-          </article>
+          </div>
 
           <!-- CASES 2 & 3 -->
           <div class="case-pair">
-            <article class="case case-col reveal">
+            <div class="case case-col reveal" id="case2">
               <div class="case-copy">
                 <p class="case-status"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</p>
                 <p class="case-cat">Fondo de inversión · Cliente 1</p>
@@ -1045,9 +1229,9 @@
                 <p class="caption">Recreación ilustrativa</p>
               </div>
 
-            </article>
+            </div>
 
-            <article class="case case-col reveal">
+            <div class="case case-col reveal" id="case3">
               <div class="case-copy">
                 <p class="case-status"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</p>
                 <p class="case-cat">Fondo de inversión · Cliente 2</p>
@@ -1086,7 +1270,7 @@
                 <p class="caption">Recreación ilustrativa</p>
               </div>
 
-            </article>
+            </div>
           </div>
 
           <div class="case-cta reveal">
@@ -1460,7 +1644,11 @@
 
     /* ---------- Navbar ---------- */
     var nav = document.getElementById('nav');
-    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 24); };
+    var onScroll = function () {
+      var scrolled = window.scrollY > 24;
+      nav.classList.toggle('scrolled', scrolled);
+      document.documentElement.classList.toggle('nav-condensed', scrolled);
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
@@ -1555,15 +1743,15 @@
     var feedCard = document.getElementById('feedCard');
     var cursor = 0;
 
+    function rowInner(ev) {
+      return '<span class="tile" aria-hidden="true"><svg viewBox="0 0 24 24">' + ICONS[ev[0]] + '</svg></span>' +
+        '<span class="feed-text">' + ev[1] + '</span>' +
+        '<span class="feed-time"></span>';
+    }
     function makeRow(ev) {
       var item = document.createElement('div');
       item.className = 'feed-item';
-      item.innerHTML =
-        '<div><div class="feed-row">' +
-          '<span class="tile" aria-hidden="true"><svg viewBox="0 0 24 24">' + ICONS[ev[0]] + '</svg></span>' +
-          '<span class="feed-text">' + ev[1] + '</span>' +
-          '<span class="feed-time"></span>' +
-        '</div></div>';
+      item.innerHTML = '<div><div class="feed-row">' + rowInner(ev) + '</div></div>';
       return item;
     }
     function stampTimes() {
@@ -1589,8 +1777,23 @@
       }
       stampTimes();
     }
+    // Below 1024px the rows are fixed-height slots: contents fade out, move
+    // down one slot and fade back in, so nothing around the card moves.
+    var mqCompact = window.matchMedia('(max-width: 1023px)');
+    function swapInPlace() {
+      var rows = feedList.querySelectorAll('.feed-row');
+      feedList.classList.add('swapping');
+      setTimeout(function () {
+        for (var i = rows.length - 1; i > 0; i--) rows[i].innerHTML = rows[i - 1].innerHTML;
+        rows[0].innerHTML = rowInner(EVENTS[cursor % EVENTS.length]);
+        cursor++;
+        stampTimes();
+        feedList.classList.remove('swapping');
+      }, 260);
+    }
+    function tick() { if (mqCompact.matches) swapInPlace(); else pushEvent(); }
     function syncFeed() {
-      if (heroVisible && !document.hidden && !reduceMotion) { if (!feedTimer) feedTimer = setInterval(pushEvent, 3200); }
+      if (heroVisible && !document.hidden && !reduceMotion) { if (!feedTimer) feedTimer = setInterval(tick, 3200); }
       else if (feedTimer) { clearInterval(feedTimer); feedTimer = null; }
     }
     if (!reduceMotion && feedCard) {
@@ -1696,20 +1899,89 @@
       });
     });
 
+    /* ---------- Casos: tabs below 1024px (ARIA tabs, arrows, swipe) ---------- */
+    var casos = document.getElementById('casos');
+    var caseTabs = casos ? Array.prototype.slice.call(casos.querySelectorAll('.case-tab')) : [];
+    if (caseTabs.length) {
+      var casePanels = caseTabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+      var mqTabs = window.matchMedia('(max-width: 1023px)');
+      var caseIdx = 0;
+      var selectCase = function (i, focus) {
+        caseIdx = (i + caseTabs.length) % caseTabs.length;
+        caseTabs.forEach(function (t, j) {
+          var on = j === caseIdx;
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.tabIndex = on ? 0 : -1;
+          casePanels[j].toggleAttribute('data-inactive', !on);
+          if (on && !reduceMotion) { casePanels[j].classList.remove('is-entering'); void casePanels[j].offsetWidth; casePanels[j].classList.add('is-entering'); }
+        });
+        if (focus) caseTabs[caseIdx].focus();
+      };
+      var applyTabs = function () {
+        var on = mqTabs.matches;
+        casos.classList.toggle('tabs-on', on);
+        casePanels.forEach(function (p, j) {
+          if (on) { p.setAttribute('role', 'tabpanel'); p.setAttribute('aria-labelledby', caseTabs[j].id); p.tabIndex = 0; p.classList.add('in'); }
+          else { p.removeAttribute('role'); p.removeAttribute('aria-labelledby'); p.removeAttribute('tabindex'); p.removeAttribute('data-inactive'); p.classList.remove('is-entering'); }
+        });
+        if (on) selectCase(caseIdx, false);
+      };
+      caseTabs.forEach(function (t, j) { t.addEventListener('click', function () { selectCase(j, false); }); });
+      casos.querySelector('.case-tabs').addEventListener('keydown', function (e) {
+        var k = e.key, next = null;
+        if (k === 'ArrowRight') next = caseIdx + 1; else if (k === 'ArrowLeft') next = caseIdx - 1;
+        else if (k === 'Home') next = 0; else if (k === 'End') next = caseTabs.length - 1;
+        if (next === null) return;
+        e.preventDefault(); selectCase(next, true);
+      });
+      // Horizontal swipe on the case switches tabs. Panels use touch-action: pan-y,
+      // so vertical scrolling stays with the browser.
+      var sx = null, sy = 0;
+      casePanels.forEach(function (p) {
+        p.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse') { sx = e.clientX; sy = e.clientY; } });
+        p.addEventListener('pointercancel', function () { sx = null; });
+        p.addEventListener('pointerup', function (e) {
+          if (sx === null || !casos.classList.contains('tabs-on')) return;
+          var dx = e.clientX - sx, dy = e.clientY - sy;
+          sx = null;
+          if (Math.abs(dx) > 56 && Math.abs(dx) > Math.abs(dy) * 1.5) selectCase(caseIdx + (dx < 0 ? 1 : -1), false);
+        });
+      });
+      if (mqTabs.addEventListener) mqTabs.addEventListener('change', applyTabs); else mqTabs.addListener(applyTabs);
+      applyTabs();
+    }
+
+    /* ---------- Nosotros: "Leer más" (phones only; desktop shows it all) ---------- */
+    var bioMore = document.getElementById('bioMore');
+    var bioRest = document.getElementById('bioRest');
+    if (bioMore && bioRest) {
+      bioMore.addEventListener('click', function () {
+        bioRest.classList.add('open');
+        bioMore.setAttribute('aria-expanded', 'true');
+        bioMore.hidden = true;
+        bioRest.tabIndex = -1;
+        bioRest.focus({ preventScroll: true });
+      });
+    }
+
     /* ---------- Floating button (desktop) / sticky bar (mobile) ---------- */
     var waFloat = document.getElementById('waFloat');
     var mBar = document.getElementById('mBar');
     var heroCta = document.getElementById('ctaHero');
-    var heroCtaVisible = true, contactInView = false, footerInView = false;
+    var heroCtaVisible = true, pricingCtaVisible = false, contactInView = false, footerInView = false;
 
+    // The bar hides whenever an inline primary WhatsApp CTA is on screen
+    // (hero, Inversión, Contacto), so two green CTAs never compete.
     function updateWa() {
       var show = !heroCtaVisible && !contactInView && !footerInView && !menuOpen;
+      var showBar = show && !pricingCtaVisible;
       waFloat.classList.toggle('show', show);
-      mBar.classList.toggle('show', show);
-      mBar.setAttribute('aria-hidden', show ? 'false' : 'true');
-      mBar.querySelector('a').tabIndex = show ? 0 : -1;
+      mBar.classList.toggle('show', showBar);
+      mBar.setAttribute('aria-hidden', showBar ? 'false' : 'true');
+      mBar.querySelector('a').tabIndex = showBar ? 0 : -1;
     }
     [[heroCta, function (v) { heroCtaVisible = v; }],
+     [document.getElementById('ctaPricing'), function (v) { pricingCtaVisible = v; }],
      [document.getElementById('contacto'), function (v) { contactInView = v; }],
      [document.getElementById('footer'), function (v) { footerInView = v; }]]
       .forEach(function (pair) {
