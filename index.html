@@ -116,11 +116,12 @@
   h1, h2 { font-family: var(--font-display); font-weight: 400; color: var(--ink); text-wrap: balance; }
   h1 { font-size: clamp(3.5rem, 6.5vw, 5.75rem); line-height: 1.0; letter-spacing: -0.02em; }
   h2 { font-size: clamp(2.25rem, 4vw, 3.5rem); line-height: 1.05; letter-spacing: -0.015em; max-width: 17ch; }
+  h3, h4 { text-wrap: balance; }
   h3 { font-family: var(--font-sans); font-size: 1.125rem; line-height: 1.35; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
   .accent { font-style: italic; color: var(--accent-strong); white-space: nowrap; }
   .accent.wraps { white-space: normal; }
 
-  p, li { text-wrap: pretty; }
+  p, li, dd { text-wrap: pretty; }
   .lead { font-size: 1.1875rem; line-height: 1.6; color: var(--ink-2); max-width: 34em; }
   .body { font-size: 1rem; line-height: 1.65; color: var(--muted); max-width: 36em; }
   .small { font-size: .875rem; line-height: 1.55; color: var(--muted); }
@@ -254,6 +255,7 @@
      07 · HERO
   ============================================================ */
   .hero { padding: 80px 0 88px; overflow: clip; }
+  .hero-eyebrow { grid-column: 1 / -1; margin-bottom: 28px; }
   .hero h1 { grid-column: 1 / -1; margin-bottom: 40px; }
   .hl { display: block; }
   @media (min-width: 1100px) { .hero h1 .hl:first-child { white-space: nowrap; } }
@@ -261,8 +263,8 @@
   .hero-visual { grid-column: 7 / 13; position: relative; }
   .hero .lead { margin-bottom: 32px; }
   .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
-  .assure { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px 24px; padding-top: 24px; border-top: 1px solid var(--line); }
-  .assure li { display: flex; align-items: flex-start; gap: 8px; white-space: nowrap; font-size: .875rem; line-height: 1.45; color: var(--ink-2); }
+  .assure { margin-top: 32px; display: flex; flex-direction: column; gap: 10px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .assure li { display: flex; align-items: flex-start; gap: 8px; font-size: .875rem; line-height: 1.45; color: var(--ink-2); }
   .assure .ico-check { margin-top: 2px; }
   /* The one decorative element of the hero: a soft emerald glow. */
   .hero-glow { position: absolute; z-index: 0; inset: -96px -120px -64px -64px; pointer-events: none; background: radial-gradient(50% 50% at 55% 50%, rgba(16,185,129,.16), rgba(16,185,129,0) 70%); }
@@ -314,32 +316,52 @@
   .quote { margin-top: 40px; padding-left: 24px; border-left: 2px solid var(--accent); }
   .quote p { font-family: var(--font-display); font-size: 1.75rem; line-height: 1.25; color: var(--ink); letter-spacing: -0.01em; }
   .founder-id { display: flex; align-items: center; gap: 20px; margin-bottom: 28px; }
-  .avatar { width: 112px; height: 112px; flex-shrink: 0; border-radius: 50%; overflow: hidden; background: var(--slate-100); box-shadow: 0 0 0 1px var(--line), 0 0 0 6px var(--bg), 0 0 0 7px var(--accent-line); }
-  /* Source is 1224×1848; the face sits near (657, 420). The circle shows a
-     300px source window from (507, 320): face and shoulders, banner out of frame. */
+  .avatar { --avatar-size: 144px; width: var(--avatar-size); height: var(--avatar-size); flex-shrink: 0; border-radius: 50%; overflow: hidden; background: var(--slate-100); box-shadow: 0 0 0 1px var(--line), 0 0 0 6px var(--bg), 0 0 0 7px var(--accent-line); }
   .avatar { position: relative; }
-  .avatar img { position: absolute; max-width: none; width: 408%; height: auto; left: -169%; top: -107%; }
+  /* Default for a proper bust shot: just cover the circle. */
+  .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+  /* Temporary crop for Foto_CV.jpg (1224×1848, face near 657,420): shows a
+     300px source window from (507,320). To swap the photo, change the src and
+     drop the .avatar--cv class from the wrapper. */
+  .avatar--cv img { position: absolute; max-width: none; width: 408%; height: auto; left: -169%; top: -107%; object-fit: initial; }
   .founder-id .small { margin-top: 2px; }
   .bio .body + .body { margin-top: 16px; }
-  .track { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-  .track dt { font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-  .track dd { font-size: .9375rem; font-weight: 500; color: var(--ink); line-height: 1.45; }
+  .track { margin-top: 48px; max-width: 420px; border-top: 1px solid var(--line); }
+  .track-label { margin: 40px 0 0; }
+  .track-label + .track { margin-top: 16px; }
+  .track > div { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .track dt { font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .track dd { font-size: .9375rem; font-weight: 500; color: var(--ink); line-height: 1.45; text-align: right; }
   .founder-right .link { margin-top: 24px; }
 
   /* ============================================================
      12 · CASOS (dark band)
   ============================================================ */
   #casos, #contacto { padding: 0; }
-  #contacto { background: linear-gradient(var(--bg-soft) 50%, var(--bg) 50%); }
-  .case { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 72px; align-items: center; margin-bottom: 112px; }
-  .case:last-of-type { margin-bottom: 0; }
-  .case.reverse .case-visual { order: 2; }
+  /* Contacto owns one background (soft, continuing the FAQ) and frames the band
+     with the same gutter on the sides and the bottom; the footer starts white
+     on a full-width edge below it. */
+  #contacto { background: var(--bg-soft); padding-bottom: 24px; }
+  .casos-head { margin-bottom: 64px; }
+  .casos-head h2 { max-width: none; }
+  .casos-head .lead { margin-top: 24px; max-width: 520px; }
+  /* Row 1: featured case, mockup left / copy right. Copy comes first in the DOM
+     so on mobile each case reads label → text → mockup. */
+  .case-feature { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 72px; align-items: center; }
+  .case-feature .case-visual { order: -1; }
+  .case-feature .wa-mock { max-width: 380px; zoom: .8; }
+  /* Row 2: two cases side by side, mockup on top of its copy. */
+  .case-pair { margin-top: 96px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: start; }
+  .case-col { display: flex; flex-direction: column; }
+  .case-col .case-visual { order: -1; margin-bottom: 32px; }
+  .mock-slot { min-height: 426px; display: flex; align-items: center; }
+  .case-col .case-copy .body { max-width: none; }
   .case-status { display: inline-flex; align-items: center; gap: 10px; font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--dark-accent-2); }
   .case-cat { margin: 16px 0 12px; font-size: .875rem; color: var(--on-dark-3); }
   .case h3 { font-size: 1.5rem; margin-bottom: 16px; letter-spacing: -0.015em; }
   .stack-tags { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
   .stack-tags span { font-size: .8125rem; color: var(--on-dark-2); padding: 4px 12px; border-radius: 100px; background: rgba(255,255,255,.05); border: 1px solid var(--dark-line); }
-  .case-cta { margin-top: 112px; padding: 32px 40px; border-radius: var(--r-card); background: rgba(255,255,255,.04); border: 1px solid var(--dark-line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+  .case-cta { margin-top: 96px; padding: 32px 40px; border-radius: var(--r-card); background: rgba(255,255,255,.04); border: 1px solid var(--dark-line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
   .case-cta .lead { color: var(--on-dark); }
 
   /* ============================================================
@@ -472,9 +494,9 @@
   .owner .o-sys svg { width: 13px; height: 13px; stroke: var(--accent-strong); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
   .owner.done .o-tu { opacity: 0; transform: scale(.94); }
   .owner.done .o-sys { opacity: 1; transform: scale(1); }
-  .day-close { background: var(--accent-tint); border-radius: 12px; padding: 12px 16px; margin-top: 12px; font-weight: 600; font-size: 14px; color: var(--accent-strong); display: flex; align-items: center; gap: 8px; line-height: 1.45; opacity: 0; transition: opacity .5s var(--ease); }
-  .day-close.show { opacity: 1; }
-  .day-close svg { width: 16px; height: 16px; stroke: var(--accent-strong); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .day-close { background: var(--slate-100); border: 1px solid #E2E8F0; border-radius: 12px; padding: 12px 16px; margin-top: 12px; font-weight: 600; font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 8px; line-height: 1.45; transition: background .4s var(--ease), border-color .4s var(--ease), color .4s var(--ease); }
+  .day-close.show { background: var(--accent-tint); border-color: var(--accent-line); color: var(--accent-strong); }
+  .day-close svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
   /* WhatsApp chat */
   .wa-mock { max-width: 320px; width: 100%; margin-inline: auto; background: #0B141A; border-radius: 24px; border: 1px solid var(--dark-line); padding: 16px; box-shadow: 0 32px 80px rgba(0,0,0,.55); display: flex; flex-direction: column; }
   .wa-head { display: flex; gap: 10px; align-items: center; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.06); margin-bottom: 14px; }
@@ -566,8 +588,13 @@
     .step:nth-child(2)::before, .step:nth-child(2)::after { display: none; }
     .rules { grid-template-columns: 1fr; gap: 28px; }
 
-    .case, .case.reverse { grid-template-columns: 1fr; gap: 40px; margin-bottom: 88px; }
-    .case.reverse .case-visual { order: 0; }
+    .case-feature, .case-pair { grid-template-columns: 1fr; gap: 0; }
+    .case-feature .case-visual, .case-col .case-visual { order: 0; margin: 40px 0 0; }
+    .case-feature .wa-mock { zoom: 1; max-width: 340px; }
+    .mock-slot { min-height: 0; }
+    .case-pair { margin-top: 0; }
+    .case-pair .case { margin-top: 72px; padding-top: 56px; border-top: 1px solid var(--dark-line); }
+    .founder-left .track { max-width: none; }
 
     .price-grid { grid-template-columns: 1fr; max-width: 560px; }
     .plus { margin: 16px auto; }
@@ -582,6 +609,7 @@
     :root { --pad: 72px; }
     .band-wrap { padding: 0 8px; }
     .band { border-radius: 20px; }
+    #contacto { padding-bottom: 8px; }
     .hero { padding: 40px 0 64px; }
     .hero h1 { margin-bottom: 24px; }
     .hero .lead { font-size: 1.0625rem; margin-bottom: 24px; }
@@ -592,7 +620,10 @@
     .feed-card, .day-card { padding: 20px; }
     .feed-title { font-size: 15px; }
     .feed-text { font-size: 14px; }
-    .svc-grid { grid-template-columns: 1fr; gap: 40px; }
+    .svc-grid { grid-template-columns: 1fr; gap: 36px; }
+    .svc { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 16px; align-items: start; }
+    .svc .tile { grid-row: 1 / span 2; margin: 0; }
+    .svc h3 { padding-top: 10px; }
 
     /* Timeline turns vertical: connectors run down the tile column. */
     .steps { grid-template-columns: 1fr; gap: 40px; }
@@ -603,9 +634,8 @@
     .step:not(:last-child)::after, .step:nth-child(2)::after { display: block; top: calc(50% + 28px); left: 19px; margin-left: 0; }
 
     .rules-panel { padding: 28px 24px; margin-top: 64px; }
-    .track { grid-template-columns: 1fr; gap: 16px; }
     .founder-id { gap: 16px; }
-    .avatar { width: 88px; height: 88px; }
+    .avatar { --avatar-size: 112px; }
     .quote p { font-size: 1.5rem; }
     .case-cta { padding: 24px; margin-top: 72px; }
     .case-cta .btn { width: 100%; }
@@ -711,6 +741,7 @@
     ============================================================ -->
     <section class="hero" id="top">
       <div class="container grid12">
+        <p class="eyebrow hero-eyebrow hero-anim">Automatización con inteligencia artificial · Bogotá, Colombia</p>
         <h1><span class="hl hero-anim">La IA hace lo repetitivo.</span><span class="hl hero-anim d2">Tú sigues <em class="accent">al mando.</em></span></h1>
 
         <div class="hero-copy hero-anim d3">
@@ -724,7 +755,7 @@
           <ul class="assure">
             <li><svg class="ico-check" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>3 sistemas entregados y operando</li>
             <li><svg class="ico-check" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Primera conversación sin costo</li>
-            <li><svg class="ico-check" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Lo ves funcionando antes de pagar el total</li>
+            <li><svg class="ico-check" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Lo ves funcionando antes de pagar el saldo</li>
           </ul>
         </div>
 
@@ -737,7 +768,6 @@
             </div>
             <div class="feed-list" id="feedList" aria-live="off"></div>
           </div>
-          <p class="caption">Ejemplo ilustrativo</p>
         </div>
       </div>
     </section>
@@ -773,7 +803,7 @@
               <div class="task-row"><span class="task-name">Reagendar cancelaciones</span><span class="owner"><span class="o-tu">Tú</span><span class="o-sys"><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Sistema</span></span></div>
               <div class="task-row"><span class="task-name">Enviar el resumen del día</span><span class="owner"><span class="o-tu">Tú</span><span class="o-sys"><svg aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Sistema</span></span></div>
 
-              <p class="day-close" id="dayClose"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>Tu tiempo queda para atender pacientes.</p>
+              <p class="day-close" id="dayClose"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span id="dayCloseText">Tu tiempo se va en tareas repetitivas.</span></p>
             </div>
             <p class="caption">Ejemplo ilustrativo</p>
           </div>
@@ -805,7 +835,7 @@
 
         <div class="sectors grid12 reveal">
           <p class="eyebrow">Ya operando en</p>
-          <p class="body">Restaurantes y fondos de inversión inmobiliaria. También construimos para salud y bienestar, ecommerce, servicios profesionales, inmobiliarias, concesionarios y educación.</p>
+          <p class="body">Restaurantes y fondos de inversión inmobiliaria. Podemos construir sistemas para salud y bienestar, ecommerce, servicios profesionales, inmobiliarias, concesionarios y educación.</p>
         </div>
       </div>
     </section>
@@ -852,12 +882,18 @@
           <blockquote class="quote">
             <p>«No construimos tecnología por construirla. Construimos sistemas que liberan tiempo real para personas reales.»</p>
           </blockquote>
+          <p class="eyebrow track-label">Trayectoria</p>
+          <dl class="track">
+            <div><dt>Formación</dt><dd>Javeriana · ESIC</dd></div>
+            <div><dt>Pauta</dt><dd>Omnicom Media Group</dd></div>
+            <div><dt>Ecommerce</dt><dd>Mars Inc.</dd></div>
+          </dl>
         </div>
 
         <div class="founder-right reveal">
           <div class="founder-id">
-            <div class="avatar">
-              <!-- Replace Foto_CV.jpg with a professional head-and-shoulders photo, neutral background, 1200×1500px. -->
+            <div class="avatar avatar--cv">
+              <!-- To swap: point src at a head-and-shoulders photo (about 1200×1500px) and remove the avatar--cv class. -->
               <img src="Foto_CV.jpg" alt="Juan Campo, fundador de Automa" width="1224" height="1848" loading="lazy" decoding="async">
             </div>
             <div>
@@ -870,11 +906,6 @@
             <p class="body">Gestioné pauta digital para Frito Lay, Gatorade y Kaiser Permanente en Omnicom Media Group. Después lideré las operaciones de ecommerce en Amazon para mercados europeos en Mars Inc.</p>
             <p class="body">Al volver a Colombia vi el mismo patrón en todos lados: gente muy capaz perdiendo sus mejores horas en tareas que no la necesitaban. Automa nació ahí.</p>
           </div>
-          <dl class="track" aria-label="Trayectoria">
-            <div><dt>Formación</dt><dd>Javeriana · ESIC</dd></div>
-            <div><dt>Pauta</dt><dd>Omnicom Media Group</dd></div>
-            <div><dt>Ecommerce</dt><dd>Mars Inc.</dd></div>
-          </dl>
           <a class="link" href="https://www.linkedin.com/in/juancampoher/" target="_blank" rel="noopener noreferrer">Ver perfil en LinkedIn<svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
@@ -888,16 +919,21 @@
         <div class="band-glow" aria-hidden="true" style="top:-320px;right:-240px"></div>
         <div class="container">
 
-          <div class="section-head split reveal">
-            <div class="head-left">
-              <p class="eyebrow"><span class="n">05</span>Proyectos entregados</p>
-              <h2>Tres sistemas entregados. <em class="accent">Operando hoy.</em></h2>
-            </div>
+          <div class="section-head casos-head reveal">
+            <p class="eyebrow"><span class="n">05</span>Proyectos entregados</p>
+            <h2>Tres sistemas entregados. <em class="accent">Operando hoy.</em></h2>
             <p class="lead">No son demos ni pilotos. Son proyectos cerrados, entregados a sus clientes y funcionando en producción.</p>
           </div>
 
-          <!-- CASE 1 -->
-          <article class="case reveal">
+          <!-- CASE 1 · featured -->
+          <article class="case case-feature reveal">
+            <div class="case-copy">
+              <p class="case-status"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</p>
+              <p class="case-cat">Restaurante · Bogotá</p>
+              <h3>Pedidos por WhatsApp que se atienden solos</h3>
+              <p class="body">Un asistente de WhatsApp entiende el pedido, confirma disponibilidad y calcula el total. Después verifica el comprobante de pago y manda la comanda a cocina. El restaurante solo cocina.</p>
+              <div class="stack-tags"><span>WhatsApp Business API</span><span>Claude AI</span><span>n8n</span><span>Supabase</span></div>
+            </div>
             <div class="case-visual">
               <div class="wa-mock" data-mock>
                 <div class="wa-head">
@@ -921,96 +957,94 @@
               <p class="caption">Recreación ilustrativa</p>
             </div>
 
-            <div class="case-copy">
-              <p class="case-status"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</p>
-              <p class="case-cat">Restaurante · Bogotá</p>
-              <h3>Pedidos por WhatsApp que se atienden solos</h3>
-              <p class="body">Un asistente de WhatsApp entiende el pedido, confirma disponibilidad y calcula el total. Después verifica el comprobante de pago y manda la comanda a cocina. El restaurante solo cocina.</p>
-              <div class="stack-tags"><span>WhatsApp Business API</span><span>Claude AI</span><span>n8n</span><span>Supabase</span></div>
-            </div>
           </article>
 
-          <!-- CASE 2 -->
-          <article class="case reverse reveal">
-            <div class="case-visual">
-              <div class="dash" id="dashCHS" data-mock role="img" aria-label="Plataforma del Fondo CHS: estado del fondo, 5 socios y actividad reciente">
-                <div class="dash-top" aria-hidden="true">
-                  <span class="dash-name">Fondo CHS</span>
-                  <span class="avatars">
-                    <i style="background:#047857"></i><i style="background:#374151"></i><i style="background:#1F2937"></i>
-                    <span class="plus-chip">+2</span>
-                  </span>
-                </div>
-                <div class="stats" aria-hidden="true">
-                  <div class="stat"><p class="stat-label">Capital</p><span class="skel"></span></div>
-                  <div class="stat"><p class="stat-label">Propiedades</p><span class="skel" style="width:48%"></span></div>
-                  <div class="stat"><p class="stat-label">Socios</p><p class="stat-val">5</p></div>
-                </div>
-                <div class="chart" aria-hidden="true">
-                  <span class="bar" style="height:58%"></span>
-                  <span class="bar" style="height:80%"></span>
-                  <span class="bar" style="height:46%"></span>
-                  <span class="bar" style="height:70%"></span>
-                  <span class="bar" style="height:52%"></span>
-                  <span class="bar" style="height:64%"></span>
-                </div>
-                <div class="chart-axis" aria-hidden="true"></div>
-                <div class="chart-labels" aria-hidden="true"><span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span></div>
-                <div class="act-row" aria-hidden="true"><span class="act-left"><i style="background:#10B981"></i>Operación registrada</span><span class="act-time">hace 2 h</span></div>
-                <div class="act-row" aria-hidden="true"><span class="act-left"><i style="background:#8B95A7"></i>Reporte generado</span><span class="act-time">hace 1 d</span></div>
-                <div class="act-row" aria-hidden="true"><span class="act-left"><i style="background:#374151"></i>Nuevo inmueble</span><span class="act-time">hace 3 d</span></div>
+          <!-- CASES 2 & 3 -->
+          <div class="case-pair">
+            <article class="case case-col reveal">
+              <div class="case-copy">
+                <p class="case-status"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</p>
+                <p class="case-cat">Fondo de inversión · Cliente 1</p>
+                <h3>Plataforma de gestión — Fondo CHS</h3>
+                <p class="body">Cinco socios entran a una sola plataforma que consolida el estado del fondo. Registra cada compra y venta de inmuebles y muestra la posición de cada socio en tiempo real. Se acabaron los Excel desactualizados.</p>
+                <div class="stack-tags"><span>React</span><span>Supabase</span><span>Claude AI</span></div>
               </div>
-              <p class="caption">Recreación ilustrativa</p>
-            </div>
-
-            <div class="case-copy">
-              <p class="case-status"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</p>
-              <p class="case-cat">Fondo de inversión · Cliente 1</p>
-              <h3>Plataforma de gestión — Fondo CHS</h3>
-              <p class="body">Cinco socios entran a una sola plataforma que consolida el estado del fondo. Registra cada compra y venta de inmuebles y muestra la posición de cada socio en tiempo real. Se acabaron los Excel desactualizados.</p>
-              <div class="stack-tags"><span>React</span><span>Supabase</span><span>Claude AI</span></div>
-            </div>
-          </article>
-
-          <!-- CASE 3 -->
-          <article class="case reveal">
-            <div class="case-visual">
-              <div class="dash spc" data-mock role="img" aria-label="Plataforma del Fondo SPC: dos subfondos con datos aislados, tabla de socios e importación de Excel">
-                <span class="spc-isolated" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-lock"/></svg>Datos aislados</span>
-                <div class="dash-top" aria-hidden="true">
-                  <span class="fund-pill">Fondo SPC<svg viewBox="0 0 24 24" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span>
-                  <span class="avatars">
-                    <i style="background:#047857"></i><i style="background:#374151"></i><i style="background:#0E7490"></i><i style="background:#1F2937"></i><i style="background:#4B5563"></i>
-                    <span class="plus-chip">+4</span>
-                  </span>
+              <div class="case-visual">
+                <div class="mock-slot">
+                  <div class="dash" id="dashCHS" data-mock role="img" aria-label="Plataforma del Fondo CHS: estado del fondo, 5 socios y actividad reciente">
+                    <div class="dash-top" aria-hidden="true">
+                      <span class="dash-name">Fondo CHS</span>
+                      <span class="avatars">
+                        <i style="background:#047857"></i><i style="background:#374151"></i><i style="background:#1F2937"></i>
+                        <span class="plus-chip">+2</span>
+                      </span>
+                    </div>
+                    <div class="stats" aria-hidden="true">
+                      <div class="stat"><p class="stat-label">Capital</p><span class="skel"></span></div>
+                      <div class="stat"><p class="stat-label">Propiedades</p><span class="skel" style="width:48%"></span></div>
+                      <div class="stat"><p class="stat-label">Socios</p><p class="stat-val">5</p></div>
+                    </div>
+                    <div class="chart" aria-hidden="true">
+                      <span class="bar" style="height:58%"></span>
+                      <span class="bar" style="height:80%"></span>
+                      <span class="bar" style="height:46%"></span>
+                      <span class="bar" style="height:70%"></span>
+                      <span class="bar" style="height:52%"></span>
+                      <span class="bar" style="height:64%"></span>
+                    </div>
+                    <div class="chart-axis" aria-hidden="true"></div>
+                    <div class="chart-labels" aria-hidden="true"><span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span></div>
+                    <div class="act-row" aria-hidden="true"><span class="act-left"><i style="background:#10B981"></i>Operación registrada</span><span class="act-time">hace 2 h</span></div>
+                    <div class="act-row" aria-hidden="true"><span class="act-left"><i style="background:#8B95A7"></i>Reporte generado</span><span class="act-time">hace 1 d</span></div>
+                    <div class="act-row" aria-hidden="true"><span class="act-left"><i style="background:#374151"></i>Nuevo inmueble</span><span class="act-time">hace 3 d</span></div>
+                  </div>
                 </div>
-                <div class="seg" aria-hidden="true"><span class="on">Subfondo A</span><span>Subfondo B</span></div>
-                <table class="spc-table" aria-hidden="true">
-                  <thead><tr><th>Socio</th><th>Participación</th><th>Estado</th></tr></thead>
-                  <tbody>
-                    <tr><td>Socio 1</td><td><span class="skel"></span></td><td><span class="ok-pill">Al día</span></td></tr>
-                    <tr><td>Socio 2</td><td><span class="skel"></span></td><td><span class="ok-pill">Al día</span></td></tr>
-                    <tr><td>Socio 3</td><td><span class="skel"></span></td><td><span class="ok-pill">Al día</span></td></tr>
-                    <tr><td>Socio 4</td><td><span class="skel"></span></td><td><span class="ok-pill">Al día</span></td></tr>
-                  </tbody>
-                </table>
-                <div class="spc-import" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
-                  <span>Importación de Excel completada</span>
-                  <span class="act-time">hace 1 d</span>
-                </div>
+                <p class="caption">Recreación ilustrativa</p>
               </div>
-              <p class="caption">Recreación ilustrativa</p>
-            </div>
 
-            <div class="case-copy">
-              <p class="case-status"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</p>
-              <p class="case-cat">Fondo de inversión · Cliente 2</p>
-              <h3>Plataforma de gestión — Fondo SPC</h3>
-              <p class="body">Un segundo fondo, un cliente distinto. Nueve socios sobre una arquitectura que mantiene los datos de cada fondo totalmente separados. El mismo sistema, escalado para otra operación.</p>
-              <div class="stack-tags"><span>React</span><span>Supabase</span><span>Multi-tenant</span><span>Importación Excel</span></div>
-            </div>
-          </article>
+            </article>
+
+            <article class="case case-col reveal">
+              <div class="case-copy">
+                <p class="case-status"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</p>
+                <p class="case-cat">Fondo de inversión · Cliente 2</p>
+                <h3>Plataforma de gestión — Fondo SPC</h3>
+                <p class="body">Un segundo fondo, un cliente distinto. Nueve socios sobre una arquitectura que mantiene los datos de cada fondo totalmente separados. El mismo sistema, escalado para otra operación.</p>
+                <div class="stack-tags"><span>React</span><span>Supabase</span><span>Multi-tenant</span><span>Importación Excel</span></div>
+              </div>
+              <div class="case-visual">
+                <div class="mock-slot">
+                  <div class="dash spc" data-mock role="img" aria-label="Plataforma del Fondo SPC: dos subfondos con datos aislados, tabla de socios e importación de Excel">
+                    <span class="spc-isolated" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-lock"/></svg>Datos aislados</span>
+                    <div class="dash-top" aria-hidden="true">
+                      <span class="fund-pill">Fondo SPC<svg viewBox="0 0 24 24" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span>
+                      <span class="avatars">
+                        <i style="background:#047857"></i><i style="background:#374151"></i><i style="background:#0E7490"></i><i style="background:#1F2937"></i><i style="background:#4B5563"></i>
+                        <span class="plus-chip">+4</span>
+                      </span>
+                    </div>
+                    <div class="seg" aria-hidden="true"><span class="on">Subfondo A</span><span>Subfondo B</span></div>
+                    <table class="spc-table" aria-hidden="true">
+                      <thead><tr><th>Socio</th><th>Participación</th><th>Estado</th></tr></thead>
+                      <tbody>
+                        <tr><td>Socio 1</td><td><span class="skel"></span></td><td><span class="ok-pill">Al día</span></td></tr>
+                        <tr><td>Socio 2</td><td><span class="skel"></span></td><td><span class="ok-pill">Al día</span></td></tr>
+                        <tr><td>Socio 3</td><td><span class="skel"></span></td><td><span class="ok-pill">Al día</span></td></tr>
+                        <tr><td>Socio 4</td><td><span class="skel"></span></td><td><span class="ok-pill">Al día</span></td></tr>
+                      </tbody>
+                    </table>
+                    <div class="spc-import" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
+                      <span>Importación de Excel completada</span>
+                      <span class="act-time">hace 1 d</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="caption">Recreación ilustrativa</p>
+              </div>
+
+            </article>
+          </div>
 
           <div class="case-cta reveal">
             <p class="lead">¿Quieres algo así para tu negocio? Cuéntanos tu caso.</p>
@@ -1509,7 +1543,15 @@
       var owners = Array.prototype.slice.call(dayCard.querySelectorAll('.owner'));
       var ctlOff = document.getElementById('ctlOff');
       var ctlOn = document.getElementById('ctlOn');
+      var dayCloseText = document.getElementById('dayCloseText');
+      var NOTE_OFF = 'Tu tiempo se va en tareas repetitivas.';
+      var NOTE_ON = 'Tu tiempo queda para atender pacientes.';
       var STAGGER = 60, flipTimers = [], touched = false, autoTimer = null;
+      function setNote(on) {
+        if (!dayClose) return;
+        dayClose.classList.toggle('show', on);
+        if (dayCloseText) dayCloseText.textContent = on ? NOTE_ON : NOTE_OFF;
+      }
 
       function setOwner(o, sys) {
         o.classList.toggle('done', sys);
@@ -1522,15 +1564,15 @@
         ctlSwitch.setAttribute('aria-checked', on ? 'true' : 'false');
         ctlOff.classList.toggle('is-on', !on);
         ctlOn.classList.toggle('is-on', on);
-        if (!on && dayClose) dayClose.classList.remove('show');
+        if (!on) setNote(false);
         var order = on ? owners : owners.slice().reverse();
         order.forEach(function (o, i) {
           if (reduceMotion) { setOwner(o, on); return; }
           flipTimers.push(setTimeout(function () { setOwner(o, on); }, i * STAGGER));
         });
-        if (on && dayClose) {
-          if (reduceMotion) dayClose.classList.add('show');
-          else flipTimers.push(setTimeout(function () { dayClose.classList.add('show'); }, owners.length * STAGGER + 160));
+        if (on) {
+          if (reduceMotion) setNote(true);
+          else flipTimers.push(setTimeout(function () { setNote(true); }, owners.length * STAGGER + 160));
         }
       }
       function userToggle(on) {
@@ -1543,13 +1585,16 @@
       ctlOff.addEventListener('click', function () { userToggle(false); });
       ctlOn.addEventListener('click', function () { userToggle(true); });
 
-      // Plays the story once if the visitor never touches the switch.
-      new IntersectionObserver(function (entries, obs) {
-        if (!entries[0].isIntersecting) return;
-        obs.disconnect();
-        if (touched) return;
-        autoTimer = setTimeout(function () { autoTimer = null; if (!touched) setControl(true); }, 1200);
-      }, { threshold: 0.35 }).observe(dayCard);
+      // Starts OFF. Plays the story once when the card is ~60% visible, unless the
+      // visitor already touched the switch or prefers reduced motion (stays OFF).
+      if (!reduceMotion) {
+        new IntersectionObserver(function (entries, obs) {
+          if (!entries[0].isIntersecting) return;
+          obs.disconnect();
+          if (touched) return;
+          autoTimer = setTimeout(function () { autoTimer = null; if (!touched) setControl(true); }, 1200);
+        }, { threshold: 0.6 }).observe(dayCard);
+      }
     }
 
     /* ---------- FAQ accordion: one open at a time ---------- */
