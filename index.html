@@ -538,29 +538,29 @@
   .act-left { display: flex; align-items: center; gap: 9px; font-size: 12px; color: var(--on-dark-2); line-height: 1.45; }
   .act-left i { width: 6px; height: 6px; border-radius: 50%; display: block; flex-shrink: 0; }
   .act-time { font-size: 11px; color: var(--on-dark-3); white-space: nowrap; }
-  .spc-isolated { position: absolute; top: -13px; right: 18px; display: inline-flex; align-items: center; gap: 6px; background: var(--dark); border: 1px solid rgba(16,185,129,.35); border-radius: 100px; padding: 4px 11px; font-weight: 600; font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--dark-accent); line-height: 1.5; white-space: nowrap; }
-  .spc-isolated svg { width: 11px; height: 11px; stroke: currentColor; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .iso-badge { position: absolute; top: -13px; right: 18px; display: inline-flex; align-items: center; gap: 6px; background: var(--dark); border: 1px solid rgba(16,185,129,.35); border-radius: 100px; padding: 4px 11px; font-weight: 600; font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--dark-accent); line-height: 1.5; white-space: nowrap; }
+  .iso-badge svg { width: 11px; height: 11px; stroke: currentColor; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
   .fund-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--dark-2); border: 1px solid var(--dark-line); border-radius: 100px; padding: 6px 12px; font-weight: 600; font-size: 14px; color: var(--on-dark); line-height: 1.3; white-space: nowrap; }
   .fund-pill svg { width: 12px; height: 12px; stroke: var(--on-dark-3); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  .spc .avatars i { width: 20px; height: 20px; margin-left: -6px; }
-  .spc .avatars i:first-child { margin-left: 0; }
+  .dash-multi .avatars i { width: 20px; height: 20px; margin-left: -6px; }
+  .dash-multi .avatars i:first-child { margin-left: 0; }
   .seg { display: grid; grid-template-columns: 1fr 1fr; background: var(--dark); border: 1px solid var(--dark-line); border-radius: 10px; padding: 3px; margin-bottom: 14px; }
   .seg span { text-align: center; font-weight: 600; font-size: 11px; color: var(--on-dark-3); padding: 6px 8px; border-radius: 7px; line-height: 1.4; }
   .seg span.on { background: var(--dark-2); color: var(--on-dark); }
-  .spc-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
-  .spc-table th { text-align: left; font-weight: 600; font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--on-dark-3); padding: 0 0 8px; border-bottom: 1px solid var(--dark-line); }
-  .spc-table td { font-size: 12.5px; color: var(--on-dark-2); padding: 9px 0; border-bottom: 1px solid var(--dark-line); line-height: 1.4; }
-  .spc-table th:last-child, .spc-table td:last-child { text-align: right; }
-  .spc-table td.num-cell { color: var(--on-dark-3); }
+  .partner-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+  .partner-table th { text-align: left; font-weight: 600; font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--on-dark-3); padding: 0 0 8px; border-bottom: 1px solid var(--dark-line); }
+  .partner-table td { font-size: 12.5px; color: var(--on-dark-2); padding: 9px 0; border-bottom: 1px solid var(--dark-line); line-height: 1.4; }
+  .partner-table th:last-child, .partner-table td:last-child { text-align: right; }
+  .partner-table td.num-cell { color: var(--on-dark-3); }
   .ok-pill { display: inline-block; background: rgba(16,185,129,.14); border: 1px solid rgba(16,185,129,.3); color: var(--dark-accent); border-radius: 100px; padding: 2px 9px; font-weight: 600; font-size: 11px; line-height: 1.5; }
-  .spc-import { display: flex; align-items: center; gap: 10px; background: var(--dark-2); border: 1px solid var(--dark-line); border-radius: 11px; padding: 10px 12px; font-size: 12.5px; color: var(--on-dark-2); line-height: 1.4; }
-  .spc-import svg { width: 16px; height: 16px; flex-shrink: 0; stroke: var(--dark-accent); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  .spc-import .act-time { margin-left: auto; }
+  .import-row { display: flex; align-items: center; gap: 10px; background: var(--dark-2); border: 1px solid var(--dark-line); border-radius: 11px; padding: 10px 12px; font-size: 12.5px; color: var(--on-dark-2); line-height: 1.4; }
+  .import-row svg { width: 16px; height: 16px; flex-shrink: 0; stroke: var(--dark-accent); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .import-row .act-time { margin-left: auto; }
   .stat .skel { width: 72%; height: 10px; margin-top: 6px; }
-  .spc-table .skel { width: 56px; }
-  .spc-table tr:nth-child(2) .skel { width: 40px; }
-  .spc-table tr:nth-child(3) .skel { width: 64px; }
-  .spc-table tr:nth-child(4) .skel { width: 32px; }
+  .partner-table .skel { width: 56px; }
+  .partner-table tr:nth-child(2) .skel { width: 40px; }
+  .partner-table tr:nth-child(3) .skel { width: 64px; }
+  .partner-table tr:nth-child(4) .skel { width: 32px; }
 
   /* MOCKUPS END */
 
@@ -965,15 +965,15 @@
               <div class="case-copy">
                 <p class="case-status"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</p>
                 <p class="case-cat">Fondo de inversión · Cliente 1</p>
-                <h3>Plataforma de gestión — Fondo CHS</h3>
+                <h3>Plataforma de gestión — Fondo de inversión inmobiliario</h3>
                 <p class="body">Cinco socios entran a una sola plataforma que consolida el estado del fondo. Registra cada compra y venta de inmuebles y muestra la posición de cada socio en tiempo real. Se acabaron los Excel desactualizados.</p>
                 <div class="stack-tags"><span>React</span><span>Supabase</span><span>Claude AI</span></div>
               </div>
               <div class="case-visual">
                 <div class="mock-slot">
-                  <div class="dash" id="dashCHS" data-mock role="img" aria-label="Plataforma del Fondo CHS: estado del fondo, 5 socios y actividad reciente">
+                  <div class="dash" data-mock role="img" aria-label="Plataforma del fondo de inversión inmobiliario: estado del fondo, 5 socios y actividad reciente">
                     <div class="dash-top" aria-hidden="true">
-                      <span class="dash-name">Fondo CHS</span>
+                      <span class="dash-name">Fondo inmobiliario</span>
                       <span class="avatars">
                         <i style="background:#047857"></i><i style="background:#374151"></i><i style="background:#1F2937"></i>
                         <span class="plus-chip">+2</span>
@@ -1008,23 +1008,23 @@
               <div class="case-copy">
                 <p class="case-status"><span class="live-dot" aria-hidden="true"></span>Entregado · Operando</p>
                 <p class="case-cat">Fondo de inversión · Cliente 2</p>
-                <h3>Plataforma de gestión — Fondo SPC</h3>
+                <h3>Plataforma de gestión — Fondo de inversión</h3>
                 <p class="body">Un segundo fondo, un cliente distinto. Nueve socios sobre una arquitectura que mantiene los datos de cada fondo totalmente separados. El mismo sistema, escalado para otra operación.</p>
                 <div class="stack-tags"><span>React</span><span>Supabase</span><span>Multi-tenant</span><span>Importación Excel</span></div>
               </div>
               <div class="case-visual">
                 <div class="mock-slot">
-                  <div class="dash spc" data-mock role="img" aria-label="Plataforma del Fondo SPC: dos subfondos con datos aislados, tabla de socios e importación de Excel">
-                    <span class="spc-isolated" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-lock"/></svg>Datos aislados</span>
+                  <div class="dash dash-multi" data-mock role="img" aria-label="Plataforma del fondo de inversión: dos subfondos con datos aislados, 9 socios e importación de Excel">
+                    <span class="iso-badge" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-lock"/></svg>Datos aislados</span>
                     <div class="dash-top" aria-hidden="true">
-                      <span class="fund-pill">Fondo SPC<svg viewBox="0 0 24 24" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span>
+                      <span class="fund-pill">Fondo de inversión<svg viewBox="0 0 24 24" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span>
                       <span class="avatars">
                         <i style="background:#047857"></i><i style="background:#374151"></i><i style="background:#0E7490"></i><i style="background:#1F2937"></i><i style="background:#4B5563"></i>
                         <span class="plus-chip">+4</span>
                       </span>
                     </div>
                     <div class="seg" aria-hidden="true"><span class="on">Subfondo A</span><span>Subfondo B</span></div>
-                    <table class="spc-table" aria-hidden="true">
+                    <table class="partner-table" aria-hidden="true">
                       <thead><tr><th>Socio</th><th>Participación</th><th>Estado</th></tr></thead>
                       <tbody>
                         <tr><td>Socio 1</td><td><span class="skel"></span></td><td><span class="ok-pill">Al día</span></td></tr>
@@ -1033,7 +1033,7 @@
                         <tr><td>Socio 4</td><td><span class="skel"></span></td><td><span class="ok-pill">Al día</span></td></tr>
                       </tbody>
                     </table>
-                    <div class="spc-import" aria-hidden="true">
+                    <div class="import-row" aria-hidden="true">
                       <svg viewBox="0 0 24 24" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
                       <span>Importación de Excel completada</span>
                       <span class="act-time">hace 1 d</span>
