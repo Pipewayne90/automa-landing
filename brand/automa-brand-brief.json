@@ -1,0 +1,113 @@
+{
+  "rol_para_claude_code": "Actúa como director de arte y diseñador de identidad de marca senior. Tienes libertad creativa total dentro de las restricciones de este brief. Trabajas por fases y te detienes al final de cada fase para que Juan elija.",
+
+  "marca": {
+    "nombre": "Automa",
+    "dominio": "flowautoma.com",
+    "fundador": "Juan Campo, Ingeniero Industrial con Máster en Marketing y Gestión Comercial, especialista en Paid Media",
+    "pais": "Colombia (Bogotá), mercado Latinoamérica"
+  },
+
+  "contexto": {
+    "que_es": "Agencia de automatización de procesos con IA para microempresas y pymes. Construye flujos con n8n + Claude API y apps internas de control de procesos (Lovable + Supabase).",
+    "problema_que_resuelve": "Negocios que operan a mano: pedidos por WhatsApp que se pierden, leads sin seguimiento, vendedores sin control, agendas desordenadas, reportes que nadie arma. El dueño termina apagando incendios en lugar de dirigir.",
+    "promesa": "Convertir operaciones caóticas y manuales en procesos claros que funcionan solos y toman decisiones inteligentes. Más control, menos tiempo perdido.",
+    "clientes": "Dueños de restaurantes, consultorios de salud y estética, gerentes comerciales de concesionarios, ecommerce pequeño, fondos de inversión. Gente práctica, no técnica, que compra confianza y resultados.",
+    "diferenciador": "Ingeniería de procesos + atracción de clientes + automatización con IA en una sola persona. No es 'tecnología por tecnología': es orden, método y resultados medibles.",
+    "casos_reales": "Bot de pedidos por WhatsApp para un restaurante en Bogotá, apps de control para dos fondos de inversión."
+  },
+
+  "personalidad_visual": {
+    "si": ["futurista", "elegante", "concisa", "precisa", "geométrica", "confiable", "calmada", "con sensación de movimiento ordenado"],
+    "no": ["juguetona", "infantil", "agresiva", "recargada", "cliché de IA", "corporativa rígida y aburrida"],
+    "metafora_central": "Flujo: algo que entra desordenado y sale ordenado y en movimiento. El dominio flowautoma.com refuerza esta idea."
+  },
+
+  "direccion_del_simbolo": {
+    "punto_de_partida": "Una letra A construida con líneas. Es una semilla, no una obligación.",
+    "territorios_a_explorar": [
+      "A de trazo continuo: una sola línea que dibuja la A sin levantar el lápiz, como un proceso que fluye de inicio a fin.",
+      "A de líneas paralelas: dos o tres líneas finas que forman la A, transmiten precisión de ingeniería y velocidad.",
+      "A como flujo que avanza: la barra horizontal de la A se convierte en un trazo o vector que cruza y sale por la derecha, el proceso en marcha.",
+      "Territorio libre: una propuesta tuya que no sea una A literal, si encuentras una idea más fuerte para 'orden + flujo + inteligencia'."
+    ],
+    "advertencia": "Los monogramas de A con líneas son muy comunes. Cada concepto debe tener un detalle propio que lo haga reconocible y no confundible con otras marcas tech."
+  },
+
+  "restricciones": {
+    "legibilidad": "El isotipo debe entenderse a 32 px y seguir siendo reconocible a 16 px (favicon).",
+    "monocromo": "Debe funcionar en un solo color (negro sobre blanco y blanco sobre negro) antes de aplicar color.",
+    "colores_maximos": 2,
+    "trazo": "Grosor de línea consistente y pensado para tamaño pequeño. Si las líneas son muy finas, define una versión de trazo más grueso para tamaños pequeños.",
+    "degradados": "Prohibidos en la versión maestra. Se pueden explorar solo como variante decorativa para redes.",
+    "prohibido": ["robots", "cerebros", "circuitos impresos", "engranajes", "rayos", "neón azul o verde", "chispas o estrellas de 'IA'", "texto deformado", "imágenes rasterizadas"]
+  },
+
+  "paleta_sugerida": {
+    "nota": "Si en esta carpeta o repositorio existe la landing de flowautoma.com, lee primero sus colores y tipografía y propón una paleta coherente con ella. Si no existe, usa esta base.",
+    "base_oscura": "#0E0F1A (casi negro azulado)",
+    "base_clara": "#F7F7FB (blanco cálido)",
+    "acento": "Un índigo o violeta eléctrico pero sobrio, alrededor de #5B5BF0. Propón 2 alternativas de acento."
+  },
+
+  "tipografia": {
+    "estilo": "Sans geométrica, limpia, con carácter técnico pero cálido. Nada de fuentes de ciencia ficción.",
+    "opciones_a_evaluar": ["Sora", "Space Grotesk", "Manrope", "Outfit", "Plus Jakarta Sans"],
+    "regla": "Todas de Google Fonts (licencia libre). En los SVG finales el texto debe ir convertido a trazos (paths), no depender de la fuente instalada.",
+    "ajustes": "Ajusta el espaciado entre letras (tracking) de 'Automa' a mano; no lo dejes por defecto."
+  },
+
+  "proceso": {
+    "fase_1_conceptos": {
+      "tarea": "Crea 4 conceptos distintos, uno por territorio. Cada uno con isotipo + logotipo horizontal.",
+      "formato": "SVG escrito a mano, limpio, con viewBox correcto y sin elementos innecesarios.",
+      "presentacion": "Genera un archivo presentacion-fase-1.html que muestre cada concepto: grande en fondo claro y oscuro, a 64, 32 y 16 px, dentro de un círculo como foto de perfil de LinkedIn/WhatsApp, y en un header de web simulado. Debajo de cada concepto, 2 líneas explicando la idea y por qué transmite Automa.",
+      "al_terminar": "Detente. Abre o indícame la ruta del HTML y espera mi elección."
+    },
+    "fase_2_refinamiento": {
+      "tarea": "Sobre el concepto elegido, haz 3 variaciones finas (proporción, grosor, detalle distintivo, tipografía) y una presentacion-fase-2.html igual a la anterior.",
+      "al_terminar": "Detente y espera mi elección."
+    },
+    "fase_3_sistema": {
+      "tarea": "Construye el sistema final desde un solo SVG maestro.",
+      "exportacion": "Para PNG usa Node con @resvg/resvg-js o sharp (instálalo si falta). Fondo transparente salvo los avatares."
+    }
+  },
+
+  "entregables_finales": {
+    "estructura_carpetas": {
+      "brand/svg/": [
+        "automa-isotipo-color.svg",
+        "automa-isotipo-negro.svg",
+        "automa-isotipo-blanco.svg",
+        "automa-horizontal-color.svg",
+        "automa-horizontal-negro.svg",
+        "automa-horizontal-blanco.svg",
+        "automa-vertical-color.svg"
+      ],
+      "brand/png/": [
+        "isotipo 512 y 1024 px en color, negro y blanco",
+        "horizontal 2000 px de ancho en color, negro y blanco",
+        "avatar-redes-1080.png (isotipo centrado con margen seguro para recorte circular, fondo de marca)",
+        "banner-linkedin-1584x396.png (fondo oscuro de marca, logo y frase corta: 'Procesos que funcionan solos')"
+      ],
+      "brand/web/": [
+        "favicon.svg",
+        "favicon-32.png",
+        "apple-touch-icon-180.png",
+        "og-image-1200x630.png"
+      ],
+      "brand/": [
+        "guia-de-marca.html: una página con logo y variantes, área de protección, tamaño mínimo, paleta con HEX y RGB, tipografía, usos correctos e incorrectos"
+      ]
+    }
+  },
+
+  "criterios_de_aceptacion": [
+    "Se reconoce a 16 px.",
+    "Funciona en un solo color.",
+    "No parece el logo de cualquier startup de IA.",
+    "Transmite orden y movimiento sin explicarlo.",
+    "Todo el sistema sale del mismo SVG maestro y es consistente."
+  ]
+}

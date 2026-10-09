@@ -10,7 +10,8 @@
   <meta name="description" content="Construimos sistemas con inteligencia artificial que responden, agendan, cobran y reportan por tu negocio. Tres proyectos entregados y operando en Colombia.">
   <meta name="author" content="Juan Campo">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-  <meta name="theme-color" content="#FFFFFF">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0A0F1A" media="(prefers-color-scheme: dark)">
 
   <!-- ===================== CANONICAL & HREFLANG ===================== -->
   <link rel="canonical" href="https://www.flowautoma.com/">
@@ -19,7 +20,9 @@
 
   <!-- ===================== ICONS ===================== -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180.png">
+  <link rel="manifest" href="/site.webmanifest">
 
   <!-- ===================== OPEN GRAPH ===================== -->
   <meta property="og:type" content="website">
@@ -28,18 +31,18 @@
   <meta property="og:locale" content="es_CO">
   <meta property="og:title" content="Automa — Automatización con IA para negocios">
   <meta property="og:description" content="Sistemas con inteligencia artificial que atienden clientes, toman pedidos, agendan y arman reportes.">
-  <meta property="og:image" content="https://www.flowautoma.com/og-image.png">
+  <meta property="og:image" content="https://www.flowautoma.com/og-image-1200x630.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Automa — La IA hace lo repetitivo. Tú sigues al mando.">
+  <meta property="og:image:alt" content="Automa — Procesos que funcionan solos.">
 
   <!-- ===================== TWITTER ===================== -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Automa — Automatización con IA para negocios">
   <meta name="twitter:description" content="Sistemas con inteligencia artificial que atienden clientes, toman pedidos, agendan y arman reportes.">
-  <meta name="twitter:image" content="https://www.flowautoma.com/og-image.png">
-  <meta name="twitter:image:alt" content="Automa — La IA hace lo repetitivo. Tú sigues al mando.">
+  <meta name="twitter:image" content="https://www.flowautoma.com/og-image-1200x630.png">
+  <meta name="twitter:image:alt" content="Automa — Procesos que funcionan solos.">
 
   <!-- ===================== FONTS ===================== -->
   <link rel="preload" href="fonts/geist-latin-v5.woff2" as="font" type="font/woff2" crossorigin>
@@ -86,10 +89,10 @@
     --on-dark-3: #94A3B8;
     --dark-line: rgba(255,255,255,.10);
     --dark-accent: #10B981;
-    --dark-accent-2: #34D399;
+    --dark-accent-2: #10B981; /* sobre oscuro se usa un solo verde: #10B981 */
 
     --shadow-card: 0 1px 2px rgba(11,18,32,.04), 0 12px 32px rgba(11,18,32,.07);
-    --shadow-feature: 0 1px 2px rgba(11,18,32,.05), 0 20px 48px rgba(4,120,87,.12);
+    --shadow-feature: 0 1px 2px rgba(11,18,32,.05), 0 20px 48px rgba(5,150,105,.12);
     --shadow-mock: 0 1px 2px rgba(11,18,32,.05), 0 24px 64px rgba(11,18,32,.10);
 
     --r-tile: 12px;
@@ -232,8 +235,8 @@
   }
   .btn svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
   /* White on --accent-strong: 5.5:1. */
-  .btn-primary { background: var(--accent-strong); color: #fff; box-shadow: 0 1px 2px rgba(4,120,87,.2), 0 8px 20px rgba(4,120,87,.18); }
-  .btn-primary:hover { background: #065F46; transform: translateY(-1px); }
+  .btn-primary { background: var(--accent-strong); color: #fff; box-shadow: 0 1px 2px rgba(5,150,105,.2), 0 8px 20px rgba(5,150,105,.18); }
+  .btn-primary:hover { background: var(--accent-strong); transform: translateY(-1px); }
   .btn-on-dark { background: var(--dark-accent); color: var(--dark); }
   .btn-on-dark:hover { background: var(--dark-accent-2); transform: translateY(-1px); }
 
@@ -250,7 +253,8 @@
   .nav { position: sticky; top: 0; z-index: 100; height: 72px; background: rgba(255,255,255,.88); backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%); border-bottom: 1px solid transparent; transition: border-color .25s var(--ease); }
   .nav.scrolled { border-bottom-color: var(--line); }
   .nav-inner { height: 100%; max-width: 1140px; margin-inline: auto; padding-inline: 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-  .wordmark { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-display); font-size: 1.75rem; line-height: 1; letter-spacing: -0.02em; color: var(--ink); }
+  .wordmark { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); --logo-accent: var(--accent); }
+  .wordmark .logo { display: block; width: auto; height: 26px; }
   .nav-links { display: flex; align-items: center; gap: 28px; }
   .nav-links a { position: relative; display: inline-flex; align-items: center; min-height: 44px; font-size: .9375rem; color: var(--muted); transition: color .2s var(--ease); }
   .nav-links a:hover, .nav-links a.active { color: var(--ink); }
@@ -450,7 +454,8 @@
   .footer-contact { grid-column: 10 / 13; }
   /* Wordmark and headings share one top line: both use line-height 1 and the
      headings drop by the wordmark's cap offset (set below) so cap tops align. */
-  .footer-brand .wordmark { display: block; min-height: 0; line-height: 1; }
+  .footer-brand .wordmark { display: block; min-height: 0; line-height: 0; }
+  .footer-brand .wordmark .logo { height: 30px; }
   .footer-brand .small { margin-top: 16px; max-width: 30em; }
   .footer-h { font-size: .75rem; font-weight: 600; line-height: 1; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); padding-top: var(--cap-offset, 1.5px); margin-bottom: 12px; }
   .footer-links { display: grid; }
@@ -470,9 +475,9 @@
   /* ============================================================
      17 · WHATSAPP: floating circle (≥768px) / sticky bar (<768px)
   ============================================================ */
-  .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 98; width: 56px; height: 56px; border-radius: 50%; background: var(--accent-strong); box-shadow: 0 8px 24px rgba(4,120,87,.28); display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity .3s var(--ease), transform .3s var(--ease), background .2s var(--ease); }
+  .wa-float { position: fixed; bottom: 24px; right: 24px; z-index: 98; width: 56px; height: 56px; border-radius: 50%; background: var(--accent-strong); box-shadow: 0 8px 24px rgba(5,150,105,.28); display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity .3s var(--ease), transform .3s var(--ease), background .2s var(--ease); }
   .wa-float.show { opacity: 1; transform: none; pointer-events: auto; }
-  .wa-float:hover { background: #065F46; }
+  .wa-float:hover { background: var(--accent-strong); }
   .wa-float svg { width: 26px; height: 26px; fill: #fff; }
   .m-bar { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 98; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid var(--line); transform: translateY(100%); transition: transform .3s var(--ease); }
   .m-bar.show { transform: none; }
@@ -873,6 +878,10 @@
 <body>
   <!-- Icon sprite. Lucide icons (ISC License, lucide.dev) plus the WhatsApp mark. -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <!-- Logo de Automa (brand/svg/automa-horizontal-color.svg) -->
+    <symbol id="logo-automa" viewBox="0 0 169.23 37.44"><g transform="translate(-5.06 -3.47) scale(0.69)"><path fill="currentColor" d="M12.96 59L29.13 19.01L35.54 34.88L41.21 34.88L29.13 5L7.3 59ZM41.3 49.13L45.3 59L50.96 59L46.97 49.13Z"/><path style="fill:var(--logo-accent,#059669)" d="M15.23 39.38L56.7 39.38L55.55 44.63L13.11 44.63Z"/></g><g transform="translate(48.45 30.72)"><path fill="currentColor" d="M4.56 0L0.68 0L9.33-24.00L13.96-24.00L22.61 0L18.73 0L16.53-6.25L6.73-6.25L4.56 0ZM11.63-20.52L7.88-9.57L15.41-9.57L11.63-20.52ZM30.42 0.41L30.42 0.41Q27.72 0.41 26.11-1.40Q24.51-3.21 24.51-6.42L24.51-6.42L24.51-17.98L28.09-17.98L28.09-7.34Q28.09-4.90 28.94-3.75Q29.78-2.60 31.50-2.60L31.50-2.60Q33.46-2.60 34.56-3.87Q35.66-5.14 35.66-7.44L35.66-7.44L35.66-17.98L39.25-17.98L39.25 0L35.90 0L35.83-4.70L36.34-4.50Q35.86-2.13 34.34-0.86Q32.82 0.41 30.42 0.41ZM53.41 0L50.06 0Q47.49 0 46.28-1.18Q45.06-2.37 45.06-4.87L45.06-4.87L45.06-22.21L48.64-22.21L48.64-5.14Q48.64-3.89 49.18-3.41Q49.72-2.94 50.84-2.94L50.84-2.94L53.41-2.94L53.41 0ZM53.41-15.04L42.32-15.04L42.32-17.98L53.41-17.98L53.41-15.04ZM63.65 0.41L63.65 0.41Q61.08 0.41 59.15-0.74Q57.23-1.89 56.18-4.02Q55.13-6.15 55.13-8.99L55.13-8.99Q55.13-11.86 56.18-13.96Q57.23-16.06 59.15-17.22Q61.08-18.39 63.65-18.39L63.65-18.39Q66.22-18.39 68.15-17.22Q70.07-16.06 71.12-13.96Q72.17-11.86 72.17-8.99L72.17-8.99Q72.17-6.15 71.12-4.02Q70.07-1.89 68.15-0.74Q66.22 0.41 63.65 0.41ZM63.65-2.70L63.65-2.70Q65.95-2.70 67.20-4.38Q68.45-6.05 68.45-8.99L68.45-8.99Q68.45-11.93 67.20-13.61Q65.95-15.28 63.65-15.28L63.65-15.28Q61.39-15.28 60.12-13.61Q58.85-11.93 58.85-8.99L58.85-8.99Q58.85-6.05 60.12-4.38Q61.39-2.70 63.65-2.70ZM79.10 0L75.52 0L75.52-17.98L78.79-17.98L78.90-13.52L78.49-13.66Q78.79-15.14 79.55-16.19Q80.32-17.24 81.43-17.81Q82.55-18.39 83.86-18.39L83.86-18.39Q86.16-18.39 87.62-17.09Q89.07-15.79 89.44-13.52L89.44-13.52L88.87-13.52Q89.17-15.11 89.90-16.17Q90.63-17.24 91.77-17.81Q92.92-18.39 94.38-18.39L94.38-18.39Q96.27-18.39 97.61-17.59Q98.94-16.80 99.63-15.28Q100.33-13.76 100.33-11.56L100.33-11.56L100.33 0L96.74 0L96.74-10.68Q96.74-13.01 95.90-14.20Q95.05-15.38 93.33-15.38L93.33-15.38Q92.21-15.38 91.37-14.81Q90.52-14.23 90.07-13.15Q89.61-12.07 89.61-10.55L89.61-10.55L89.61 0L86.20 0L86.20-10.55Q86.20-12.85 85.44-14.11Q84.68-15.38 82.85-15.38L82.85-15.38Q81.70-15.38 80.87-14.81Q80.05-14.23 79.57-13.13Q79.10-12.03 79.10-10.55L79.10-10.55L79.10 0ZM109.83 0.41L109.83 0.41Q107.02 0.41 105.35-0.88Q103.67-2.16 103.67-4.50L103.67-4.50Q103.67-6.83 105.08-8.13Q106.48-9.43 109.42-10.01L109.42-10.01L115.61-11.19Q115.61-13.28 114.63-14.32Q113.65-15.35 111.72-15.35L111.72-15.35Q109.99-15.35 109.01-14.59Q108.03-13.83 107.66-12.34L107.66-12.34L103.98-12.57Q104.48-15.28 106.50-16.83Q108.51-18.39 111.72-18.39L111.72-18.39Q115.37-18.39 117.28-16.45Q119.19-14.50 119.19-10.99L119.19-10.99L119.19-3.99Q119.19-3.35 119.41-3.09Q119.63-2.84 120.14-2.84L120.14-2.84L120.78-2.84L120.78 0Q120.61 0.03 120.24 0.07Q119.86 0.10 119.46 0.10L119.46 0.10Q118.31 0.10 117.48-0.27Q116.65-0.64 116.25-1.50Q115.84-2.37 115.84-3.82L115.84-3.82L116.21-3.65Q115.94-2.47 115.05-1.55Q114.15-0.64 112.78-0.12Q111.41 0.41 109.83 0.41ZM110.40-2.43L110.40-2.43Q112.02-2.43 113.17-3.06Q114.32-3.68 114.96-4.80Q115.61-5.92 115.61-7.34L115.61-7.34L115.61-8.48L110.33-7.47Q108.71-7.17 108.05-6.51Q107.39-5.85 107.39-4.83L107.39-4.83Q107.39-3.68 108.19-3.06Q108.98-2.43 110.40-2.43Z"/></g></symbol>
+    <!-- Logo con el isotipo de trazo grueso (brand/svg/automa-horizontal-pequeno-color.svg): header, donde el isotipo mide menos de 32 px -->
+    <symbol id="logo-automa-pequeno" viewBox="0 0 168.57 37.44"><g transform="translate(-4.47 -2.55) scale(0.66)"><path fill="currentColor" d="M14.28 60.17L29.5 22.51L34.62 35.17L42.17 35.17L29.5 3.83L6.73 60.17ZM41.09 51.17L44.73 60.17L52.28 60.17L48.64 51.17Z"/><path style="fill:var(--logo-accent,#059669)" d="M15.01 39.67L57.27 39.67L55.73 46.67L12.18 46.67Z"/></g><g transform="translate(47.79 30.72)"><path fill="currentColor" d="M4.56 0L0.68 0L9.33-24.00L13.96-24.00L22.61 0L18.73 0L16.53-6.25L6.73-6.25L4.56 0ZM11.63-20.52L7.88-9.57L15.41-9.57L11.63-20.52ZM30.42 0.41L30.42 0.41Q27.72 0.41 26.11-1.40Q24.51-3.21 24.51-6.42L24.51-6.42L24.51-17.98L28.09-17.98L28.09-7.34Q28.09-4.90 28.94-3.75Q29.78-2.60 31.50-2.60L31.50-2.60Q33.46-2.60 34.56-3.87Q35.66-5.14 35.66-7.44L35.66-7.44L35.66-17.98L39.25-17.98L39.25 0L35.90 0L35.83-4.70L36.34-4.50Q35.86-2.13 34.34-0.86Q32.82 0.41 30.42 0.41ZM53.41 0L50.06 0Q47.49 0 46.28-1.18Q45.06-2.37 45.06-4.87L45.06-4.87L45.06-22.21L48.64-22.21L48.64-5.14Q48.64-3.89 49.18-3.41Q49.72-2.94 50.84-2.94L50.84-2.94L53.41-2.94L53.41 0ZM53.41-15.04L42.32-15.04L42.32-17.98L53.41-17.98L53.41-15.04ZM63.65 0.41L63.65 0.41Q61.08 0.41 59.15-0.74Q57.23-1.89 56.18-4.02Q55.13-6.15 55.13-8.99L55.13-8.99Q55.13-11.86 56.18-13.96Q57.23-16.06 59.15-17.22Q61.08-18.39 63.65-18.39L63.65-18.39Q66.22-18.39 68.15-17.22Q70.07-16.06 71.12-13.96Q72.17-11.86 72.17-8.99L72.17-8.99Q72.17-6.15 71.12-4.02Q70.07-1.89 68.15-0.74Q66.22 0.41 63.65 0.41ZM63.65-2.70L63.65-2.70Q65.95-2.70 67.20-4.38Q68.45-6.05 68.45-8.99L68.45-8.99Q68.45-11.93 67.20-13.61Q65.95-15.28 63.65-15.28L63.65-15.28Q61.39-15.28 60.12-13.61Q58.85-11.93 58.85-8.99L58.85-8.99Q58.85-6.05 60.12-4.38Q61.39-2.70 63.65-2.70ZM79.10 0L75.52 0L75.52-17.98L78.79-17.98L78.90-13.52L78.49-13.66Q78.79-15.14 79.55-16.19Q80.32-17.24 81.43-17.81Q82.55-18.39 83.86-18.39L83.86-18.39Q86.16-18.39 87.62-17.09Q89.07-15.79 89.44-13.52L89.44-13.52L88.87-13.52Q89.17-15.11 89.90-16.17Q90.63-17.24 91.77-17.81Q92.92-18.39 94.38-18.39L94.38-18.39Q96.27-18.39 97.61-17.59Q98.94-16.80 99.63-15.28Q100.33-13.76 100.33-11.56L100.33-11.56L100.33 0L96.74 0L96.74-10.68Q96.74-13.01 95.90-14.20Q95.05-15.38 93.33-15.38L93.33-15.38Q92.21-15.38 91.37-14.81Q90.52-14.23 90.07-13.15Q89.61-12.07 89.61-10.55L89.61-10.55L89.61 0L86.20 0L86.20-10.55Q86.20-12.85 85.44-14.11Q84.68-15.38 82.85-15.38L82.85-15.38Q81.70-15.38 80.87-14.81Q80.05-14.23 79.57-13.13Q79.10-12.03 79.10-10.55L79.10-10.55L79.10 0ZM109.83 0.41L109.83 0.41Q107.02 0.41 105.35-0.88Q103.67-2.16 103.67-4.50L103.67-4.50Q103.67-6.83 105.08-8.13Q106.48-9.43 109.42-10.01L109.42-10.01L115.61-11.19Q115.61-13.28 114.63-14.32Q113.65-15.35 111.72-15.35L111.72-15.35Q109.99-15.35 109.01-14.59Q108.03-13.83 107.66-12.34L107.66-12.34L103.98-12.57Q104.48-15.28 106.50-16.83Q108.51-18.39 111.72-18.39L111.72-18.39Q115.37-18.39 117.28-16.45Q119.19-14.50 119.19-10.99L119.19-10.99L119.19-3.99Q119.19-3.35 119.41-3.09Q119.63-2.84 120.14-2.84L120.14-2.84L120.78-2.84L120.78 0Q120.61 0.03 120.24 0.07Q119.86 0.10 119.46 0.10L119.46 0.10Q118.31 0.10 117.48-0.27Q116.65-0.64 116.25-1.50Q115.84-2.37 115.84-3.82L115.84-3.82L116.21-3.65Q115.94-2.47 115.05-1.55Q114.15-0.64 112.78-0.12Q111.41 0.41 109.83 0.41ZM110.40-2.43L110.40-2.43Q112.02-2.43 113.17-3.06Q114.32-3.68 114.96-4.80Q115.61-5.92 115.61-7.34L115.61-7.34L115.61-8.48L110.33-7.47Q108.71-7.17 108.05-6.51Q107.39-5.85 107.39-4.83L107.39-4.83Q107.39-3.68 108.19-3.06Q108.98-2.43 110.40-2.43Z"/></g></symbol>
     <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
     <symbol id="i-msg" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></symbol>
     <symbol id="i-dash" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></symbol>
@@ -902,7 +911,7 @@
   <header>
     <nav class="nav" id="nav" aria-label="Navegación principal">
       <div class="nav-inner">
-        <a href="#top" class="wordmark" aria-label="Automa, inicio">Automa</a>
+        <a href="#top" class="wordmark" aria-label="Automa, inicio"><svg class="logo" viewBox="0 0 168.57 37.44" width="117.1" height="26" aria-hidden="true" focusable="false"><use href="#logo-automa-pequeno"/></svg></a>
 
         <div class="nav-links" id="navLinks">
           <a href="#problema">Problema</a>
@@ -1480,7 +1489,7 @@
     <div class="container">
       <div class="footer-grid grid12">
         <div class="footer-brand">
-          <p class="wordmark">Automa</p>
+          <p class="wordmark"><svg class="logo" viewBox="0 0 169.23 37.44" width="135.6" height="30" role="img" aria-label="Automa"><use href="#logo-automa"/></svg></p>
           <p class="small">Automatización con inteligencia artificial para negocios reales. Bogotá, Colombia.</p>
           <a class="btn btn-outline js-wa" href="https://wa.me/573178878200" target="_blank" rel="noopener noreferrer">
             <svg aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>
@@ -1541,6 +1550,7 @@
     "@graph": [
       {
         "@type": "Organization",
+        "logo": "https://www.flowautoma.com/icon-512.png",
         "@id": "https://www.flowautoma.com/#organization",
         "name": "Automa",
         "legalName": "C&L RDM SAS",

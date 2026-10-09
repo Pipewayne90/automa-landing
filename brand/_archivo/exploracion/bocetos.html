@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automa · Exploración</title>
+<style>
+@font-face{font-family:"Geist";font-weight:400 600;font-display:swap;src:url("../../../fonts/geist-latin-v5.woff2") format("woff2")}
+:root{--paper:#F4F4F2;--card:#FFFFFF;--ink:#111111;--ink-2:#3F3F46;--muted:#71717A;--line:#E4E4E0;--keep:#111111;--drop:#A1A1AA}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--ink);font:15px/1.55 "Geist",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:48px 24px 96px}
+h1{font-size:34px;line-height:1.15;font-weight:600;letter-spacing:-.02em}
+.lead{color:var(--ink-2);max-width:70ch;margin-top:10px}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600;margin:56px 0 16px}
+.feel{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feel p{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;font-size:17px;line-height:1.45;letter-spacing:-.005em}
+.ideas{display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;list-style:none;padding:0}
+.ideas li{display:grid;grid-template-columns:22px 1fr;gap:8px;padding:10px 0;border-bottom:1px solid var(--line)}
+.ideas li b{font-weight:600}
+.ideas li span{color:var(--ink-2)}
+.ideas .mk{font-size:13px;line-height:1.6;font-variant-numeric:tabular-nums}
+.ideas li.drop b{text-decoration:line-through;text-decoration-color:var(--drop)}
+.ideas li.drop .mk,.ideas li.drop span{color:var(--muted)}
+.avoid{list-style:none;padding:0;columns:2;column-gap:32px}
+.avoid li{break-inside:avoid;padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-2)}
+.avoid b{color:var(--ink);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sk{background:var(--card);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;overflow:hidden}
+.big{aspect-ratio:1/1;display:grid;place-items:center;padding:44px}
+.big svg{width:100%;height:100%}
+.sk.wide .big svg,.sk.block .big svg{height:auto;max-height:100%}
+.foot{display:grid;grid-template-columns:72px 1fr;gap:14px;padding:16px 18px 18px;border-top:1px solid var(--line);align-items:start}
+.small{display:flex;flex-direction:column;align-items:center;gap:6px;padding-top:2px}
+.px{display:grid;place-items:center;width:72px;height:32px}
+.px svg{height:32px;width:auto;max-width:72px;display:block}
+.lbl{font-size:11px;color:var(--muted)}
+.foot h3{font-size:15px;font-weight:600}
+.foot h3 span{color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums;margin-right:4px}
+.foot h3 em{font-style:normal;font-size:11px;font-weight:500;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 7px;margin-left:4px;vertical-align:2px}
+.foot p{color:var(--ink-2);font-size:13.5px;margin-top:4px}
+.note{margin-top:16px;color:var(--muted);font-size:13px}
+.end{margin-top:56px;padding:24px 28px;background:var(--ink);color:#fff;border-radius:16px}
+.end p+p{color:#A1A1AA;margin-top:6px}
+@media (max-width:900px){.grid{grid-template-columns:1fr 1fr}.feel{grid-template-columns:1fr}.ideas{grid-template-columns:1fr}.avoid{columns:1}}
+@media (max-width:600px){.wrap{padding:32px 16px 64px}.grid{grid-template-columns:1fr}h1{font-size:28px}.big{padding:36px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Automa — Estrategia y exploración</h1>
+  <p class="lead">Empezamos de nuevo, sin partir de la A. Primero, qué tiene que sentir la gente y de qué mundo salen las ideas. Después, doce bocetos rápidos, solo en negro, cada uno de una idea distinta. Aquí lo que se evalúa es la idea, no el acabado.</p>
+
+  <h2>Paso 1 · Lo que se siente al verla por primera vez</h2>
+  <div class="feel">
+    <p>Alivio: la sensación de que alguien ya puso las cosas en su sitio, como entrar a una cocina limpia y lista antes del servicio.</p>
+    <p>Confianza en un método, no en una máquina: se nota que detrás hay una persona que mide, ordena y sabe lo que hace.</p>
+    <p>Movimiento tranquilo: las cosas avanzan solas y sin ruido, y el dueño vuelve a tener tiempo para dirigir.</p>
+  </div>
+
+  <h2>Metáforas e ideas visuales · 12 sigo, 11 descarto</h2>
+  <ul class="ideas">
+    <li class="keep"><span class="mk">✓</span><div><b>Mise en place.</b> <span>Antes del servicio, cada cosa en su lugar. Viene del mundo del cliente (restaurantes), no del de la tecnología.</span></div></li><li class="keep"><span class="mk">✓</span><div><b>Riel de comandas.</b> <span>Los pedidos esperan en fila y ninguno se pierde. Es el problema real del bot de WhatsApp, dibujado.</span></div></li><li class="keep"><span class="mk">✓</span><div><b>El peine.</b> <span>Entra un enredo y sale parejo. Automa es la herramienta, no la máquina.</span></div></li><li class="keep"><span class="mk">✓</span><div><b>Telar.</b> <span>Hilos sueltos que, cruzados con método, se vuelven tela firme. Es oficio y es latinoamericano.</span></div></li><li class="keep"><span class="mk">✓</span><div><b>Nivel de burbuja.</b> <span>El instrumento que confirma que algo quedó derecho. Ingeniería industrial, calma y precisión.</span></div></li><li class="keep"><span class="mk">✓</span><div><b>Dominó.</b> <span>Un disparo y lo demás sigue solo. Es literalmente cómo funciona un trigger.</span></div></li><li class="keep"><span class="mk">✓</span><div><b>Puertas alineadas.</b> <span>La complejidad no desaparece: se alinea para que el flujo pase limpio.</span></div></li><li class="keep"><span class="mk">✓</span><div><b>Orquestación.</b> <span>En automatización se dice "orquestar". Cada tarea entra a su tiempo.</span></div></li><li class="keep"><span class="mk">✓</span><div><b>La pila que se ordena.</b> <span>Del papeleo revuelto al sistema. Es el "antes y después" en una sola imagen.</span></div></li><li class="keep"><span class="mk">✓</span><div><b>Casillas.</b> <span>La planilla bien llevada: cada dato en su celda.</span></div></li><li class="keep"><span class="mk">✓</span><div><b>Todo cuadra.</b> <span>El modismo con el que un dueño dice que su negocio está bien. La palabra forma un bloque exacto.</span></div></li><li class="keep"><span class="mk">✓</span><div><b>Cremallera.</b> <span>Dos lados sueltos que se ensamblan al paso del cierre. Movimiento que deja orden detrás.</span></div></li><li class="drop"><span class="mk">✕</span><div><b>Surcos.</b> <span>La tierra trabajada en hileras. Lo dibujé y lo descarté: las líneas paralelas dentro de un círculo terminan pareciendo la esfera rayada de mil marcas.</span></div></li><li class="drop"><span class="mk">✕</span><div><b>Esclusa de canal.</b> <span>El barco sube nivel a nivel sin esfuerzo. Linda idea, pero necesita demasiado dibujo para leerse a 32 px.</span></div></li><li class="drop"><span class="mk">✕</span><div><b>Metrónomo.</b> <span>Ritmo constante y calma. Lo descarté porque habla de música y de tiempo, no de orden.</span></div></li><li class="drop"><span class="mk">✕</span><div><b>Plomada.</b> <span>La verdad vertical del constructor. Es la misma idea que el nivel de burbuja y el nivel es más claro.</span></div></li><li class="drop"><span class="mk">✕</span><div><b>Engranajes y relojería.</b> <span>Prohibido por el brief y es el cliché número uno de "procesos".</span></div></li><li class="drop"><span class="mk">✕</span><div><b>Red de nodos conectados.</b> <span>Es el diagrama de n8n y el logo de media industria de IA. Descartado de entrada.</span></div></li><li class="drop"><span class="mk">✕</span><div><b>Bucle infinito ∞.</b> <span>Lo usan para "automatización continua" desde hace diez años. Cliché.</span></div></li><li class="drop"><span class="mk">✕</span><div><b>Flecha o chevrón hacia adelante.</b> <span>El atajo universal de "avance" en tecnología. Fue parte del problema de la fase 1.</span></div></li><li class="drop"><span class="mk">✕</span><div><b>Cerebro, chispa o estrella.</b> <span>El código visual de "esto tiene IA". Justo lo que Automa no debe decir.</span></div></li><li class="drop"><span class="mk">✕</span><div><b>Piloto automático, brújula, cohete.</b> <span>Metáforas de consultora y de startup. Prometen velocidad o rumbo, no orden.</span></div></li><li class="drop"><span class="mk">✕</span><div><b>Interruptor de encendido.</b> <span>Es literal ("se enciende solo") y ya es un ícono de interfaz, no una marca.</span></div></li>
+  </ul>
+
+  <h2>Patrones que Automa debe evitar</h2>
+  <ul class="avoid">
+    <li><b>Degradados violeta, azul y cian</b>: casi todas las marcas de IA desde 2023.</li><li><b>Estrellas de cuatro puntas, chispas, asteriscos y rosetas</b>: el "sello" de los asistentes de IA.</li><li><b>Nodos unidos por líneas, grafos y circuitos</b>: el diagrama del producto convertido en logo.</li><li><b>Monogramas de una letra hechos con líneas, sobre todo A, N y la flecha integrada</b>: lo que pasó en la fase 1.</li><li><b>Hexágonos, cubos isométricos y órbitas con puntos</b>: la estética "plataforma" de la era cripto.</li><li><b>Infinito, flechas circulares y "sync"</b>: iconografía de ajustes, no de marca.</li><li><b>Neón sobre negro, glow y blobs 3D líquidos</b>: hacen que la marca se vea como una demo.</li><li><b>Wordmarks en minúscula con ".ai", "flow" o "ly"</b>: la tipografía geométrica neutra que nadie recuerda.</li><li><b>Caras de robot, burbujas de chat con chispa y cursores</b>: hablan de la herramienta, no del resultado para el cliente.</li>
+  </ul>
+
+  <h2>Paso 2 · Doce bocetos</h2>
+  <div class="grid">
+<article class="sk">
+  <div class="big"><svg viewBox="0 0 100 100"><rect x="8" y="33" width="84" height="34" rx="17" fill="none" stroke="#000" stroke-width="5"/>
+<path d="M38 41v18M62 41v18" stroke="#000" stroke-width="4"/><circle cx="50" cy="50" r="7.5" fill="#000"/></svg></div>
+  <div class="foot">
+    <div class="small"><span class="px"><svg viewBox="0 0 100 100"><rect x="8" y="33" width="84" height="34" rx="17" fill="none" stroke="#000" stroke-width="5"/>
+<path d="M38 41v18M62 41v18" stroke="#000" stroke-width="4"/><circle cx="50" cy="50" r="7.5" fill="#000"/></svg></span><span class="lbl">32 px</span></div>
+    <div><h3><span>01</span> Nivel de burbuja</h3><p>La herramienta que dice "esto quedó derecho". Ingeniería, calma y un solo punto en su sitio: el negocio nivelado.</p></div>
+  </div>
+</article>
+<article class="sk">
+  <div class="big"><svg viewBox="0 0 100 100"><g fill="#000"><circle cx="22" cy="22" r="9.5"/><rect x="41.5" y="13.5" width="17" height="17"/><path d="M78 12L88.5 30.5L67.5 30.5Z"/><rect x="13.5" y="41.5" width="17" height="17"/><path d="M50 40L60.5 58.5L39.5 58.5Z"/><circle cx="78" cy="50" r="9.5"/><path d="M22 68L32.5 86.5L11.5 86.5Z"/><circle cx="50" cy="78" r="9.5"/><rect x="69.5" y="69.5" width="17" height="17"/></g></svg></div>
+  <div class="foot">
+    <div class="small"><span class="px"><svg viewBox="0 0 100 100"><g fill="#000"><circle cx="22" cy="22" r="9.5"/><rect x="41.5" y="13.5" width="17" height="17"/><path d="M78 12L88.5 30.5L67.5 30.5Z"/><rect x="13.5" y="41.5" width="17" height="17"/><path d="M50 40L60.5 58.5L39.5 58.5Z"/><circle cx="78" cy="50" r="9.5"/><path d="M22 68L32.5 86.5L11.5 86.5Z"/><circle cx="50" cy="78" r="9.5"/><rect x="69.5" y="69.5" width="17" height="17"/></g></svg></span><span class="lbl">32 px</span></div>
+    <div><h3><span>02</span> Mise en place</h3><p>Antes del servicio, cada cosa en su lugar. Nueve piezas distintas y ninguna repetida en su fila: orden con método, no uniformidad.</p></div>
+  </div>
+</article>
+<article class="sk">
+  <div class="big"><svg viewBox="0 0 100 100"><path d="M6 24H94" stroke="#000" stroke-width="5"/>
+<g fill="none" stroke="#000" stroke-width="4">
+<path d="M12 31h15v40l-3.75 -3l-3.75 3l-3.75 -3l-3.75 3z"/>
+<path d="M34 31h15v40l-3.75 -3l-3.75 3l-3.75 -3l-3.75 3z"/>
+<path d="M56 31h15v40l-3.75 -3l-3.75 3l-3.75 -3l-3.75 3z"/>
+<path transform="rotate(14 82 26)" d="M78 31h15v40l-3.75 -3l-3.75 3l-3.75 -3l-3.75 3z"/></g></svg></div>
+  <div class="foot">
+    <div class="small"><span class="px"><svg viewBox="0 0 100 100"><path d="M6 24H94" stroke="#000" stroke-width="5"/>
+<g fill="none" stroke="#000" stroke-width="4">
+<path d="M12 31h15v40l-3.75 -3l-3.75 3l-3.75 -3l-3.75 3z"/>
+<path d="M34 31h15v40l-3.75 -3l-3.75 3l-3.75 -3l-3.75 3z"/>
+<path d="M56 31h15v40l-3.75 -3l-3.75 3l-3.75 -3l-3.75 3z"/>
+<path transform="rotate(14 82 26)" d="M78 31h15v40l-3.75 -3l-3.75 3l-3.75 -3l-3.75 3z"/></g></svg></span><span class="lbl">32 px</span></div>
+    <div><h3><span>03</span> Riel de comandas</h3><p>El riel de la cocina donde los pedidos esperan en fila y ninguno se pierde. La última comanda está entrando.</p></div>
+  </div>
+</article>
+<article class="sk">
+  <div class="big"><svg viewBox="0 0 100 100"><g fill="none" stroke="#000" stroke-width="4" stroke-linecap="round">
+<path d="M6 40C18 20 26 74 38 52S46 30 52 34"/>
+<path d="M6 62C16 76 24 30 34 40S44 66 52 50"/>
+<path d="M8 50C20 46 22 64 32 62S42 52 52 66"/>
+<path d="M60 34H94M60 50H94M60 66H94"/></g>
+<path d="M52 22h6v56h-6z" fill="#000"/></svg></div>
+  <div class="foot">
+    <div class="small"><span class="px"><svg viewBox="0 0 100 100"><g fill="none" stroke="#000" stroke-width="4" stroke-linecap="round">
+<path d="M6 40C18 20 26 74 38 52S46 30 52 34"/>
+<path d="M6 62C16 76 24 30 34 40S44 66 52 50"/>
+<path d="M8 50C20 46 22 64 32 62S42 52 52 66"/>
+<path d="M60 34H94M60 50H94M60 66H94"/></g>
+<path d="M52 22h6v56h-6z" fill="#000"/></svg></span><span class="lbl">32 px</span></div>
+    <div><h3><span>04</span> El peine</h3><p>Entra un enredo, sale en líneas paralelas. Automa es el peine: la herramienta que pasa por el proceso y lo deja en orden.</p></div>
+  </div>
+</article>
+<article class="sk">
+  <div class="big"><svg viewBox="0 0 100 100"><rect x="6" y="10" width="88" height="20" fill="#000"/><rect x="6" y="40" width="88" height="20" fill="#000"/><rect x="6" y="70" width="88" height="20" fill="#000"/><rect x="10" y="6" width="20" height="88" fill="#000"/><rect x="40" y="6" width="20" height="88" fill="#000"/><rect x="70" y="6" width="20" height="88" fill="#000"/><rect x="10" y="6" width="20" height="4" fill="#fff"/><rect x="10" y="30" width="20" height="4" fill="#fff"/><rect x="36" y="10" width="4" height="20" fill="#fff"/><rect x="60" y="10" width="4" height="20" fill="#fff"/><rect x="70" y="6" width="20" height="4" fill="#fff"/><rect x="70" y="30" width="20" height="4" fill="#fff"/><rect x="6" y="40" width="4" height="20" fill="#fff"/><rect x="30" y="40" width="4" height="20" fill="#fff"/><rect x="40" y="36" width="20" height="4" fill="#fff"/><rect x="40" y="60" width="20" height="4" fill="#fff"/><rect x="66" y="40" width="4" height="20" fill="#fff"/><rect x="90" y="40" width="4" height="20" fill="#fff"/><rect x="10" y="66" width="20" height="4" fill="#fff"/><rect x="10" y="90" width="20" height="4" fill="#fff"/><rect x="36" y="70" width="4" height="20" fill="#fff"/><rect x="60" y="70" width="4" height="20" fill="#fff"/><rect x="70" y="66" width="20" height="4" fill="#fff"/><rect x="70" y="90" width="20" height="4" fill="#fff"/></svg></div>
+  <div class="foot">
+    <div class="small"><span class="px"><svg viewBox="0 0 100 100"><rect x="6" y="10" width="88" height="20" fill="#000"/><rect x="6" y="40" width="88" height="20" fill="#000"/><rect x="6" y="70" width="88" height="20" fill="#000"/><rect x="10" y="6" width="20" height="88" fill="#000"/><rect x="40" y="6" width="20" height="88" fill="#000"/><rect x="70" y="6" width="20" height="88" fill="#000"/><rect x="10" y="6" width="20" height="4" fill="#fff"/><rect x="10" y="30" width="20" height="4" fill="#fff"/><rect x="36" y="10" width="4" height="20" fill="#fff"/><rect x="60" y="10" width="4" height="20" fill="#fff"/><rect x="70" y="6" width="20" height="4" fill="#fff"/><rect x="70" y="30" width="20" height="4" fill="#fff"/><rect x="6" y="40" width="4" height="20" fill="#fff"/><rect x="30" y="40" width="4" height="20" fill="#fff"/><rect x="40" y="36" width="20" height="4" fill="#fff"/><rect x="40" y="60" width="20" height="4" fill="#fff"/><rect x="66" y="40" width="4" height="20" fill="#fff"/><rect x="90" y="40" width="4" height="20" fill="#fff"/><rect x="10" y="66" width="20" height="4" fill="#fff"/><rect x="10" y="90" width="20" height="4" fill="#fff"/><rect x="36" y="70" width="4" height="20" fill="#fff"/><rect x="60" y="70" width="4" height="20" fill="#fff"/><rect x="70" y="66" width="20" height="4" fill="#fff"/><rect x="70" y="90" width="20" height="4" fill="#fff"/></svg></span><span class="lbl">32 px</span></div>
+    <div><h3><span>05</span> Telar</h3><p>Hilos sueltos que, cruzados con método, se vuelven una pieza firme. Oficio latinoamericano en lugar de estética de laboratorio.</p></div>
+  </div>
+</article>
+<article class="sk">
+  <div class="big"><svg viewBox="0 0 100 100"><path d="M4 81.5H96" stroke="#000" stroke-width="3"/><rect transform="rotate(24 20 80)" x="12" y="38" width="8" height="42" fill="#000"/><rect transform="rotate(24 37 80)" x="29" y="38" width="8" height="42" fill="#000"/><rect transform="rotate(24 54 80)" x="46" y="38" width="8" height="42" fill="#000"/><rect transform="rotate(11 71 80)" x="63" y="38" width="8" height="42" fill="#000"/><rect transform="rotate(0 88 80)" x="80" y="38" width="8" height="42" fill="#000"/></svg></div>
+  <div class="foot">
+    <div class="small"><span class="px"><svg viewBox="0 0 100 100"><path d="M4 81.5H96" stroke="#000" stroke-width="3"/><rect transform="rotate(24 20 80)" x="12" y="38" width="8" height="42" fill="#000"/><rect transform="rotate(24 37 80)" x="29" y="38" width="8" height="42" fill="#000"/><rect transform="rotate(24 54 80)" x="46" y="38" width="8" height="42" fill="#000"/><rect transform="rotate(11 71 80)" x="63" y="38" width="8" height="42" fill="#000"/><rect transform="rotate(0 88 80)" x="80" y="38" width="8" height="42" fill="#000"/></svg></span><span class="lbl">32 px</span></div>
+    <div><h3><span>06</span> Dominó</h3><p>Un solo disparo y lo demás sigue solo. Eso es una automatización: preparar el orden para que el movimiento no necesite a nadie.</p></div>
+  </div>
+</article>
+<article class="sk">
+  <div class="big"><svg viewBox="0 0 100 100"><g fill="none" stroke="#000" stroke-width="5"><path d="M8 42V8H92V42M92 58V92H8V58"/><path d="M22 42V22H78V42M78 58V78H22V58"/><path d="M36 42V36H64V42M64 58V64H36V58"/></g><path d="M0 50H100" stroke="#000" stroke-width="4"/></svg></div>
+  <div class="foot">
+    <div class="small"><span class="px"><svg viewBox="0 0 100 100"><g fill="none" stroke="#000" stroke-width="5"><path d="M8 42V8H92V42M92 58V92H8V58"/><path d="M22 42V22H78V42M78 58V78H22V58"/><path d="M36 42V36H64V42M64 58V64H36V58"/></g><path d="M0 50H100" stroke="#000" stroke-width="4"/></svg></span><span class="lbl">32 px</span></div>
+    <div><h3><span>07</span> Puertas alineadas</h3><p>Capas de complejidad con las aberturas puestas en fila: la línea pasa limpia de un lado al otro sin tocar nada.</p></div>
+  </div>
+</article>
+<article class="sk">
+  <div class="big"><svg viewBox="0 0 100 100"><path d="M6 30H94M6 40H94M6 50H94M6 60H94M6 70H94" stroke="#000" stroke-width="2"/>
+<g fill="#000"><ellipse transform="rotate(-20 22 70)" cx="22" cy="70" rx="7.5" ry="5.5"/><ellipse transform="rotate(-20 40 60)" cx="40" cy="60" rx="7.5" ry="5.5"/><ellipse transform="rotate(-20 58 50)" cx="58" cy="50" rx="7.5" ry="5.5"/><ellipse transform="rotate(-20 76 40)" cx="76" cy="40" rx="7.5" ry="5.5"/></g></svg></div>
+  <div class="foot">
+    <div class="small"><span class="px"><svg viewBox="0 0 100 100"><path d="M6 30H94M6 40H94M6 50H94M6 60H94M6 70H94" stroke="#000" stroke-width="2"/>
+<g fill="#000"><ellipse transform="rotate(-20 22 70)" cx="22" cy="70" rx="7.5" ry="5.5"/><ellipse transform="rotate(-20 40 60)" cx="40" cy="60" rx="7.5" ry="5.5"/><ellipse transform="rotate(-20 58 50)" cx="58" cy="50" rx="7.5" ry="5.5"/><ellipse transform="rotate(-20 76 40)" cx="76" cy="40" rx="7.5" ry="5.5"/></g></svg></span><span class="lbl">32 px</span></div>
+    <div><h3><span>08</span> Orquestación</h3><p>En automatización se dice "orquestar". Cada tarea entra en su tiempo y en su altura; nadie tiene que dirigir.</p></div>
+  </div>
+</article>
+<article class="sk">
+  <div class="big"><svg viewBox="0 0 100 100"><g fill="#000">
+<rect transform="rotate(7 50 81)" x="16" y="76" width="68" height="10" rx="2"/>
+<rect transform="rotate(-5 53 63)" x="19" y="58" width="68" height="10" rx="2"/>
+<rect transform="rotate(1.5 51 46)" x="17" y="41" width="68" height="10" rx="2"/>
+<rect x="16" y="26" width="68" height="10" rx="2"/>
+<rect x="16" y="11" width="68" height="10" rx="2"/></g></svg></div>
+  <div class="foot">
+    <div class="small"><span class="px"><svg viewBox="0 0 100 100"><g fill="#000">
+<rect transform="rotate(7 50 81)" x="16" y="76" width="68" height="10" rx="2"/>
+<rect transform="rotate(-5 53 63)" x="19" y="58" width="68" height="10" rx="2"/>
+<rect transform="rotate(1.5 51 46)" x="17" y="41" width="68" height="10" rx="2"/>
+<rect x="16" y="26" width="68" height="10" rx="2"/>
+<rect x="16" y="11" width="68" height="10" rx="2"/></g></svg></span><span class="lbl">32 px</span></div>
+    <div><h3><span>09</span> La pila que se ordena</h3><p>Abajo, el papeleo revuelto de siempre; arriba, lo que ya pasó por Automa. El cambio se ve sin explicarlo.</p></div>
+  </div>
+</article>
+<article class="sk wide">
+  <div class="big"><svg viewBox="-2 -2 184 50"><rect x="0" y="0" width="180" height="46" fill="none" stroke="#000" stroke-width="1.5"/><path d="M30 0V46M60 0V46M90 0V46M120 0V46M150 0V46" stroke="#000" stroke-width="1"/><path d="M12 33.51L12 33.51Q8.49 33.51 6.40 31.90Q4.31 30.30 4.31 27.38L4.31 27.38Q4.31 24.46 6.06 22.84Q7.82 21.21 11.49 20.49L11.49 20.49L19.23 19.01Q19.23 16.39 18 15.11Q16.77 13.82 14.37 13.82L14.37 13.82Q12.21 13.82 10.99 14.77Q9.76 15.72 9.30 17.58L9.30 17.58L4.69 17.28Q5.32 13.90 7.84 11.96Q10.35 10.01 14.37 10.01L14.37 10.01Q18.93 10.01 21.32 12.44Q23.70 14.87 23.70 19.27L23.70 19.27L23.70 28.01Q23.70 28.82 23.98 29.13Q24.25 29.45 24.89 29.45L24.89 29.45L25.69 29.45L25.69 33Q25.48 33.04 25.01 33.08Q24.55 33.13 24.04 33.13L24.04 33.13Q22.61 33.13 21.57 32.66Q20.54 32.20 20.03 31.12Q19.52 30.04 19.52 28.23L19.52 28.23L19.99 28.44Q19.65 29.92 18.53 31.06Q17.41 32.20 15.70 32.85Q13.99 33.51 12 33.51ZM12.72 29.96L12.72 29.96Q14.75 29.96 16.18 29.18Q17.62 28.39 18.42 27Q19.23 25.61 19.23 23.83L19.23 23.83L19.23 22.39L12.63 23.66Q10.61 24.04 9.78 24.87Q8.96 25.69 8.96 26.96L8.96 26.96Q8.96 28.39 9.95 29.18Q10.94 29.96 12.72 29.96ZM43.18 33.51L43.18 33.51Q39.80 33.51 37.80 31.25Q35.79 28.99 35.79 24.97L35.79 24.97L35.79 10.52L40.27 10.52L40.27 23.83Q40.27 26.87 41.32 28.31Q42.38 29.75 44.54 29.75L44.54 29.75Q46.99 29.75 48.36 28.16Q49.73 26.58 49.73 23.70L49.73 23.70L49.73 10.52L54.21 10.52L54.21 33L50.03 33L49.94 27.13L50.58 27.38Q49.99 30.34 48.08 31.92Q46.18 33.51 43.18 33.51ZM81.93 33L77.75 33Q74.54 33 73.01 31.52Q71.49 30.04 71.49 26.92L71.49 26.92L71.49 5.24L75.97 5.24L75.97 26.58Q75.97 28.14 76.65 28.73Q77.32 29.32 78.72 29.32L78.72 29.32L81.93 29.32L81.93 33ZM81.93 14.20L68.07 14.20L68.07 10.52L81.93 10.52L81.93 14.20ZM105 33.51L105 33.51Q101.79 33.51 99.38 32.07Q96.97 30.63 95.66 27.97Q94.35 25.31 94.35 21.76L94.35 21.76Q94.35 18.17 95.66 15.55Q96.97 12.93 99.38 11.47Q101.79 10.01 105 10.01L105 10.01Q108.21 10.01 110.62 11.47Q113.03 12.93 114.34 15.55Q115.65 18.17 115.65 21.76L115.65 21.76Q115.65 25.31 114.34 27.97Q113.03 30.63 110.62 32.07Q108.21 33.51 105 33.51ZM105 29.62L105 29.62Q107.87 29.62 109.44 27.53Q111 25.44 111 21.76L111 21.76Q111 18.08 109.44 15.99Q107.87 13.90 105 13.90L105 13.90Q102.17 13.90 100.58 15.99Q99 18.08 99 21.76L99 21.76Q99 25.44 100.58 27.53Q102.17 29.62 105 29.62ZM123.97 33L119.49 33L119.49 10.52L123.59 10.52L123.72 16.10L123.21 15.93Q123.59 14.07 124.54 12.76Q125.49 11.45 126.89 10.73Q128.28 10.01 129.93 10.01L129.93 10.01Q132.80 10.01 134.62 11.64Q136.44 13.27 136.90 16.10L136.90 16.10L136.18 16.10Q136.56 14.11 137.47 12.78Q138.38 11.45 139.82 10.73Q141.25 10.01 143.07 10.01L143.07 10.01Q145.44 10.01 147.11 11.01Q148.77 12 149.64 13.90Q150.51 15.80 150.51 18.55L150.51 18.55L150.51 33L146.03 33L146.03 19.65Q146.03 16.73 144.97 15.25Q143.92 13.77 141.76 13.77L141.76 13.77Q140.37 13.77 139.31 14.49Q138.25 15.21 137.68 16.56Q137.11 17.92 137.11 19.82L137.11 19.82L137.11 33L132.85 33L132.85 19.82Q132.85 16.94 131.89 15.36Q130.94 13.77 128.66 13.77L128.66 13.77Q127.23 13.77 126.19 14.49Q125.15 15.21 124.56 16.58Q123.97 17.96 123.97 19.82L123.97 19.82L123.97 33ZM162 33.51L162 33.51Q158.49 33.51 156.40 31.90Q154.31 30.30 154.31 27.38L154.31 27.38Q154.31 24.46 156.06 22.84Q157.82 21.21 161.49 20.49L161.49 20.49L169.23 19.01Q169.23 16.39 168 15.11Q166.77 13.82 164.37 13.82L164.37 13.82Q162.21 13.82 160.99 14.77Q159.76 15.72 159.30 17.58L159.30 17.58L154.69 17.28Q155.32 13.90 157.84 11.96Q160.35 10.01 164.37 10.01L164.37 10.01Q168.93 10.01 171.32 12.44Q173.70 14.87 173.70 19.27L173.70 19.27L173.70 28.01Q173.70 28.82 173.98 29.13Q174.25 29.45 174.89 29.45L174.89 29.45L175.69 29.45L175.69 33Q175.48 33.04 175.01 33.08Q174.55 33.13 174.04 33.13L174.04 33.13Q172.61 33.13 171.57 32.66Q170.54 32.20 170.03 31.12Q169.52 30.04 169.52 28.23L169.52 28.23L169.99 28.44Q169.65 29.92 168.53 31.06Q167.41 32.20 165.70 32.85Q163.99 33.51 162 33.51ZM162.72 29.96L162.72 29.96Q164.75 29.96 166.18 29.18Q167.62 28.39 168.42 27Q169.23 25.61 169.23 23.83L169.23 23.83L169.23 22.39L162.63 23.66Q160.61 24.04 159.78 24.87Q158.96 25.69 158.96 26.96L158.96 26.96Q158.96 28.39 159.95 29.18Q160.94 29.96 162.72 29.96Z" fill="#000"/></svg></div>
+  <div class="foot">
+    <div class="small"><span class="px"><svg viewBox="-2 -2 184 50"><rect x="0" y="0" width="180" height="46" fill="none" stroke="#000" stroke-width="1.5"/><path d="M30 0V46M60 0V46M90 0V46M120 0V46M150 0V46" stroke="#000" stroke-width="1"/><path d="M12 33.51L12 33.51Q8.49 33.51 6.40 31.90Q4.31 30.30 4.31 27.38L4.31 27.38Q4.31 24.46 6.06 22.84Q7.82 21.21 11.49 20.49L11.49 20.49L19.23 19.01Q19.23 16.39 18 15.11Q16.77 13.82 14.37 13.82L14.37 13.82Q12.21 13.82 10.99 14.77Q9.76 15.72 9.30 17.58L9.30 17.58L4.69 17.28Q5.32 13.90 7.84 11.96Q10.35 10.01 14.37 10.01L14.37 10.01Q18.93 10.01 21.32 12.44Q23.70 14.87 23.70 19.27L23.70 19.27L23.70 28.01Q23.70 28.82 23.98 29.13Q24.25 29.45 24.89 29.45L24.89 29.45L25.69 29.45L25.69 33Q25.48 33.04 25.01 33.08Q24.55 33.13 24.04 33.13L24.04 33.13Q22.61 33.13 21.57 32.66Q20.54 32.20 20.03 31.12Q19.52 30.04 19.52 28.23L19.52 28.23L19.99 28.44Q19.65 29.92 18.53 31.06Q17.41 32.20 15.70 32.85Q13.99 33.51 12 33.51ZM12.72 29.96L12.72 29.96Q14.75 29.96 16.18 29.18Q17.62 28.39 18.42 27Q19.23 25.61 19.23 23.83L19.23 23.83L19.23 22.39L12.63 23.66Q10.61 24.04 9.78 24.87Q8.96 25.69 8.96 26.96L8.96 26.96Q8.96 28.39 9.95 29.18Q10.94 29.96 12.72 29.96ZM43.18 33.51L43.18 33.51Q39.80 33.51 37.80 31.25Q35.79 28.99 35.79 24.97L35.79 24.97L35.79 10.52L40.27 10.52L40.27 23.83Q40.27 26.87 41.32 28.31Q42.38 29.75 44.54 29.75L44.54 29.75Q46.99 29.75 48.36 28.16Q49.73 26.58 49.73 23.70L49.73 23.70L49.73 10.52L54.21 10.52L54.21 33L50.03 33L49.94 27.13L50.58 27.38Q49.99 30.34 48.08 31.92Q46.18 33.51 43.18 33.51ZM81.93 33L77.75 33Q74.54 33 73.01 31.52Q71.49 30.04 71.49 26.92L71.49 26.92L71.49 5.24L75.97 5.24L75.97 26.58Q75.97 28.14 76.65 28.73Q77.32 29.32 78.72 29.32L78.72 29.32L81.93 29.32L81.93 33ZM81.93 14.20L68.07 14.20L68.07 10.52L81.93 10.52L81.93 14.20ZM105 33.51L105 33.51Q101.79 33.51 99.38 32.07Q96.97 30.63 95.66 27.97Q94.35 25.31 94.35 21.76L94.35 21.76Q94.35 18.17 95.66 15.55Q96.97 12.93 99.38 11.47Q101.79 10.01 105 10.01L105 10.01Q108.21 10.01 110.62 11.47Q113.03 12.93 114.34 15.55Q115.65 18.17 115.65 21.76L115.65 21.76Q115.65 25.31 114.34 27.97Q113.03 30.63 110.62 32.07Q108.21 33.51 105 33.51ZM105 29.62L105 29.62Q107.87 29.62 109.44 27.53Q111 25.44 111 21.76L111 21.76Q111 18.08 109.44 15.99Q107.87 13.90 105 13.90L105 13.90Q102.17 13.90 100.58 15.99Q99 18.08 99 21.76L99 21.76Q99 25.44 100.58 27.53Q102.17 29.62 105 29.62ZM123.97 33L119.49 33L119.49 10.52L123.59 10.52L123.72 16.10L123.21 15.93Q123.59 14.07 124.54 12.76Q125.49 11.45 126.89 10.73Q128.28 10.01 129.93 10.01L129.93 10.01Q132.80 10.01 134.62 11.64Q136.44 13.27 136.90 16.10L136.90 16.10L136.18 16.10Q136.56 14.11 137.47 12.78Q138.38 11.45 139.82 10.73Q141.25 10.01 143.07 10.01L143.07 10.01Q145.44 10.01 147.11 11.01Q148.77 12 149.64 13.90Q150.51 15.80 150.51 18.55L150.51 18.55L150.51 33L146.03 33L146.03 19.65Q146.03 16.73 144.97 15.25Q143.92 13.77 141.76 13.77L141.76 13.77Q140.37 13.77 139.31 14.49Q138.25 15.21 137.68 16.56Q137.11 17.92 137.11 19.82L137.11 19.82L137.11 33L132.85 33L132.85 19.82Q132.85 16.94 131.89 15.36Q130.94 13.77 128.66 13.77L128.66 13.77Q127.23 13.77 126.19 14.49Q125.15 15.21 124.56 16.58Q123.97 17.96 123.97 19.82L123.97 19.82L123.97 33ZM162 33.51L162 33.51Q158.49 33.51 156.40 31.90Q154.31 30.30 154.31 27.38L154.31 27.38Q154.31 24.46 156.06 22.84Q157.82 21.21 161.49 20.49L161.49 20.49L169.23 19.01Q169.23 16.39 168 15.11Q166.77 13.82 164.37 13.82L164.37 13.82Q162.21 13.82 160.99 14.77Q159.76 15.72 159.30 17.58L159.30 17.58L154.69 17.28Q155.32 13.90 157.84 11.96Q160.35 10.01 164.37 10.01L164.37 10.01Q168.93 10.01 171.32 12.44Q173.70 14.87 173.70 19.27L173.70 19.27L173.70 28.01Q173.70 28.82 173.98 29.13Q174.25 29.45 174.89 29.45L174.89 29.45L175.69 29.45L175.69 33Q175.48 33.04 175.01 33.08Q174.55 33.13 174.04 33.13L174.04 33.13Q172.61 33.13 171.57 32.66Q170.54 32.20 170.03 31.12Q169.52 30.04 169.52 28.23L169.52 28.23L169.99 28.44Q169.65 29.92 168.53 31.06Q167.41 32.20 165.70 32.85Q163.99 33.51 162 33.51ZM162.72 29.96L162.72 29.96Q164.75 29.96 166.18 29.18Q167.62 28.39 168.42 27Q169.23 25.61 169.23 23.83L169.23 23.83L169.23 22.39L162.63 23.66Q160.61 24.04 159.78 24.87Q158.96 25.69 158.96 26.96L158.96 26.96Q158.96 28.39 159.95 29.18Q160.94 29.96 162.72 29.96Z" fill="#000"/></svg></span><span class="lbl">32 px</span></div>
+    <div><h3><span>10</span> Casillas <em>con letras</em></h3><p>Solo la palabra, cada letra en su casilla, como una planilla bien llevada. La marca entera es el ejemplo de orden.</p></div>
+  </div>
+</article>
+<article class="sk block">
+  <div class="big"><svg viewBox="-5.15 -6 110.75 82"><path d="M5.70 30L0.85 30L11.66 0L17.45 0L28.27 30L23.41 30L20.66 22.18L8.41 22.18L5.70 30ZM14.54 4.35L9.85 18.04L19.27 18.04L14.54 4.35ZM52.20 30.68L52.20 30.68Q48.65 30.68 46.01 29.30Q43.37 27.93 41.96 25.39Q40.54 22.86 40.54 19.39L40.54 19.39L40.54 0L45.11 0L45.11 19.39Q45.11 22.82 46.96 24.65Q48.82 26.49 52.20 26.49L52.20 26.49Q55.58 26.49 57.44 24.65Q59.30 22.82 59.30 19.39L59.30 19.39L59.30 0L63.87 0L63.87 19.39Q63.87 22.86 62.45 25.39Q61.04 27.93 58.42 29.30Q55.80 30.68 52.20 30.68ZM90.38 30L85.82 30L85.82 4.18L76.61 4.18L76.61 0L99.59 0L99.59 4.18L90.38 4.18L90.38 30ZM15.85 70.68L15.85 70.68Q11.49 70.68 8.37 68.80Q5.24 66.92 3.55 63.41Q1.86 59.90 1.86 55.04L1.86 55.04Q1.86 50.18 3.55 46.65Q5.24 43.13 8.37 41.23Q11.49 39.32 15.85 39.32L15.85 39.32Q20.24 39.32 23.39 41.23Q26.54 43.13 28.20 46.65Q29.87 50.18 29.87 55.04L29.87 55.04Q29.87 59.90 28.20 63.41Q26.54 66.92 23.39 68.80Q20.24 70.68 15.85 70.68ZM15.85 66.49L15.85 66.49Q18.76 66.49 20.85 65.14Q22.94 63.79 24.04 61.23Q25.14 58.68 25.14 55.04L25.14 55.04Q25.14 51.41 24.04 48.83Q22.94 46.25 20.85 44.88Q18.76 43.51 15.85 43.51L15.85 43.51Q12.97 43.51 10.90 44.88Q8.83 46.25 7.71 48.83Q6.59 51.41 6.59 55.04L6.59 55.04Q6.59 58.68 7.71 61.23Q8.83 63.79 10.90 65.14Q12.97 66.49 15.85 66.49ZM41.85 70L37.29 70L37.29 40L43.54 40L52.46 64.63L61.37 40L67.63 40L67.63 70L63.06 70L63.06 48.03L54.99 69.96L49.92 69.96L41.85 48.03L41.85 70ZM78.04 70L73.18 70L84 40L89.79 40L100.61 70L95.75 70L93 62.18L80.75 62.18L78.04 70ZM86.87 44.35L82.18 58.04L91.61 58.04L86.87 44.35Z" fill="#000"/></svg></div>
+  <div class="foot">
+    <div class="small"><span class="px"><svg viewBox="-5.15 -6 110.75 82"><path d="M5.70 30L0.85 30L11.66 0L17.45 0L28.27 30L23.41 30L20.66 22.18L8.41 22.18L5.70 30ZM14.54 4.35L9.85 18.04L19.27 18.04L14.54 4.35ZM52.20 30.68L52.20 30.68Q48.65 30.68 46.01 29.30Q43.37 27.93 41.96 25.39Q40.54 22.86 40.54 19.39L40.54 19.39L40.54 0L45.11 0L45.11 19.39Q45.11 22.82 46.96 24.65Q48.82 26.49 52.20 26.49L52.20 26.49Q55.58 26.49 57.44 24.65Q59.30 22.82 59.30 19.39L59.30 19.39L59.30 0L63.87 0L63.87 19.39Q63.87 22.86 62.45 25.39Q61.04 27.93 58.42 29.30Q55.80 30.68 52.20 30.68ZM90.38 30L85.82 30L85.82 4.18L76.61 4.18L76.61 0L99.59 0L99.59 4.18L90.38 4.18L90.38 30ZM15.85 70.68L15.85 70.68Q11.49 70.68 8.37 68.80Q5.24 66.92 3.55 63.41Q1.86 59.90 1.86 55.04L1.86 55.04Q1.86 50.18 3.55 46.65Q5.24 43.13 8.37 41.23Q11.49 39.32 15.85 39.32L15.85 39.32Q20.24 39.32 23.39 41.23Q26.54 43.13 28.20 46.65Q29.87 50.18 29.87 55.04L29.87 55.04Q29.87 59.90 28.20 63.41Q26.54 66.92 23.39 68.80Q20.24 70.68 15.85 70.68ZM15.85 66.49L15.85 66.49Q18.76 66.49 20.85 65.14Q22.94 63.79 24.04 61.23Q25.14 58.68 25.14 55.04L25.14 55.04Q25.14 51.41 24.04 48.83Q22.94 46.25 20.85 44.88Q18.76 43.51 15.85 43.51L15.85 43.51Q12.97 43.51 10.90 44.88Q8.83 46.25 7.71 48.83Q6.59 51.41 6.59 55.04L6.59 55.04Q6.59 58.68 7.71 61.23Q8.83 63.79 10.90 65.14Q12.97 66.49 15.85 66.49ZM41.85 70L37.29 70L37.29 40L43.54 40L52.46 64.63L61.37 40L67.63 40L67.63 70L63.06 70L63.06 48.03L54.99 69.96L49.92 69.96L41.85 48.03L41.85 70ZM78.04 70L73.18 70L84 40L89.79 40L100.61 70L95.75 70L93 62.18L80.75 62.18L78.04 70ZM86.87 44.35L82.18 58.04L91.61 58.04L86.87 44.35Z" fill="#000"/></svg></span><span class="lbl">32 px</span></div>
+    <div><h3><span>11</span> Todo cuadra <em>con letras</em></h3><p>AUT arriba, OMA abajo, y las dos líneas miden exactamente lo mismo. La marca es un bloque donde todo cuadra, que es justo lo que se le promete al cliente.</p></div>
+  </div>
+</article>
+<article class="sk">
+  <div class="big"><svg viewBox="0 0 100 100"><g fill="#000"><rect x="37" y="60" width="16" height="4.2" rx="1"/><rect x="47" y="66.2" width="16" height="4.2" rx="1"/><rect x="37" y="72.4" width="16" height="4.2" rx="1"/><rect x="47" y="78.6" width="16" height="4.2" rx="1"/><rect x="37" y="84.8" width="16" height="4.2" rx="1"/><rect x="47" y="91" width="16" height="4.2" rx="1"/><rect transform="rotate(-24 34.5 46)" x="26.5" y="43.9" width="11" height="4.2" rx="1"/><rect transform="rotate(24 65.5 41.5)" x="62.5" y="39.4" width="11" height="4.2" rx="1"/><rect transform="rotate(-24 29 37)" x="21" y="34.9" width="11" height="4.2" rx="1"/><rect transform="rotate(24 71 32.5)" x="68" y="30.4" width="11" height="4.2" rx="1"/><rect transform="rotate(-24 23.5 28)" x="15.5" y="25.9" width="11" height="4.2" rx="1"/><rect transform="rotate(24 76.5 23.5)" x="73.5" y="21.4" width="11" height="4.2" rx="1"/><rect transform="rotate(-24 18 19)" x="10" y="16.9" width="11" height="4.2" rx="1"/><rect transform="rotate(24 82 14.5)" x="79" y="12.4" width="11" height="4.2" rx="1"/><path d="M38 47h24l-3 10h-18z"/></g></svg></div>
+  <div class="foot">
+    <div class="small"><span class="px"><svg viewBox="0 0 100 100"><g fill="#000"><rect x="37" y="60" width="16" height="4.2" rx="1"/><rect x="47" y="66.2" width="16" height="4.2" rx="1"/><rect x="37" y="72.4" width="16" height="4.2" rx="1"/><rect x="47" y="78.6" width="16" height="4.2" rx="1"/><rect x="37" y="84.8" width="16" height="4.2" rx="1"/><rect x="47" y="91" width="16" height="4.2" rx="1"/><rect transform="rotate(-24 34.5 46)" x="26.5" y="43.9" width="11" height="4.2" rx="1"/><rect transform="rotate(24 65.5 41.5)" x="62.5" y="39.4" width="11" height="4.2" rx="1"/><rect transform="rotate(-24 29 37)" x="21" y="34.9" width="11" height="4.2" rx="1"/><rect transform="rotate(24 71 32.5)" x="68" y="30.4" width="11" height="4.2" rx="1"/><rect transform="rotate(-24 23.5 28)" x="15.5" y="25.9" width="11" height="4.2" rx="1"/><rect transform="rotate(24 76.5 23.5)" x="73.5" y="21.4" width="11" height="4.2" rx="1"/><rect transform="rotate(-24 18 19)" x="10" y="16.9" width="11" height="4.2" rx="1"/><rect transform="rotate(24 82 14.5)" x="79" y="12.4" width="11" height="4.2" rx="1"/><path d="M38 47h24l-3 10h-18z"/></g></svg></span><span class="lbl">32 px</span></div>
+    <div><h3><span>12</span> Cremallera</h3><p>Arriba, dos lados sueltos; abajo, cerrado y firme. El cierre sube solo y deja todo ensamblado a su paso: orden y movimiento en una sola imagen.</p></div>
+  </div>
+</article></div>
+  <p class="note">Solo negro y sin pulir. Los bocetos con letras (10 y 11) usan una sans neutra de relleno; no es la tipografía final. Pasé todos por el filtro de "¿podría ser de cualquier startup?": cambié Surcos por Cremallera y rehíce el 11.</p>
+
+  <div class="end">
+    <p>Elige 2 o 3 números. Solo entonces los desarrollo.</p>
+    <p>Si te gusta la idea de uno pero no su dibujo, dímelo: en esta etapa la idea es lo que cuenta.</p>
+  </div>
+</div>
+</body>
+</html>
